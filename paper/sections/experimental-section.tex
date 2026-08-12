@@ -87,6 +87,20 @@ We compare complete fixed-budget endpoints with
 c^\dagger\); rank, delocalization, coefficient-phase pattern, and drive
 alignment are not identified as separately causal.
 
+\begin{figure*}[!t]
+\centering
+\includegraphics{figures/fig_collective_case.pdf}
+\caption{\textbf{Collective relaxation retains more usable recent-input
+memory than the uniform-local reference.}
+\emph{(a)} Collective-minus-uniform-local STM-capacity differences under
+targeted controls; the three alternative-Hamiltonian estimates remain separate.
+\emph{(b)} Fixed-initialization size sweep for \(N=4,\ldots,8\).
+\emph{(c)} Delay-resolved STM capacities. Faint marks and lines show paired
+effects in (a) and seed-level absolute scores or capacities in (b,c); bars and
+bands give the declared \(95\%\) intervals.}
+\label{fig:collective-case}
+\end{figure*}
+
 At \(N=5\), collective relaxation increases STM from \(8.634\) to \(12.206\).
 This is an absolute paired gain of \(3.57\) STM-capacity units and a relative
 increase of \(41\%\), with a \(95\%\) interval of \([3.36,3.78]\) and \(32/32\)
@@ -105,20 +119,6 @@ raises NARMA-10 NMSE above one, and preserves initialization dependence
 (Appendix Table~\ref{tab:map}). Coherent driving alone therefore reproduces
 neither the task profile nor controlled forgetting. This unmatched diagnostic contrasts
 with reset FN, which supplies non-unitary forgetting.
-
-\begin{figure*}[!t]
-\centering
-\includegraphics{figures/fig_collective_case.pdf}
-\caption{\textbf{Collective relaxation retains more usable recent-input
-memory than the uniform-local reference.}
-\emph{(a)} Collective-minus-uniform-local STM-capacity differences under
-targeted controls; the three alternative-Hamiltonian estimates remain separate.
-\emph{(b)} Fixed-initialization size sweep for \(N=4,\ldots,8\).
-\emph{(c)} Delay-resolved STM capacities. Faint marks and lines show paired
-effects in (a) and seed-level absolute scores or capacities in (b,c); bars and
-bands give the declared \(95\%\) intervals.}
-\label{fig:collective-case}
-\end{figure*}
 
 We next distinguish input memory from persistence of the starting state. The
 same switched input sequence is applied from four widely separated states, and
@@ -267,7 +267,7 @@ grid.
 Appendix~\ref{app:experiment3} gives the estimator definitions, budget
 parameterization, and simultaneous-inference scope.
 
-\begin{figure}[H]
+\begin{figure}[!t]
 \centering
 \includegraphics{figures/fig_sampling.pdf}
 \caption{\textbf{Finite sampling determines when the dissipator-structure

@@ -18,7 +18,7 @@ as part of the final publication handoff.
 Title: **Engineering Memory in Quantum Reservoir Computing through Dissipator Geometry**
 
 - manuscript source: `paper/dissipation_qrc.tex`
-- compiled 23-page PDF: `paper/dissipation_qrc.pdf`
+- compiled 22-page PDF: `paper/dissipation_qrc.pdf`
 - complete reviewer reproducibility bundle:
   `results/complete_reviewer_bundle.zip`
 - arXiv upload package: `results/arxiv_submission.zip`
@@ -125,7 +125,7 @@ initialization-independent scaling evidence is generated.
 The 12 August 2026 handoff passed:
 
 - `179 passed` in the full Python test suite;
-- submission validation at 23 pages and nine vector figures, with no Type 3
+- submission validation at 22 pages and nine vector figures, with no Type 3
   fonts or hard LaTeX defects;
 - source-archive verification and fresh-extraction compilation for all nine figures;
 - complete reviewer-bundle validation, including the current PDF and source,

@@ -83,7 +83,7 @@ than as initialization-independent scaling evidence.
 The current checkout was checked locally on 12 August 2026:
 
 - all 179 Python tests pass;
-- the 23-page PDF contains nine vector figures, no Type 3 fonts, and no hard
+- the 22-page PDF contains nine vector figures, no Type 3 fonts, and no hard
   LaTeX defects;
 - the arXiv upload package reproduces all nine figures from a fresh extraction;
 - the complete reviewer bundle passes its single-command outer and nested

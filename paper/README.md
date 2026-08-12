@@ -10,7 +10,7 @@ Canonical manuscript:
 
 This is the only active manuscript. It uses the official bundled
 `quantumarticle` class and the original `quantum` bibliography style. The
-compiled paper is 23 pages and contains exactly 46 cited, linked references.
+compiled paper is 22 pages and contains exactly 46 cited, linked references.
 
 ## Scientific structure
 
