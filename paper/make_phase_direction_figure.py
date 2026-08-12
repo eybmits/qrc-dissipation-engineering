@@ -807,9 +807,12 @@ def make_figure(
     orientation_effects: np.ndarray,
 ):
     """Draw the paired path and zero-overlap intervention panels."""
-    fig = st.composite_figure("full", height=2.45)
-    left = st.add_axes_inches(fig, (0.54, 0.48, 2.56, 1.69))
-    right = st.add_axes_inches(fig, (3.79, 0.48, 2.72, 1.69))
+    # Appendix figures use the journal's native column footprint.  Author the
+    # compact layout directly at final size so typography and strokes are not
+    # reduced by downstream LaTeX scaling.
+    fig = st.composite_figure("column", height=2.40)
+    left = st.add_axes_inches(fig, (0.46, 0.56, 1.10, 1.37))
+    right = st.add_axes_inches(fig, (1.94, 0.56, 1.17, 1.37))
     axes = np.asarray([left, right])
 
     path_matrix = np.column_stack(
@@ -842,9 +845,9 @@ def make_figure(
     )
     left.set_xlim(-0.05, 1.05)
     left.set_ylim(8.25, 13.95)
-    left.set_xticks(PATH_FRACTIONS)
+    left.set_xticks([0.0, 0.5, 1.0])
     left.set_yticks([9, 11, 13])
-    left.set_xlabel(r"phase-gradient fraction $f$")
+    left.set_xlabel(r"phase fraction $f$")
     left.set_ylabel("STM capacity")
     st.style_axis(left, grid_axis="both")
 
@@ -949,30 +952,14 @@ def make_figure(
     right.set_ylim(-0.18, 4.62)
     right.set_xticks(
         np.arange(7),
-        ["DFT", "A", "B", "C", "D", "mean", "sign"],
+        ["F", "A", "B", "C", "D", r"$\mu$", "S"],
+        rotation=0,
+        ha="center",
     )
-    right.set_yticks([0, 1, 2, 3, 4])
-    right.set_xlabel("zero-overlap direction")
-    right.set_ylabel("STM difference\n(equal phase - control)")
+    right.set_yticks([0, 2, 4])
+    right.set_xlabel("control")
+    right.set_ylabel("STM gain")
     st.style_axis(right, grid_axis="y")
-    right.text(
-        2.5,
-        4.44,
-        r"$N=5$",
-        color=st.NEUTRAL_DESIGN,
-        fontsize=st.MIN_FONT_SIZE,
-        ha="center",
-        va="center",
-    )
-    right.text(
-        6.0,
-        4.44,
-        r"$N=6$",
-        color=st.NEUTRAL_DESIGN,
-        fontsize=st.MIN_FONT_SIZE,
-        ha="center",
-        va="center",
-    )
 
     st.panel_labels(fig, axes, labels="ab", y=1.055)
     st.audit_figure(
