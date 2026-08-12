@@ -130,7 +130,7 @@ CODE_RENDERED_COMPOSITES = {
         "creator": "paper/make_reset_architecture_figure.py",
     },
     "figures/fig_phase_direction.pdf": {
-        "size": (230.982, 172.80),
+        "size": (230.982, 230.982),
         "creator": "paper/make_phase_direction_figure.py",
     },
 }

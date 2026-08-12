@@ -807,12 +807,12 @@ def make_figure(
     orientation_effects: np.ndarray,
 ):
     """Draw the paired path and zero-overlap intervention panels."""
-    # Appendix figures use the journal's native column footprint.  Author the
-    # compact layout directly at final size so typography and strokes are not
-    # reduced by downstream LaTeX scaling.
-    fig = st.composite_figure("column", height=2.40)
-    left = st.add_axes_inches(fig, (0.46, 0.56, 1.10, 1.37))
-    right = st.add_axes_inches(fig, (1.94, 0.56, 1.17, 1.37))
+    # Author Figure 9 on a true 1:1 column-width canvas.  The panels remain
+    # side by side, while the additional height gives both interventions more
+    # vertical resolution without any downstream LaTeX scaling or distortion.
+    fig = st.composite_figure("column", height=st.QUANTUM_COLUMN_WIDTH)
+    left = st.add_axes_inches(fig, (0.46, 0.68, 1.10, 1.95))
+    right = st.add_axes_inches(fig, (1.94, 0.68, 1.17, 1.95))
     axes = np.asarray([left, right])
 
     path_matrix = np.column_stack(
