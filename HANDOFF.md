@@ -15,7 +15,7 @@ as part of the final publication handoff.
 
 ## Canonical release
 
-Title: **The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing**
+Title: **The Organization of Environmental Coupling Shapes What Quantum Reservoirs Remember**
 
 - manuscript source: `paper/dissipation_qrc.tex`
 - compiled 22-page PDF: `paper/dissipation_qrc.pdf`

@@ -84,7 +84,7 @@ def _readme() -> bytes:
         "Complete reviewer reproducibility bundle\n"
         "========================================\n\n"
         "This self-contained package accompanies the manuscript\n"
-        "\"The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing.\"\n"
+        "\"The Organization of Environmental Coupling Shapes What Quantum Reservoirs Remember.\"\n"
         "It does not require access to the project repository.\n\n"
         "Start here:\n"
         "  1. Run: python3 validate_complete_bundle.py\n"

@@ -1,8 +1,8 @@
-# The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing
+# The Organization of Environmental Coupling Shapes What Quantum Reservoirs Remember
 
 Research code, manuscript source, and checksum-sealed numerical artifacts for
-the Quantum manuscript **“The Architecture of Dissipation Shapes Memory in
-Quantum Reservoir Computing.”**
+the Quantum manuscript **“The Organization of Environmental Coupling Shapes
+What Quantum Reservoirs Remember.”**
 
 - [Read the canonical paper](paper/dissipation_qrc.pdf)
 - [Download the complete reviewer reproducibility bundle](results/complete_reviewer_bundle.zip)

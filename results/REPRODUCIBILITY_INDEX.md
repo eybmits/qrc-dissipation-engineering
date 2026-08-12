@@ -1,7 +1,7 @@
 # Reproducibility index
 
 This is the reader-facing index for the current manuscript,
-**“The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing.”** It maps
+**“The Organization of Environmental Coupling Shapes What Quantum Reservoirs Remember.”** It maps
 scientific results to machine-readable records without requiring knowledge of
 the historical panel labels retained inside the sealed evidence archive.
 

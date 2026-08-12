@@ -2,7 +2,7 @@
 
 Canonical manuscript:
 
-> **The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing**
+> **The Organization of Environmental Coupling Shapes What Quantum Reservoirs Remember**
 
 - Source: [`dissipation_qrc.tex`](dissipation_qrc.tex)
 - Compiled paper: [`dissipation_qrc.pdf`](dissipation_qrc.pdf)
