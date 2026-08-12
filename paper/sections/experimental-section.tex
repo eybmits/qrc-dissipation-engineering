@@ -13,26 +13,6 @@ differences remain visible under finite measurement budgets.
 Rather than seeking one universally optimal dissipator, we test whether these
 two coordinates produce task-dependent specialization.
 
-\subsection{Reference model and how to read the results}
-\label{sec:results-guide}
-
-Uniform local relaxation is the reference: one equal-rate lowering channel per
-qubit. The \emph{local-relaxation family} also contains unequal, learned, and
-input-adaptive profiles. The main comparison uses equal-phase collective
-relaxation, one rank-one channel with fixed \(c_i=1\)
-(Appendix~\ref{app:shared}); unless noted otherwise, the term refers to this
-channel. Profile-optimized models instead learn within-family coefficients.
-
-The four tasks retain their native metrics: STM and parity capacities are
-maximized, whereas NARMA-10 NMSE and MG-150 MSE are minimized.
-
-Figure~\ref{fig:map} reports the absolute \(N=5\) scores in each task's native
-metric and favorable direction. The dashed vertical line in each panel marks
-the uniform-local mean; the matching colored dotted line and saturated marker
-identify the best mean. Faint rings show individual reservoir instances. The
-panels retain their own scales and must be read independently;
-Appendix Table~\ref{tab:map} gives the exact means and standard errors.
-
 \begin{figure*}[!t]
 \centering
 \includegraphics{figures/fig_task_scores.pdf}
@@ -49,6 +29,25 @@ common-point comparisons, not claims of physical equivalence. Unequal local is
 profile-only.}
 \label{fig:map}
 \end{figure*}
+
+\subsection{Reference model and how to read the results}
+\label{sec:results-guide}
+
+Uniform local relaxation is the reference, with one equal-rate lowering
+channel per qubit. Its family also includes unequal, learned, and
+input-adaptive profiles. The main comparison uses the equal-phase rank-one
+collective channel with \(c_i=1\) (Appendix~\ref{app:shared}); profile-optimized
+models instead learn within-family coefficients.
+
+The four tasks retain their native metrics: STM and parity capacities are
+maximized, whereas NARMA-10 NMSE and MG-150 MSE are minimized.
+
+Figure~\ref{fig:map} reports the absolute \(N=5\) scores in each task's native
+metric and favorable direction. The dashed vertical line in each panel marks
+the uniform-local mean; the matching colored dotted line and saturated marker
+identify the best mean. Faint rings show individual reservoir instances. The
+panels retain their own scales and must be read independently;
+Appendix Table~\ref{tab:map} gives the exact means and standard errors.
 
 \subsection{Axis I: Dissipator structure changes the task profile}
 \label{sec:map}
