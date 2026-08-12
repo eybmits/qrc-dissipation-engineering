@@ -1,0 +1,93 @@
+{
+  "status": "complete",
+  "metric": "collective minus local STM capacity",
+  "rows": [
+    {
+      "group": "controls",
+      "key": "fixed_b",
+      "label": "fixed Frobenius weight",
+      "n": 32,
+      "mean": 3.571873499602,
+      "ci95_low": 3.364547074645,
+      "ci95_high": 3.779199924559,
+      "wins": 32
+    },
+    {
+      "group": "controls",
+      "key": "washout_800",
+      "label": "800-step washout",
+      "n": 10,
+      "mean": 3.563694142575,
+      "ci95_low": 3.123836224345,
+      "ci95_high": 4.003552060806,
+      "wins": 10
+    },
+    {
+      "group": "controls",
+      "key": "activity_matched",
+      "label": "expected activity matched",
+      "n": 8,
+      "mean": 3.306208131938,
+      "ci95_low": 1.392545004184,
+      "ci95_high": 5.219871259693,
+      "wins": 8
+    },
+    {
+      "group": "controls",
+      "key": "gap_matched",
+      "label": "midpoint gap matched",
+      "n": 24,
+      "mean": 1.424177135857,
+      "ci95_low": 0.799846681949,
+      "ci95_high": 2.048507589765,
+      "wins": 20
+    },
+    {
+      "group": "controls",
+      "key": "independent_selection",
+      "label": "independent selection",
+      "n": 24,
+      "mean": 3.945491222976,
+      "ci95_low": 3.522788733392,
+      "ci95_high": 4.368193712561,
+      "wins": 24
+    },
+    {
+      "group": "hamiltonians",
+      "key": "zz_x_z",
+      "label": "ZZ+X, Z drive",
+      "n": 32,
+      "mean": 2.22381387109,
+      "ci95_low": 1.808025151029,
+      "ci95_high": 2.639602591152,
+      "wins": 31
+    },
+    {
+      "group": "hamiltonians",
+      "key": "xy_z_x",
+      "label": "XY+Z, X drive",
+      "n": 32,
+      "mean": 4.024192891936,
+      "ci95_low": 3.617187097723,
+      "ci95_high": 4.431198686149,
+      "wins": 32
+    },
+    {
+      "group": "hamiltonians",
+      "key": "xx_ring",
+      "label": "XX ring, X drive",
+      "n": 32,
+      "mean": 2.650253209787,
+      "ci95_low": 2.353664269771,
+      "ci95_high": 2.946842149803,
+      "wins": 32
+    }
+  ],
+  "provenance": {
+    "final_protocol_archive_sha256": "e24df615f8762ba9aa950673b5d776eddbc186a9ad277086c2930cde0ea46948",
+    "review_protocol_archive_sha256": "e5224dbc8db992a00838d2f3f20f50a114f8ec215df9ca6136fb0ef5f0b26eab",
+    "activity_snapshot_sha256": "f38dd36e9ce497644cb96bd1c5cacb1b3197153dfc3cc724a95eb539435451cb",
+    "forgetting_aggregate_sha256": "7b779bd0132a260045b16bc2ca9567505a2344594475af0957d91384bc7e8f49",
+    "independent_selection_aggregate_sha256": "9fcf437b2c29ea9a6c5b9b785c8ae25f2c5908f5b3a2229349e46ba1af44db68"
+  }
+}

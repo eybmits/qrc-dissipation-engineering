@@ -1,0 +1,122 @@
+{
+  "claim_boundary": "This finite-reservoir intervention establishes orientation dependence within the tested rank-one collective-lowering sector. It does not establish universal optimality of the equal-phase direction, an asymptotic scaling law, or a unique microscopic mediator.",
+  "coherent_processor": {
+    "coupling_distribution": "For each paired reservoir, complete-graph J_ij values are drawn independently from U[-1,1] and multiplied by sqrt(4/(N-1)).",
+    "dt": 0.5,
+    "h": 0.5,
+    "hamiltonian": "H(s)=sum_{i<j} J_ij X_i X_j + h sum_i Z_i + h(1+s) sum_i X_i",
+    "n_qubits": 6
+  },
+  "conditions": {
+    "drive_orthogonal": {
+      "coefficient_vector": [1, 1, 1, -1, -1, -1],
+      "normalized_squared_overlap_with_uniform_drive": 0.0
+    },
+    "equal_phase": {
+      "coefficient_vector": [1, 1, 1, 1, 1, 1],
+      "normalized_squared_overlap_with_uniform_drive": 1.0
+    }
+  },
+  "convergence": {
+    "additional_initial_states_for_seed_indices_0_through_5": [
+      "fully_excited",
+      "haar_pure"
+    ],
+    "checkpoints": [800, 1200, 1600],
+    "feature_distance_gate": 2e-08,
+    "initial_states_for_all_24_pairs": [
+      "ground",
+      "maximally_mixed"
+    ],
+    "selection_rule": "Use the first common checkpoint at which both conditions pass; all 24 pairs selected 800 inputs.",
+    "trace_distance_gate": 1e-08
+  },
+  "dissipator": {
+    "changed_coordinate": "Only the direction of the real rank-one collective-lowering coefficient vector is changed relative to the uniform site profile of the fixed Hamiltonian input drive and the otherwise fixed coherent processor.",
+    "gamma": 1.0,
+    "jump_definition": "L_c=sqrt(gamma) sum_i c_i sigma_i^-",
+    "matched_invariants": {
+      "coefficient_magnitudes": [1, 1, 1, 1, 1, 1],
+      "coefficient_vector_norm_squared": 6.0,
+      "kossakowski_block_diagonal": [1, 1, 1, 1, 1, 1],
+      "kossakowski_block_dimension": 6,
+      "kossakowski_block_kernel_dimension": 5,
+      "kossakowski_block_nonzero_spectrum": [6.0],
+      "kossakowski_block_rank": 1,
+      "kossakowski_block_trace": 6.0,
+      "number_of_jump_operators": 1,
+      "operator_weight_budget_B": 192.0,
+      "physical_jump_operator_kernel_dimension": 20
+    },
+    "reference_direction_definition": "The reference vector (1,1,1,1,1,1) is the uniform site coefficient profile of the Hamiltonian input-drive operator sum_i X_i; it is not the scalar temporal input sequence.",
+    "terminology_note": "The matched five-dimensional object is the kernel of the 6x6 Kossakowski coefficient block, not a five-dimensional many-body dark subspace. For either coefficient vector, the represented 64x64 lowering operator has a 20-dimensional kernel."
+  },
+  "experiment_version": "rank-one-orientation-v1-2026-08-12",
+  "inference": {
+    "primary_estimand": "paired equal-phase minus drive-orthogonal STM capacity",
+    "primary_interval": "two-sided 95% Student-t interval across 24 paired reservoir instances",
+    "sign_test": "exact two-sided paired sign test",
+    "status_rule": "orientation dependence is supported only if every convergence audit passes and the primary interval excludes zero"
+  },
+  "input_and_randomization": {
+    "input_distribution": "independent U[0,1] draws",
+    "seed_namespace": 2026081201,
+    "seed_note": "These are 24 separately generated N=6 paired reservoir instances. Numeric seed identifiers are not described as globally fresh because some identifiers occur in an earlier pilot protocol.",
+    "seeds_in_order": [
+      956087733,
+      1375334633,
+      707736772,
+      1133846500,
+      365211353,
+      878523603,
+      457552621,
+      363662622,
+      853972123,
+      1403843447,
+      151336801,
+      1991628836,
+      1627319819,
+      336852480,
+      1454963355,
+      203675062,
+      93339074,
+      8147085,
+      264759322,
+      16866769,
+      346211042,
+      1665106229,
+      1622806565,
+      1222562911
+    ],
+    "stream_partition": "NumPy SeedSequence([2026081201, seed]).spawn(4) supplies coupling, washout-input, task-input, and Haar-state streams in that order."
+  },
+  "legacy_protocol_hashes": {
+    "explanation": "The frozen runner serialized raw numerical null eigenvalues from np.linalg.eigvalsh into its protocol hash. Two BLAS-backend-dependent roundoff variants therefore occur even though the stable semantic protocol and all scientific invariants are identical.",
+    "observed_variants": [
+      "5d4d8c53cea9dfabbc5a0416e19097ad63227a2ada59c34bc69fcf9b459bf7a4",
+      "8fcbb1c2a6f22677b062cd36c5b24b5c8c0d7f098bc3adb6a67ef85771314d80"
+    ]
+  },
+  "readout": {
+    "bias_dimension": 1,
+    "feature_dimension": 63,
+    "features": "All 18 single-site Pauli expectations and all 45 same-axis two-site Pauli expectations.",
+    "readout_dimension_with_bias": 64
+  },
+  "response_diagnostic": {
+    "anchor_indices": [100, 140, 180, 220, 260, 300, 340, 380, 420, 460, 500, 540],
+    "finite_difference_delta": 0.001,
+    "lags": 20,
+    "scope": "Normalized response-energy concentration is supporting evidence only; it is not treated as a demonstrated mediator of the STM effect.",
+    "tail_start_lag": 10
+  },
+  "schema_version": 1,
+  "status": "confirmatory protocol frozen before task trajectories",
+  "task": {
+    "delays": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+    "metric": "sum over delays of squared-correlation STM capacity",
+    "ridge": 1e-08,
+    "test_rows": 400,
+    "training_rows": 600
+  }
+}

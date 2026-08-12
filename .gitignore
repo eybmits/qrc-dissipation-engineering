@@ -1,0 +1,72 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing / coverage
+.pytest_cache/
+.mplconfig/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+tmp/
+paper/context/
+
+# Data / results / large artifacts
+data/
+!paper/data/
+!paper/data/experiment1_finite_size_snapshot.json
+!paper/data/activity_matched_confirmation.json
+results/*
+!results/ARCHIVE_SHA256SUMS.txt
+!results/experiment1_finite_size_v2_results.tar.gz
+!results/final_protocol_results.tar.gz
+!results/operational_activity_ablation_results.tar.gz
+!results/review_protocol_results.tar.gz
+!results/reset_architecture_replication_results.tar.gz
+!results/phase_direction_confirmatory_v1_results.tar.gz
+!results/rank_one_orientation_v1_results.tar.gz
+!results/qrc_dissipation_reproducibility_package.zip
+!results/qrc_dissipation_reproducibility_package.zip.sha256
+!results/arxiv_submission.zip
+!results/collective_loss_usable_memory_numerical_evidence.zip
+!results/complete_reviewer_bundle.zip
+!results/REPRODUCIBILITY_INDEX.md
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.pkl
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.log
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.out
+paper/*.bbl
+!paper/dissipation_qrc.bbl
+paper/*.blg
+paper/*.synctex.gz

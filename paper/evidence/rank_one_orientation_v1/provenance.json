@@ -1,0 +1,54 @@
+{
+  "aggregation": {
+    "artifact_digest": "sha256:70b15720be0f1467ad6eaedb07bfb151c56d17206fee40c99cd0214f3f27d79d",
+    "artifact_id": 9124100646,
+    "artifact_name": "rank-one-orientation-repaired-results",
+    "artifact_zip_sha256_after_download": "8136730836d51c9a066dc23295472ded527facada90a9dd6dd053755dfe5a80d",
+    "commit": "ad206b013adf943ee57eab3aa16d275ee7b25f6a",
+    "runner_result": "success",
+    "workflow_run_id": 31550600937
+  },
+  "code_artifact": {
+    "artifact_digest": "sha256:9d0f90d5d5ed2b632475795871def23395c59bb8c81ff7cdca50245f900e1868",
+    "artifact_id": 9135161792,
+    "artifact_name": "rank-one-orientation-code",
+    "artifact_zip_sha256_after_download": "02cd3712f5c76f1f1fc3d84b0b7f3f5a7f5eae5191953efbdfde561de71870cd",
+    "commit": "8299d701d34ff8c0a48bf9e32c3deb0bb2eac31c",
+    "internal_checksum_note": "The downloaded code artifact's generated SHA256SUMS.txt included itself and therefore could not self-verify. This hardened package does not reuse that defective ledger; its global SHA256SUMS covers every payload except itself.",
+    "readme_command_note": "The downloaded code artifact README used the nonexistent option --checkpoints. The preserved semantic aggregator accepts --checkpoint-dir, which is the command documented here."
+  },
+  "frozen_source": {
+    "aggregation_commit": "945020b62deb346ab6c0aea75878ddbf760066e4",
+    "aggregation_file": "frozen_source/experiments/aggregate_rank_one_orientation_artifacts.py",
+    "aggregation_file_sha256": "4086e86930551e0fc9b60b3b37aa5f400479b19e3a155fb9ba48193bedb41320",
+    "base_commit": "43039aab2ae6c00e498386c9b226ef3985dde0b9",
+    "execution_commit": "db04bf8358785070bd9f32ac9c0cdc3c89c75823",
+    "pull_request": 26,
+    "repository": "eybmits/qrc-dissipation-engineering",
+    "runner_commit": "147aedc13df3be5283c5dcd709e9d05f5e97f325",
+    "runner_file": "frozen_source/experiments/run_rank_one_orientation.py",
+    "runner_file_sha256": "d361845b1f2c57f5f4efacaf2af8395b18fa756dbc4c90d4dff02531c4458177",
+    "source_branch": "experiment/rank-one-orientation-20260812",
+    "source_preservation_note": "The frozen source is preserved byte for byte. Its historical comments use the phrase dark-subspace dimension; the stable protocol and all manuscript-facing wording correctly identify the matched five-dimensional kernel as the kernel of the 6x6 Kossakowski coefficient block."
+  },
+  "original_execution": {
+    "aggregate_job_result": "failure",
+    "aggregate_job_result_note": "All 24 simulation jobs completed and uploaded valid checkpoints. The native aggregation gate alone failed because its protocol hash included BLAS-dependent roundoff in nominally zero Kossakowski eigenvalues.",
+    "head_commit": "db04bf8358785070bd9f32ac9c0cdc3c89c75823",
+    "seed_job_count": 24,
+    "successful_seed_job_count": 24,
+    "workflow_run_id": 31548943717
+  },
+  "raw_checkpoint_binding": {
+    "byte_identity_check": "The 24 files in checkpoints/ are byte-identical to the checkpoints downloaded from repaired result artifact 9124100646.",
+    "nested_raw_checkpoint_zip_sha256_in_supplied_bundle": "a30b15cbe1e0be5428ba55881fcc4307484210e6e361374cf78775d8274de6b8",
+    "raw_file_count": 24,
+    "supplied_bundle_sha256": "daa1296e21430b45d0318078b25d418681bb08c08cf421fe8de41e0924fe0165",
+    "supplied_bundle_source": "rank_one_orientation_complete_bundle.zip"
+  },
+  "schema_version": 1,
+  "semantic_repair": {
+    "description": "The semantic aggregator validated every raw payload digest, seed identity, version, jump hash, budget, and convergence record, then formed statistics without recomputing a trajectory or changing a task result.",
+    "simulation_or_task_scores_rerun": false
+  }
+}

@@ -1,0 +1,353 @@
+{
+  "artifact_type": "local_pair_convergence_extension_protocol",
+  "protocol": {
+    "base_aggregate_file_sha256": "7b779bd0132a260045b16bc2ca9567505a2344594475af0957d91384bc7e8f49",
+    "base_checkpoint_members_sha256": {
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_1067952113.json": "3e240e224268ccec41f11c30140812d666426defec4aa5a4e0acc4c406916644",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_1319483087.json": "c63f81eacc47839d29b37f45e92681f6e9fe01a099a80d2a45c6a313a4753e95",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_1673840529.json": "0395831eb7750a82d279ce2db0e22195ae78eabab637bac85f91208a0eeb7028",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_181031542.json": "c58d4e5f758d88501aa097d931252e2e0db207afbe547724c0bebfc49dee0f8d",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_1984601307.json": "b5e7728d8922c58e5031ca31878c2e1a1f66d4e808af1a6c0959df0273bf2b23",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_307836921.json": "0da0c4f6bdc144fa244e7d8c432ab19204f27bc4c73dbdeb049cf2dd24ede628",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_613734097.json": "b66430ed6f2b5014cdf6029ac358d653c14ec997f15d65b6d556b36b5e9601cd",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N4_seed_818242779.json": "14b89605498926c7cb6eb3a08ce50249dd9d8f234f758b65588f107e6fee53f8",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_1067952113.json": "0bbfff6097b0256ed7d2c7e023ab3839df865f56241a0d1e59d295c030748078",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_1319483087.json": "2054e19d0b6819a415bc2df03ca12dbe09792e09bf7cdb3f76fbb5a1b292a6d1",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_1673840529.json": "1d133ac4bbb7aa185eca4abac99f2ed3f4c89d993531bfe43c3ec861a7471376",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_181031542.json": "93b502eafff0a781686ebeaf9989d753a349a80e32abe3ac99de8fc49decbf3e",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_1984601307.json": "6febbe1e6c55b260bbf978e8edfed1f21389c5dcf5a1ea91fbcb398d44842cc2",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_307836921.json": "c4d3a69ade0affd2665d59234f7312013ef1c667e31a56e4f25d84396d8f2ab0",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_613734097.json": "3ca3e7c7a794fc5d5bc1f5d7ce1f16f21e33520f7d4f829d35c87570b5bdfe6b",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N5_seed_818242779.json": "c493d4c6f85eff29ae7338a6714e30e65837416e7ef298cc58182cd5a7f14f9a",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_1067952113.json": "5efbdd01019c418951338b0186e4fb9c4b581b557aa9db0a76446295c261b33c",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_1319483087.json": "1332da7d142045b05325aa9f239c5b3e88e85e42c73dbbe5f6629d17c3783b1c",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_1673840529.json": "7a840807bddb9384ea81f5ee1ba057bb172419b20559f5be7984ea25aca00f5c",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_181031542.json": "d168d74d71c168d3b2ec090bc5b7e654d9b3dd1f2b606cc1112994f8991970ce",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_1984601307.json": "89cd0ee342c802b11707b990045c9e44b5e50a2abe1d23decc2fd77a2ea857dc",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_307836921.json": "59fa819e8b93cadfd4294d6a55491cda499d2af11f518c99cc1f3f6470e7422b",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_613734097.json": "e15c1ab5c4f97605ab25f883873954bdbc0e557bb019493772fb7e9f101a110c",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_local_N6_seed_818242779.json": "d6c4b09609a7559945eab9c9a23791d25f9b5bd096f73285d85ddae998e54fbb",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_1067952113.json": "ff67dc3e90274281e83f5ebda34a9dff8a4ff8535b923772f9ef4d2d7dcd89c6",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_1319483087.json": "0fd8147353c559056d3eeb93239f1086c255e89108f3a8787207f15d580a7764",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_1673840529.json": "ab170ad72e1e1ac9cfa0c2d22dee2d475c277494b21c8bf6e5789b8087136e08",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_181031542.json": "f1d98c125a665f35611435678a924b7c45a9577b0d4e3005bdfd4a0bbc70ab15",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_1984601307.json": "4ffd8ee1257c28b576a397d2cb08de385794a73bc260aee90e829f2381d87b10",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_307836921.json": "0651e8df9fc1afea6dd0fdc078ca66bd116e08255acea4ebd617844b2b0aa373",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_613734097.json": "ddbf518703f15d5350772e99082a3981897c75f3de0465e34747c8332aa8bfb3",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N4_seed_818242779.json": "38dc47d86dc027846d46f8e0057091d5ff8754b53be58a9f619f349904e37b6b",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_1067952113.json": "0cb9f9d6271f96fc56af7718d8439b72bfa1d3f7e51292c09273c13822572881",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_1319483087.json": "7de6232e6b07b5842be699b43b321f558fd2396972e8ead8567803b1f2208fae",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_1673840529.json": "fdc5cb85ba43e115aa8bda62011f97b42d839ac77db8c28066379860dc7b9e14",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_181031542.json": "1adff45caafa203e74debe0e8a2d83d8d6d74e15e7c5d01fe22e87bdc3f40908",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_1984601307.json": "8225a2f2a202cd1e45cecebb41455379b8eda68933e40b0cd1fc2e30b6e86914",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_307836921.json": "e851d3d34875653f9aff18254d0e1facd9a5457c04d1d6b56267236adf1aa8bb",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_613734097.json": "b243121b82d3d42bdebb52a8e14a39fc2c6359806ca057f520b564b072c33274",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N5_seed_818242779.json": "a8873b902b7e011bb60fdfe934f07c9061760439d0351765bdc500281fc93555",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_1067952113.json": "eda3686010ef640d1452c9366b83a92e2f4fc70fbac490799558f87a822e7fcc",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_1319483087.json": "d3fdd460d6bd507f4c596f3fe4a82f1c73b5f5a88a590b29840eda254c76405a",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_1673840529.json": "d4d28ab150cbbebaa7e8b0640e59f85888df7c08c86782515bfe0ff18bd1e0d5",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_181031542.json": "03d60641cff861d682512b7414e159a30cb9bd02f19c7929b8e68f2586bff614",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_1984601307.json": "21298297a9f23f221e55364023452fced164bb99cbbf45eeb25671031a05c74b",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_307836921.json": "896a08686408d9f5f8f70a27b52992e633bbf044a09721b4f2839a56965c764a",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_613734097.json": "8a68bec0a28f6dd359be831b0ef931760855ec2f47a9c7073d647680aea26a7f",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_pair_N6_seed_818242779.json": "4427b8f5602de97cb827a5ba97f9acada494265d4c0dc9526e8eb254f80d5507"
+    },
+    "base_evidence_zip_sha256": "579a5411be0360c734e73278b6e770924b7b3890219370554bc41afc8292bf00",
+    "configuration": {
+      "dt": 0.5,
+      "frobenius_multiplier": 1.0,
+      "h": 0.5,
+      "regime": "principal"
+    },
+    "convergence_gate": 1e-14,
+    "designs": [
+      "local",
+      "pair"
+    ],
+    "initial_states": [
+      "ground",
+      "excited",
+      "mixed",
+      "haar"
+    ],
+    "input": {
+      "distribution": "iid Uniform[0,1]",
+      "prefix_identity": "the first 800 draws are identical to the frozen v2 control",
+      "seed_rule": "numpy.default_rng(2600000 + lineage_seed + 1003 * n_qubits)"
+    },
+    "jobs": [
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 181031542
+      },
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 307836921
+      },
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 613734097
+      },
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 818242779
+      },
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 1067952113
+      },
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 1319483087
+      },
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 1673840529
+      },
+      {
+        "design": "local",
+        "n_qubits": 4,
+        "seed": 1984601307
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 181031542
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 307836921
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 613734097
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 818242779
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 1067952113
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 1319483087
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 1673840529
+      },
+      {
+        "design": "local",
+        "n_qubits": 5,
+        "seed": 1984601307
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 181031542
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 307836921
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 613734097
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 818242779
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 1067952113
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 1319483087
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 1673840529
+      },
+      {
+        "design": "local",
+        "n_qubits": 6,
+        "seed": 1984601307
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 181031542
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 307836921
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 613734097
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 818242779
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 1067952113
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 1319483087
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 1673840529
+      },
+      {
+        "design": "pair",
+        "n_qubits": 4,
+        "seed": 1984601307
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 181031542
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 307836921
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 613734097
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 818242779
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 1067952113
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 1319483087
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 1673840529
+      },
+      {
+        "design": "pair",
+        "n_qubits": 5,
+        "seed": 1984601307
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 181031542
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 307836921
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 613734097
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 818242779
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 1067952113
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 1319483087
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 1673840529
+      },
+      {
+        "design": "pair",
+        "n_qubits": 6,
+        "seed": 1984601307
+      }
+    ],
+    "lineage_seeds": [
+      181031542,
+      307836921,
+      613734097,
+      818242779,
+      1067952113,
+      1319483087,
+      1673840529,
+      1984601307
+    ],
+    "nested_couplings": "top-left N-by-N block of one N=6 Uniform[-1,1] draw per lineage, scaled by sqrt(4/(N-1))",
+    "prefix_absolute_tolerance": 5e-13,
+    "protocol_version": "local-pair-convergence-extension-v1-2026-08-05",
+    "purpose": "continue every plotted principal local and pair-loss switched-input initial-state diagnostic from 800 to 1200 inputs",
+    "scientific_sources_sha256": {
+      "experiments/run_local_pair_convergence_extension.py": "41033233ef6f983564471b215a76b9e7902c6d18c096bede52b81fbe1dbca2f8",
+      "src/qrc/dissipators.py": "28e602a450d70715b77cb5a3e7ede28758b5a364ddb5e938c131a38a5c970935",
+      "src/qrc/liouvillian.py": "bfb6eda88c5d9c2bbbedda7bd88e5eef8b39ab0970d9f25f9e0b1a600448c26b",
+      "src/qrc/operators.py": "d0bed61609a3a3a10dc64cf2695c1999dc87afad511d3515eecb53b5cfcbd13b",
+      "src/qrc/reservoirs.py": "e9e722ffeba65b35a89ec7f04e6dbd6b30f9f556c6b05052557a6c29ab40eb4b",
+      "src/qrc/sparse_evolve.py": "dc16975777dd72ec88a8a5c2fc0e3fafe44393f680628a7235151523fe154751"
+    },
+    "sizes": [
+      4,
+      5,
+      6
+    ],
+    "status": "frozen_before_extension_results",
+    "steps": 1200,
+    "trace_distance": "one half trace norm, maximum over all six pairs",
+    "validated_prefix_steps": 800
+  },
+  "protocol_sha256": "4177f9fc6660192f85becf397d570d16dbdaa1f0ffa5831d10778081f47499e5"
+}

@@ -1,0 +1,287 @@
+\section{\texorpdfstring{Computational consequences of the\\
+two-axis dissipator design}{Computational consequences of the two-axis
+dissipator design}}
+\label{sec:performance}
+
+Section~\ref{sec:model} defined dissipator geometry through the jump-family and
+rate-profile coordinates. We now traverse the design space of
+Fig.~\ref{fig:space} in three steps: first across dissipator structures, then
+across rate profiles within a selected structure, and finally across both axes
+jointly. We subsequently ask whether the resulting exact-expectation
+differences remain visible under finite measurement budgets.
+
+Rather than seeking one universally optimal dissipator, we test whether these
+two coordinates produce task-dependent specialization.
+
+\subsection{Reference model and how to read the results}
+\label{sec:results-guide}
+
+Uniform local relaxation is the reference: one equal-rate lowering channel per
+qubit. The \emph{local-relaxation family} also contains unequal, learned, and
+input-adaptive profiles. The main comparison uses equal-phase collective
+relaxation, one rank-one channel with fixed \(c_i=1\)
+(Appendix~\ref{app:shared}); unless noted otherwise, the term refers to this
+channel. Profile-optimized models instead learn within-family coefficients.
+
+The four tasks retain their native metrics: STM and parity capacities are
+maximized, whereas NARMA-10 NMSE and MG-150 MSE are minimized.
+
+Figure~\ref{fig:map} reports the absolute \(N=5\) scores in each task's native
+metric and favorable direction. The dashed vertical line in each panel marks
+the uniform-local mean; the matching colored dotted line and saturated marker
+identify the best mean. Faint rings show individual reservoir instances. The
+panels retain their own scales and must be read independently;
+Appendix Table~\ref{tab:map} gives the exact means and standard errors.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics{figures/fig_task_scores.pdf}
+\caption{\textbf{Dissipator structure changes the computational task
+profile.}
+Absolute \(N=5\) scores for continuously driven designs. Rings show seeds;
+symbols and bars show means and pointwise \(95\%\) intervals. Dark-gray
+diamonds and dashed lines mark uniform local; saturated markers and matching
+dotted lines mark each best mean.
+Focused scales retain all non-dephasing seeds in (a--c), with edge labels for
+off-scale dephasing; in (d), 10/64 collective seeds exceed 0.17. Best-mean
+highlights are not significance tests; rankings are fixed-\(\mathcal B\),
+common-point comparisons, not claims of physical equivalence. Unequal local is
+profile-only.}
+\label{fig:map}
+\end{figure*}
+
+\subsection{Axis I: Dissipator structure changes the task profile}
+\label{sec:map}
+
+We first ask whether changing which system combinations couple to the
+environment alters what the reservoir can compute.
+\Needspace{5\baselineskip}
+Each paired comparison
+shares its Hamiltonian, input sequence, operating point, observables, readout,
+data split, and structural budget \(\mathcal B\). Only the dissipator structure
+changes. Uniform local relaxation supplies the reference, while the
+reset-encoded Fujii--Nakajima (FN) architecture~\cite{Fujii2017} is shown
+separately as an external reservoir baseline.
+
+Appendix~Figure~\ref{fig:rank-map} gives the complementary within-task rank
+view.
+
+The resulting task profiles differ, and no continuously driven design
+dominates all four tasks. Collective relaxation leads STM and NARMA-10 under
+the common protocol, but performs worse on parity and long closed-loop
+forecasting. Exchange-assisted relaxation provides the clearest parity
+improvement.
+
+Under fixed \(\mathcal B\), the map shows protocol-specific specialization, not
+a universal winner. A descriptive STM strength sensitivity preserves the
+collective lead on the tested grid (Appendix~\ref{app:strength-sensitivity}).
+We focus on the local--collective contrast because it is the cleanest comparison
+within one lowering action and gives the strongest recurring memory change.
+
+\subsection{Main structural case study: collective relaxation versus the
+reference model}
+\label{sec:collective-case}
+
+We compare complete fixed-budget endpoints with
+\(C_{\mathrm{lower}}^{\mathrm{local}}\propto I_N\) and
+\(C_{\mathrm{lower}}^{\mathrm{collective}}\propto\boldsymbol c\boldsymbol
+c^\dagger\); rank, delocalization, coefficient-phase pattern, and drive
+alignment are not identified as separately causal.
+
+At \(N=5\), collective relaxation increases STM from \(8.634\) to \(12.206\).
+This is an absolute paired gain of \(3.57\) STM-capacity units and a relative
+increase of \(41\%\), with a \(95\%\) interval of \([3.36,3.78]\) and \(32/32\)
+paired wins. NARMA-10 NMSE decreases from \(0.315\) to \(0.229\), corresponding
+to a \(27\%\) reduction in error, and improves in every paired reservoir.
+
+Figure~\ref{fig:collective-case}(b) provides a finite-size recurrence check of
+the principal \(N=5\) ordering, not an asymptotic scaling analysis. Across 24
+paired lineages per size, collective relaxation has the highest mean STM and
+the lowest NARMA-10 error from \(N=4\) through \(N=8\).
+
+Before interpreting the larger STM score as useful input memory, we test what
+is being remembered. Removing every jump operator while retaining the
+Hamiltonian, input protocol, and readout leaves STM and parity near zero,
+raises NARMA-10 NMSE above one, and preserves initialization dependence
+(Appendix Table~\ref{tab:map}). Coherent driving alone therefore reproduces
+neither the task profile nor controlled forgetting. This unmatched diagnostic contrasts
+with reset FN, which supplies non-unitary forgetting.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics{figures/fig_collective_case.pdf}
+\caption{\textbf{Collective relaxation retains more usable recent-input
+memory than the uniform-local reference.}
+\emph{(a)} Collective-minus-uniform-local STM-capacity differences under
+targeted controls; the three alternative-Hamiltonian estimates remain separate.
+\emph{(b)} Fixed-initialization size sweep for \(N=4,\ldots,8\).
+\emph{(c)} Delay-resolved STM capacities. Faint marks and lines show paired
+effects in (a) and seed-level absolute scores or capacities in (b,c); bars and
+bands give the declared \(95\%\) intervals.}
+\label{fig:collective-case}
+\end{figure*}
+
+We next distinguish input memory from persistence of the starting state. The
+same switched input sequence is applied from four widely separated states, and
+their maximum trace distance is tracked. The convergence records in
+Appendix~\ref{app:experiment1} show that local relaxation and pair loss
+converge across \(N=4,5,6\) and
+remain converged through the 1200-input continuation.
+
+\Needspace{3\baselineskip}
+Collective relaxation
+converges more slowly, but reaches the same regime at the principal \(N=5\)
+setting and in the tested \(N=6\) lineages.
+
+\Needspace{4\baselineskip}
+At \(N=5\), it approaches numerical
+precision by the strict 800-input washout and reaches numerical precision
+during the specified continuation to 1200 inputs.
+
+\Needspace{4\baselineskip}
+A separate ten-pair \(N=5\) task run then uses the 800-input washout before
+scoring. Cross-initialization differences are negligible, while collective
+relaxation retains \(+3.564\,[3.124,4.004]\) STM units with \(10/10\) wins
+(Fig.~\ref{fig:collective-case}(a)). After the tested initial states have
+converged, the additional retention therefore belongs to the input history
+rather than to the starting state.
+
+The comparison is also repeated under four spin-Hamiltonian ensembles that
+change the interaction axis, drive axis, interaction form, or connectivity.
+Every ensemble retains a positive collective-minus-reference STM difference,
+ranging from \(+2.22\) to \(+4.02\) units
+(Fig.~\ref{fig:collective-case}(a)). These replications preserve the continuous
+encoding and Pauli readout, so they establish recurrence within the tested
+driven-spin architecture. Appendix~\ref{app:experiment1} describes the
+Hamiltonian variants and ridge control.
+
+To test whether the ordering is tied to continuous-drive encoding, we replace
+it with input-by-reset while retaining the \(N=5\) \(XX+Z\) processor, Pauli
+readout, task definitions, and fixed structural budget. After an 800-input
+washout, collective relaxation increases STM from \(4.596\) to \(6.369\), a
+gain of \(1.773\,[1.312,2.235]\), and decreases NARMA-10 NMSE from \(0.673\)
+to \(0.491\), a favorable reduction of \(0.182\,[0.144,0.220]\), with \(16/16\)
+favorable pairs for both endpoints
+(Fig.~\ref{fig:reset-architecture} and
+Appendix~\ref{app:reset-architecture}). The local--collective ordering
+therefore recurs across two tested input architectures rather than being an
+artifact of continuous driving.
+
+\subsection{Axis II and joint design: rate profiles refine the chosen
+structure}
+\label{sec:profiles}
+
+Choosing a dissipator structure does not fully specify the environmental
+coupling. A second choice remains: how should the available coupling weight be
+distributed within that structure? We first keep the local-relaxation family
+fixed and compare uniform, random unequal, learned static, and input-adaptive
+rate profiles. All sites relax in every candidate, but they need not do so
+equally. The profile-only unequal-local row in Appendix
+Table~\ref{tab:map} reports the common-protocol comparison; the dedicated STM
+sweep below uses the separately
+specified profile-optimization protocol.
+
+The uniform profile assigns the same rate to every site. A random unequal
+profile introduces a fixed distribution of local timescales. A learned static
+profile is fitted separately to each reservoir using validation data. An
+adaptive profile varies with the current input. The static profiles share the
+same mean rate. The adaptive profile is mean-matched over a fixed input grid
+but may vary with the input.
+
+\Needspace{8\baselineskip}
+Figure~\ref{fig:profiles}(a) shows that rate redistribution changes STM without
+changing the local-relaxation family. Random unequal rates improve on the
+uniform-local reference, and reservoir-specific learning improves further.
+The learned-minus-uniform gain is \(1.34\) units, with an interval of
+\([1.13,1.55]\) and \(32/32\) wins. The adaptive profile gives only a marginal
+additional gain under the matched restart and evaluation limits. This ordering
+does not establish a general superiority of static profiles because the static
+and adaptive parameterizations differ in dimension and stopping behavior.
+
+Within-family tuning redistributes diagonal local rates but changes the
+supported rank-one collective direction; both remain reproducible tuning
+choices.
+
+The structure and profile axes are not competing alternatives. We therefore
+cross them directly by comparing uniform and learned profiles within both
+local and collective relaxation at the same \(\mathcal B\).
+Figure~\ref{fig:profiles}(b) displays this \(2\times2\) comparison. The vertical
+separation shows the structural effect, the uniform-to-learned slope shows the
+profile effect, and the different slopes show that the profile benefit depends
+on the selected structure.
+
+\begin{figure}[H]
+\centering
+\includegraphics{figures/fig_profiles.pdf}
+\caption{\textbf{Rate profiles refine the selected dissipator structure.}
+\emph{(a)} All 32 paired STM effects for three local rate profiles. Large
+markers and bars give the mean and \(95\%\) interval.
+\emph{(b)} Paired uniform-to-learned trajectories for local and collective
+relaxation, showing family-dependent profile gains. Seed marks and trajectories
+become lighter with distance from their condition means.}
+\label{fig:profiles}
+\end{figure}
+
+The profile gain is larger for local relaxation. The difference between the
+two gains is \(1.397\) STM units; all \(24/24\) paired values are positive, and
+the familywise \(95\%\) interval is \([1.078,1.716]\). Collective relaxation
+nevertheless remains higher after both profiles are learned. Profile
+optimization refines the selected structure by a family-dependent amount.
+Appendix~\ref{app:experiment2} gives the parameterizations and inference scope.
+
+\FloatBarrier
+\subsection{Finite sampling determines experimental visibility}
+\label{sec:measurement}
+
+The preceding comparisons characterize the computation available to an exact
+45-Pauli readout. An experiment observes finite measurement outcomes rather
+than exact expectation values. We therefore ask a distinct question: at what
+preparation budget do the differences created by dissipator geometry become
+statistically visible?
+
+\FiniteSamplePriorWork
+
+At each step, independent sampling spends \(N_{\mathrm{prep}}=45q\) shots over
+45 observables; grouped sampling spends the same nominal budget in the global
+\(X\), \(Y\), and \(Z\) bases and reuses each bitstring across 15 features.
+Each design validates its ridge coefficient before one held-out evaluation.
+``Preparations per step'' excludes replay of the preceding input history, so
+Fig.~\ref{fig:sampling} studies measurement resolution, not end-to-end runtime.
+
+At the exact-expectation endpoint, Fig.~\ref{fig:sampling} recovers the
+collective-over-reference memory ordering from the structural comparison.
+Grouped sampling resolves this contrast with one-sixteenth of the preparation
+count needed by independent sampling. This gain is close to the 15-fold
+feature reuse built into the estimator. It is a measurement advantage rather
+than a hardware advantage specific to collective relaxation.
+
+The finite-data curves also show why measurement design belongs in the
+comparison. Sampling noise does not reduce every STM score by the same amount.
+At the smallest independent-sampling budgets, pair loss appears best. Unequal
+local relaxation leads at intermediate precision. Collective relaxation
+emerges only after the observables are estimated accurately enough. Under
+simultaneous inference across the complete comparison family, grouped sampling
+resolves collective relaxation above every competitor only at the largest
+finite budget. Independent sampling never resolves it as best on the tested
+grid.
+
+Appendix~\ref{app:experiment3} gives the estimator definitions, budget
+parameterization, and simultaneous-inference scope.
+
+\begin{figure}[H]
+\centering
+\includegraphics{figures/fig_sampling.pdf}
+\caption{\textbf{Finite sampling determines when the dissipator-structure
+ordering becomes visible.}
+\emph{(a,b)} Paired STM differences from uniform local relaxation at equal
+preparation budgets under independent and grouped sampling, respectively.
+Open markers denote exact readout. Grouping recovers the exact ordering sooner
+by reusing compatible observables. Faint points show individual paired-seed
+differences and become lighter with distance from the corresponding mean.}
+\label{fig:sampling}
+\end{figure}
+
+Across these analyses, the memory advantage of collective over uniform local
+relaxation is the strongest recurring structural effect.
+Section~\ref{sec:interpretation} now examines which dynamics are consistent
+with that contrast.

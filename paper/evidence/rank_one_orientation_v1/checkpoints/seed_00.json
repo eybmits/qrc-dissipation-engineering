@@ -1,0 +1,235 @@
+{
+  "conditions": {
+    "drive_orthogonal": {
+      "features_sha256": "c09a052f36b2430051246595aa154f067cd10f41faae7f4b912cc7ae764f82af",
+      "kernel": {
+        "feature_space_effective_rank": 2.973412704476355,
+        "leading_singular_energy_fraction": 0.6087964678374232,
+        "long_lag_energy_fraction": 0.011419206388957779,
+        "normalized_lag_energy": [
+          0.535040132423285,
+          0.2235847027256609,
+          0.12490065531874245,
+          0.04504550516276382,
+          0.023094815637639057,
+          0.01735572462755896,
+          0.008015245152879649,
+          0.005968370893203124,
+          0.005575641669309301,
+          0.0030968610295037586,
+          0.0022184020724963427,
+          0.002025996380472158,
+          0.001290706627290385,
+          0.0006989435349376667,
+          0.0006504980139743039,
+          0.000545483517574789,
+          0.00032604953661060997,
+          0.0002396186963209992,
+          0.00020296779258901511,
+          0.0001236791871877488
+        ],
+        "response_lag_centroid": 2.0516549509269857,
+        "response_sha256": "759378b95ddf54d4016198a6c55152e653171c7f184eed563412500cff124c10"
+      },
+      "stm": {
+        "capacity_by_delay": [
+          0.9988278695366416,
+          0.9920925309405374,
+          0.976255438038666,
+          0.948555187598415,
+          0.9048112889225979,
+          0.8426065077609088,
+          0.7556556193354458,
+          0.6931315220025877,
+          0.666581710372444,
+          0.5670893391305801,
+          0.5450382161254014,
+          0.5167676518534164,
+          0.4286706003993406,
+          0.38981189450801274,
+          0.3221636198973718,
+          0.2977161389770643,
+          0.28512759857769715,
+          0.2108153155511483,
+          0.1530802871491693,
+          0.0703757076295288
+        ],
+        "total_capacity": 11.565174044306977
+      }
+    },
+    "equal_phase": {
+      "features_sha256": "3bc007b31443e1f6f8acb51c4582ae2f2feda929f9dd275f9ac24da310ba5f40",
+      "kernel": {
+        "feature_space_effective_rank": 1.6205264476828538,
+        "leading_singular_energy_fraction": 0.87958617267518,
+        "long_lag_energy_fraction": 0.0011073998863824859,
+        "normalized_lag_energy": [
+          0.8427442298891885,
+          0.10581878481725224,
+          0.030742289535250013,
+          0.010965489464267382,
+          0.003941085531786215,
+          0.002055835165490036,
+          0.0012346097535204878,
+          0.0007800289316406674,
+          0.0006102470252221619,
+          0.0004195952784210817,
+          0.00024212320154394433,
+          0.00014784206788762816,
+          9.577380838665225e-05,
+          6.629030979675535e-05,
+          4.4888781713321225e-05,
+          3.0268473675300205e-05,
+          2.1486535289197083e-05,
+          1.5508332369775854e-05,
+          1.2914927915529476e-05,
+          1.0708169383300353e-05
+        ],
+        "response_lag_centroid": 1.2559539196603167,
+        "response_sha256": "878ac096491e33a8f66e52cb4cc1f2178fc7431997200d068959d641ef9efc2b"
+      },
+      "stm": {
+        "capacity_by_delay": [
+          0.9998378719977667,
+          0.9980787607654911,
+          0.9905240631066425,
+          0.9727149371704643,
+          0.9540609770462555,
+          0.9095308762209176,
+          0.850751888003004,
+          0.7413389048233964,
+          0.6502597270479267,
+          0.6757087279071949,
+          0.58161329074864,
+          0.5967554366977394,
+          0.5983069628369865,
+          0.5175419518883849,
+          0.5361476382235327,
+          0.45290848023552527,
+          0.4175058485065463,
+          0.36614535975925244,
+          0.33938971660008516,
+          0.23689748008091494
+        ],
+        "total_capacity": 13.386018899666665
+      }
+    }
+  },
+  "convergence": {
+    "audits": {
+      "drive_orthogonal": {
+        "800": {
+          "maximum_feature_distance": 1.3813819879637812e-15,
+          "maximum_trace_distance": 1.7238904151717926e-15,
+          "pairwise": [
+            {
+              "left": "ground",
+              "max_feature_distance": 1.3813819879637812e-15,
+              "right": "maximally_mixed",
+              "trace_distance": 1.7238904151717926e-15
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 9.713367263297634e-16,
+              "right": "fully_excited",
+              "trace_distance": 1.2069240526532137e-15
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 4.606775030890908e-16,
+              "right": "haar_pure",
+              "trace_distance": 6.203175737089662e-16
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 4.820362858870553e-16,
+              "right": "fully_excited",
+              "trace_distance": 5.965296387807672e-16
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 9.254749744336266e-16,
+              "right": "haar_pure",
+              "trace_distance": 1.1632199020557088e-15
+            },
+            {
+              "left": "fully_excited",
+              "max_feature_distance": 5.106592232406726e-16,
+              "right": "haar_pure",
+              "trace_distance": 6.678836225708873e-16
+            }
+          ],
+          "passed": true
+        }
+      },
+      "equal_phase": {
+        "800": {
+          "maximum_feature_distance": 2.7311052724909857e-16,
+          "maximum_trace_distance": 4.588310647566934e-16,
+          "pairwise": [
+            {
+              "left": "ground",
+              "max_feature_distance": 1.4311468676808659e-16,
+              "right": "maximally_mixed",
+              "trace_distance": 2.978063487133009e-16
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 2.7311052724909857e-16,
+              "right": "fully_excited",
+              "trace_distance": 4.588310647566934e-16
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 1.6642503347652493e-16,
+              "right": "haar_pure",
+              "trace_distance": 3.2778619205883984e-16
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 1.2999584048101198e-16,
+              "right": "fully_excited",
+              "trace_distance": 3.181726783952411e-16
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 9.053088140253962e-17,
+              "right": "haar_pure",
+              "trace_distance": 2.4464555572336327e-16
+            },
+            {
+              "left": "fully_excited",
+              "max_feature_distance": 1.1405806854547507e-16,
+              "right": "haar_pure",
+              "trace_distance": 2.8937514269872606e-16
+            }
+          ],
+          "passed": true
+        }
+      }
+    },
+    "both_conditions_passed": true,
+    "selected_common_washout": 800
+  },
+  "coupling_sha256": "2d39286a2d255df9cf0d1f52ec9896e0e6df34fb02cc24035272e198b663d5c7",
+  "full_four_state_audit": true,
+  "payload_sha256": "fc133da2c09855227338ccb412f1607a89d8c25742c43b39aece442b1aef540f",
+  "protocol_sha256": "8fcbb1c2a6f22677b062cd36c5b24b5c8c0d7f098bc3adb6a67ef85771314d80",
+  "reservoirs": {
+    "drive_orthogonal": {
+      "budget": 192.0,
+      "jump_sha256": "0b7c501fb88d59968692ac15a3680a182f6743cfa83064b7c5bce6637d851349"
+    },
+    "equal_phase": {
+      "budget": 192.0,
+      "jump_sha256": "6aa82635a9e142fc2bee177a87deeeae4371d58a488e22af6410c08e4a6bf994"
+    }
+  },
+  "runtime_seconds": 467.0055961608887,
+  "seed": 956087733,
+  "seed_index": 0,
+  "stm_equal_minus_orthogonal": 1.820844855359688,
+  "task_sha256": "0ffa837c9507abb148045f9a80025d80a03fa137a51898dae9440185d8540389",
+  "version": "rank-one-orientation-v1-2026-08-12",
+  "wash_sha256": "d8480c8d6f66a0b3cdd1d3510283ddba7a02654c87d733186ab5d0e5daf97424"
+}

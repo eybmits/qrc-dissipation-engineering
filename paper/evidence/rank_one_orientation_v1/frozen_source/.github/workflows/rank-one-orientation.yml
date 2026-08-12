@@ -1,0 +1,107 @@
+name: Rank-one orientation experiment
+
+on:
+  pull_request:
+    paths:
+      - experiments/run_rank_one_orientation.py
+      - .github/workflows/rank-one-orientation.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: rank-one-orientation-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  paired-seed:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      max-parallel: 12
+      matrix:
+        seed_index:
+          - 0
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+          - 12
+          - 13
+          - 14
+          - 15
+          - 16
+          - 17
+          - 18
+          - 19
+          - 20
+          - 21
+          - 22
+          - 23
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install scientific package
+        run: python -m pip install -e .
+      - name: Run paired orientation intervention
+        env:
+          PYTHONPATH: src:experiments
+        run: |
+          python experiments/run_rank_one_orientation.py \
+            --outdir results/rank_one_orientation_v1 \
+            run --seed-index "${{ matrix.seed_index }}"
+      - name: Flatten checkpoint artifact
+        run: |
+          mkdir -p seed-artifact
+          cp results/rank_one_orientation_v1/checkpoints/*.json seed-artifact/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rank-one-orientation-seed-${{ matrix.seed_index }}
+          path: seed-artifact/*.json
+          if-no-files-found: error
+          retention-days: 14
+
+  aggregate:
+    needs: paired-seed
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install scientific package
+        run: python -m pip install -e .
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: rank-one-orientation-seed-*
+          path: results/rank_one_orientation_v1/checkpoints
+          merge-multiple: true
+      - name: Aggregate, plot, and verify
+        env:
+          PYTHONPATH: src:experiments
+        run: |
+          python experiments/run_rank_one_orientation.py \
+            --outdir results/rank_one_orientation_v1 aggregate
+          cat results/rank_one_orientation_v1/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rank-one-orientation-results
+          path: |
+            results/rank_one_orientation_v1
+            results/rank_one_orientation_v1_results.zip
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,321 @@
+\begin{thebibliography}{10}
+
+\bibitem{Maass2002}
+Wolfgang Maass, Thomas Natschl{\"a}ger, and Henry Markram.
+\newblock ``Real-time computing without stable states: A new framework for
+  neural computation based on perturbations''.
+\newblock \href{https://dx.doi.org/10.1162/089976602760407955}{Neural
+  Computation {\bf 14}, 2531--2560}~(2002).
+
+\bibitem{JaegerESP2001}
+Herbert Jaeger.
+\newblock ``The ``echo state'' approach to analysing and training recurrent
+  neural networks''.
+\newblock \href{https://dx.doi.org/10.24406/publica-fhg-291111}{Technical
+  Report 148}.
+\newblock GMD Forschungszentrum Informationstechnik~(2001).
+
+\bibitem{Fujii2017}
+Keisuke Fujii and Kohei Nakajima.
+\newblock ``Harnessing disordered-ensemble quantum dynamics for machine
+  learning''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevApplied.8.024030}{Physical
+  Review Applied {\bf 8}, 024030}~(2017).
+
+\bibitem{ChenNurdin2019}
+Jiayin Chen and Hendra~I. Nurdin.
+\newblock ``Learning nonlinear input--output maps with dissipative quantum
+  systems''.
+\newblock \href{https://dx.doi.org/10.1007/s11128-019-2311-9}{Quantum
+  Information Processing {\bf 18}, 198}~(2019).
+
+\bibitem{Chen2020}
+Jiayin Chen, Hendra~I. Nurdin, and Naoki Yamamoto.
+\newblock ``Temporal information processing on noisy quantum computers''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevApplied.14.024065}{Physical
+  Review Applied {\bf 14}, 024065}~(2020).
+
+\bibitem{Sannia2024}
+Antonio Sannia, Rodrigo Mart{\'i}nez-Pe{\~n}a, Miguel~C. Soriano, Gian~Luca
+  Giorgi, and Roberta Zambrini.
+\newblock ``Dissipation as a resource for quantum reservoir computing''.
+\newblock \href{https://dx.doi.org/10.22331/q-2024-03-20-1291}{Quantum {\bf 8},
+  1291}~(2024).
+
+\bibitem{Ricci2026}
+Emanuele Ricci, Francesco Monzani, Luca Nigro, and Enrico Prati.
+\newblock ``Quantum reservoir computing induced by controllable damping''.
+\newblock \href{https://dx.doi.org/10.1038/s41534-026-01229-8}{npj Quantum
+  Information {\bf 12}, 107}~(2026).
+
+\bibitem{Gotting2025}
+Niclas G{\"o}tting, Steffen Wilksen, Alexander Steinhoff, Frederik Lohof, and
+  Christopher Gies.
+\newblock ``Connection between memory performance and optical absorption in
+  quantum reservoir computing''.
+\newblock \href{https://dx.doi.org/10.1103/vp79-8t1l}{Physical Review Letters
+  {\bf 135}, 240403}~(2025).
+
+\bibitem{Mujal2023}
+Pere Mujal, Rodrigo Mart{\'i}nez-Pe{\~n}a, Gian~Luca Giorgi, Miguel~C. Soriano,
+  and Roberta Zambrini.
+\newblock ``Time-series quantum reservoir computing with weak and projective
+  measurements''.
+\newblock \href{https://dx.doi.org/10.1038/s41534-023-00682-z}{npj Quantum
+  Information {\bf 9}, 16}~(2023).
+
+\bibitem{Franceschetto2026}
+Giacomo Franceschetto, Marcin P{\l}odzie{\'n}, Maciej Lewenstein, Antonio
+  Ac{\'i}n, and Pere Mujal.
+\newblock ``Harnessing quantum backaction for time-series processing''.
+\newblock \href{https://dx.doi.org/10.1103/j7f9-hfsj}{Physical Review X {\bf
+  16}, 021002}~(2026).
+
+\bibitem{KobayashiFeedback2024}
+Kaito Kobayashi, Keisuke Fujii, and Naoki Yamamoto.
+\newblock ``Feedback-driven quantum reservoir computing for time-series
+  analysis''.
+\newblock \href{https://dx.doi.org/10.1103/PRXQuantum.5.040325}{PRX Quantum
+  {\bf 5}, 040325}~(2024).
+
+\bibitem{Cindrak2024}
+Saud {\v C}indrak, Brecht Donvil, Kathy L{\"u}dge, and Lina Jaurigue.
+\newblock ``Enhancing the performance of quantum reservoir computing and
+  solving the time-complexity problem by artificial memory restriction''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevResearch.6.013051}{Physical
+  Review Research {\bf 6}, 013051}~(2024).
+
+\bibitem{SanniaNonMarkov2026}
+Antonio Sannia, Ricard {Ravell Rodr{\'i}guez}, Gian~Luca Giorgi, and Roberta
+  Zambrini.
+\newblock ``Non-{Markovianity} and memory enhancement in quantum reservoir
+  computing''.
+\newblock \href{https://dx.doi.org/10.1038/s41534-026-01257-4}{npj Quantum
+  Information {\bf 12}, 111}~(2026).
+
+\bibitem{Paparelle2026}
+Iris Paparelle, Johan Henaff, Jorge Garc{\'i}a-Beni, {\'E}milie Gillet, Daniel
+  Montesinos, Gian~Luca Giorgi, Miguel~C. Soriano, Roberta Zambrini, and
+  Valentina Parigi.
+\newblock ``Experimental memory control in continuous-variable optical quantum
+  reservoir computing''.
+\newblock \href{https://dx.doi.org/10.1038/s41566-026-01880-9}{Nature Photonics
+  {\bf 20}, 413--420}~(2026).
+
+\bibitem{Palacios2024}
+Ana Palacios, Rodrigo Mart{\'i}nez-Pe{\~n}a, Miguel~C. Soriano, Gian~Luca
+  Giorgi, and Roberta Zambrini.
+\newblock ``Role of coherence in many-body quantum reservoir computing''.
+\newblock \href{https://dx.doi.org/10.1038/s42005-024-01859-4}{Communications
+  Physics {\bf 7}, 369}~(2024).
+
+\bibitem{Hu2024}
+Fangjun Hu, Saeed~A. Khan, Nicholas~T. Bronn, Gerasimos Angelatos, Graham~E.
+  Rowlands, Guilhem~J. Ribeill, and Hakan~E. T{\"u}reci.
+\newblock ``Overcoming the coherence time barrier in quantum machine learning
+  on temporal data''.
+\newblock \href{https://dx.doi.org/10.1038/s41467-024-51162-7}{Nature
+  Communications {\bf 15}, 7491}~(2024).
+
+\bibitem{MartinezPenaPRL2021}
+Rodrigo Mart{\'i}nez-Pe{\~n}a, Gian~Luca Giorgi, Johannes Nokkala, Miguel~C.
+  Soriano, and Roberta Zambrini.
+\newblock ``Dynamical phase transitions in quantum reservoir computing''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.127.100502}{Physical
+  Review Letters {\bf 127}, 100502}~(2021).
+
+\bibitem{Baumann2026}
+Markus Baumann, Itamar Fink, Johannes Wittmann, Claudia Linnhoff-Popien, and
+  Jonas Stein.
+\newblock ``Where a quantum reservoir works: A transferable operating
+  band''~(2026).
+\newblock  \href{http://arxiv.org/abs/2606.13284}{arXiv:2606.13284}.
+
+\bibitem{Dicke1954}
+Robert~H. Dicke.
+\newblock ``Coherence in spontaneous radiation processes''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRev.93.99}{Physical Review {\bf
+  93}, 99--110}~(1954).
+
+\bibitem{Cabot2018}
+Albert Cabot, Fernando Galve, V{\'i}ctor~M. Egu{\'i}luz, Konstantin Klemm,
+  Sabrina Maniscalco, and Roberta Zambrini.
+\newblock ``Unveiling noiseless clusters in complex quantum networks''.
+\newblock \href{https://dx.doi.org/10.1038/s41534-018-0108-9}{npj Quantum
+  Information {\bf 4}, 57}~(2018).
+
+\bibitem{Gorini1976}
+Vittorio Gorini, Andrzej Kossakowski, and E.~C.~George Sudarshan.
+\newblock ``Completely positive dynamical semigroups of {N}-level systems''.
+\newblock \href{https://dx.doi.org/10.1063/1.522979}{Journal of Mathematical
+  Physics {\bf 17}, 821--825}~(1976).
+
+\bibitem{Lindblad1976}
+G{\"o}ran Lindblad.
+\newblock ``On the generators of quantum dynamical semigroups''.
+\newblock \href{https://dx.doi.org/10.1007/BF01608499}{Communications in
+  Mathematical Physics {\bf 48}, 119--130}~(1976).
+
+\bibitem{BreuerPetruccione2002}
+Heinz-Peter Breuer and Francesco Petruccione.
+\newblock ``The theory of open quantum systems''.
+\newblock
+  \href{https://dx.doi.org/10.1093/acprof:oso/9780199213900.001.0001}{Oxford
+  University Press}. Oxford~(2007).
+
+\bibitem{JaegerSTM2001}
+Herbert Jaeger.
+\newblock ``Short term memory in echo state networks''.
+\newblock \href{https://dx.doi.org/10.24406/publica-fhg-291107}{Technical
+  Report 152}.
+\newblock GMD Forschungszentrum Informationstechnik~(2001).
+
+\bibitem{AtiyaParlos2000}
+Amir~F. Atiya and Alexander~G. Parlos.
+\newblock ``New results on recurrent network training: Unifying the algorithms
+  and accelerating convergence''.
+\newblock \href{https://dx.doi.org/10.1109/72.846741}{IEEE Transactions on
+  Neural Networks {\bf 11}, 697--709}~(2000).
+
+\bibitem{MackeyGlass1977}
+Michael~C. Mackey and Leon Glass.
+\newblock ``Oscillation and chaos in physiological control systems''.
+\newblock \href{https://dx.doi.org/10.1126/science.267326}{Science {\bf 197},
+  287--289}~(1977).
+
+\bibitem{Ahmed2024}
+Osama Ahmed, Felix Tennie, and Luca Magri.
+\newblock ``Optimal training of finitely sampled quantum reservoir computers
+  for forecasting of chaotic dynamics''.
+\newblock \href{https://dx.doi.org/10.1007/s42484-025-00261-9}{Quantum Machine
+  Intelligence {\bf 7}, 31}~(2025).
+
+\bibitem{HuSampling2023}
+Fangjun Hu, Gerasimos Angelatos, Saeed~A. Khan, Marti Vives, Esin T{\"u}reci,
+  Leon Bello, Graham~E. Rowlands, Guilhem~J. Ribeill, and Hakan~E. T{\"u}reci.
+\newblock ``Tackling sampling noise in physical systems for machine learning
+  applications: Fundamental limits and eigentasks''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevX.13.041020}{Physical Review
+  X {\bf 13}, 041020}~(2023).
+
+\bibitem{BoydChua1985}
+Stephen Boyd and Leon~O. Chua.
+\newblock ``Fading memory and the problem of approximating nonlinear operators
+  with {Volterra} series''.
+\newblock \href{https://dx.doi.org/10.1109/TCS.1985.1085649}{IEEE Transactions
+  on Circuits and Systems {\bf 32}, 1150--1161}~(1985).
+
+\bibitem{GrigoryevaOrtega2018}
+Lyudmila Grigoryeva and Juan-Pablo Ortega.
+\newblock ``Echo state networks are universal''.
+\newblock \href{https://dx.doi.org/10.1016/j.neunet.2018.08.025}{Neural
+  Networks {\bf 108}, 495--508}~(2018).
+
+\bibitem{Dambre2012}
+Joni Dambre, David Verstraeten, Benjamin Schrauwen, and Serge Massar.
+\newblock ``Information processing capacity of dynamical systems''.
+\newblock \href{https://dx.doi.org/10.1038/srep00514}{Scientific Reports {\bf
+  2}, 514}~(2012).
+
+\bibitem{MartinezPenaIPC2023}
+Rodrigo Mart{\'i}nez-Pe{\~n}a, Johannes Nokkala, Gian~Luca Giorgi, Roberta
+  Zambrini, and Miguel~C. Soriano.
+\newblock ``Information processing capacity of spin-based quantum reservoir
+  computing systems''.
+\newblock \href{https://dx.doi.org/10.1007/s12559-020-09772-y}{Cognitive
+  Computation {\bf 15}, 1440--1451}~(2023).
+
+\bibitem{MartinezPenaOrtega2023}
+Rodrigo Mart{\'i}nez-Pe{\~n}a and Juan-Pablo Ortega.
+\newblock ``Quantum reservoir computing in finite dimensions''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevE.107.035306}{Physical Review
+  E {\bf 107}, 035306}~(2023).
+
+\bibitem{MartinezPenaOrtega2025}
+Rodrigo Mart{\'i}nez-Pe{\~n}a and Juan-Pablo Ortega.
+\newblock ``Input-dependence in quantum reservoir computing''.
+\newblock \href{https://dx.doi.org/10.1103/3775-4hfd}{Physical Review E {\bf
+  111}, 065306}~(2025).
+
+\bibitem{KobayashiESP2024}
+Shumpei Kobayashi, Quoc~Hoan Tran, and Kohei Nakajima.
+\newblock ``Extending echo state property for quantum reservoir computing''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevE.110.024207}{Physical Review
+  E {\bf 110}, 024207}~(2024).
+
+\bibitem{Minganti2018}
+Fabrizio Minganti, Alberto Biella, Nicola Bartolo, and Cristiano Ciuti.
+\newblock ``Spectral theory of {Liouvillians} for dissipative phase
+  transitions''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevA.98.042118}{Physical Review
+  A {\bf 98}, 042118}~(2018).
+
+\bibitem{Xia2026}
+Wei Xia, Shuaifan Cao, Xingze Qiu, and Xiaopeng Li.
+\newblock ``Quantum magic and non-commutativity as computational resources in
+  quantum reservoir computing''~(2026).
+\newblock  \href{http://arxiv.org/abs/2607.12035}{arXiv:2607.12035}.
+
+\bibitem{Poyatos1996}
+J.~F. Poyatos, J.~I. Cirac, and P.~Zoller.
+\newblock ``Quantum reservoir engineering with laser cooled trapped ions''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.77.4728}{Physical Review
+  Letters {\bf 77}, 4728--4731}~(1996).
+
+\bibitem{Verstraete2009}
+Frank Verstraete, Michael~M. Wolf, and J.~Ignacio Cirac.
+\newblock ``Quantum computation and quantum-state engineering driven by
+  dissipation''.
+\newblock \href{https://dx.doi.org/10.1038/nphys1342}{Nature Physics {\bf 5},
+  633--636}~(2009).
+
+\bibitem{Pastawski2011}
+Fernando Pastawski, Lucas Clemente, and Juan~Ignacio Cirac.
+\newblock ``Quantum memories based on engineered dissipation''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevA.83.012304}{Physical Review
+  A {\bf 83}, 012304}~(2011).
+
+\bibitem{Harrington2022}
+Patrick~M. Harrington, Erich~J. Mueller, and Kater~W. Murch.
+\newblock ``Engineered dissipation for quantum information science''.
+\newblock \href{https://dx.doi.org/10.1038/s42254-022-00494-8}{Nature Reviews
+  Physics {\bf 4}, 660--671}~(2022).
+
+\bibitem{Cattaneo2019}
+Marco Cattaneo, Gian~Luca Giorgi, Sabrina Maniscalco, and Roberta Zambrini.
+\newblock ``Local versus global master equation with common and separate baths:
+  superiority of the global approach in partial secular approximation''.
+\newblock \href{https://dx.doi.org/10.1088/1367-2630/ab54ac}{New Journal of
+  Physics {\bf 21}, 113045}~(2019).
+
+\bibitem{Brehm2021}
+Jan~David Brehm, Alexander~N. Poddubny, Alexander Stehli, Tim Wolz, Hannes
+  Rotzinger, and Alexey~V. Ustinov.
+\newblock ``Waveguide bandgap engineering with an array of superconducting
+  qubits''.
+\newblock \href{https://dx.doi.org/10.1038/s41535-021-00310-z}{npj Quantum
+  Materials {\bf 6}, 10}~(2021).
+
+\bibitem{Sheremet2023}
+Alexandra~S. Sheremet, Mihail~I. Petrov, Ivan~V. Iorsh, Alexander~V.
+  Poshakinskiy, and Alexander~N. Poddubny.
+\newblock ``Waveguide quantum electrodynamics: Collective radiance and
+  photon-photon correlations''.
+\newblock \href{https://dx.doi.org/10.1103/RevModPhys.95.015002}{Reviews of
+  Modern Physics {\bf 95}, 015002}~(2023).
+
+\bibitem{CattaneoPRX2023}
+Marco Cattaneo, Matteo A.~C. Rossi, Guillermo Garc{\'i}a-P{\'e}rez, Roberta
+  Zambrini, and Sabrina Maniscalco.
+\newblock ``Quantum simulation of dissipative collective effects on noisy
+  quantum computers''.
+\newblock \href{https://dx.doi.org/10.1103/PRXQuantum.4.010324}{PRX Quantum
+  {\bf 4}, 010324}~(2023).
+
+\bibitem{Holm1979}
+Sture Holm.
+\newblock ``A simple sequentially rejective multiple test procedure''.
+\newblock \href{https://dx.doi.org/10.2307/4615733}{Scandinavian Journal of
+  Statistics {\bf 6}, 65--70}~(1979).
+
+\end{thebibliography}

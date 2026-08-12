@@ -1,0 +1,658 @@
+{
+  "schema_version": 1,
+  "paper_title": "Engineering Memory in Quantum Reservoir Computing through Dissipator Geometry",
+  "release": {
+    "repository": "https://github.com/eybmits/qrc-dissipation-engineering",
+    "public_release_timing": "released publicly",
+    "frozen_numerical_evidence_snapshot_commit": "2ec6a6a6b4741c319b6a8f18ea642c0c8ab35550",
+    "evidence_archive": "results/collective_loss_usable_memory_numerical_evidence.zip",
+    "evidence_archive_sha256": "876d6db7592a9fec1dc093fac0eeac422a0a6f129f50994fbbb45a360242ed6e",
+    "validation_command_after_extraction": "python3 validate_bundle.py",
+    "reset_architecture_evidence_archive": "results/reset_architecture_replication_results.tar.gz",
+    "reset_architecture_evidence_sha256": "bfec022e3b79991329231b59317ff237d1031258b8488f51fd7e1d1b778ecb54",
+    "reset_architecture_validation_command": "PYTHONPATH=src:experiments python experiments/run_reset_architecture_strict.py --verify results/reset_architecture_replication",
+    "rank_one_orientation_evidence_archive": "results/rank_one_orientation_v1_results.tar.gz",
+    "rank_one_orientation_evidence_sha256": "e12f0bdd038b8e45ecea247b09d32815de20330e51ab47aecfe1d995fd86f24a",
+    "rank_one_orientation_validation_command": "python3 rank_one_orientation_v1/validate.py --root rank_one_orientation_v1",
+    "arxiv_source_archive": "results/arxiv_submission.zip",
+    "reader_index": "included in the public repository release; it maps, but does not alter, the frozen numerical evidence snapshot"
+  },
+  "software_and_numerics": {
+    "recorded_environments": {
+      "revision_controls_and_switched_input": {
+        "python": "3.13.2",
+        "numpy": "2.3.3",
+        "scipy": "1.16.2"
+      },
+      "finite_measurement_protocol": {
+        "python": "3.12.13",
+        "numpy": "2.5.1",
+        "scipy": "1.18.0"
+      },
+      "scope_note": "other sealed protocols carry their own source_environment or software block; no single environment is asserted for every historical run"
+    },
+    "propagator": "scipy.sparse.linalg.expm_multiply with library defaults; no user-set tolerance",
+    "zero_ridge_solver": "numpy.linalg.lstsq with rcond=None",
+    "positive_ridge_solver": "solve(X.T @ X + ridge * I, X.T @ y)",
+    "frobenius_check_rtol": 1e-10,
+    "frobenius_check_atol": 1e-12,
+    "training_feature_std_guard": 1e-12
+  },
+  "collective_process": {
+    "coefficients": "c_i=1 for every site",
+    "coefficient_vector": "real, equal phase, (1,...,1)",
+    "operator": "L_c=sqrt(gamma)*sum_i sigma_i^-",
+    "coefficient_norm_squared": "sum_i |c_i|^2=N",
+    "frobenius_target": "B=N*2^(N-1) for the unit-rate local reference; B=80 at N=5 and rematched separately within each finite size",
+    "redrawn_or_fitted_in_primary_and_controls": false,
+    "exception": "the separate profile-by-family interaction check fits a nonuniform collective profile"
+  },
+  "experiment_1": {
+    "shared": {
+      "n_qubits": 5,
+      "couplings": "J_ij independently uniform on [-1,1] for i<j",
+      "h": 0.5,
+      "dt": 0.5,
+      "initial_state": "|0...0>",
+      "washout": 200,
+      "train": 600,
+      "test": 400,
+      "ridge": 1e-8,
+      "readout_observables": 45,
+      "pairing": "same Hamiltonian, input, target, and split within each seed",
+      "hamiltonian_replications": "first 32 primary seeds",
+      "validation_selected_readout_ridge_grid": [0.0, 1e-10, 1e-9, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 0.01, 0.1, 1.0, 10.0, 100.0]
+    },
+    "process_parameters_before_common_frobenius_rescaling": {
+      "uniform_local_relaxation": "unit downward rate at every site",
+      "unequal_local_relaxation": "rates log-uniform on [0.1,10], then rescaled to arithmetic mean 1",
+      "collective_relaxation": "c_i=1 for every site",
+      "pair_loss": "all unordered pairs i<j",
+      "exchange_assisted_relaxation": "40 percent of B local lowering and 60 percent ordered excitation-conserving exchange",
+      "local_gain_loss": "downward/upward rate ratio 1/0.3",
+      "dephasing": "one local sigma_i^z jump per site"
+    },
+    "task_parameters": {
+      "stm_delays": {
+        "inclusive_start": 1,
+        "inclusive_stop": 20
+      },
+      "narma_order": 10,
+      "narma_input_scale": 0.2,
+      "parity_delays": {
+        "inclusive_start": 1,
+        "inclusive_stop": 7
+      },
+      "parity_virtual_nodes": 15,
+      "parity_split": {
+        "washout": 100,
+        "train": 500,
+        "validation": 250,
+        "test": 400
+      },
+      "mackey_glass": {
+        "delay": 17,
+        "beta": 0.2,
+        "decay": 0.1,
+        "exponent": 10,
+        "euler_dt": 1.0,
+        "initial_history": "x0=1.2 plus 0.01*Normal(0,1) over the delay history from the task RNG",
+        "discarded_transient_samples": 500,
+        "sample_every": 3,
+        "closed_loop_horizon": 150,
+        "normalization": "affine minimum and maximum from the washout-plus-training prefix only",
+        "feedback_clipping": "closed-loop predictions fed back to the reservoir are clipped to [0,1]; held-out normalized targets remain unclipped"
+      }
+    },
+    "primary_seed_generator": {
+      "generator": "numpy.random.default_rng(2024), PCG64",
+      "draw": "integers(0,2**31-1,64)",
+      "seeds_in_generation_order": [
+        518677875,
+        1451336746,
+        198305900,
+        460255569,
+        682143856,
+        664543175,
+        1951374833,
+        1716840368,
+        1965675192,
+        2138468722,
+        168654339,
+        305440497,
+        1863865138,
+        169061795,
+        356456226,
+        388316182,
+        1962406241,
+        772335818,
+        566571107,
+        364254564,
+        984590867,
+        1264351001,
+        1718405261,
+        1324584048,
+        2117426094,
+        226314023,
+        1047219577,
+        1214898180,
+        1476527151,
+        9942082,
+        435067937,
+        998835874,
+        142202828,
+        2095132715,
+        1377672095,
+        1716759498,
+        1107046600,
+        1281666272,
+        741254573,
+        698683063,
+        278259764,
+        443120175,
+        1646651383,
+        950745915,
+        1773861870,
+        597089358,
+        1548181879,
+        1878957653,
+        1781459346,
+        457751913,
+        789867792,
+        588936661,
+        1717485497,
+        1733410115,
+        951145932,
+        576310148,
+        139332031,
+        575660628,
+        323523083,
+        152217472,
+        1681033861,
+        1003323287,
+        2082209903,
+        567376861
+      ],
+      "use": {
+        "stm": "first 32",
+        "narma_10": "first 32",
+        "mackey_glass": "all 64",
+        "finite_sampling": "first 20",
+        "hamiltonian_replications": "first 32",
+        "experiment_2": "first 32",
+        "profile_by_family_check": "first 24"
+      }
+    },
+    "fresh_parity": {
+      "seed_namespace": 2026072301,
+      "generator": "revision-control deterministic pool generated from the namespace",
+      "ridge_grid": [0.0, 1e-14, 1e-12, 1e-10, 1e-8, 1e-6, 1e-4, 0.01, 1.0, 100.0],
+      "seeds": [
+      1139865066,
+      1786727755,
+      1777987394,
+      1986906165,
+      32943503,
+      1111774375,
+      350847386,
+      1543348040,
+      1747406840,
+      1677230707,
+      1431150227,
+      684649605,
+      156980750,
+      779590010,
+      1385705790,
+        505463927
+      ]
+    },
+    "finite_size": {
+      "sizes": [4, 5, 6, 7, 8],
+      "seed_namespace": 2026072902,
+      "seeds": [
+        2061796540,
+        1253486452,
+        1432242246,
+        855744678,
+        677623495,
+        213989561,
+        85111709,
+        1145213554,
+        1301962425,
+        853587308,
+        1986112074,
+        1479818854,
+        1715774479,
+        649680171,
+        649433399,
+        756529611,
+        408318222,
+        2031361451,
+        587142897,
+        1579987539,
+        1432309165,
+        711988986,
+        2062206337,
+        1570064704
+      ],
+      "nesting": "principal submatrices of one N=8 draw",
+      "hamiltonian_scale": "sqrt(4/(N-1))",
+      "ridge": 1e-8,
+      "record": "finite_size/experiment1_finite_size_v2_results.tar.gz"
+    },
+    "switched_input_convergence": {
+      "tested_sizes": [4, 5, 6],
+      "tested_processes": [
+        "uniform local relaxation",
+        "collective relaxation",
+        "pair loss"
+      ],
+      "lineages_per_size_and_process": 8,
+      "initial_states": [
+        "ground",
+        "fully excited",
+        "maximally mixed",
+        "Haar-random pure"
+      ],
+      "input_pairing": "the same switched input sequence is used for every initial state within a lineage",
+      "distance_records": [
+        "maximum trace distance over all six initial-state pairs",
+        "maximum Pauli-feature distance over all six initial-state pairs"
+      ],
+      "primary_record": "numerical_evidence.zip::switched_input_memory_control_v2/",
+      "flagship_collective_n5_continuation": {
+        "lineages": 8,
+        "steps": 1200,
+        "convergence_gate": 1e-14,
+        "worst_trace_distance_at_200": 0.000478,
+        "worst_trace_distance_at_800": 1.32e-11,
+        "tail_1100_to_1200_maximum": 4.89e-15,
+        "final_worst_trace_distance": 4.416e-15,
+        "record": "manuscript_source.zip::evidence/collective_N5_convergence_extension_v1/",
+        "verification": "the complete reviewer bundle validator checks all eight checkpoints and the frozen protocol"
+      },
+      "local_pair_cross_size_continuation": {
+        "processes": [
+          "uniform local relaxation",
+          "pair loss"
+        ],
+        "sizes": [4, 5, 6],
+        "lineages_per_size_and_process": 8,
+        "total_lineages": 48,
+        "steps": 1200,
+        "convergence_gate": 1e-14,
+        "maximum_prefix_absolute_error": 2.6497746753810786e-15,
+        "worst_tail_trace_distance_steps_1100_to_1200": 6.845197194225859e-15,
+        "final_worst_trace_distance_by_case": {
+          "principal_local_N4": 6.7283960521191685e-15,
+          "principal_local_N5": 3.359610107517028e-15,
+          "principal_local_N6": 3.0006617891549965e-15,
+          "principal_pair_N4": 4.845915547416158e-15,
+          "principal_pair_N5": 3.4176451003208206e-15,
+          "principal_pair_N6": 1.7220842747587975e-15
+        },
+        "record": "manuscript_source.zip::evidence/local_pair_convergence_extension_v1/",
+        "verification": "the complete reviewer bundle validator checks all 48 checkpoints, their frozen 800-step prefixes, and the six tail gates"
+      },
+      "strict_washout_task_control": {
+        "fresh_pairs": 10,
+        "initial_states": [
+          "ground",
+          "maximally mixed",
+          "Haar-random pure"
+        ],
+        "washouts": [50, 200, 800],
+        "collective_minus_local_stm_at_800": 3.563694142575467,
+        "ci95": [3.1238362243449798, 4.003552060805954],
+        "paired_wins": "10/10"
+      },
+      "scope": "the initialization-independent headline claim is the principal N=5 local-versus-collective comparison; the fixed-initialization N=4,...,8 sweep has a separate descriptive role"
+    },
+    "activity_matched_control": {
+      "target_activity": 0.5075,
+      "local_rate_bracket": [0.05, 0.5],
+      "collective_rate_bracket": [4.0, 32.0],
+      "calibration_washout": 100,
+      "measured_intervals": 150,
+      "geometric_bisections": 8,
+      "relative_gate": 0.015,
+      "all_cells_gate": "all 16 calibrations must pass before task scoring",
+      "seeds": [
+        1727333941,
+        140956653,
+        401028405,
+        2044162318,
+        178654933,
+        874492903,
+        504597278,
+        2141881838
+      ],
+      "record": "expected_jump_activity/operational_activity_ablation_results.tar.gz"
+    },
+    "gap_matched_control": {
+      "collective_rate": 1.0,
+      "constant_input": 0.5,
+      "local_rate_scan": "numpy.logspace(-4,0,17)",
+      "bracket_rule": "first upward crossing",
+      "maximum_geometric_bisections": 16,
+      "relative_gap_gate": 0.005,
+      "seeds": "integers 64000 through 64023 inclusive",
+      "ridge": 1e-8,
+      "record": "midpoint_gap_control/canonical_gap_control/protocol.json",
+      "lag_capacity_record": "midpoint_gap_control/canonical_gap_control/lag_capacities.csv",
+      "lag_capacity_sha256": "f1bd3bafac4c7556f8de2a56ad97b8b261b40c45dd612125afde60cc09738676"
+    },
+    "independent_selection_control": {
+      "h_grid": [0.25, 0.5, 1.0, 2.0],
+      "dt_grid": [0.1, 0.25, 0.5, 1.0],
+      "strength_grid": [0.1, 0.25, 0.5, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0, 64.0, 128.0],
+      "ridge_grid": [0.0, 1e-10, 1e-8, 1e-6, 1e-4, 0.01, 0.1, 1.0, 10.0, 100.0],
+      "screen_seeds": [998585535, 1004383068],
+      "selection_seeds": [
+        432457027,
+        1914342431,
+        502262158,
+        1718974308,
+        1945246717,
+        17079923,
+        534428303,
+        1642423291,
+        1089242593,
+        189877893,
+        536957656,
+        1351587024
+      ],
+      "fresh_test_seeds": [
+        979693500,
+        1351936011,
+        2020336566,
+        666069403,
+        369701169,
+        1429687619,
+        1147394568,
+        541091920,
+        422648221,
+        1706949604,
+        2051545808,
+        1298952091,
+        2048485277,
+        950218045,
+        1784244929,
+        19809837,
+        1886388971,
+        617464569,
+        973999441,
+        208806996,
+        201885042,
+        375309534,
+        2145636215,
+        1626995515
+      ],
+      "selected_local": {
+        "h": 0.25,
+        "dt": 0.5,
+        "strength": 0.25,
+        "ridge": 1e-6
+      },
+      "selected_collective": {
+        "h": 0.5,
+        "dt": 1.0,
+        "strength": 16.0,
+        "ridge": 0.0,
+        "bracketing_strengths": [8.0, 32.0]
+      },
+      "record": "base_reproducibility/qrc_dissipation_reproducibility_package.zip::qrc_dissipation_revision_evidence/results/revision_tuning/nested_operating_point_extension/manifest.json"
+    },
+    "resampling": {
+      "family_map_sign_flips": 100000,
+      "finite_size_sign_flips": 100000,
+      "finite_size_paired_bootstraps": 20000
+    }
+  },
+  "reset_architecture_replication": {
+    "purpose": "test whether the principal collective-over-local ordering transfers from continuous-drive encoding to input-by-reset",
+    "input_map": "rho -> |psi(s)><psi(s)|_0 tensor Tr_0(rho), with |psi(s)>=sqrt(1-s)|0>+sqrt(s)|1>",
+    "autonomous_processor": {
+      "n_qubits": 5,
+      "hamiltonian": "complete-graph XX couplings independently drawn from U[-1,1] plus h sum_i Z_i",
+      "h": 0.5,
+      "dt": 0.5,
+      "input_dependent_drive_during_evolution": false
+    },
+    "dissipators": [
+      "uniform local relaxation",
+      "equal-phase collective relaxation"
+    ],
+    "gamma": 1.0,
+    "assigned_frobenius_budget": {
+      "definition": "sum_k rate_k Tr(L_k^dagger L_k)",
+      "local": 80.0,
+      "collective": 80.0
+    },
+    "readout": {
+      "features": "45 one-body and same-axis two-body Pauli expectations plus bias",
+      "ridge": 1e-8
+    },
+    "inputs": "iid U[0,1], paired within each Hamiltonian and task",
+    "split": {
+      "washout": 800,
+      "train": 600,
+      "test": 400
+    },
+    "tasks": {
+      "stm": {
+        "delays": [1, 20],
+        "local_mean": 4.595911646128261,
+        "collective_mean": 6.369393907487187,
+        "collective_minus_local_mean": 1.7734822613589252,
+        "paired_ci95": [1.3122421631067542, 2.234722359611096],
+        "paired_wins": "16/16"
+      },
+      "narma10": {
+        "input_scale": 0.2,
+        "local_nmse_mean": 0.6729731676513735,
+        "collective_nmse_mean": 0.49093285681095944,
+        "local_minus_collective_mean": 0.182040310840414,
+        "paired_ci95": [0.14384013457275346, 0.22024048710807453],
+        "paired_wins": "16/16"
+      }
+    },
+    "master_seed": 2026080603,
+    "ordered_pair_seeds": [
+      1162690697,
+      411886365,
+      1080967412,
+      1739603920,
+      1154959432,
+      600439382,
+      1254120429,
+      1084176823,
+      1869730849,
+      56490330,
+      1779358140,
+      216883587,
+      1196651361,
+      1669520350,
+      1902393916,
+      724810199
+    ],
+    "initial_state_audit": {
+      "states": [
+        "ground",
+        "fully excited",
+        "maximally mixed",
+        "Haar-random pure"
+      ],
+      "rows": 64,
+      "worst_score_spread": 6.82004475116571e-7,
+      "worst_trace_distance_after_exactly_800_inputs": 1.2837268543813926e-14
+    },
+    "provenance": {
+      "clean_repository_commit": "fad0d6802b8bd03cee9b2ccb7102fe1b6700ca25",
+      "repository_dirty_at_run": false,
+      "python": "3.13.2",
+      "numpy": "2.3.3",
+      "scipy": "1.16.2",
+      "full_record": "reset_architecture_evidence.tar.gz::reset_architecture_replication/",
+      "compact_plot_snapshot": "manuscript_source.zip::data/reset_architecture_snapshot.json",
+      "driver_snapshot": "manuscript_source.zip::evidence/reset_architecture_replication/run_reset_architecture_strict.py"
+    },
+    "scope": "the replication establishes transfer across the two tested input encodings while retaining the N=5 XX+Z processor and Pauli readout; it is not a claim of universal architecture independence"
+  },
+  "experiment_2": {
+    "n_qubits": 5,
+    "h": 0.5,
+    "dt": 0.5,
+    "mean_local_rate": 1.5,
+    "input_quantization_levels": 32,
+    "seeds": "first 32 experiment_1.primary_seed_generator seeds",
+    "split": {
+      "washout": 100,
+      "fitting_block": 250,
+      "optimizer_train": 100,
+      "validation": 150,
+      "test": 200
+    },
+    "stm_delays": {
+      "inclusive_start": 1,
+      "inclusive_stop": 12
+    },
+    "ridge": 1e-8,
+    "random_rate_draw": "log-uniform on [0.15,15], then mean-normalized",
+    "static_optimizer": {
+      "method": "Nelder-Mead",
+      "starts": 2,
+      "start_definitions": [
+        "zero theta vector",
+        "inverse-softplus transform of the seed-specific unequal-rate profile"
+      ],
+      "maximum_function_evaluations": 35,
+      "xatol": 0.01,
+      "fatol": 0.001
+    },
+    "adaptive_optimizer": {
+      "method": "Nelder-Mead",
+      "starts": 1,
+      "start_definition": "a_i drawn from Normal(0,0.5) and b_i=0.5 using the seed-specific generator after the Hamiltonian, input, and unequal-rate draws",
+      "maximum_function_evaluations": 50,
+      "xatol": 0.01,
+      "fatol": 0.001,
+      "mean_matching_grid": "11 evenly spaced inputs"
+    },
+    "profile_by_family_check": {
+      "pairs": 24,
+      "seeds": "first 24 experiment_1.primary_seed_generator seeds",
+      "starts": 2,
+      "start_definitions": [
+        "zero theta vector",
+        "inverse-softplus transform of a seed-specific log-uniform profile"
+      ],
+      "maximum_function_evaluations": 40,
+      "xatol": 0.01,
+      "fatol": 0.001
+    },
+    "archive_scope_note": "scripts, settings, seeds, and held-out scores are archived; rerunning the sealed scripts reconstructs learned profiles"
+  },
+  "experiment_3": {
+    "n_qubits": 5,
+    "seeds": "first 20 experiment_1.primary_seed_generator seeds",
+    "delays": {
+      "inclusive_start": 1,
+      "inclusive_stop": 20
+    },
+    "split": {
+      "washout": 200,
+      "train": 480,
+      "validation": 120,
+      "test": 400
+    },
+    "q_grid": [64, 256, 1024, 4096, 16384, 65536, 262144],
+    "preparations_per_step": "45*q for both estimators",
+    "independent_estimator": "q preparations for each of 45 observables",
+    "grouped_estimator": "15*q preparations in each global X, Y, and Z product basis",
+    "measurement_rng": "numpy.random.SeedSequence([20260723, seed, channel_index, model_index, shots_per_observable]) as recorded in the sealed protocol",
+    "problem_rng": "numpy.random.default_rng(seed); couplings are drawn before the STM input",
+    "exact_endpoint": true,
+    "ridge_selection": "maximize summed validation STM after fitting on train; refit on train+validation; score the untouched test once",
+    "ridge_grid": [0.0, 1e-10, 1e-8, 1e-6, 1e-4, 0.001, 0.01, 0.1, 1.0, 10.0, 100.0, 1000.0, 10000.0, "infinity_limit"],
+    "record": "base_reproducibility/qrc_dissipation_reproducibility_package.zip::qrc_dissipation_revision_evidence/results/measurement_full_v3/protocol.json"
+  },
+  "phase_direction_confirmation": {
+    "purpose": "test whether coefficient direction affects readout-accessible STM within otherwise matched rank-one shared relaxation",
+    "protocol_version": "phase-direction-confirmatory-v1-2026-08-12",
+    "protocol_sha256": "7e47d63012e6ed859214b1440d984dcdf183b2b6e2c4442ad1144da9b487cb53",
+    "seed_namespace": 2026081202,
+    "direction_namespace": 2026081203,
+    "inference_namespace": 2026081204,
+    "n_fresh_paired_reservoirs": 32,
+    "pilot_scores_included": false,
+    "conditions": "five prespecified phase-gradient directions and four frozen non-affine zero-overlap fifth-root permutations",
+    "held_fixed": "Hamiltonian, input, target, split, 45 Pauli features, rank one, Kossakowski spectrum and diagonal, coefficient magnitudes, magnitude IPR, and B=80",
+    "split": {
+      "washout": 800,
+      "fit": 600,
+      "untouched_test": 400
+    },
+    "primary_readout": "fixed ridge 1e-8",
+    "sensitivity_readout": "450 training plus 150 validation rows, validation-selected ridge, refit on 600 rows",
+    "primary_estimand": "equal-phase STM minus orthogonal Fourier-direction STM",
+    "primary_mean": 2.6484549213110054,
+    "primary_ci95": [2.346706454120254, 2.9502033885017567],
+    "primary_wins": 32,
+    "primary_monte_carlo_signflip_p": 9.99990000099999e-06,
+    "convergence_gate": "all nine directions on the first eight fresh seeds, four initial states, strict washout 800",
+    "validation": "all 72 convergence cells and all 288 task cells authenticate; an independent numerical replay confirms single- and four-right-hand-side propagation within 1e-12 in features",
+    "numerical_replay_audit_sha256": "271e487d9b7585c5ed5edf9ce252c1879027517f719f4ae032720adc80720659",
+    "validation_report_sha256": "38e4c076b407ace1959f8b8a7bee12348cab2aafa93f03b0c16348d35842f15d",
+    "compact_snapshot": "manuscript_source.zip::data/phase_direction_confirmatory_snapshot.json",
+    "full_record": "phase_direction_confirmatory_v1_results.tar.gz::phase_direction_confirmatory_v1/",
+    "full_record_sha256": "ec9a7e6aea148fadf59d83a0967a08cdba6436ad8e2fd8e61e81473226f0f394",
+    "scope": "the intervention identifies direction as relevant along the tested matched rank-one paths; it does not establish a universal mechanism or globally optimal phase pattern"
+  },
+  "rank_one_orientation_replication": {
+    "purpose": "replicate the rank-one direction intervention at a second finite size using a real sign-balanced direction orthogonal to the uniform site profile of the fixed Hamiltonian input drive",
+    "protocol_version": "rank-one-orientation-v1-2026-08-12",
+    "protocol_semantic_sha256": "86cfb94729d3ad039e41312f18fd25f001c5c19ef9b40c01458076f3a8ac35c5",
+    "raw_checkpoint_set_sha256": "8500af21e29f37e51db1b6eed652894a4b818d6f2e5f6c223a03ce7dedfffdf3",
+    "seed_namespace": 2026081201,
+    "n_qubits": 6,
+    "n_separately_generated_paired_reservoirs": 24,
+    "conditions": {
+      "equal_phase": [1, 1, 1, 1, 1, 1],
+      "drive_orthogonal_sign_balanced": [1, 1, 1, -1, -1, -1]
+    },
+    "held_fixed": "Hamiltonian, temporal input stream, Pauli readout, data split, ridge protocol, one lowering jump, Kossakowski rank, nonzero spectrum, trace, sitewise diagonal, coefficient magnitudes, five-dimensional Kossakowski-block kernel, and assigned B=192",
+    "split": {
+      "washout": 800,
+      "fit": 600,
+      "untouched_test": 400
+    },
+    "primary_estimand": "equal-phase STM minus drive-orthogonal STM",
+    "primary_mean": 2.271492573239316,
+    "primary_ci95": [1.8258875618947812, 2.7170975845838505],
+    "primary_wins": 24,
+    "exact_sign_test_p_two_sided": 1.1920928955078125e-07,
+    "relative_increase": 0.20005478609130475,
+    "lag_resolved": "mean paired differences and their 95% Student-t intervals are positive at all 20 tested delays; at delay 20 the means are 0.2787384999879061 versus 0.08715190087585652",
+    "response_diagnostics": "equal phase has lower feature-space effective rank and a larger leading-singular-energy fraction, hence a more concentrated and front-loaded normalized response; these changes are not detectably associated with the seed-level STM gain and are not claimed as mediators",
+    "convergence": "ground-versus-mixed audits pass for all 24 pairs at 800 inputs; the first six pairs additionally pass four-state audits using ground, mixed, fully excited, and Haar-random initial states",
+    "compact_snapshot": "manuscript_source.zip::data/rank_one_orientation_snapshot.json",
+    "compact_evidence": "manuscript_source.zip::evidence/rank_one_orientation_v1/",
+    "full_record": "rank_one_orientation_v1_results.tar.gz::rank_one_orientation_v1/",
+    "full_record_sha256": "e12f0bdd038b8e45ecea247b09d32815de20330e51ab47aecfe1d995fd86f24a",
+    "scope": "the intervention establishes orientation dependence within the tested rank-one collective-lowering sector; it does not identify a universal optimum, an asymptotic scaling law, or a unique microscopic mediator"
+  },
+  "artifact_map": {
+    "seven_design_performance_map": "base_reproducibility/qrc_dissipation_reproducibility_package.zip",
+    "kossakowski_weight_illustration": "analytic schematic in the manuscript figure source; no fitted data",
+    "finite_size_trend": "finite_size/experiment1_finite_size_v2_results.tar.gz",
+    "protocol_control_forest": "primary/Hamiltonian rows plus expected_jump_activity, midpoint_gap_control, and nested selection records",
+    "switched_input_convergence_and_mode_retention": "switched_input_memory_control_v2/protocol.json and the convergence/leading_modes records it authenticates; the collective N=5 continuation is frozen in paper/evidence/collective_N5_convergence_extension_v1/ and the local/pair N=4,5,6 continuations are frozen in paper/evidence/local_pair_convergence_extension_v1/",
+    "reset_architecture_replication": "reset_architecture_evidence.tar.gz and data/reset_architecture_snapshot.json",
+    "rate_profile_effects": "profile and joint-axis records in base_reproducibility/",
+    "finite_measurement_comparison": "measurement_full_v3 records in base_reproducibility/",
+    "absolute_scores_and_zero_jump": "base_reproducibility/ and zero_jump_control/",
+    "rank_one_phase_direction_intervention": "phase_direction_confirmatory_v1_results.tar.gz and data/phase_direction_confirmatory_snapshot.json",
+    "rank_one_real_orientation_replication": "rank_one_orientation_v1_results.tar.gz, data/rank_one_orientation_snapshot.json, and evidence/rank_one_orientation_v1/"
+  }
+}

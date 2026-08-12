@@ -1,0 +1,394 @@
+{
+  "conditions": [
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "coefficient_sha256": "df2ea5476f44234ab0e2512d0348dfc33554153bdfacc0c992fa433088b56d20",
+      "coefficients_imag": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "coefficients_real": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "condition": "path_f0",
+      "kossakowski_diagonal": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kossakowski_eigenvalues": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        5.0
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.2,
+      "uniform_direction_overlap": 1.0
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        0.9999999999999999,
+        1.0000000000000002,
+        1.0000000000000002,
+        0.9999999999999999
+      ],
+      "coefficient_sha256": "da9b17ce507b8b60426f6c764ce3a717421b2aa12139ec333acbb6a993549ec9",
+      "coefficients_imag": [
+        0.0,
+        0.3090169943749474,
+        0.5877852522924731,
+        0.8090169943749475,
+        0.9510565162951535
+      ],
+      "coefficients_real": [
+        1.0,
+        0.9510565162951535,
+        0.8090169943749475,
+        0.5877852522924731,
+        0.30901699437494745
+      ],
+      "condition": "path_f025",
+      "kossakowski_diagonal": [
+        1.0,
+        0.9999999999999999,
+        1.0,
+        1.0,
+        0.9999999999999999
+      ],
+      "kossakowski_eigenvalues": [
+        -3.137073353533863e-16,
+        -1.844330271808867e-16,
+        6.28874827633419e-17,
+        1.9797067026607166e-16,
+        5.000000000000001
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.20000000000000007,
+      "uniform_direction_overlap": 0.817269163781228
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        1.0000000000000002,
+        0.9999999999999999,
+        1.0,
+        1.0
+      ],
+      "coefficient_sha256": "f7e49f5df1b9ac49d6e814aa61807325428881fc3fe969319e15ca2680757142",
+      "coefficients_imag": [
+        0.0,
+        0.5877852522924731,
+        0.9510565162951535,
+        0.9510565162951536,
+        0.5877852522924732
+      ],
+      "coefficients_real": [
+        1.0,
+        0.8090169943749475,
+        0.30901699437494745,
+        -0.30901699437494734,
+        -0.8090169943749473
+      ],
+      "condition": "path_f05",
+      "kossakowski_diagonal": [
+        1.0,
+        1.0,
+        0.9999999999999999,
+        1.0,
+        1.0
+      ],
+      "kossakowski_eigenvalues": [
+        -3.7065419755161976e-16,
+        -2.328487113586538e-16,
+        -5.0175047297362816e-17,
+        8.40211967911198e-16,
+        5.000000000000001
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.2,
+      "uniform_direction_overlap": 0.4188854381999832
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        1.0000000000000002,
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "coefficient_sha256": "d926dd6e7d5229c218573771edc3f8303685bcb990e2ae76c482872857be3fb7",
+      "coefficients_imag": [
+        0.0,
+        0.8090169943749475,
+        0.9510565162951536,
+        0.3090169943749475,
+        -0.587785252292473
+      ],
+      "coefficients_real": [
+        1.0,
+        0.5877852522924731,
+        -0.30901699437494734,
+        -0.9510565162951535,
+        -0.8090169943749475
+      ],
+      "condition": "path_f075",
+      "kossakowski_diagonal": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.9999999999999999
+      ],
+      "kossakowski_eigenvalues": [
+        -4.9783430136555e-16,
+        -2.6747334389292313e-17,
+        4.7105483095431166e-17,
+        2.0092863772945858e-16,
+        5.0
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.2,
+      "uniform_direction_overlap": 0.09703679992638367
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        0.9999999999999999,
+        1.0,
+        0.9999999999999999,
+        1.0
+      ],
+      "coefficient_sha256": "34a438002f08be3f7e171e2aa5851a7eab6b9af04b80d6a9e63f7bfdbd52ab48",
+      "coefficients_imag": [
+        0.0,
+        0.9510565162951535,
+        0.5877852522924732,
+        -0.587785252292473,
+        -0.9510565162951536
+      ],
+      "coefficients_real": [
+        1.0,
+        0.30901699437494745,
+        -0.8090169943749473,
+        -0.8090169943749475,
+        0.30901699437494723
+      ],
+      "condition": "path_f1",
+      "kossakowski_diagonal": [
+        1.0,
+        0.9999999999999999,
+        1.0,
+        0.9999999999999999,
+        1.0
+      ],
+      "kossakowski_eigenvalues": [
+        -2.4467392604812233e-16,
+        -1.2188605714352233e-16,
+        1.5402003573313186e-16,
+        3.8825495330651003e-16,
+        5.0
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.19999999999999996,
+      "uniform_direction_overlap": 9.86076131526265e-34
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ],
+      "coefficient_sha256": "4b1d06c3b21e6789a47db68f2a7a014f28f1e5788c24e16a5031af7b6ff7da4f",
+      "coefficients_imag": [
+        0.0,
+        0.5877852522924732,
+        -0.587785252292473,
+        0.9510565162951535,
+        -0.9510565162951536
+      ],
+      "coefficients_real": [
+        1.0,
+        -0.8090169943749473,
+        -0.8090169943749475,
+        0.30901699437494745,
+        0.30901699437494723
+      ],
+      "condition": "scrambled_r1",
+      "kossakowski_diagonal": [
+        1.0,
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ],
+      "kossakowski_eigenvalues": [
+        -7.138878793290083e-16,
+        -2.0974733743725942e-16,
+        1.2151932467270923e-16,
+        4.34203333825822e-16,
+        4.999999999999998
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.19999999999999996,
+      "uniform_direction_overlap": 9.86076131526265e-34
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0,
+        1.0
+      ],
+      "coefficient_sha256": "1d81841c09897949d1246715d0632a9a9fb8c0327e0184552bcb8994b02bd261",
+      "coefficients_imag": [
+        0.0,
+        0.9510565162951535,
+        -0.587785252292473,
+        -0.9510565162951536,
+        0.5877852522924732
+      ],
+      "coefficients_real": [
+        1.0,
+        0.30901699437494745,
+        -0.8090169943749475,
+        0.30901699437494723,
+        -0.8090169943749473
+      ],
+      "condition": "scrambled_r2",
+      "kossakowski_diagonal": [
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0,
+        1.0
+      ],
+      "kossakowski_eigenvalues": [
+        -2.338826389292344e-16,
+        -1.5148937140587742e-16,
+        1.5959682815066588e-16,
+        8.345346469920115e-16,
+        5.000000000000001
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.19999999999999996,
+      "uniform_direction_overlap": 9.86076131526265e-34
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        1.0,
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "coefficient_sha256": "f1de6eeca8461ed084c26a37ca26c50aca00bfe8fb395275626eade67d3fd42d",
+      "coefficients_imag": [
+        0.0,
+        0.5877852522924732,
+        -0.9510565162951536,
+        -0.587785252292473,
+        0.9510565162951535
+      ],
+      "coefficients_real": [
+        1.0,
+        -0.8090169943749473,
+        0.30901699437494723,
+        -0.8090169943749475,
+        0.30901699437494745
+      ],
+      "condition": "scrambled_r3",
+      "kossakowski_diagonal": [
+        1.0,
+        1.0,
+        1.0,
+        0.9999999999999999,
+        0.9999999999999999
+      ],
+      "kossakowski_eigenvalues": [
+        -7.490799246417609e-16,
+        -1.7534551049915203e-16,
+        -1.7071381230756808e-17,
+        2.556227126233874e-16,
+        4.999999999999999
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.19999999999999996,
+      "uniform_direction_overlap": 2.4651903288156624e-33
+    },
+    {
+      "coefficient_magnitudes": [
+        1.0,
+        0.9999999999999999,
+        1.0,
+        0.9999999999999999,
+        1.0
+      ],
+      "coefficient_sha256": "d2e2123a4d081ffa7b560e9f3875465eff564222956ec7cdce001c5d508d5d98",
+      "coefficients_imag": [
+        0.0,
+        -0.587785252292473,
+        -0.9510565162951536,
+        0.9510565162951535,
+        0.5877852522924732
+      ],
+      "coefficients_real": [
+        1.0,
+        -0.8090169943749475,
+        0.30901699437494723,
+        0.30901699437494745,
+        -0.8090169943749473
+      ],
+      "condition": "scrambled_r4",
+      "kossakowski_diagonal": [
+        1.0,
+        0.9999999999999999,
+        1.0,
+        0.9999999999999999,
+        1.0
+      ],
+      "kossakowski_eigenvalues": [
+        -3.3085917411350796e-16,
+        -2.1475646667278096e-16,
+        2.3861815894309905e-16,
+        7.892720261692288e-16,
+        5.000000000000002
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 5.0,
+      "magnitude_ipr": 0.19999999999999996,
+      "uniform_direction_overlap": 9.86076131526265e-34
+    }
+  ],
+  "direction_ledger_sha256": "e1df585eb6896b4743946f2cc59498e91db2d3466329a287caafdc7b9baf1842",
+  "direction_namespace": 2026081203,
+  "generation_rule": "five fixed phase-gradient points plus four frozen non-affine permutations of the fifth roots of unity; c0 is gauge-fixed to one"
+}

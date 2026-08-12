@@ -1,0 +1,290 @@
+{
+  "audit_seeds": [
+    653405976,
+    1031846597,
+    552412115,
+    580193326,
+    812996642,
+    96539450,
+    740577026,
+    395071372
+  ],
+  "claim_boundary": "The direction of this matched rank-one channel affects memory in the tested driven-spin reservoirs; no unique or universal mechanism and no globally optimal direction are claimed.",
+  "conditions": [
+    "path_f0",
+    "path_f025",
+    "path_f05",
+    "path_f075",
+    "path_f1",
+    "scrambled_r1",
+    "scrambled_r2",
+    "scrambled_r3",
+    "scrambled_r4"
+  ],
+  "convergence_gate": {
+    "conditions": [
+      "path_f0",
+      "path_f025",
+      "path_f05",
+      "path_f075",
+      "path_f1",
+      "scrambled_r1",
+      "scrambled_r2",
+      "scrambled_r3",
+      "scrambled_r4"
+    ],
+    "fixed_ridge_score_range_max": 0.0001,
+    "gate_must_pass_before_task_scoring": true,
+    "pauli_max_abs_at_800_max": 1e-08,
+    "seeds": [
+      653405976,
+      1031846597,
+      552412115,
+      580193326,
+      812996642,
+      96539450,
+      740577026,
+      395071372
+    ],
+    "states": [
+      "ground",
+      "excited",
+      "maximally_mixed",
+      "haar_pure"
+    ],
+    "trace_distance_at_800_max": 1e-08
+  },
+  "directions_sha256": "e1df585eb6896b4743946f2cc59498e91db2d3466329a287caafdc7b9baf1842",
+  "frozen_at_utc": "2026-08-12T00:12:58.600246+00:00",
+  "held_fixed": [
+    "Hamiltonian",
+    "input stream",
+    "target",
+    "split",
+    "readout observables",
+    "Kossakowski rank one",
+    "Kossakowski diagonal one at every site",
+    "Kossakowski spectrum (5,0,...,0)",
+    "Kossakowski trace five",
+    "coefficient magnitudes one",
+    "magnitude IPR one fifth",
+    "assigned jump-strength budget B=80"
+  ],
+  "inference": {
+    "adjusted_secondary_contrasts": [
+      "path_f0-path_f025",
+      "path_f0-path_f05",
+      "path_f0-path_f075",
+      "path_f0-scrambled_r1",
+      "path_f0-scrambled_r2",
+      "path_f0-scrambled_r3",
+      "path_f0-scrambled_r4"
+    ],
+    "adjusted_secondary_multiplicity": "Holm sign-flip tests and Bonferroni-simultaneous 95% t intervals across seven",
+    "gated_key_secondary": "STM(path_f0)-within-seed mean(path_f1,scrambled_r1,...,scrambled_r4); tested at alpha=.05 only if the primary passes",
+    "inference_namespace": 2026081204,
+    "no_optional_stopping_or_seed_replacement": true,
+    "ordered_path_diagnostic": "mean within-seed Spearman rho with 100000 repeated-measures label permutations",
+    "primary_interval": "paired two-sided 95% Student-t interval",
+    "primary_test": "100000 fixed-seed Monte Carlo paired sign flips",
+    "single_primary_estimand": "STM(path_f0)-STM(path_f1)"
+  },
+  "n_seeds": 32,
+  "phase_path": {
+    "path_f0": 0.0,
+    "path_f025": 0.25,
+    "path_f05": 0.5,
+    "path_f075": 0.75,
+    "path_f1": 1.0
+  },
+  "pilot_use": "pilot seeds and pilot scores are excluded and never pooled",
+  "pre_score_smoke": {
+    "dense_sparse_dissipator_max_abs": 0.0,
+    "equal_builder_max_abs": 0.0,
+    "global_phase_dissipator_max_abs": 3.330699299066313e-16,
+    "n_conditions": 9,
+    "n_seeds": 32,
+    "status": "passed"
+  },
+  "pre_score_smoke_sha256": "6e66146b44c7d456b2159c87230c384a9c432a5ff5442faf1bce27a0365a17a3",
+  "primary_condition": "path_f0",
+  "primary_reference": "path_f1",
+  "protocol_sha256": "7e47d63012e6ed859214b1440d984dcdf183b2b6e2c4442ad1144da9b487cb53",
+  "protocol_version": "phase-direction-confirmatory-v1-2026-08-12",
+  "question": "Does rotating an otherwise matched rank-one collective lowering channel away from the equal-phase direction reduce held-out STM?",
+  "reservoir": {
+    "backend": "SparseLindbladReservoir exact expm_multiply",
+    "couplings": "J_ij iid Uniform[-1,1] for i<j",
+    "dt": 0.5,
+    "features": "45 weight-one/two same-axis Pauli expectations plus bias",
+    "h": 0.5,
+    "initial_state_for_task": "|0...0>",
+    "input": "iid Uniform[0,1] from the paired problem RNG",
+    "n_qubits": 5
+  },
+  "scrambled_exponents": {
+    "scrambled_r1": [
+      0,
+      2,
+      3,
+      1,
+      4
+    ],
+    "scrambled_r2": [
+      0,
+      1,
+      3,
+      4,
+      2
+    ],
+    "scrambled_r3": [
+      0,
+      2,
+      4,
+      3,
+      1
+    ],
+    "scrambled_r4": [
+      0,
+      3,
+      4,
+      1,
+      2
+    ]
+  },
+  "seed_freshness_audit": {
+    "collisions": [],
+    "declared_seed_count_checked": 169,
+    "manifest_sha256_at_freeze": "7237b1fd64bfb836c316730a5217e0dcedddebe5214b21397a5d8192d73be778",
+    "pilot_seed_count_checked": 8,
+    "principal_collisions": [],
+    "principal_seed_count_checked": 64
+  },
+  "seed_namespace": 2026081202,
+  "seeds": [
+    653405976,
+    1031846597,
+    552412115,
+    580193326,
+    812996642,
+    96539450,
+    740577026,
+    395071372,
+    1088019782,
+    1947384789,
+    1238786023,
+    1603309630,
+    345831413,
+    1378099110,
+    271924869,
+    246873821,
+    272816610,
+    952697876,
+    1565274822,
+    697368240,
+    1620152868,
+    250081386,
+    1519772029,
+    1266500966,
+    1226991834,
+    1000639827,
+    1685804651,
+    823320203,
+    1825046501,
+    394437236,
+    1768248831,
+    181572750
+  ],
+  "source_environment": {
+    "files": {
+      "experiments/_paths.py": "9b20ae2437fb0b98ce65ba4d531a591d8b7293519cab4c9eeed97246658a5ff5",
+      "experiments/run_final_scaling.py": "f4e3ffebe2d0548e2ac3bed29f4b07648a03b646aa7549707ed20c4c1e41fc7e",
+      "experiments/run_phase_direction_confirmatory.py": "cfbfa6ec3e0b37433902463d7435c2923da43b7f22990dd5f533fc16f1cf8ef4",
+      "experiments/run_revision_controls.py": "adee15d3b919a3055300ef545c5f64b0a5df23bd2856083e8d7a810ef976c88c",
+      "experiments/run_revision_primary_regularization.py": "85e6f042af370bca5fea0210898e7a41966320afbe1801f1cf7987d1747e3375",
+      "src/qrc/__init__.py": "81d21af2b6bdd3eb52e2820ac476f4ac247fbed8071452dde38334df62eb7245",
+      "src/qrc/dissipators.py": "f7ff61ec83f969f69d00077d859eb13a3b9f1e81974838d6cff08e7f4caef203",
+      "src/qrc/liouvillian.py": "bfb6eda88c5d9c2bbbedda7bd88e5eef8b39ab0970d9f25f9e0b1a600448c26b",
+      "src/qrc/operators.py": "d0bed61609a3a3a10dc64cf2695c1999dc87afad511d3515eecb53b5cfcbd13b",
+      "src/qrc/readout.py": "9235f8f6c2d8d370d84c5a7f89bf3d33e8c6801de792346594442113ad794db9",
+      "src/qrc/reservoirs.py": "f405a9118319a7501addba9fd54731b3a8c197d520910ec4fd5840a1a9ccfabc",
+      "src/qrc/sparse_evolve.py": "dc16975777dd72ec88a8a5c2fc0e3fafe44393f680628a7235151523fe154751",
+      "src/qrc/tasks.py": "dd9a41e38f43c94426b6da59118c034474a794328e1bb96092b06ca1305fa31d"
+    },
+    "git_head_at_freeze": "43039aab2ae6c00e498386c9b226ef3985dde0b9",
+    "matplotlib": "3.11.0",
+    "numpy": "2.3.3",
+    "python": "3.13.2",
+    "scipy": "1.16.2",
+    "thread_limits": {
+      "MKL_NUM_THREADS": "1",
+      "NUMEXPR_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "VECLIB_MAXIMUM_THREADS": "1"
+    }
+  },
+  "source_environment_sha256": "9adc9f0433f3914c80f32184ec87840a8e73802fe3119d23c8667bf15d26a3f0",
+  "status": "confirmatory_frozen_before_scoring",
+  "task": {
+    "delays": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20
+    ],
+    "fit_rows": 600,
+    "name": "STM",
+    "primary_readout": {
+      "fit": "all 600 fitting rows, per-delay finite-row rule",
+      "ridge": 1e-08
+    },
+    "sensitivity_readout": {
+      "refit": "per-delay train plus all validation rows",
+      "ridge_grid": [
+        0.0,
+        1e-10,
+        1e-09,
+        1e-08,
+        1e-07,
+        1e-06,
+        1e-05,
+        0.0001,
+        0.001,
+        0.01,
+        0.1,
+        1.0,
+        10.0,
+        100.0
+      ],
+      "selection": "maximize summed validation capacity; stronger ridge wins ties",
+      "train": 450,
+      "validation": 150
+    },
+    "test_rows": 400,
+    "washout": 800
+  },
+  "zero_overlap_conditions": [
+    "path_f1",
+    "scrambled_r1",
+    "scrambled_r2",
+    "scrambled_r3",
+    "scrambled_r4"
+  ]
+}

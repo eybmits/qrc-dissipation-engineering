@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "protocol_version": "phase-direction-confirmatory-v1-2026-08-12",
+  "protocol_sha256": "7e47d63012e6ed859214b1440d984dcdf183b2b6e2c4442ad1144da9b487cb53",
+  "protocol_file_sha256": "ef12dd27cd78976e644bbaea10a03c694cf34c8f1b287a0029e30625092f52fc",
+  "aggregate_sha256": "e185b9e88ef675e037963e916f70c19941b3d737e8ba2780e6bad4afddca68e6",
+  "aggregate_file_sha256": "1112b830924c7b43dbb7c16ca4baf9cb1d4ab5205c67c2b01d5ec430aacb9634",
+  "convergence_summary_sha256": "61656790f36dccce4bbb115089a7ca62b3c184624d8db52576cc6adf28bf71e2",
+  "convergence_summary_file_sha256": "1402b70561f2c18a545e5636b10b2042cfc01710d8ff275bcadff408d91a9ce1",
+  "validation_amendment_sha256": "dd544a57c89967fe5bf0858eefe1c66e28234695cfb5289c10cbd0d6a9ec6ea3",
+  "validation_amendment_file_sha256": "e842c1f6299ec9d839c36825e8736eb1b053388cc9aff48d17ca0a4d0b767b38",
+  "numerical_replay_audit_sha256": "271e487d9b7585c5ed5edf9ce252c1879027517f719f4ae032720adc80720659",
+  "numerical_replay_audit_file_sha256": "e401c62cafe9131cb83fe8f6b0af4ef50bb9a9aa13c75d2def47b38179e1a0d1",
+  "validation_report_sha256": "38e4c076b407ace1959f8b8a7bee12348cab2aafa93f03b0c16348d35842f15d",
+  "validation_report_file_sha256": "2379fa37daf108c53088172f96e20e05e96c09493f3c6ebd0f1f2ec19fab1403",
+  "full_record_sha256": "ec9a7e6aea148fadf59d83a0967a08cdba6436ad8e2fd8e61e81473226f0f394",
+  "pilot_scores_included": false,
+  "n_seeds": 32,
+  "n_conditions": 9,
+  "washout": 800,
+  "fit_rows": 600,
+  "test_rows": 400,
+  "fixed_ridge": 1e-08,
+  "fixed_ridge_means": {
+    "path_f0": 12.252572642738143,
+    "path_f025": 11.312176880252135,
+    "path_f05": 10.203799557605835,
+    "path_f075": 9.750819277483416,
+    "path_f1": 9.604117721427137,
+    "scrambled_r1": 9.626287206781978,
+    "scrambled_r2": 9.552181336273684,
+    "scrambled_r3": 9.68269310690846,
+    "scrambled_r4": 9.589568764260646
+  },
+  "primary": {
+    "estimand": "STM(path_f0)-STM(path_f1)",
+    "mean": 2.6484549213110054,
+    "ci95_student_t": [2.346706454120254, 2.9502033885017567],
+    "wins": 32,
+    "losses": 0,
+    "monte_carlo_signflip_p_two_sided": 9.99990000099999e-06
+  },
+  "gated_zero_overlap_generality": {
+    "estimand": "STM(path_f0)-within-seed mean(five zero-overlap rays)",
+    "mean": 2.6416030156077612,
+    "ci95_student_t": [2.3831162215073403, 2.900089809708182],
+    "wins": 32,
+    "losses": 0,
+    "monte_carlo_signflip_p_two_sided": 9.99990000099999e-06,
+    "tested_by_fixed_sequence_gate": true
+  },
+  "validation_selected_sensitivity": {
+    "mean": 2.654917799226075,
+    "ci95_student_t": [2.354470459402958, 2.9553651390491917],
+    "wins": 32,
+    "losses": 0
+  },
+  "ordered_path_diagnostic": {
+    "mean_within_seed_spearman_rho": 0.8999999999999999,
+    "ci95_student_t": [0.8580342120286801, 0.9419657879713197],
+    "monte_carlo_label_permutation_p_two_sided": 9.99990000099999e-06
+  },
+  "convergence_and_replay": {
+    "n_convergence_checkpoints": 72,
+    "n_numerical_replays": 72,
+    "all_gates_passed": true,
+    "worst_trace_distance_at_800": 2.805911668427509e-09,
+    "worst_pauli_max_abs_at_800": 3.3460756526659807e-09,
+    "worst_initial_state_stm_range": 9.304400805376645e-09,
+    "maximum_single_vs_batch_feature_difference": 1.2811973704174306e-13,
+    "maximum_single_vs_batch_stm_difference": 4.143647203136425e-09
+  },
+  "structural_invariants": {
+    "kossakowski_rank": 1,
+    "kossakowski_trace": 5.0,
+    "kossakowski_spectrum": [5.0, 0.0, 0.0, 0.0, 0.0],
+    "kossakowski_diagonal": [1.0, 1.0, 1.0, 1.0, 1.0],
+    "coefficient_magnitudes": [1.0, 1.0, 1.0, 1.0, 1.0],
+    "magnitude_ipr": 0.2,
+    "assigned_weight_B": 80.0
+  },
+  "figure": "figures/fig_phase_direction.pdf",
+  "full_record": "results/phase_direction_confirmatory_v1_results.tar.gz",
+  "claim_boundary": "The direction of this matched rank-one channel affects memory in the tested driven-spin reservoirs; no unique or universal mechanism and no globally optimal direction are claimed."
+}

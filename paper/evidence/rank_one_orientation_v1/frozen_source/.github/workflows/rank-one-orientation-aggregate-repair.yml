@@ -1,0 +1,47 @@
+name: Aggregate completed rank-one orientation run
+
+on:
+  push:
+    paths:
+      - experiments/aggregate_rank_one_orientation_artifacts.py
+      - .github/workflows/rank-one-orientation-aggregate-repair.yml
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  aggregate-completed-run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install scientific package
+        run: python -m pip install -e .
+      - name: Download the 24 completed seed artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: rank-one-orientation-seed-*
+          path: results/rank_one_orientation_v1/checkpoints
+          merge-multiple: true
+          run-id: 31548943717
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Validate and aggregate without recomputing trajectories
+        run: |
+          python experiments/aggregate_rank_one_orientation_artifacts.py \
+            --checkpoint-dir results/rank_one_orientation_v1/checkpoints \
+            --outdir results/rank_one_orientation_v1
+          cat results/rank_one_orientation_v1/REPORT.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rank-one-orientation-repaired-results
+          path: |
+            results/rank_one_orientation_v1
+            results/rank_one_orientation_v1_results.zip
+          if-no-files-found: error
+          retention-days: 30

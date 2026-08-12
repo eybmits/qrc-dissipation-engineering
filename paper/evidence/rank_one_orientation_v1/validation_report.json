@@ -1,0 +1,124 @@
+{
+  "additional_four_state_audit_pair_count": 6,
+  "all_convergence_gates_passed": true,
+  "channel_invariants": {
+    "drive_orthogonal": {
+      "coefficient_magnitudes": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "coefficient_norm_squared": 6.0,
+      "jump_sha256": "0b7c501fb88d59968692ac15a3680a182f6743cfa83064b7c5bce6637d851349",
+      "kossakowski_diagonal": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kossakowski_kernel_dimension": 5,
+      "kossakowski_nonzero_eigenvalues": [
+        6.0
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 6.0,
+      "normalized_squared_overlap_with_uniform_drive": 0.0,
+      "operator_weight_budget_B": 192.0,
+      "physical_jump_kernel_dimension": 20
+    },
+    "equal_phase": {
+      "coefficient_magnitudes": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "coefficient_norm_squared": 6.0,
+      "jump_sha256": "6aa82635a9e142fc2bee177a87deeeae4371d58a488e22af6410c08e4a6bf994",
+      "kossakowski_diagonal": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "kossakowski_kernel_dimension": 5,
+      "kossakowski_nonzero_eigenvalues": [
+        6.0
+      ],
+      "kossakowski_rank": 1,
+      "kossakowski_trace": 6.0,
+      "normalized_squared_overlap_with_uniform_drive": 1.0,
+      "operator_weight_budget_B": 192.0,
+      "physical_jump_kernel_dimension": 20
+    }
+  },
+  "claim_boundary": "This finite-reservoir intervention establishes orientation dependence within the tested rank-one collective-lowering sector. It does not establish universal optimality of the equal-phase direction, an asymptotic scaling law, or a unique microscopic mediator.",
+  "derived_files_reconstructed": [
+    "derived/summary.json",
+    "derived/per_seed.csv",
+    "derived/lag_capacities_long.csv",
+    "derived/lag_capacities_summary.csv",
+    "derived/kernel_energy_long.csv"
+  ],
+  "environment_sha256": "c19a99a02c6d79666e87f511f7d4dd50afdd335289e44a160d4e8a25684a92c1",
+  "experiment_version": "rank-one-orientation-v1-2026-08-12",
+  "ground_mixed_audit_pair_count": 24,
+  "pair_count": 24,
+  "primary_equal_minus_orthogonal": {
+    "ci95": [
+      1.825887561894783,
+      2.7170975845838488
+    ],
+    "cohens_dz": 2.1525053981651663,
+    "exact_sign_test_p_two_sided": 1.1920928955078125e-07,
+    "losses_negative": 0,
+    "maximum": 4.134324978757663,
+    "mean": 2.271492573239316,
+    "median": 2.2745152170606477,
+    "minimum": 0.11329881604386038,
+    "n": 24,
+    "standard_error": 0.215407812825182,
+    "ties": 0,
+    "wins_positive": 24
+  },
+  "protocol_sha256": "86cfb94729d3ad039e41312f18fd25f001c5c19ef9b40c01458076f3a8ac35c5",
+  "provenance_sha256": "ca7e32117deb661e8721749593e81660bac6009e068cc8b4fdfb4a8154397be3",
+  "raw_checkpoint_set_sha256": "8500af21e29f37e51db1b6eed652894a4b818d6f2e5f6c223a03ce7dedfffdf3",
+  "raw_checkpoint_sha256s": {
+    "seed_00.json": "be22537fd70e887cdc0c7e153011394c57373c4c71b9caaf73b11427d075c4fe",
+    "seed_01.json": "7d210c86a28b8f5abc945fb9289a34641c475bd0782e55dbd1996b6502078626",
+    "seed_02.json": "61c1544c7e312243aa49977fc8820f79a45fec69ca5dbe3c7a5f823281af1a42",
+    "seed_03.json": "de3f650a2f25c63447314ca7fac5837fb76f0f7d6a2fe63361383a9818cfba09",
+    "seed_04.json": "3584105e4b3a7c7bf6e02ebafa6a8edc5812394c074ed21cbd7c66c7bd7c98e1",
+    "seed_05.json": "03e922052b6576de2e267b3717afeb3f69cefa2ee90d65708eba811d9397bd0e",
+    "seed_06.json": "4336e9f638dd65cddf4807bcf77bedf799770ffe43fbd441478e6b2eae390b3b",
+    "seed_07.json": "761152e8f2a0b0acdf6f64300737b55a2838841080fcbae172aaa2cba42467e2",
+    "seed_08.json": "437133becfbfeb8d9501c82d295ca40096d67955275d4298ec57820acf0cb99f",
+    "seed_09.json": "02eaa62f2f5fbf1ebd7f780bb07a744c4dc2d43837e1fc78d6aa4729978f117a",
+    "seed_10.json": "81b62ac0582685923acbb332a544ee64eb214d79fa85252a8b3a3e7849d22725",
+    "seed_11.json": "131e0ea0b74d81bfffe105a5ba5c792048a04a5de8b56bd997fcb041e1dacb74",
+    "seed_12.json": "8235c10a94ff3a7f26219eef2b0c33c717a156a711560a3efad3e2d2bdeed265",
+    "seed_13.json": "9af7148833b0f511ab9eab05384bf17407685184f6818027326531d04fcc2643",
+    "seed_14.json": "9a60c14f43fce6162445f56647ebfa0f0918980b8f34b084c7f8958eaf9f3f56",
+    "seed_15.json": "218506ab97d001cf58cb91c6984ac71dc6ce8bb71e677ab350f5167d094abd9a",
+    "seed_16.json": "c244fad1cf310ab32cb51895471fcaea4f0a1518ff29fe3fc72aced5b9ca8c8f",
+    "seed_17.json": "7189014b8a2751fb304c1ee2342cd8b45bd700a447f2f329e31d21845bd77211",
+    "seed_18.json": "6d47f842865a5454a456298b0d18fb2d861200d01dd789271721332d4bacecb8",
+    "seed_19.json": "141ccc3b45e190d83f63a193ca31d577b834323b313a20f5ba2ef6ae9c1e393d",
+    "seed_20.json": "5050399bac107c24194139e6efba380b060588302fb77d586590946007708df4",
+    "seed_21.json": "9cc7ca75eb57c30fba01b625bb3657731efd76ce06209502b83bd7aeb08f4f76",
+    "seed_22.json": "d3da1e22b5920039df47dfeb7c630c26b50256bdac61c0cd2a5debaa98701830",
+    "seed_23.json": "ea03937991af3be4be6265e40d44e7938c170debc9d701aa9143fb056331e26e"
+  },
+  "schema_version": 1,
+  "status": "validated"
+}

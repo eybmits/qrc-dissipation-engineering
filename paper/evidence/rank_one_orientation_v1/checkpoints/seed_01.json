@@ -1,0 +1,235 @@
+{
+  "conditions": {
+    "drive_orthogonal": {
+      "features_sha256": "eef1d2e92157d7041ba4ab9444ce19a1ffb6974e05088eea672e9b85dac13bf1",
+      "kernel": {
+        "feature_space_effective_rank": 2.13896743350885,
+        "leading_singular_energy_fraction": 0.7700251544430203,
+        "long_lag_energy_fraction": 0.002150972617113095,
+        "normalized_lag_energy": [
+          0.738646576821318,
+          0.14116847860951573,
+          0.06996200975379444,
+          0.028090914313765713,
+          0.010219409091208687,
+          0.004727261238046086,
+          0.0024780207383497017,
+          0.0014524597864829425,
+          0.0011038970304057046,
+          0.0008434621402185935,
+          0.0005197819959831138,
+          0.0003337157276941625,
+          0.00019247335286212559,
+          0.00010931148730988713,
+          6.237167237643554e-05,
+          3.485778184592501e-05,
+          2.2066625851940966e-05,
+          1.5177247976992333e-05,
+          1.0468109481434e-05,
+          7.286475512484696e-06
+        ],
+        "response_lag_centroid": 1.4862703029636015,
+        "response_sha256": "4abd8ce1b678333c9176b4beeb4e2a560b70d777ddfd55219fe67175b62ad5f3"
+      },
+      "stm": {
+        "capacity_by_delay": [
+          0.9992287680028413,
+          0.9959940864987172,
+          0.9868902800029258,
+          0.9657484449266507,
+          0.9426978638329306,
+          0.9001436103443925,
+          0.7842682797735355,
+          0.6490649979689801,
+          0.561282836080788,
+          0.4973655902058597,
+          0.4255553898168403,
+          0.4360439931689748,
+          0.3432260328268809,
+          0.2749416312036747,
+          0.20187076481117977,
+          0.17425016650654868,
+          0.13671902367768152,
+          0.15301424891558452,
+          0.11211462546479922,
+          0.05301397859659776
+        ],
+        "total_capacity": 10.593434612626382
+      }
+    },
+    "equal_phase": {
+      "features_sha256": "19bb6abee55d4291760e567a013a524a0d5c6d4b574975e409d80074457604b3",
+      "kernel": {
+        "feature_space_effective_rank": 1.6728988056358272,
+        "leading_singular_energy_fraction": 0.8565126205376261,
+        "long_lag_energy_fraction": 0.0010300851291417403,
+        "normalized_lag_energy": [
+          0.7917535514510847,
+          0.13756644680089547,
+          0.04341181393324837,
+          0.014736691994507046,
+          0.006103539616096448,
+          0.0029411160742115828,
+          0.0013045657885380024,
+          0.0006717202197956969,
+          0.00048046899248085386,
+          0.00036589513428686416,
+          0.0002543531412219425,
+          0.00016031365019238868,
+          9.394261725071308e-05,
+          5.4088647201830656e-05,
+          3.417841719799387e-05,
+          2.3461184347939e-05,
+          1.722506660739993e-05,
+          1.2590656946373538e-05,
+          8.579592746733726e-06,
+          5.457021141561153e-06
+        ],
+        "response_lag_centroid": 1.33510175320048,
+        "response_sha256": "d56517a236fcbc882b8efc62e88ad5fb6d94b6088017b3685f6ab0b1cf1d9b33"
+      },
+      "stm": {
+        "capacity_by_delay": [
+          0.9999233321259765,
+          0.9989991179646964,
+          0.994150752447976,
+          0.9842731887524202,
+          0.9735754892483887,
+          0.9523742056707121,
+          0.901560064477033,
+          0.8135752609565124,
+          0.7230061916499162,
+          0.6229654036339634,
+          0.5596746613596544,
+          0.493925000076465,
+          0.48323012934153065,
+          0.4377037884343302,
+          0.39211490369494695,
+          0.3510921632346208,
+          0.30885460953497806,
+          0.2936829340204197,
+          0.31236172163881065,
+          0.29058900540032273
+        ],
+        "total_capacity": 12.887631923663672
+      }
+    }
+  },
+  "convergence": {
+    "audits": {
+      "drive_orthogonal": {
+        "800": {
+          "maximum_feature_distance": 1.5931266722502002e-15,
+          "maximum_trace_distance": 2.43696028135288e-15,
+          "pairwise": [
+            {
+              "left": "ground",
+              "max_feature_distance": 8.786374405822528e-16,
+              "right": "maximally_mixed",
+              "trace_distance": 1.447110250291216e-15
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 8.480629393181616e-16,
+              "right": "fully_excited",
+              "trace_distance": 1.3178482453584282e-15
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 1.5931266722502002e-15,
+              "right": "haar_pure",
+              "trace_distance": 2.43696028135288e-15
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 1.0776969594505914e-16,
+              "right": "fully_excited",
+              "trace_distance": 2.62410223260362e-16
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 7.144892316679474e-16,
+              "right": "haar_pure",
+              "trace_distance": 1.0123425665717775e-15
+            },
+            {
+              "left": "fully_excited",
+              "max_feature_distance": 7.450637329320386e-16,
+              "right": "haar_pure",
+              "trace_distance": 1.1406369840336486e-15
+            }
+          ],
+          "passed": true
+        }
+      },
+      "equal_phase": {
+        "800": {
+          "maximum_feature_distance": 7.897328624384414e-16,
+          "maximum_trace_distance": 1.106773235970688e-15,
+          "pairwise": [
+            {
+              "left": "ground",
+              "max_feature_distance": 3.2569433261464553e-16,
+              "right": "maximally_mixed",
+              "trace_distance": 5.196497678533538e-16
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 7.897328624384414e-16,
+              "right": "fully_excited",
+              "trace_distance": 1.106773235970688e-15
+            },
+            {
+              "left": "ground",
+              "max_feature_distance": 5.941427905220564e-17,
+              "right": "haar_pure",
+              "trace_distance": 2.4239060698579085e-16
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 4.926614671774132e-16,
+              "right": "fully_excited",
+              "trace_distance": 6.600469524814308e-16
+            },
+            {
+              "left": "maximally_mixed",
+              "max_feature_distance": 3.0791341698588326e-16,
+              "right": "haar_pure",
+              "trace_distance": 4.669981460627219e-16
+            },
+            {
+              "left": "fully_excited",
+              "max_feature_distance": 7.693498615957139e-16,
+              "right": "haar_pure",
+              "trace_distance": 1.0442818395583812e-15
+            }
+          ],
+          "passed": true
+        }
+      }
+    },
+    "both_conditions_passed": true,
+    "selected_common_washout": 800
+  },
+  "coupling_sha256": "f0ec2c2fab8c5369f98fbae518f4ea94ce2e0228aff15151fe2cfb6631702e1b",
+  "full_four_state_audit": true,
+  "payload_sha256": "7368c58fe99d036392781b7194a77258f3d7ea61ae23506e1a7a4298a8a47515",
+  "protocol_sha256": "8fcbb1c2a6f22677b062cd36c5b24b5c8c0d7f098bc3adb6a67ef85771314d80",
+  "reservoirs": {
+    "drive_orthogonal": {
+      "budget": 192.0,
+      "jump_sha256": "0b7c501fb88d59968692ac15a3680a182f6743cfa83064b7c5bce6637d851349"
+    },
+    "equal_phase": {
+      "budget": 192.0,
+      "jump_sha256": "6aa82635a9e142fc2bee177a87deeeae4371d58a488e22af6410c08e4a6bf994"
+    }
+  },
+  "runtime_seconds": 452.12822365760803,
+  "seed": 1375334633,
+  "seed_index": 1,
+  "stm_equal_minus_orthogonal": 2.2941973110372906,
+  "task_sha256": "faf0b5089ee8c963788946f1a572a308dc1c437107bc51e0c2a754e4be27556f",
+  "version": "rank-one-orientation-v1-2026-08-12",
+  "wash_sha256": "0060358a661b98e939213b171029071edca3d301c6ad2c53604c9e5b1fe5b7ef"
+}

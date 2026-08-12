@@ -1,0 +1,30 @@
+# Baseline (Phase 0) configuration.
+# Mirrors experiments_baseline.BaselineConfig.  Three presets are provided in
+# code (demo / validation / paper); this file documents the paper-scale setup.
+
+paper:
+  n_qubits: 5            # reservoir size N (paper default)
+  J_s: 1.0              # coupling scale; couplings J_ij ~ U[-J_s, J_s]; units of J_s
+  h: 1.0               # transverse field / input-drive coefficient
+  dt: 1.0              # evolution time per input step
+  washout: 1000        # paper washout length
+  train_len: 1000      # paper training length
+  test_len: 1000       # paper evaluation/test length
+  n_realizations: 100  # random realizations of couplings + input sequences
+  seed: 12345
+  quantize: 128        # finer input grid for the paper-scale run
+  ridge: 1.0e-8
+  max_weight: 2        # Pauli-string readout weight (1 and 2)
+
+# Hyperparameter grid swept where applicable (paper):
+#   h, dt, gamma in {0.01, 0.1, 1, 10}
+hyperparameter_grid:
+  h:     [0.01, 0.1, 1, 10]
+  dt:    [0.01, 0.1, 1, 10]
+  gamma: [0.01, 0.1, 1, 10]
+
+tasks:
+  stm:         {max_delay: 20}
+  narma:       {orders: [2, 5, 10], input_scale: 0.2}
+  parity:      {max_delay: 8, n_virtual: 15}
+  mackey_glass: {tau: 17, horizon: 150, sample_every: 3}

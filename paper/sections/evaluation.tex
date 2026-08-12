@@ -1,0 +1,132 @@
+\section{\texorpdfstring{Dynamical interpretation of the\\
+local--collective memory contrast}{Dynamical interpretation of the
+local--collective memory contrast}}
+\label{sec:interpretation}
+
+Section~\ref{sec:performance} establishes the controlled computational ordering
+independently of the interpretation below. Here we ask which dynamical picture
+is consistent with it after the tested initial states have been forgotten, not
+which microscopic ingredient is uniquely causal.
+
+\subsection{Working physical picture}
+
+The simplest distinction concerns how the reservoir reaches its environment.
+Under uniform local relaxation, every spin has its own direct relaxation
+channel. Under collective relaxation, the spins share one channel. The same
+assigned coupling weight is therefore spread over several separate paths in
+one case and concentrated into a common path in the other. Some combinations
+of spin excitations then reach the collective channel only after the
+Hamiltonian has mixed them with the directly coupled combination. They are not
+permanently protected: coherent dynamics continue to move information between
+these combinations. Appendix~\ref{app:shared} gives the corresponding
+mathematical formulation and states its precise limits. The same interference
+principle appears in collective emission and in network states that a shared
+environment cannot address directly~\cite{Dicke1954,Cabot2018}.
+
+This gives the working picture. A shared environmental channel directly
+couples fewer combinations; Hamiltonian mixing provides indirect relaxation
+routes for the others; the resulting slower readout-visible responses can
+preserve a longer accessible input history.
+
+\subsection{Scalar controls for the memory contrast}
+
+Fixing \(\mathcal B\) controls assigned operator weight, but it does not
+equalize realized jump activity, the relaxation spectrum, or the operating
+point preferred by each architecture. We therefore ask whether any one of
+these scalar differences is sufficient to explain the principal memory
+contrast. These controls are not intended to factorize the generator into
+uniquely causal structural ingredients. Figure~\ref{fig:collective-case}(a) summarizes the
+fixed-\(\mathcal B\), activity-matched, gap-matched, and independently selected
+comparisons. The STM contrast is positive in all four protocols.
+
+The first control asks whether the shared channel wins simply because it
+produces a different amount of realized jump activity. Local and collective
+rates are calibrated separately to the same time-averaged expected activity
+on an input stream without task labels, then frozen before task scoring. Every
+calibration passes and the held-out activity difference is unresolved.
+Collective relaxation still gains \(3.306\) STM units, with a \(95\%\)
+interval of \([1.393,5.220]\) and \(8/8\) paired wins. Different mean jump
+activity cannot by itself explain the memory contrast.
+Appendix~\ref{app:activity-control} gives the calibration protocol.
+
+The second control asks whether the shared channel remembers longer simply
+because it relaxes more slowly. Before
+any task stream is generated, each local rate is therefore calibrated to the
+collective generator's Liouvillian gap at the constant input \(s=0.5\). This
+gap is the slowest nonzero decay rate of that constant-input evolution and
+provides one measure of relaxation speed. All 24 matches fall within the
+prescribed tolerance.
+
+Gap matching reduces the STM and NARMA-10 contrasts by \(62.1\%\) and
+\(48.2\%\), respectively, showing that this timescale explains an important
+part of the effect. It does not remove the ordering. Collective relaxation
+retains \(1.424\) STM units with an interval of \([0.800,2.049]\) and \(20/24\)
+wins, and the NARMA-10 difference remains resolved.
+Appendix~Figure~\ref{fig:scalar-controls}(b) resolves the same comparison by input
+delay. Matching the local rate restores much of its memory tail, but
+collective relaxation remains higher at long delays. The bands are pointwise
+\(95\%\) intervals across the 24 paired reservoirs.
+Appendix~\ref{app:gap-control} gives the calibration protocol.
+
+Finally, a common setting could accidentally favor one jump family. Local and
+collective relaxation therefore choose their own drive, input duration,
+dissipative multiplier, and ridge coefficient, with disjoint data for
+selection and final testing. Collective relaxation still leads by \(3.945\)
+STM units, with an interval of \([3.523,4.368]\) and \(24/24\) wins. The
+contrast does not require a shared operating point. The search is bounded
+rather than global; Appendix~\ref{app:selection-control} gives the selection
+protocol and bounded-search scope.
+
+These controls rule out unequal mean activity, one representative decay rate,
+and a common operating point as sole explanations of the principal
+local--collective ordering. They do not equalize the complete spectrum,
+input-dependent propagator products, non-normal transients, energy flow,
+entropy production, implementation effort, or hardware cost, and they were
+not repeated for the full cross-family task map.
+
+\subsection{Positive dynamical support}
+
+\RelaxationTheoryPriorWork
+
+Because STM is obtained by linear regression on the measured feature
+trajectory, a dynamical component can contribute only if the input excites it
+and it remains visible in the readout span. Fixed-input mode overlap tests
+readout visibility; the switched-response kernel additionally includes input
+excitation. The slower collective modes remain Pauli-visible, and after the
+representative timescale is matched the switched response is concentrated into
+fewer observable patterns.
+
+Two additional checks connect this response to dissipator geometry. Across six
+process designs, slower midpoint relaxation usually accompanies more STM. A
+separate sweep mixes local and collective loss continuously; its selected
+interior point improves on local relaxation in every fresh pair, demonstrating
+robustness to residual local damping along this path. Together, the diagnostics
+support one coherent account of the endpoint contrast;
+Appendix~\ref{app:interpretation} reports their uncertainty.
+
+\subsection{Scope of the explanation}
+
+Along the fixed-weight interpolation, every interior one-body lowering block
+retains Kossakowski rank \(N\) while STM changes, so rank alone is insufficient.
+Learned profiles and the interpolation change several coordinates together.
+Two matched rank-one interventions isolate direction more sharply. The
+primary \(N=5\) study finds more STM along the equal-phase end of a
+prespecified path and against five zero-overlap controls. In a separately
+generated \(N=6\) replication, rotating the equal-phase vector to the real,
+sign-balanced direction \((1,1,1,-1,-1,-1)\), orthogonal to the uniform
+site profile of the input drive, lowers STM by \(2.271\) units
+\([1.826,2.717]\), with
+\(24/24\) paired wins for equal phase and exact two-sided sign-test
+\(p=1.19\times10^{-7}\). Kossakowski rank, nonzero spectrum and trace,
+assigned operator weight, sitewise diagonal weights, coefficient magnitudes,
+and every within-pair processor and data choice remain fixed
+(Appendix~\ref{app:phase-direction}). These invariants are
+therefore insufficient to determine memory: dissipative orientation relative
+to the fixed driven processor is an operative architectural coordinate. This
+does not distinguish alignment with the input from alignment with the
+coherent dynamics, or make equal phase or a response diagnostic universal.
+
+Dephasing follows a different contraction mechanism. In the connected primary
+model, it removes the measured signal after washout, which accounts for its
+near-zero STM. Appendix~\ref{app:interpretation} gives the driven-dephasing
+argument. It should not be folded into the shared-channel explanation.

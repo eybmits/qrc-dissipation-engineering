@@ -1,0 +1,63 @@
+{
+  "artifact_type": "collective_convergence_extension_protocol",
+  "protocol": {
+    "base_aggregate_file_sha256": "7b779bd0132a260045b16bc2ca9567505a2344594475af0957d91384bc7e8f49",
+    "base_checkpoint_members_sha256": {
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_1067952113.json": "b617734e072ec9bae837bd2ea12aebae36e139c6774c417f0ec39d0311fdd507",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_1319483087.json": "84cae67af49b2563658b9b6fe1ba4604572163b2336f0d867edf7bb6883f3191",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_1673840529.json": "5c6c603fcd70e9036e07974f3c8def51aaa35b115e591f5931aa20ed65548387",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_181031542.json": "738eea932a5d64c66ea5c8324bb1b97651a3d2aaef5947d8d70a18b7eee171b5",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_1984601307.json": "4166bdaf6c18937e5e618398047201d087eca7cf8088debb31c860f96773ee73",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_307836921.json": "d016c277c185237d76b825873ea79407a35c8c128aeec4a8e4239e773ebda10d",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_613734097.json": "168e4ecb92e06b95cd64b472fb222e97ac32ba3d5a2cce2f17fdcb815152fd6d",
+      "collective-loss-numerical-evidence/switched_input_memory_control_v2/results/convergence/principal_collective_N5_seed_818242779.json": "a582c235e4b33e6fd1fb6158f021778807ccd0e650e0d7b8a63d0875d40fea6f"
+    },
+    "base_evidence_zip_sha256": "579a5411be0360c734e73278b6e770924b7b3890219370554bc41afc8292bf00",
+    "configuration": {
+      "design": "collective",
+      "dt": 0.5,
+      "frobenius_multiplier": 1.0,
+      "h": 0.5,
+      "regime": "principal"
+    },
+    "initial_states": [
+      "ground",
+      "excited",
+      "mixed",
+      "haar"
+    ],
+    "input": {
+      "distribution": "iid Uniform[0,1]",
+      "prefix_identity": "the first 800 draws are identical to the frozen v2 control",
+      "seed_rule": "numpy.default_rng(2600000 + lineage_seed + 1003 * n_qubits)"
+    },
+    "lineage_seeds": [
+      181031542,
+      307836921,
+      613734097,
+      818242779,
+      1067952113,
+      1319483087,
+      1673840529,
+      1984601307
+    ],
+    "n_qubits": 5,
+    "nested_couplings": "top-left N-by-N block of one N=6 Uniform[-1,1] draw per lineage, scaled by sqrt(4/(N-1))",
+    "prefix_absolute_tolerance": 5e-13,
+    "protocol_version": "collective-N5-convergence-extension-v1-2026-08-04",
+    "purpose": "continue the frozen principal collective N=5 switched-input initial-state diagnostic from 800 to 1200 inputs",
+    "scientific_sources_sha256": {
+      "experiments/run_collective_convergence_extension.py": "45b479d1fb377a91f86147a8ab9951e8cbbc1f447d7fa5bdef7396a22f55c001",
+      "src/qrc/dissipators.py": "28e602a450d70715b77cb5a3e7ede28758b5a364ddb5e938c131a38a5c970935",
+      "src/qrc/liouvillian.py": "bfb6eda88c5d9c2bbbedda7bd88e5eef8b39ab0970d9f25f9e0b1a600448c26b",
+      "src/qrc/operators.py": "d0bed61609a3a3a10dc64cf2695c1999dc87afad511d3515eecb53b5cfcbd13b",
+      "src/qrc/reservoirs.py": "e9e722ffeba65b35a89ec7f04e6dbd6b30f9f556c6b05052557a6c29ab40eb4b",
+      "src/qrc/sparse_evolve.py": "dc16975777dd72ec88a8a5c2fc0e3fafe44393f680628a7235151523fe154751"
+    },
+    "status": "frozen_before_extension_results",
+    "steps": 1200,
+    "trace_distance": "one half trace norm, maximum over all six pairs",
+    "validated_prefix_steps": 800
+  },
+  "protocol_sha256": "24fe06c9e9c0c0f90f18a360bbdabc755226ce590fd0b269a854b3c3e2b79a53"
+}

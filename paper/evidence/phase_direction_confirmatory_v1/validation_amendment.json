@@ -1,0 +1,13 @@
+{
+  "amendment_sha256": "dd544a57c89967fe5bf0858eefe1c66e28234695cfb5289c10cbd0d6a9ec6ea3",
+  "artifact_type": "phase_direction_validation_amendment",
+  "created_at_utc": "2026-08-12T10:27:45.001742+00:00",
+  "protocol_sha256": "7e47d63012e6ed859214b1440d984dcdf183b2b6e2c4442ad1144da9b487cb53",
+  "reason": "The frozen validator required bitwise equality between one-RHS task propagation and four-RHS convergence propagation. SciPy expm_multiply uses different floating-point accumulation and norm estimation in those forms, so raw float64 hashes are not expected to match.",
+  "remedy": "The frozen source and all scientific checkpoints remain unchanged. The task backend must reproduce its archived hash; the four-state batch backend is replayed independently as a numerical diagnostic. All 72 audit cells must agree within 1e-12 in features and within the frozen 1e-4 STM stability threshold.",
+  "scientific_protocol_changed": false,
+  "seeds_conditions_inference_or_scores_changed": false,
+  "validator_source": "scripts/validate_phase_direction_confirmatory.py",
+  "validator_source_sha256": "79ea9373ec8374556b258a7ef1b35561d6b2fc55e0d68f00e3289dfa53dddc3a",
+  "validator_version": "phase-direction-numerical-replay-v1-2026-08-12"
+}

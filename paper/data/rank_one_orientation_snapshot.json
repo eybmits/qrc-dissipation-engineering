@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "experiment_version": "rank-one-orientation-v1-2026-08-12",
+  "source_bundle": {
+    "filename": "rank_one_orientation_complete_bundle.zip",
+    "sha256": "daa1296e21430b45d0318078b25d418681bb08c08cf421fe8de41e0924fe0165",
+    "members": {
+      "summary.json": "72dd00e2dcfccdbae5b2a6bc0feede0e7ad340e08b64fea8df757b25ef0a7f9b",
+      "per_seed.csv": "e765d567fd42bf813beac78e144eb3d072cac6716be9c82016554a49ed815ce2",
+      "semantic_validation_manifest.json": "0bbb777ae924127a63583ed788de0b6357b32f66776a3ba886cf880833f29f39",
+      "raw_checkpoints.zip": "a30b15cbe1e0be5428ba55881fcc4307484210e6e361374cf78775d8274de6b8"
+    }
+  },
+  "hardened_evidence": {
+    "root": "paper/evidence/rank_one_orientation_v1",
+    "protocol_file_sha256": "23572d7ee36cf63e5560b310f1bea1453a0d5c275e2f578bae3d2b40bf4e68c4",
+    "protocol_semantic_sha256": "86cfb94729d3ad039e41312f18fd25f001c5c19ef9b40c01458076f3a8ac35c5",
+    "summary_file_sha256": "72dd00e2dcfccdbae5b2a6bc0feede0e7ad340e08b64fea8df757b25ef0a7f9b",
+    "validation_report_file_sha256": "4402d851b5418bc56003d7346d095548996330d303f49d1a78973693394c0a83",
+    "provenance_file_sha256": "e8a33914e91fa2cdd43c50c7979a4fa7bbc7e7885206c1ffe10b90e2a7ee29bd",
+    "provenance_semantic_sha256": "ca7e32117deb661e8721749593e81660bac6009e068cc8b4fdfb4a8154397be3",
+    "environment_file_sha256": "e1abfd119ce581e86027b5e8ba969870d62cba2299503b4b1e5bc0e1317e2a5a",
+    "environment_semantic_sha256": "c19a99a02c6d79666e87f511f7d4dd50afdd335289e44a160d4e8a25684a92c1",
+    "raw_checkpoint_set_sha256": "8500af21e29f37e51db1b6eed652894a4b818d6f2e5f6c223a03ce7dedfffdf3",
+    "result_archive": {
+      "filename": "rank_one_orientation_v1_results.tar.gz",
+      "sha256": "e12f0bdd038b8e45ecea247b09d32815de20330e51ab47aecfe1d995fd86f24a",
+      "validation_command": "python3 rank_one_orientation_v1/validate.py --root rank_one_orientation_v1"
+    }
+  },
+  "n_qubits": 6,
+  "pair_count": 24,
+  "washout": 800,
+  "channels": {
+    "drive_orthogonal": [
+      1,
+      1,
+      1,
+      -1,
+      -1,
+      -1
+    ],
+    "equal_phase": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "matched_invariants": {
+    "operator_sector": "collective lowering",
+    "kossakowski_rank": 1,
+    "kossakowski_trace": 6.0,
+    "kossakowski_nonzero_spectrum": [
+      6.0
+    ],
+    "kossakowski_diagonal": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "coefficient_magnitudes": [
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "lowering_block_kernel_dimension": 5,
+    "assigned_weight_B": 192.0,
+    "within_pair_fixed": [
+      "Hamiltonian",
+      "input stream",
+      "Pauli readout",
+      "training data",
+      "test data",
+      "ridge protocol"
+    ]
+  },
+  "stm": {
+    "drive_orthogonal_mean": 11.354352563215405,
+    "drive_orthogonal_ci95_student_t": [
+      11.103317940387758,
+      11.605387186043053
+    ],
+    "equal_phase_mean": 13.62584513645472,
+    "equal_phase_ci95_student_t": [
+      13.220247442974598,
+      14.031442829934841
+    ],
+    "paired_estimand": "STM(equal phase)-STM(drive-orthogonal sign-balanced direction)",
+    "paired_values": [
+      1.820844855359688,
+      2.2941973110372906,
+      2.254833123084005,
+      0.11329881604386038,
+      2.998433558322869,
+      3.872451485088165,
+      1.2162170280051718,
+      2.1633936920922707,
+      2.141573631295575,
+      3.2497920965773996,
+      1.648758073703208,
+      4.134324978757663,
+      0.5955022634505109,
+      1.7769415365906536,
+      2.4484031901627006,
+      1.676191726636274,
+      1.8772340464388364,
+      3.3827074039673413,
+      2.8565976270691955,
+      0.2861160807196921,
+      3.5114163234496125,
+      3.2535369569265917,
+      2.532175808993321,
+      2.410880143971685
+    ],
+    "paired_mean": 2.271492573239316,
+    "paired_ci95_student_t": [
+      1.8258875618947812,
+      2.7170975845838505
+    ],
+    "wins": 24,
+    "losses": 0,
+    "ties": 0,
+    "exact_sign_test_p_two_sided": 1.1920928955078125e-07,
+    "cohens_dz": 2.1525053981651663,
+    "relative_increase": 0.20005478609130475,
+    "lag_resolved": {
+      "all_20_mean_differences_positive": true,
+      "all_20_ci95_lower_bounds_positive": true,
+      "delay_20": {
+        "drive_orthogonal_mean": 0.08715190087585652,
+        "equal_phase_mean": 0.2787384999879061,
+        "paired_difference_mean": 0.19158659911204956,
+        "paired_difference_ci95_student_t": [
+          0.1643576101656207,
+          0.21881558805847842
+        ],
+        "paired_wins": 24
+      }
+    }
+  },
+  "convergence": {
+    "all_pairs_passed_common_washout": true,
+    "ground_mixed_audit_pair_count": 24,
+    "additional_four_state_audit_pair_count": 6,
+    "selected_common_washout": 800,
+    "worst_trace_distance": {
+      "drive_orthogonal": 2.43696028135288e-15,
+      "equal_phase": 9.076373072544137e-14
+    },
+    "worst_feature_distance": {
+      "drive_orthogonal": 2.00750874257416e-15,
+      "equal_phase": 9.379053523411729e-14
+    }
+  },
+  "response_diagnostics": {
+    "feature_space_effective_rank_equal_minus_orthogonal": {
+      "mean": -0.9604308696614954,
+      "ci95_student_t": [
+        -1.0767583431069632,
+        -0.8441033962160275
+      ],
+      "same_sign_pairs": 24
+    },
+    "leading_singular_energy_fraction_equal_minus_orthogonal": {
+      "mean": 0.19160285712693126,
+      "ci95_student_t": [
+        0.1669941256060882,
+        0.21621158864777432
+      ],
+      "same_sign_pairs": 24
+    },
+    "long_lag_energy_fraction_equal_minus_orthogonal": {
+      "mean": -0.005791114889967951,
+      "ci95_student_t": [
+        -0.008447949238405276,
+        -0.003134280541530626
+      ],
+      "same_sign_pairs": 24
+    },
+    "response_lag_centroid_equal_minus_orthogonal": {
+      "mean": -0.5620024767670756,
+      "ci95_student_t": [
+        -0.6714534282589248,
+        -0.45255152527522635
+      ],
+      "same_sign_pairs": 24
+    },
+    "association_with_stm_change": {
+      "detectable_in_this_sample": false,
+      "feature_space_effective_rank_spearman_rho": -0.03217391304347826,
+      "feature_space_effective_rank_spearman_p": 0.8813617120284872,
+      "leading_singular_energy_fraction_spearman_rho": -0.03913043478260869,
+      "leading_singular_energy_fraction_spearman_p": 0.8559479350713372,
+      "long_lag_energy_fraction_spearman_rho": -0.1652173913043478,
+      "long_lag_energy_fraction_spearman_p": 0.4404029231283095,
+      "response_lag_centroid_spearman_rho": -0.07043478260869565,
+      "response_lag_centroid_spearman_p": 0.7436342012968034
+    },
+    "interpretation": "The equal-phase response is more concentrated and front-loaded under these diagnostics, but the diagnostic changes are supporting observations and are not established mediators of the STM gain."
+  },
+  "claim_boundary": "At fixed rank-one lowering structure, nonzero spectrum, trace, coefficient magnitudes, sitewise diagonal weights, and within-pair processor and protocol, dissipator orientation changes readout-accessible memory in these tested finite reservoirs; no universal optimum or unique microscopic mediator is claimed."
+}

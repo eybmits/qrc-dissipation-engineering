@@ -1,0 +1,94 @@
+{
+  "status": "complete",
+  "target_activity": 0.5075,
+  "n_pairs": 8,
+  "protocol_sha256": "58294d536fbe29bee0eef9b98128e2f74615027b2588556ca870aaaa5d127fcd",
+  "artifact_aggregate_sha256": "94e720aa2ac0f1decbcf73984f8cb396bcf05230aed3feed543ad08d4844dfdb",
+  "verified_aggregate_sha256": "14e38f785b7192e42b240c25f0199358ea6578176060b433f08d7c86b075c28f",
+  "github_artifact_sha256": "4bf62b88fbd4679c6aca7a5c749ee2e9d06fe49753376b60f0d13a23705ea2c6",
+  "verified_evidence_commit": "ed4124f8ae962e59fa82e609f224233ac6b1a71e",
+  "post_run_inference_correction": {
+    "description": "The immutable workflow artifact mislabeled a binomial sign test as an exact paired random-sign test. The verified aggregate was rebuilt from unchanged per-seed rows with the correct test and four-task Holm adjustment; no simulation or task score was rerun.",
+    "simulation_or_task_scores_rerun": false
+  },
+  "rows": [
+    {
+      "seed": 140956653,
+      "local_stm": 9.4404784884727,
+      "collective_stm": 15.025899862079847,
+      "local_calibration_activity": 0.5074714474128578,
+      "collective_calibration_activity": 0.5063977243106098
+    },
+    {
+      "seed": 178654933,
+      "local_stm": 11.548649953362931,
+      "collective_stm": 12.22454304860473,
+      "local_calibration_activity": 0.5075307096306434,
+      "collective_calibration_activity": 0.5068237840718615
+    },
+    {
+      "seed": 401028405,
+      "local_stm": 10.36238152827025,
+      "collective_stm": 12.891784200813246,
+      "local_calibration_activity": 0.5094669561984891,
+      "collective_calibration_activity": 0.5072158417527828
+    },
+    {
+      "seed": 504597278,
+      "local_stm": 10.397316594175711,
+      "collective_stm": 11.49641837083924,
+      "local_calibration_activity": 0.5092292402880919,
+      "collective_calibration_activity": 0.5073444377072369
+    },
+    {
+      "seed": 874492903,
+      "local_stm": 11.479231221030965,
+      "collective_stm": 17.45773350576007,
+      "local_calibration_activity": 0.5065587075288452,
+      "collective_calibration_activity": 0.5089748372721049
+    },
+    {
+      "seed": 1727333941,
+      "local_stm": 11.064052156871977,
+      "collective_stm": 11.895139013154969,
+      "local_calibration_activity": 0.5082592355375057,
+      "collective_calibration_activity": 0.5075480653820513
+    },
+    {
+      "seed": 2044162318,
+      "local_stm": 11.183246106686111,
+      "collective_stm": 15.38809153081071,
+      "local_calibration_activity": 0.5094856468716361,
+      "collective_calibration_activity": 0.5061771117216823
+    },
+    {
+      "seed": 2141881838,
+      "local_stm": 10.403441746262763,
+      "collective_stm": 15.948853318578013,
+      "local_calibration_activity": 0.5073050838816258,
+      "collective_calibration_activity": 0.50767213522904
+    }
+  ],
+  "summary": {
+    "local_stm_mean": 10.734849724391676,
+    "collective_stm_mean": 14.041057856330104,
+    "collective_minus_local_stm": 3.3062081319384276,
+    "collective_minus_local_stm_ci95": [
+      1.3925450041836578,
+      5.219871259693197
+    ],
+    "wins": 8,
+    "holm_adjusted_signflip_p_four_tasks": 0.03125,
+    "calibration_activity_difference": -0.0008941362377906936,
+    "calibration_activity_difference_ci95": [
+      -0.0023525199950803874,
+      0.0005642475194990002
+    ],
+    "maximum_relative_target_error": 0.003912604673174699,
+    "heldout_stm_activity_difference": -0.011467,
+    "heldout_stm_activity_difference_ci95": [
+      -0.030956,
+      0.008021
+    ]
+  }
+}
