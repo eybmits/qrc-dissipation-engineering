@@ -20,7 +20,7 @@ DEFAULT_OUTPUT = (
     / "results"
     / "complete_reviewer_bundle.zip"
 )
-ARCHIVE_ROOT = "dissipator-geometry-complete-reproducibility"
+ARCHIVE_ROOT = "dissipative-architecture-complete-reproducibility"
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 FILE_MODE = 0o644
 
@@ -84,7 +84,7 @@ def _readme() -> bytes:
         "Complete reviewer reproducibility bundle\n"
         "========================================\n\n"
         "This self-contained package accompanies the manuscript\n"
-        "\"Engineering Memory in Quantum Reservoir Computing through Dissipator Geometry.\"\n"
+        "\"The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing.\"\n"
         "It does not require access to the project repository.\n\n"
         "Start here:\n"
         "  1. Run: python3 validate_complete_bundle.py\n"

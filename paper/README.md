@@ -2,7 +2,7 @@
 
 Canonical manuscript:
 
-> **Engineering Memory in Quantum Reservoir Computing through Dissipator Geometry**
+> **The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing**
 
 - Source: [`dissipation_qrc.tex`](dissipation_qrc.tex)
 - Compiled paper: [`dissipation_qrc.pdf`](dissipation_qrc.pdf)

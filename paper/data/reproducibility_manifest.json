@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "paper_title": "Engineering Memory in Quantum Reservoir Computing through Dissipator Geometry",
+  "paper_title": "The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing",
   "release": {
     "repository": "https://github.com/eybmits/qrc-dissipation-engineering",
     "public_release_timing": "released publicly",

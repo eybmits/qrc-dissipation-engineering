@@ -1,8 +1,8 @@
-# Engineering Memory in Quantum Reservoir Computing through Dissipator Geometry
+# The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing
 
 Research code, manuscript source, and checksum-sealed numerical artifacts for
-the Quantum manuscript **“Engineering Memory in Quantum Reservoir Computing
-through Dissipator Geometry.”**
+the Quantum manuscript **“The Architecture of Dissipation Shapes Memory in
+Quantum Reservoir Computing.”**
 
 - [Read the canonical paper](paper/dissipation_qrc.pdf)
 - [Download the complete reviewer reproducibility bundle](results/complete_reviewer_bundle.zip)
@@ -28,7 +28,7 @@ encoding.
 
 The canonical manuscript follows one five-section causal narrative:
 
-1. **Introduction:** controlled forgetting and dissipator geometry;
+1. **Introduction:** controlled forgetting and dissipative architecture;
 2. **Reservoir model and controlled dissipator design:** the fixed processor,
    generator-level design space, and paired comparison;
 3. **Computational consequences:** jump-family task profiles, within-family

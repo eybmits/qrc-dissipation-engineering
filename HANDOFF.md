@@ -15,7 +15,7 @@ as part of the final publication handoff.
 
 ## Canonical release
 
-Title: **Engineering Memory in Quantum Reservoir Computing through Dissipator Geometry**
+Title: **The Architecture of Dissipation Shapes Memory in Quantum Reservoir Computing**
 
 - manuscript source: `paper/dissipation_qrc.tex`
 - compiled 22-page PDF: `paper/dissipation_qrc.pdf`
@@ -40,7 +40,7 @@ scientific narrative.
 
 ## Manuscript organization
 
-The main text follows one causal chain: dissipator geometry changes the routes
+The main text follows one causal chain: dissipative architecture changes the routes
 through which information fades, those routes determine which input traces
 survive, the readout determines which traces become usable computation, and
 finite sampling determines what is statistically visible. Its five sections
@@ -49,8 +49,9 @@ are:
 1. **Introduction** — motivation, the two-axis design concept, and the
    local--collective intuition;
 2. **Reservoir model and controlled dissipator design** — fixed processor,
-   generator-level geometry, structural normalization, readout, and tasks;
-3. **Computational consequences of dissipator geometry** — jump-family task
+   generator-level dissipative architecture and Kossakowski geometry,
+   structural normalization, readout, and tasks;
+3. **Computational consequences of dissipative architecture** — jump-family task
    profiles, rate-profile tuning, and finite-sampling visibility;
 4. **Dynamical interpretation of the local--collective memory contrast** —
    physical picture, scalar controls, positive diagnostics, and limits; and

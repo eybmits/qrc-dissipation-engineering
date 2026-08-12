@@ -10,11 +10,11 @@ savefig.bbox="tight" (which would crop the authored Quantum-width canvas).
 
 Layout: top row = (a) the prior one-dimensional local-relaxation view, (b) its
 extension to alternative dissipative designs, and (c) several rate profiles
-within one fixed collective geometry; bottom row = (d) the design space at
+within one fixed collective jump family; bottom row = (d) the design space at
 full width. Panels (a) and (b) use the same illustrative response function, so
 the black local curve in (b) is panel (a). The solid collective curve in (c) is
 likewise identical to the highlighted collective curve in (b); three lighter
-line styles illustrate profile changes within that geometry.
+line styles illustrate profile changes within that family.
 
 A collision check runs at the end and must report zero problems.
 """
@@ -150,7 +150,7 @@ def curve(name):
     raise KeyError(name)
 
 
-# --- profiles within one fixed geometry -------------------------------------
+# --- profiles within one fixed jump family ----------------------------------
 # Figure 1 is a design-space schematic rather than a data figure.  Panel (c)
 # therefore keeps the solid uniform-profile collective curve from panel (b)
 # exactly and adds three progressively lighter illustrative response profiles.
@@ -261,7 +261,7 @@ st.style_axis(ax_b2, "both", minor_axis="both", minor_grid=True)
 
 # ========================================= (c) profiles within collective ===
 # Reuse the panel-(b) collective response exactly as the uniform-profile
-# reference, then vary only the schematic profile within that geometry.
+# reference, then vary only the schematic profile within that family.
 y_collective, g_collective, top_collective = curve("collective")
 ax_c3.plot(
     GAMMA,
