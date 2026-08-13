@@ -425,7 +425,7 @@ def make_figure(data: dict[str, np.ndarray]):
     ax_lag.set_ylim(-0.02, 1.03)
     ax_lag.set_yticks([0, 0.5, 1.0])
     ax_lag.set_xlabel(r"input delay $\tau$")
-    ax_lag.set_ylabel(r"STM capacity $C_\tau$")
+    ax_lag.set_ylabel(r"STM contribution $C_\tau$")
     st.style_axis(ax_lag, "both", minor_axis="both")
 
     legend_handles = [

@@ -9,7 +9,6 @@ This appendix gives the shared definitions and numerical conventions, then
 the additional controls and interpretation behind each analysis.
 
 \subsection{Data and code availability}
-\label{app:reproducibility}
 
 All code, data, and analysis workflows for this work, together with the
 manuscript source and figure inputs, are available at
@@ -33,7 +32,7 @@ finite-size, Hamiltonian, activity-matched, and gap-matched comparisons:
 Thus the coefficients are real, have equal phase, and satisfy
 \(\sum_i|c_i|^2=N\).  Only the separately identified profile-by-family check
 fits a nonuniform collective profile.  The common target is the unit-rate
-local value \(\mathcal B=N2^{N-1}\), giving \(\mathcal B=80\) at \(N=5\).
+local value \(\mathcal B=N\,2^{N-1}\), giving \(\mathcal B=80\) at \(N=5\).
 The finite-size study rematches this target separately at every \(N\).
 
 The jump-family comparison uses independently drawn complete-graph couplings
@@ -57,9 +56,10 @@ Appendix~\ref{app:experiment2}.
 \subsection{Tasks and what they probe}
 
 Short-term memory (STM) asks whether a past input can be reconstructed from
-the present reservoir state.  We sum the squared-correlation capacities for
-delays \(1,\ldots,20\).  Larger values mean that more of the recent input
-history remains linearly accessible.
+the present reservoir state. For delay \(\tau\), let \(C_\tau\) denote its
+squared-correlation contribution. The reported total is
+\(C_{\mathrm{STM}}=\sum_{\tau=1}^{20}C_\tau\). Larger values mean that more of
+the recent input history remains linearly accessible.
 
 NARMA-10 adds nonlinear temporal processing.  Its target obeys
 \[
@@ -81,7 +81,8 @@ The forecasting target obeys the delay equation introduced by Mackey and Glass
 \]
 It is integrated by Euler steps of length one from the seeded delay history
 \(x_t=1.2+0.01\xi_t\), with
-\(\xi_t\overset{\mathrm{iid}}{\sim}\mathcal N(0,1)\). Every third Euler
+independent and identically distributed (i.i.d.) noise
+\(\xi_t\sim\mathcal N(0,1)\). Every third Euler
 iterate is retained, and the first 500 retained samples are discarded. After a
 200-sample washout and 600-sample teacher-forced training prefix, the readout
 is closed for 150 steps.  The affine scale
@@ -101,8 +102,8 @@ common-protocol comparison.}
 Entries are mean \(\pm\) standard error. Arrows give the favorable direction,
 and bold marks the best mean. Row groups distinguish external or diagnostic
 comparisons, fixed-profile jump-family models, and a profile-only variation
-within local relaxation. Task definitions and sample sizes are stated
-immediately above.}
+within local relaxation. Task definitions and sample sizes are given in this
+subsection.}
 \label{tab:map}
 \scriptsize
 \setlength{\tabcolsep}{4pt}
@@ -229,8 +230,8 @@ with an \(X\) drive. The encoding and Pauli readout remain fixed.
 \label{app:reset-architecture}
 
 To test whether this ordering depends on continuous-drive encoding, we repeat
-the comparison in a reset-encoded reservoir. At input
-step \(t\), qubit zero is replaced by
+the comparison in a reset-encoded reservoir. At input step \(t\), a designated
+input qubit, labeled 0, is replaced by
 \[
  \rho_t^{+}
  = \lvert\psi(s_t)\rangle\!\langle\psi(s_t)\rvert_0
@@ -272,10 +273,10 @@ confidence intervals.}
 task & local & collective & favorable effect & wins\\
 \midrule
 STM capacity
- & \(4.595912\) & \(6.369394\)
+ & \(4.596\) & \(6.369\)
  & \(1.773\,[1.312,2.235]\) & \(16/16\)\\
 NARMA-10 NMSE
- & \(0.672973\) & \(0.490933\)
+ & \(0.673\) & \(0.491\)
  & \(0.182\,[0.144,0.220]\) & \(16/16\)\\
 \bottomrule
 \end{tabular}
@@ -353,19 +354,22 @@ initialization-independent claims.
 
 A stricter STM check uses ten principal-pair lineages, three distant initial
 states, and washouts of 50, 200, and 800 inputs. A separate continuous-drive
-NARMA-10 check uses all 32 principal pairs. For its W800 condition, a frozen
+NARMA-10 check uses all 32 principal pairs. For the condition with an
+800-input washout, a frozen
 600-input prefix is placed before the unchanged canonical 1200-input sequence.
 This construction leaves the final 200 washout inputs and the 600 training and
-400 test rows identical to W200. Local and collective reservoirs share every input, target,
+400 test rows identical to the condition with a 200-input washout. Local and
+collective reservoirs share every input, target,
 split, Hamiltonian, and readout choice within a pair. Ground-state scoring uses
 all 32 pairs, and the first eight repeat both washouts from the ground, fully
-excited, maximally mixed, and Haar-random states. The W200 scores must reproduce
-the sealed principal values before the W800 aggregate is accepted. At W800,
+excited, maximally mixed, and Haar-random states. The scores after the 200-input washout
+must reproduce the sealed principal values before the aggregate after the
+800-input washout is accepted. At the 800-input washout,
 local and collective NMSE are \(0.315\) and \(0.230\), respectively. The
 local-minus-collective difference is \(0.0851\,[0.0716,0.0986]\), favorable in
-all 32 pairs. Its change from W200 is
+all 32 pairs. Its change from the 200-input washout is
 \(-0.00007\,[-0.00057,0.00043]\). The largest four-state collective score spread
-at W800 is \(2.18\times10^{-5}\), below the smallest paired ground-state
+after the 800-input washout is \(2.18\times10^{-5}\), below the smallest paired ground-state
 improvement, \(0.0148\). The archive records every checkpoint and the
 serialization-only amendment made before any non-audit score was generated.
 
@@ -396,7 +400,6 @@ calibrations satisfy the 0.5\% relative-error gate.
 
 \subsection{Independent operating-point selection}
 \label{app:selection-control}
-\label{app:selection-ablation}
 
 The third control lets local and collective relaxation select their own
 operating points without using test data.  The bounded search varies the drive,
@@ -446,7 +449,6 @@ four-task Pareto analysis.
 \FloatBarrier
 \section{Rate-profile optimization and comparison}
 \label{app:experiment2}
-\label{app:profiles}
 
 The rate-profile analysis keeps the jump family fixed and changes only how
 local relaxation strength is distributed across sites.  It therefore tests
@@ -597,7 +599,7 @@ argument under the connectivity assumptions of the primary model.
 
 \begin{proposition}[Uniform contraction of the driven dephasing model]
 \label{prop:dephasing}
-Let \(L_i=\sqrt{\gamma_i}Z_i\) with every \(\gamma_i>0\), let
+Let \(L_i=\sqrt{\gamma_i}\,\sigma_i^z\) with every \(\gamma_i>0\), let
 \(\Phi_s=\exp(\Lind_s\Delta t)\) with \(\Delta t>0\), and suppose the nonzero
 single-spin-flip matrix elements of \(H(s)\) connect the computational-basis
 hypercube for every \(s\in[0,1]\). Then there is a \(\kappa<1\) such that
@@ -614,16 +616,16 @@ sequence and initial state.
 For \(X_t=\exp(t\Lind_s)X\), the Hamiltonian commutator is skew-adjoint in the
 inner product \(\Tr(X^\dagger Y)\), while the Hermitian-unitary jumps give
 \(\frac{\mathrm d}{\mathrm dt}\|X_t\|_2^2
-=-\sum_i\gamma_i\|[Z_i,X_t]\|_2^2\le0\).
+=-\sum_i\gamma_i\|[\sigma_i^z,X_t]\|_2^2\le0\).
 Equality at \(\Delta t\) would make the norm constant, so every
-\([Z_i,X_t]\) vanishes and \(X_t\) remains diagonal.  Its derivative can
+\([\sigma_i^z,X_t]\) vanishes and \(X_t\) remains diagonal.  Its derivative can
 remain diagonal only if \([H(s),X_t]=0\).  Hypercube connectivity then makes
 \(X_t\) scalar.  Every nonzero traceless operator therefore contracts
 strictly.  Attainment in finite dimension, continuity in \(s\), and
 compactness of \([0,1]\) give one common \(\kappa<1\).\hfill\(\square\)
 
-State differences are traceless, so the bound applies to every switched
-sequence and all \(s\in[0,1]\).  It explains the dephasing zeros in
+State differences are traceless, so Proposition~\ref{prop:dephasing} applies
+to every switched sequence and all \(s\in[0,1]\). It explains the dephasing zeros in
 Table~\ref{tab:map} for the connected primary model, not arbitrary unital
 dissipators.
 
@@ -639,8 +641,9 @@ we use
 \]
 Here \(f=0\) is equal phase and \(f=1\) is orthogonal to the uniform direction.
 Every condition has Kossakowski rank one, spectrum
-\((5,0,0,0,0)\), unit diagonal, \(|c_i|=1\), magnitude IPR \(1/5\), and
-\(\mathcal B=80\). Four frozen phase-scrambled controls add zero-overlap
+\((5,0,0,0,0)\), unit diagonal, \(|c_i|=1\), and inverse participation ratio
+of the coefficient magnitudes \(\mathrm{IPR}=1/5\). The assigned operator
+weight is \(\mathcal B=80\). Four frozen phase-scrambled controls add zero-overlap
 directions.
 
 The confirmation uses 32 fresh paired reservoirs, excludes the pilot, and
@@ -661,7 +664,7 @@ spectrum, diagonal weights, coefficient magnitudes, and assigned operator
 weight remain fixed. \emph{(b)} Equal-phase-minus-control STM differences. F
 is the Fourier endpoint, A through D are phase-scrambled zero-overlap
 directions, \(\mu\) is their within-pair mean together with F, and S is the
-separate \(N=6\) replication. Pale marks show pairs. Large symbols and bars
+separate \(N=6\) replication. Pale marks show pairs. Large symbols, lines, and bars
 show means and \(95\%\) \(t\) intervals.}
 \label{fig:phase-direction}
 \end{figure}
@@ -680,7 +683,8 @@ A separate 24-pair \(N=6\) endpoint replication compares
 \(c_{+}^{\dagger}c_{\perp}=0\). At \(\mathcal B=192\), jump count, rank-one
 spectrum \(\{6,0,0,0,0,0\}\), trace, diagonal weights, coefficient magnitudes,
 processor, input, readout, data, and ridge rule remain fixed. All 24
-ground/mixed-state audits and the first six four-state audits pass at W800.
+ground/mixed-state audits and the first six four-state audits pass after the
+800-input washout.
 Equal-phase STM is \(13.626\) versus \(11.354\), a paired gain of
 \(2.271\,[1.826,2.717]\) with \(24/24\) wins and exact sign-test
 \(p=1.19\times10^{-7}\). Every delay-wise mean difference is positive. Thus

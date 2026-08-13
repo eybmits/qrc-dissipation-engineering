@@ -35,9 +35,11 @@ fixed-Frobenius protocol; reset FN is an external baseline. The
 \(N=4\) continuation contains one nonconverged collective lineage.
 
 The principal continuous-drive NARMA-10 endpoint has an additional all-32-pair
-W800 replay that leaves every scored training and test row unchanged. Its
+replay after an 800-input washout that leaves every scored training and test
+row unchanged. Its
 local-minus-collective NMSE difference is
-\(0.0851\,[0.0716,0.0986]\), favorable in 32/32 pairs; the change from W200 is
+\(0.0851\,[0.0716,0.0986]\), favorable in 32/32 pairs; the change from the
+200-input washout is
 unresolved at \(-0.00007\,[-0.00057,0.00043]\). The first eight pairs also
 carry a four-state score audit at both washouts.
 

@@ -1,4 +1,4 @@
-# Handoff — 2026-08-13
+# Handoff — 2026-08-14
 
 ## Resume here
 
@@ -39,7 +39,7 @@ Title: **The Organization of Environmental Coupling Shapes What Quantum Reservoi
   `paper/data/reproducibility_manifest.json`
 
 The paper uses the original Quantum bibliography presentation, 46 linked
-references, nine consistently styled vector figures, and a five-section
+references, eight consistently styled vector figures, and a five-section
 scientific narrative.
 
 ## Manuscript organization
@@ -55,9 +55,9 @@ are:
 2. **Reservoir model and controlled environmental coupling** — fixed processor,
    generator-level coupling organization and Kossakowski geometry,
    structural normalization, readout, and tasks;
-3. **Computational consequences of coupling organization** — jump-family task
+3. **Computational effects of coupling organization** — jump-family task
    profiles, rate-profile tuning, and finite-sampling visibility;
-4. **Dynamical interpretation of the local--collective memory contrast** —
+4. **Dynamical interpretation of the local and collective memory contrast** —
    physical picture, scalar controls, positive diagnostics, and limits; and
 5. **Discussion and conclusion** — direct answer, evidence hierarchy,
    claim boundaries, and co-design implication.
@@ -86,8 +86,9 @@ collective-over-local STM advantage, now reproduced across two tested input
 architectures. Switched-input convergence and a strict 800-step washout
 validate that the continuously driven effect is usable memory rather than
 surviving initialization. An all-32-pair continuous-drive NARMA-10 replay also
-retains the ordering at W800, with local-minus-collective NMSE
-\(0.0851\,[0.0716,0.0986]\), 32/32 wins, and an effect change from W200 of
+retains the ordering after the 800-input washout, with local-minus-collective
+NMSE \(0.0851\,[0.0716,0.0986]\), 32/32 wins, and an effect change from the
+200-input washout of
 \(-0.00007\,[-0.00057,0.00043]\). Its first eight pairs carry a four-state
 audit at both washouts. A separate 16-pair reset-encoded replication uses
 the same \(XX+Z\) processor and Pauli readout, changes the input mechanism, and
@@ -131,7 +132,7 @@ initialization-independent scaling evidence is generated.
 
 ## Verified release state
 
-The 13 August 2026 handoff passed:
+The 14 August 2026 handoff passed:
 
 - the full Python test suite passed;
 - submission validation at 23 pages and eight vector figures, with no Type 3

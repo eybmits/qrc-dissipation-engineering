@@ -27,7 +27,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.colors import to_rgba
 from matplotlib.patches import Rectangle, FancyBboxPatch, FancyArrowPatch
-from matplotlib.transforms import Bbox, ScaledTranslation
+from matplotlib.transforms import Bbox
 
 import l3_style as st
 
@@ -464,38 +464,13 @@ for xy, wh, col in [
                                   fc="none", ec=col, lw=1.20, zorder=4))
 
 # --- prior work -------------------------------------------------------------
-QUANTUM_VIOLET = "#53257F"
 PRIOR_WORK_FONT_SIZE = 8.70
-prior_work_prefix = ax_b.text(
-    FIRST_CELL_CENTER, 3.5 + GRID_DY, "prior work ",
-    ha="right", va="center", fontsize=PRIOR_WORK_FONT_SIZE,
+prior_work_label = ax_b.text(
+    FIRST_CELL_CENTER, 3.5 + GRID_DY, "prior work",
+    ha="center", va="center", fontsize=PRIOR_WORK_FONT_SIZE,
     color="white", zorder=7,
 )
-prior_work_citation = ax_b.text(
-    FIRST_CELL_CENTER, 3.5 + GRID_DY, "[6]",
-    ha="left", va="center", fontsize=PRIOR_WORK_FONT_SIZE,
-    color=QUANTUM_VIOLET, zorder=7,
-)
-
-# Offset the join between the two text runs so their combined bounding box,
-# rather than the join itself, is centred in the cell.
-fig.canvas.draw()
-_prior_renderer = fig.canvas.get_renderer()
-_prior_prefix_width = prior_work_prefix.get_window_extent(
-    renderer=_prior_renderer
-).width
-_prior_citation_width = prior_work_citation.get_window_extent(
-    renderer=_prior_renderer
-).width
-_prior_offset_inches = (
-    _prior_prefix_width - _prior_citation_width
-) / (2.0 * fig.dpi)
-_prior_transform = ax_b.transData + ScaledTranslation(
-    _prior_offset_inches, 0.0, fig.dpi_scale_trans
-)
-prior_work_prefix.set_transform(_prior_transform)
-prior_work_citation.set_transform(_prior_transform)
-prior_work_texts = (prior_work_prefix, prior_work_citation)
+prior_work_texts = (prior_work_label,)
 
 # --- icons ------------------------------------------------------------------
 # Keep the family headers visually tied to the matrix rather than floating
@@ -697,7 +672,7 @@ for _name, _pk, _tp, _wl, _wr, _cc, _lw, _ls in DESIGNS:
         keep_clear.append((f"(b) {_name}", disp_rect(ax_b2, _x0, _y.min() - 0.35,
                                                      _x1, _y.max() + 0.35)))
 
-allowed = {"pair", "thermal", "exchange", "prior work ", "[6]",
+allowed = {"pair", "thermal", "exchange", "prior work",
            "jump families", "rate profiles",
            "other combinations", r"$\cdots$", r"$\vdots$"}
 for label, bb in boxes:

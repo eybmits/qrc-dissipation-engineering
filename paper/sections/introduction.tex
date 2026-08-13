@@ -32,8 +32,8 @@ process in advance and ask how strongly it should act.
 
 An environment specifies more than a rate. It also determines which system
 transitions lose information separately and which couple through the same
-channel. With independent relaxation, each qubit has its own route into the
-environment. With shared relaxation, one channel acts directly on a collective
+channel. With uniform local relaxation, each qubit has its own route into the
+environment. With collective relaxation, one shared channel acts directly on a collective
 combination of qubit transitions. Other combinations reach it only after the
 Hamiltonian mixes them together. This distinction is familiar from collective
 emission and structures protected from noise in quantum
@@ -54,12 +54,12 @@ chaotic forecasting in different ways. The environment therefore changes the
 kind of temporal information available to the readout, not simply whether one
 score improves.
 
-The clearest recurring contrast is between shared and independent relaxation.
-A shared channel leaves more recent input history accessible to the linear
+The clearest recurring contrast is between collective and uniform local relaxation.
+Collective relaxation leaves more recent input history accessible to the linear
 readout and improves recovery of a nonlinear function of that history. Both
 effects appear in every principal paired instance with five qubits. The ordering
-remains when the initial settling period, or washout, is extended until the
-tested dependence on the starting state has vanished to numerical precision.
+remains after the longer washout, when tested starting-state effects are
+negligible relative to the task contrast.
 It recurs from four to eight qubits, across four spin Hamiltonian ensembles, and
 after replacing continuous input driving with encoding through reset operations. It also
 survives separate comparisons that match average dissipative activity or a

@@ -34,7 +34,7 @@ The canonical manuscript follows one five-section causal narrative:
 1. **Introduction:** controlled forgetting and coupling organization;
 2. **Reservoir model and controlled environmental coupling:** the fixed processor,
    generator-level design space, and paired comparison;
-3. **Computational consequences:** jump-family task profiles, within-family
+3. **Computational effects:** jump-family task profiles, within-family
    rate-profile tuning, and finite-sampling visibility;
 4. **Dynamical interpretation:** the local--collective memory contrast,
    alternative scalar explanations, and positive diagnostics; and
@@ -44,9 +44,10 @@ The canonical manuscript follows one five-section causal narrative:
 Within the principal jump-family analysis, switched-input convergence and an
 800-step task washout establish usable rather than initialization memory at
 the flagship \(N=5\) point. A separate all-32-pair continuous-drive NARMA-10
-replay preserves the favorable ordering at W800: local-minus-collective NMSE
-is \(0.0851\,[0.0716,0.0986]\), with 32/32 wins, while the effect change from
-W200 is \(-0.00007\,[-0.00057,0.00043]\). Section 4 then shows that the
+replay preserves the favorable ordering after the 800-input washout:
+local-minus-collective NMSE is \(0.0851\,[0.0716,0.0986]\), with 32/32 wins,
+while the effect change from the 200-input washout is
+\(-0.00007\,[-0.00057,0.00043]\). Section 4 then shows that the
 collective-over-local contrast remains after matching mean expected jump
 activity, matching the dominant midpoint Liouvillian gap, or selecting the two
 operating points independently. The gap match strongly attenuates the effect,
@@ -87,7 +88,7 @@ than as initialization-independent scaling evidence.
 
 ## Verified checkout
 
-The current checkout was checked locally on 13 August 2026:
+The current checkout was checked locally on 14 August 2026:
 
 - the full Python test suite passes;
 - the 23-page PDF contains eight vector figures, no Type 3 fonts, and no hard

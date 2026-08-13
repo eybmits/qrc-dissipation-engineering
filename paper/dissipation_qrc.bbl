@@ -111,7 +111,7 @@ Saud {\v C}indrak, Brecht Donvil, Kathy L{\"u}dge, and Lina Jaurigue.
   Review Research {\bf 6}, 013051}~(2024).
 
 \bibitem{SanniaNonMarkov2026}
-Antonio Sannia, Ricard {Ravell Rodr{\'i}guez}, Gian~Luca Giorgi, and Roberta
+Antonio Sannia, Ricard~Ravell Rodr{\'i}guez, Gian~Luca Giorgi, and Roberta
   Zambrini.
 \newblock ``Non-{Markovianity} and memory enhancement in quantum reservoir
   computing''.
@@ -315,7 +315,7 @@ Wei Xia, Shuaifan Cao, Xingze Qiu, and Xiaopeng Li.
 \bibitem{Holm1979}
 Sture Holm.
 \newblock ``A simple sequentially rejective multiple test procedure''.
-\newblock \href{https://dx.doi.org/10.2307/4615733}{Scandinavian Journal of
-  Statistics {\bf 6}, 65--70}~(1979).
+\newblock Scandinavian Journal of Statistics {\bf 6}, 65--70~(1979).
+\newblock  url:~\url{https://www.jstor.org/stable/4615733}.
 
 \end{thebibliography}

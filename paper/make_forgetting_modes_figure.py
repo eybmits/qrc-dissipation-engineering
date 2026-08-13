@@ -1214,7 +1214,7 @@ def draw_robustness_overview(
     """Draw the seven-row robustness overview without pooling ensembles."""
 
     groups: list[tuple[str, list[dict]]] = [
-        (r"fixed $B$", [by_key["fixed_b"]]),
+        (r"fixed $\mathcal{B}$", [by_key["fixed_b"]]),
         ("long washout", [by_key["washout_800"]]),
         (
             "H variants",
@@ -1222,7 +1222,7 @@ def draw_robustness_overview(
         ),
         ("reset encoding", [reset_summary]),
         ("activity match", [by_key["activity_matched"]]),
-        ("matched\nrelaxation rate", [by_key["gap_matched"]]),
+        ("gap match", [by_key["gap_matched"]]),
         ("indep. selection", [by_key["independent_selection"]]),
     ]
     y_positions = np.arange(len(groups) - 1, -1, -1, dtype=float)
@@ -1527,7 +1527,7 @@ def draw_gap_lags(axis: plt.Axes, lag_rows: list[dict]) -> None:
         ),
         (
             "local_gap_matched",
-            "matched rate",
+            "gap-matched local",
             st.LOCAL_CONTRAST,
             "--",
             "s",
@@ -1880,9 +1880,9 @@ def main() -> None:
         color=st.COLLECTIVE,
         marker="o",
         labels={
-            "fixed_b": r"fixed $B$",
+            "fixed_b": r"fixed $\mathcal{B}$",
             "activity_matched": "mean\nactivity",
-            "gap_matched": "matched\nrate",
+            "gap_matched": "gap\nmatch",
             "independent_selection": "selected\nsettings",
         },
         seed_values=scalar_seed_values,

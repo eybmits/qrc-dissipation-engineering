@@ -10,8 +10,9 @@ The revision is organized around one hierarchy:
 > differences can be resolved.
 
 The revision changes the organization, wording, and presentation of the paper
-without adding experiments or changing numerical results. Every textual claim
-and visual summary is aligned with the plotted estimand and archived records.
+and incorporates separately documented orientation interventions without
+altering the earlier numerical records. Every textual claim and visual summary
+is aligned with the plotted estimand and archived records.
 
 ## Section-by-section change log
 
@@ -156,11 +157,11 @@ remain available as Appendix Figures 6--8.
 
 ## Validation
 
-- Manuscript compiles to 21 A4 pages.
+- Manuscript compiles to 23 A4 pages.
 - Eight vector PDF figures are included: five in the main text and three in the
   appendix.
 - Submission validation passes with no Type 3 fonts or hard LaTeX defects.
-- The complete 21-page rendered PDF was inspected for clipping, overlap,
+- The complete 23-page rendered PDF was inspected for clipping, overlap,
   conspicuous arbitrary whitespace, orphan headings, and float/caption order.
 - Numerical evidence validation passes, including outer and nested checksums,
   finite-size evidence, scalar controls, switched-input controls, chronology,
@@ -169,9 +170,8 @@ remain available as Appendix Figures 6--8.
   floats, or overfull boxes remain. The log retains only benign underfull-box
   warnings.
 
-## Unresolved editorial choice
+## Editorial date
 
-The displayed manuscript date remains `30 July 2026`. It was preserved rather
-than silently changed; the authors should update it only when the intended
-submission date is fixed. No scientific or numerical inconsistency remains
-open in this revision.
+The manuscript carries no printed date. arXiv records the upload and version
+dates directly. No scientific or numerical inconsistency remains open in this
+revision.

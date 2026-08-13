@@ -18,11 +18,11 @@ its rate profile.}
 \label{fig:map}
 \end{figure*}
 
-\section{\texorpdfstring{Computational consequences of coupling\\
-organization}{Computational consequences of coupling organization}}
+\section{\texorpdfstring{Computational effects of coupling\\
+organization}{Computational effects of coupling organization}}
 \label{sec:performance}
 
-We traverse the two-coordinate design space of Fig.~\ref{fig:space}: first
+We traverse the two-coordinate design space of Figure~\ref{fig:space}: first
 across jump families, then across rate profiles within a family, and finally
 across both axes jointly. We then ask whether exact-expectation differences
 remain visible under finite measurement budgets.
@@ -50,7 +50,8 @@ the uniform-local mean. Family-colored dotted lines and saturated markers
 identify all designs with a better mean in that direction. Faint rings show
 individual reservoir instances. The
 panels retain their own scales and must be read independently.
-Appendix Table~\ref{tab:map} gives the exact means and standard errors.
+Table~\ref{tab:map} in Appendix~\ref{app:shared} gives the exact means and
+standard errors.
 
 \subsection{Axis I: Jump-family choice changes the task profile}
 \label{sec:map}
@@ -97,7 +98,7 @@ above zero favor collective relaxation. \emph{(b,c)} STM capacity and
 NARMA-10 error across the tested reservoir sizes. Collective relaxation
 retains more memory and gives lower error. \emph{(d)} Memory from each previous
 input. The slower purple decline shows that older inputs remain accessible for
-longer. Pale marks show individual reservoirs. Large symbols and bars show
+longer. Pale marks show individual reservoirs. Large symbols, lines, bars, and bands show
 means and \(95\%\) intervals.}
 \label{fig:collective-case}
 \end{figure*}
@@ -118,7 +119,7 @@ Before interpreting the larger STM score as useful input memory, we test what
 is being remembered. Removing every jump operator while retaining the
 Hamiltonian, input protocol, and readout leaves STM and parity near zero,
 raises NARMA-10 NMSE above one, and preserves initialization dependence
-(Appendix Table~\ref{tab:map}). Coherent driving alone therefore reproduces
+(Table~\ref{tab:map} in Appendix~\ref{app:shared}). Coherent driving alone therefore reproduces
 neither the task profile nor controlled forgetting. This unmatched diagnostic contrasts
 with reset FN, which supplies non-unitary forgetting.
 
@@ -143,23 +144,24 @@ during the specified continuation to 1200 inputs.
 A ten-pair subset of the principal \(N=5\) lineages then uses the 800-input
 washout before STM scoring. Cross-initialization differences are negligible,
 while collective relaxation retains \(+3.564\,[3.124,4.004]\) STM units with
-\(10/10\) wins (Fig.~\ref{fig:collective-case}(a)). For continuous-drive
+\(10/10\) wins (Figure~\ref{fig:collective-case}(a)). For continuous-drive
 NARMA-10, all 32 principal pairs are replayed after an independent 600-input
 prefix, leaving the scored training and test rows unchanged. At the resulting
 800-input washout, NMSE is \(0.315\) locally and \(0.230\) collectively, a
 favorable paired difference of \(0.0851\,[0.0716,0.0986]\) with \(32/32\)
-wins. The W800-minus-W200 effect change is
+wins. The effect change between the 800-input and 200-input washouts is
 \(-0.00007\,[-0.00057,0.00043]\). Across four initial states on the first eight
-pairs, the largest W800 NARMA-10 score spread is \(2.18\times10^{-5}\), far
+pairs, the largest NARMA-10 score spread after the 800-input washout is
+\(2.18\times10^{-5}\), far
 below the smallest paired ground-state improvement, \(0.0148\). The stable
-W800 endpoints therefore show that neither ordering is produced by the
-residual initial-state dependence exposed at W200.
+endpoints after the 800-input washout therefore show that neither ordering is produced
+by the residual initial-state dependence exposed after the 200-input washout.
 
 The comparison is also repeated under four spin-Hamiltonian ensembles that
 change the interaction axis, drive axis, interaction form, or connectivity.
 Every ensemble retains a positive collective-minus-reference STM difference,
 ranging from \(+2.22\) to \(+4.02\) units
-(Fig.~\ref{fig:collective-case}(a)). These replications preserve the continuous
+(Figure~\ref{fig:collective-case}(a)). These replications preserve the continuous
 encoding and Pauli readout, so they establish recurrence within the tested
 driven-spin architecture. Appendix~\ref{app:experiment1} describes the
 Hamiltonian variants and ridge control.
@@ -171,7 +173,7 @@ washout, collective relaxation increases STM from \(4.596\) to \(6.369\), a
 gain of \(1.773\,[1.312,2.235]\), and decreases NARMA-10 NMSE from \(0.673\)
 to \(0.491\), a favorable reduction of \(0.182\,[0.144,0.220]\), with \(16/16\)
 favorable pairs for both endpoints
-(Fig.~\ref{fig:reset-architecture} and
+(Figure~\ref{fig:reset-architecture} and
 Appendix~\ref{app:reset-architecture}). The ordering between local and
 collective relaxation therefore recurs across two tested input architectures rather than being an
 artifact of continuous driving.
@@ -185,8 +187,8 @@ second choice remains: how should the assigned coupling weight be distributed
 within that family? We first keep the local-relaxation family
 fixed and compare uniform, random unequal, learned static, and input-adaptive
 rate profiles. All sites relax in every candidate, but they need not do so
-equally. The profile-only unequal-local row in Appendix
-Table~\ref{tab:map} reports the common-protocol comparison. The dedicated STM
+equally. The profile-only unequal-local row in Table~\ref{tab:map} in
+Appendix~\ref{app:shared} reports the common-protocol comparison. The dedicated STM
 sweep below uses the separately
 specified profile-optimization protocol.
 
@@ -259,9 +261,9 @@ At each step, independent sampling spends \(N_{\mathrm{prep}}=45q\) shots over
 \(X\), \(Y\), and \(Z\) bases and reuses each bitstring across 15 features.
 Each design validates its ridge coefficient before one held-out evaluation.
 ``Preparations per step'' excludes replay of the preceding input history, so
-Fig.~\ref{fig:sampling} studies measurement resolution, not end-to-end runtime.
+Figure~\ref{fig:sampling} studies measurement resolution, not end-to-end runtime.
 
-At the exact-expectation endpoint, Fig.~\ref{fig:sampling} recovers the
+At the exact-expectation endpoint, Figure~\ref{fig:sampling} recovers the
 collective-over-reference memory ordering from the jump-family comparison.
 Grouped sampling resolves this contrast with one-sixteenth of the preparation
 count needed by independent sampling. This gain is close to the 15-fold
@@ -281,7 +283,7 @@ grid.
 Appendix~\ref{app:experiment3} gives the estimator definitions, budget
 parameterization, and simultaneous-inference scope.
 
-\begin{figure}[!t]
+\begin{figure}[H]
 \centering
 \includegraphics{figures/fig_sampling.pdf}
 \caption{\textbf{Grouped measurements reveal memory differences with fewer
@@ -292,10 +294,10 @@ reference, and values below zero indicate less. \emph{(a)} Observables are
 measured independently. \emph{(b)} Compatible observables are measured
 together, making the correct ordering visible with fewer preparations. Open
 symbols show the exact results. Pale points show individual reservoir pairs.
-Large symbols and bars show means and \(95\%\) intervals.}
+At finite budgets, large symbols and bars show means and simultaneous
+\(95\%\) intervals.}
 \label{fig:sampling}
 \end{figure}
-
 Across these analyses, the memory advantage of collective over uniform local
 relaxation is the strongest recurring jump-family effect.
 Section~\ref{sec:interpretation} now examines which dynamics are consistent
