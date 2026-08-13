@@ -87,3 +87,9 @@ def test_rank_one_orientation_snapshot_rejects_altered_primary_mean(
         failures,
     )
     assert any("primary paired result mismatch" in failure for failure in failures)
+
+
+def test_continuous_drive_narma_washout_passes_sealed_contract() -> None:
+    failures: list[str] = []
+    submission_validation.validate_continuous_narma_washout(failures)
+    assert failures == []

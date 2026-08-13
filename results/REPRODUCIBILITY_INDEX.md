@@ -12,7 +12,8 @@ the historical panel labels retained inside the sealed evidence archive.
    It contains the current manuscript, its complete source package, the full
    numerical-evidence archive, the reset-architecture replication archive,
    the phase-direction confirmation archive, the second-size rank-one
-   orientation archive, this index, and the exact protocol manifest.
+   orientation archive, the continuous-drive strict-washout NARMA-10 archive,
+   this index, and the exact protocol manifest.
 2. Extract it and run:
 
    ```bash
@@ -27,7 +28,8 @@ the historical panel labels retained inside the sealed evidence archive.
    initialization audit, plus all 288 phase-direction task cells, 72
    convergence cells, and 72 independent numerical replays. Finally, it
    reconstructs the 24-pair real sign-balanced orientation replication from
-   its raw checkpoints and checks the matched channel invariants.
+   its raw checkpoints, checks the matched channel invariants, and authenticates
+   all 32 continuous-drive NARMA-10 strict-washout pairs.
 3. The nested numerical-evidence archive is independently sealed with
    SHA-256:
 
@@ -86,6 +88,16 @@ comparison with an 800-input washout.
 Initialization-induced score differences are unresolved, while the collective
 STM advantage remains
 \(3.564\,[3.124,4.004]\) with 10/10 paired wins.
+
+The continuous-drive NARMA-10 endpoint is separately replayed on all 32
+principal pairs. Its W800 condition prepends an independent frozen 600-input
+prefix while leaving the final 200 washout inputs and all scored training and
+test rows identical to W200. At W800, mean NMSE is \(0.315\) locally and
+\(0.230\) collectively; the favorable paired difference is
+\(0.0851\,[0.0716,0.0986]\), with 32/32 wins. The W800-minus-W200 effect change
+is \(-0.00007\,[-0.00057,0.00043]\). A four-state audit on the first eight
+pairs gives a largest W800 collective score spread of
+\(2.18\times10^{-5}\), below the smallest paired improvement \(0.0148\).
 
 The complete reviewer bundle contains every protocol, input definition,
 ordered seed, checkpoint, strict-washout score, aggregate, checksum, and
@@ -169,6 +181,7 @@ directory.
 | Figure 3(b): local–collective STM and NARMA-10 across sizes | `finite_size/experiment1_finite_size_v2_results.tar.gz`, containing all 960 nested-lineage checkpoints for `N=4,...,8`. | Frozen protocol, aggregate, production log, validator, aggregate snapshot `paper/data/experiment1_finite_size_snapshot.json`, and the checksum-verified plotted values in `paper/data/experiment1_finite_size_seed_values.json`. |
 | Figure 3(c): fixed-local and collective lag-resolved STM | `qrc_dissipation_revision_evidence/results/canonical_gap_control/lag_capacities.csv` in the base reproducibility package. | The tracked checksum-locked `paper/evidence/canonical_gap_control/lag_capacities.csv` contains all 24 seeds, two displayed designs, and 20 delays; the builder validates the complete three-design control table before plotting the displayed pair. |
 | Initial-state convergence control | `numerical_evidence.zip` contains `switched_input_memory_control_v2/results/convergence/`; `manuscript_source.zip` contains `evidence/collective_N5_convergence_extension_v1/`, `evidence/local_pair_convergence_extension_v1/`, and both frozen driver snapshots. | The complete-bundle validator authenticates the 800-step control, checks every continuation checksum and protocol hash, reconstructs the envelopes, verifies all frozen prefixes, and checks the eight collective \(N=5\) plus all 48 local/pair \(N=4,5,6\) continuation checkpoints through 1200 inputs. |
+| Continuous-drive strict-washout NARMA-10 | Top-level `continuous_drive_narma_washout_v1_results.tar.gz` contains all 32 paired checkpoints at W200 and W800, including the first-eight four-state audit. | The frozen driver replays every W200 score exactly, verifies identical scored rows, reconstructs the W800 effect and effect change, and authenticates every checkpoint and initialization diagnostic. |
 | Figure 4(a): paired local rate-profile effects | Per-seed held-out profile rows in the base reproducibility package (32 paired reservoirs per comparison). | `make_figures.py` renders every paired effect with distance-aware opacity; base-package deterministic scripts and held-out reports reconstruct the learned profiles. |
 | Figure 4(b): paired profile-by-family interaction | Per-seed local/collective and uniform/learned rows in the base reproducibility package (24 paired reservoirs). | The plotted seed endpoints and trajectories use the same distance-aware opacity rule; the base-package interaction report, simultaneous contrasts, and deterministic scripts provide the audit. |
 | Figure 5(a,b): independent and grouped finite sampling | Per-seed, per-estimator, per-budget rows under `base_reproducibility/qrc_dissipation_reproducibility_package.zip` → `qrc_dissipation_revision_evidence/results/measurement_full_v3/`; the exact protocol is `protocol.json`. | `make_figures.py` validates every plotted seed difference against the aggregate mean before rendering; the base-package measurement report and tests provide the independent audit. |
@@ -220,7 +233,9 @@ check reuses the first 24. The reset-architecture block records its 16 fresh
 ordered pair seeds and four-state audit. The rank-one orientation block records
 the ordered 24-pair seed ledger and its separate `2026081201` stream namespace;
 these are described as separately generated rather than globally fresh because
-some numeric identifiers occurred in a pilot protocol. The
+some numeric identifiers occurred in a pilot protocol. The continuous-drive
+strict-washout NARMA-10 block reuses all 32 principal paired lineages and draws
+only its added 600-input prefixes from the frozen `2026081301` namespace. The
 independent-initial-state and long-washout seed ledgers are in
 `switched_input_memory_control_v2/protocol.json`. The machine-readable
 manifest also gives:

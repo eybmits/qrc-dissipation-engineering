@@ -2,98 +2,92 @@
 \label{sec:introduction}
 
 Reservoir computing processes temporal information with a fixed dynamical
-system and trains only a simple readout~\cite{Maass2002,JaegerESP2001}.
+system and trains only a linear readout~\cite{Maass2002,JaegerESP2001}.
 Quantum reservoir computing (QRC) applies this principle to quantum
-dynamics~\cite{Fujii2017}, making complex evolution useful without optimizing
-every component of the processor. For time-dependent tasks, however, a
-reservoir must balance memory and forgetting: recent inputs must remain
-accessible, while obsolete information and the initial state must lose
-influence. In open quantum systems, coupling to the environment can provide
-this controlled forgetting, and dissipative dynamics can realize nonlinear
-fading-memory input--output maps~\cite{ChenNurdin2019}. Dissipation can
-therefore be part of the computation rather than merely a source of error.
+dynamics~\cite{Fujii2017} and has been pursued in platforms including spin
+networks, superconducting processors, fermionic and bosonic modes, and photonic
+circuits. Two requirements constrain any such device: recent inputs must remain
+accessible to the readout, and older inputs together with the initial state
+must lose their influence. Purely unitary evolution does not by itself supply
+this forgetting. Coupling to an environment is therefore not merely an
+incidental imperfection in QRC but can be a functional ingredient, and
+dissipative dynamics can realize the nonlinear fading-memory maps that the
+paradigm requires~\cite{ChenNurdin2019}.
 
-Previous work has established several ways in which non-unitary dynamics can
-support QRC. Noise, damping, optical absorption, and measurement back-action
-can generate or regulate temporal memory
+Dissipation is often something to be suppressed, yet engineered environments
+have long been used constructively for state preparation, quantum memories,
+and computation driven by dissipation itself
+~\cite{Poyatos1996,Verstraete2009,Pastawski2011,Harrington2022}. In QRC this
+constructive view is well established. Noise, damping, optical absorption, and
+measurement back-action can generate or regulate temporal memory
 ~\cite{Chen2020,Sannia2024,Ricci2026,Gotting2025,Mujal2023,Franceschetto2026},
 while feedback, finite-history reinitialization, non-Markovian embeddings, and
-optical feedback provide additional mechanisms
+optical feedback provide further mechanisms
 ~\cite{KobayashiFeedback2024,Cindrak2024,SanniaNonMarkov2026,Paparelle2026}.
 Studies of coherence and mid-circuit measurement further delimit practically
 accessible operating regimes~\cite{Palacios2024,Hu2024}. In particular,
 Sannia \emph{et al.} introduced a continuously driven spin reservoir with
-uniform local relaxation and showed that performance can be improved by
-tuning the damping strength~\cite{Sannia2024}. Related work varies scalar
-controls such as drive, coupling, input duration, and damping
-rate~\cite{MartinezPenaPRL2021,Baumann2026}. These studies tune the strength of
-a prescribed dissipator; here we vary the dissipative generator itself.
-The significant advance is computational rather than the known existence of
-dark or slowly relaxing combinations under shared
-decay~\cite{Dicke1954,Cabot2018}: we demonstrate a controlled, input-driven,
-Pauli-visible recent-input memory advantage of the equal-phase shared channel
-over uniform local loss.
+uniform local relaxation and showed that its performance improves when the
+damping strength is tuned~\cite{Sannia2024}. Related work varies scalar
+controls such as the drive, coupling, input duration, and damping
+rate~\cite{MartinezPenaPRL2021,Baumann2026}.
 
-We describe the organization of environmental coupling through two operational
-coordinates. The jump family specifies which combinations of system operators
-are directly coupled by the environmental channel; the rate profile specifies
-how the assigned coupling weight is distributed within that family.
-Independent local relaxation and a shared collective channel, for example,
-expose different combinations of the same sitewise lowering actions: the
-former couples separate site directions, whereas the latter couples one
-weighted collective direction. This distinction is defined at the generator
-level, so equivalent remixings of a jump-operator list are not counted as
-different environmental-coupling designs. Here, environmental coupling refers
-to the dissipative part of the engineered Markovian GKLS generator, not to a
-microscopic model of an arbitrary bath. Section~\ref{sec:model} formalizes the design space,
-gives the local--collective intuition, and defines the normalization used for
-controlled comparison.
+A common feature of these continuously driven dissipative QRC studies is that
+the dissipator is prescribed and a magnitude attached to it is optimized. A
+Markovian generator, however, specifies more than a strength: it also fixes
+which combinations of system transitions the environment acts on directly.
+Independent losses expose each site separately, whereas a single shared
+channel exposes one collective combination and reaches the others indirectly
+after coherent dynamics has mixed them into it. That shared decay produces
+directly and indirectly coupled sectors is long known from collective emission
+and noiseless clusters in quantum networks~\cite{Dicke1954,Cabot2018}.
+Whether the organization of that coupling can be harnessed as a computational
+design variable in an input-driven reservoir, rather than merely setting a
+rate of forgetting, remains open. Continuously driven spin networks with Pauli
+readout provide a natural setting in which to address it: the coherent
+processor, input encoding, and measured observables can be shared while only
+the environmental coupling is changed.
 
-We study this design space in continuously driven spin reservoirs based on
-Ref.~\cite{Sannia2024}. In the principal jump-family and static-profile
-comparisons, paired reservoirs share the Hamiltonian instance, input sequence,
-encoding, Pauli observables, ridge-readout protocol, and data splits, while
-jump family or rate profile is varied under the declared assigned-weight
-control. Six jump families are evaluated on short-term memory, NARMA-10,
-parity, and Mackey--Glass forecasting. Separate STM studies compare several
-within-family profiles. We additionally test when the exact-expectation STM
-ordering becomes statistically resolvable under finite measurement budgets.
+Here we vary the dissipative generator itself rather than only the strength of
+a prescribed dissipator. We formulate the design space at the generator level,
+separating how strongly the environment acts from which operator combinations
+it couples to and how assigned coupling weight is distributed among them.
+Comparisons are therefore between generators, not between equivalent
+rewritings of a jump-operator list. In the principal paired comparisons,
+reservoirs share the Hamiltonian instance, input sequence, observables, readout
+protocol, and data splits while coupling organization changes under a fixed
+assigned operator-weight budget. The significant advance is computational:
+the choice of coupling changes what the readout can still recover about earlier
+inputs, and a shared relaxation channel makes more recent input history
+accessible than independent local losses. This ordering recurs after long
+washout, across the tested finite sizes and spin-Hamiltonian ensembles, and
+under reset-based input encoding. It also survives separate comparisons that
+match mean expected jump activity or a representative midpoint Liouvillian gap
+and a bounded comparison with independently selected operating points. Most
+sharply, matched rank-one interventions show that rotating only the coupled
+collective direction changes accessible memory while Kossakowski rank,
+nonzero spectrum and trace, sitewise diagonal weights, coefficient magnitudes,
+and assigned operator weight remain fixed. Equal assigned weight, and even
+these matched coarse Kossakowski quantities, therefore does not imply equal
+computation. Across the fixed-weight continuously driven benchmarks, different
+jump families favor different tasks rather than one being uniformly better;
+a finite-sampling analysis identifies when exact-expectation contrasts become
+statistically resolvable.
 
-Within the common fixed-\(\mathcal B\) protocol, the tested jump families
-produce distinct task profiles, and no continuously driven design leads every
-benchmark. We therefore use task specialization here in a protocol-specific
-sense, not as a ranking after separate task-wise optimization of every family.
-Against this task-dependent background, one result is especially robust.
-Compared with independent local losses, the equal-phase shared relaxation
-channel studied here makes more recent input history accessible to the readout.
-This collective-memory
-advantage recurs throughout the tested size sweep, across Hamiltonians that change the
-interaction and drive axes, interaction form, or connectivity, and
-after strict washout removes dependence on the tested initial states. It also
-survives matching realized jump activity or a representative relaxation
-timescale, as well as independent operating-point selection. Matched rank-one
-direction interventions further isolate Kossakowski orientation. The
-primary phase-path study and a separately generated, real sign-balanced
-replication at a second finite size both show that, with rank, spectrum, trace,
-diagonal weights, coefficient magnitudes, and assigned operator weight fixed,
-accessible memory depends on the coupled collective direction.
-
-The effect also transfers to an input-by-reset reservoir, where each input
-resets one qubit before autonomous evolution. Fresh pairs reproduce the
-favorable ordering in memory and nonlinear temporal prediction. Together with
-the size, Hamiltonian, washout, and operating-point checks, this supports
-robustness across the tested spin-reservoir architectures rather than one size,
-input mechanism, or scalar setting.
-
-Throughout, task memory denotes information about previous inputs that is
-linearly accessible to the specified Pauli readout; dedicated long-washout
-controls distinguish the principal local--collective effect from residual
-initial-state dependence. Dynamical diagnostics support a shared-channel
-interpretation, but the claim concerns coupling organization rather than an
-asymptotic law or an identification of one uniquely causal microscopic
-ingredient; fixed assigned weight is not physical equivalence.
-Section~\ref{sec:model}
-defines the model and design space, Section~\ref{sec:performance} presents the
-computational results, Section~\ref{sec:interpretation} examines the
-local--collective dynamics, and Section~\ref{sec:discussion} discusses scope
-and implications.
+These results bridge the scalar-rate picture of dissipation in QRC and the
+broader practice of dissipation engineering, where the system--environment
+coupling is itself designed
+~\cite{Poyatos1996,Verstraete2009,Pastawski2011,Harrington2022,Cattaneo2019,
+Brehm2021,Sheremet2023,CattaneoPRX2023}. They establish that the scalar-rate
+description is incomplete: a damping rate, and even a matched set of coarse
+Kossakowski quantities, does not determine what a reservoir remembers. Within
+the matched rank-one interventions, the supported environmental direction is
+therefore a design coordinate that must be chosen and reported rather than left
+implicit in a choice of jump operators, and it is a quantity that shared
+resonators, waveguides, and structured couplers can directly control.
+Controlled forgetting in an open quantum reservoir is not set by one rate
+alone: how the processor is coupled to its environment belongs to its
+architecture alongside the Hamiltonian and the readout. Here, memory means
+previous-input information accessible to the specified Pauli readout after
+washout; the finite-reservoir result is neither an asymptotic law nor a unique
+mechanism, and fixed assigned weight is not physical equivalence.

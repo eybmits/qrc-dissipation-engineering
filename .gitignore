@@ -42,6 +42,7 @@ results/*
 !results/reset_architecture_replication_results.tar.gz
 !results/phase_direction_confirmatory_v1_results.tar.gz
 !results/rank_one_orientation_v1_results.tar.gz
+!results/continuous_drive_narma_washout_v1_results.tar.gz
 !results/qrc_dissipation_reproducibility_package.zip
 !results/qrc_dissipation_reproducibility_package.zip.sha256
 !results/arxiv_submission.zip

@@ -44,6 +44,9 @@ INPUTS = {
     "rank_one_orientation_v1_results.tar.gz": REPO_ROOT
     / "results"
     / "rank_one_orientation_v1_results.tar.gz",
+    "continuous_drive_narma_washout_v1_results.tar.gz": REPO_ROOT
+    / "results"
+    / "continuous_drive_narma_washout_v1_results.tar.gz",
     "protocol_manifest.json": REPO_ROOT
     / "paper"
     / "data"
@@ -101,6 +104,9 @@ def _readme() -> bytes:
         "rank_one_orientation_v1_results.tar.gz contains the independent\n"
         "24-pair real sign-balanced replication at a second finite size, its\n"
         "matched-channel audit, raw checkpoints, and frozen source.\n"
+        "continuous_drive_narma_washout_v1_results.tar.gz contains the\n"
+        "32-pair continuous-drive NARMA-10 confirmation at washouts 200 and\n"
+        "800, including the four-state audit and canonical baseline replay.\n"
         "manuscript_source.zip contains the complete\n"
         "journal source, figure code and data, the eight-lineage N=5\n"
         "collective continuation, and all 48 local/pair cross-size\n"
@@ -1507,6 +1513,113 @@ def verify_rank_one_orientation_archive() -> dict:
     }
 
 
+def verify_continuous_narma_washout_archive() -> dict:
+    archive = ROOT / "continuous_drive_narma_washout_v1_results.tar.gz"
+    prefix = "continuous_drive_narma_washout_v1/"
+    with tarfile.open(archive, "r:gz") as bundle:
+        members = bundle.getmembers()
+        names = [member.name for member in members]
+        require(len(names) == len(set(names)), "NARMA washout TAR has duplicate members")
+        for member in members:
+            safe_name(member.name)
+            require(
+                member.isdir() or member.isfile(),
+                f"NARMA washout TAR has non-regular member: {member.name}",
+            )
+        files = {member.name: member for member in members if member.isfile()}
+        checksum_name = prefix + "SHA256SUMS.txt"
+        require(checksum_name in files, "NARMA washout TAR lacks checksums")
+        checksum_file = bundle.extractfile(files[checksum_name])
+        require(checksum_file is not None, "NARMA washout checksums unreadable")
+        checksums = {}
+        for number, line in enumerate(checksum_file.read().decode().splitlines(), 1):
+            parts = line.split("  ", 1)
+            require(len(parts) == 2, f"NARMA washout checksum:{number}: malformed")
+            sha, relative = parts
+            safe_name(relative)
+            require(relative not in checksums, f"duplicate NARMA washout row: {relative}")
+            checksums[relative] = sha
+        actual_relatives = {
+            name[len(prefix):]
+            for name in files
+            if name != checksum_name
+        }
+        require(set(checksums) == actual_relatives, "NARMA washout file set changed")
+        for relative, expected in checksums.items():
+            payload = bundle.extractfile(files[prefix + relative])
+            require(payload is not None, f"NARMA washout payload unreadable: {relative}")
+            require(digest(payload.read()) == expected, f"NARMA washout checksum failed: {relative}")
+
+        def load_json(relative: str) -> dict:
+            payload = bundle.extractfile(files[prefix + relative])
+            require(payload is not None, f"NARMA washout JSON unreadable: {relative}")
+            value = json.load(payload)
+            require(isinstance(value, dict), f"NARMA washout JSON invalid: {relative}")
+            return value
+
+        protocol = load_json("protocol.json")
+        aggregate = load_json("aggregate.json")
+        report = load_json("validation_report.json")
+        protocol_unhashed = dict(protocol)
+        protocol_sha = protocol_unhashed.pop("protocol_sha256")
+        require(protocol_sha == json_digest(protocol_unhashed), "NARMA washout protocol hash failed")
+        aggregate_unhashed = dict(aggregate)
+        aggregate_sha = aggregate_unhashed.pop("aggregate_sha256")
+        require(aggregate_sha == json_digest(aggregate_unhashed), "NARMA washout aggregate hash failed")
+        require(
+            aggregate["protocol_sha256"] == protocol_sha
+            and report["protocol_sha256"] == protocol_sha
+            and report["aggregate_sha256"] == aggregate_sha,
+            "NARMA washout bindings changed",
+        )
+        seeds = protocol["ordered_seeds"]
+        require(len(seeds) == len(set(seeds)) == 32, "NARMA washout seed ledger changed")
+        require(
+            protocol["protocol"]["primary_washout"] == 200
+            and protocol["protocol"]["strict_washout"] == 800
+            and protocol["protocol"]["train_len"] == 600
+            and protocol["protocol"]["test_len"] == 400
+            and protocol["protocol"]["initial_state_audit_pairs"] == 8,
+            "NARMA washout protocol changed",
+        )
+        jobs = sorted(name for name in files if name.startswith(prefix + "jobs/"))
+        require(len(jobs) == 32, "NARMA washout checkpoint count changed")
+        checkpoint_hashes = {}
+        for name in jobs:
+            relative = name[len(prefix):]
+            row = load_json(relative)
+            row_unhashed = dict(row)
+            checkpoint_sha = row_unhashed.pop("checkpoint_sha256")
+            require(
+                checkpoint_sha == json_digest(row_unhashed)
+                and row["protocol_sha256"] == protocol_sha,
+                f"NARMA washout checkpoint binding failed: {relative}",
+            )
+            checkpoint_hashes[relative.rsplit("/", 1)[-1]] = checkpoint_sha
+        require(
+            aggregate["checkpoint_sha256"] == checkpoint_hashes,
+            "NARMA washout aggregate checkpoint ledger changed",
+        )
+        require(
+            aggregate["n_pairs"] == report["checkpoint_count"] == 32
+            and aggregate["baseline_replay_maximum_absolute_error"] <= 1e-12,
+            "NARMA washout baseline replay failed",
+        )
+        primary = aggregate["favorable_effects"]["800"]["ground"]
+        require(
+            primary["n"] == 32
+            and primary["ci95"][0] > 0
+            and primary["wins"] == 32,
+            "strict continuous-drive NARMA ordering failed",
+        )
+        require(
+            aggregate["initial_state_audit"]["800"]["collective"]
+            ["maximum_cross_initialization_score_spread"] < 1e-4,
+            "strict continuous-drive NARMA initialization gate failed",
+        )
+    return primary
+
+
 def main() -> int:
     try:
         verify_manifest()
@@ -1515,6 +1628,7 @@ def main() -> int:
         reset_summary = verify_reset_archive()
         phase_summary = verify_phase_direction_archive()
         orientation_summary = verify_rank_one_orientation_archive()
+        continuous_narma_summary = verify_continuous_narma_washout_archive()
     except Exception as error:
         print(f"FAIL: {error}", file=sys.stderr)
         return 1
@@ -1553,6 +1667,11 @@ def main() -> int:
         "  equal-phase-minus-sign-balanced STM difference: "
         f"{orientation_summary['mean_difference']:.6f} "
         f"(95% CI {orientation_summary['ci95']})"
+    )
+    print(
+        "  continuous-drive strict-washout NARMA difference: "
+        f"{continuous_narma_summary['mean_difference']:.6f} "
+        f"(95% CI {continuous_narma_summary['ci95']})"
     )
     return 0
 

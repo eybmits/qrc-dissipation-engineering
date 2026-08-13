@@ -807,13 +807,16 @@ def make_figure(
     orientation_effects: np.ndarray,
 ):
     """Draw the paired path and zero-overlap intervention panels."""
-    # Author Figure 9 on a true 1:1 column-width canvas.  The panels remain
-    # side by side, while the additional height gives both interventions more
-    # vertical resolution without any downstream LaTeX scaling or distortion.
-    fig = st.composite_figure("column", height=st.QUANTUM_COLUMN_WIDTH)
-    left = st.add_axes_inches(fig, (0.46, 0.68, 1.10, 1.95))
-    right = st.add_axes_inches(fig, (1.94, 0.68, 1.17, 1.95))
+    # Keep the two interventions side by side, but make the actual plotting
+    # boxes square.  The canvas follows their content instead of retaining
+    # unused height around narrow portrait panels.
+    panel_size = 1.10
+    fig = st.composite_figure("column", height=2.00)
+    left = st.add_axes_inches(fig, (0.46, 0.55, panel_size, panel_size))
+    right = st.add_axes_inches(fig, (1.94, 0.55, panel_size, panel_size))
     axes = np.asarray([left, right])
+    for axis in axes:
+        axis.set_box_aspect(1)
 
     path_matrix = np.column_stack(
         [fixed_values[condition] for condition in PATH_CONDITIONS]

@@ -366,8 +366,23 @@ follows all eight lineages to 1200 inputs and reaches
 forgetting collective \(N=4\) boundary case is excluded from
 initialization-independent claims.
 
-A stricter task-level check then uses ten fresh \(N=5\) reservoir pairs, three
-distant initial states, and washouts of 50, 200, and 800 inputs.
+A stricter STM check uses ten principal-pair lineages, three distant initial
+states, and washouts of 50, 200, and 800 inputs. A separate continuous-drive
+NARMA-10 check uses all 32 principal pairs. For its W800 condition, a frozen
+600-input prefix is placed before the unchanged canonical 1200-input sequence;
+the final 200 washout inputs and the 600 training and 400 test rows are thus
+identical to W200. Local and collective reservoirs share every input, target,
+split, Hamiltonian, and readout choice within a pair. Ground-state scoring uses
+all 32 pairs, and the first eight repeat both washouts from the ground, fully
+excited, maximally mixed, and Haar-random states. The W200 scores must reproduce
+the sealed principal values before the W800 aggregate is accepted. At W800,
+local and collective NMSE are \(0.315\) and \(0.230\), respectively; the
+local-minus-collective difference is \(0.0851\,[0.0716,0.0986]\), favorable in
+all 32 pairs. Its change from W200 is
+\(-0.00007\,[-0.00057,0.00043]\). The largest four-state collective score spread
+at W800 is \(2.18\times10^{-5}\), below the smallest paired ground-state
+improvement, \(0.0148\). The archive records every checkpoint and the
+serialization-only amendment made before any non-audit score was generated.
 
 \subsection{Matched expected jump activity}
 \label{app:activity-control}
@@ -654,8 +669,8 @@ fixed ridge \(10^{-8}\). Four-state audits pass on the first eight lineages.
 \caption{\textbf{Accessible memory depends on the matched rank-one direction.}
 \emph{(a)} Prespecified \(N=5\) phase path. \emph{(b)} Equal-phase-minus-control
 effects for five zero-overlap directions, their within-pair mean \(\mu\), and
-the separate \(N=6\) sign-balanced replication S. Faint marks show pairs;
-large marks and bars show means and \(95\%\) \(t\) intervals (32 and 24 pairs).}
+the \(N=6\) sign-balanced replication S. Marks show pairs, means, and
+\(95\%\) \(t\) intervals (32 and 24 pairs).}
 \label{fig:phase-direction}
 \end{figure}
 \endgroup
@@ -668,23 +683,14 @@ with \(32/32\) wins and \(p=1.0\times10^{-5}\). The ordered path and
 validation-selected-ridge sensitivity agree.
 
 \paragraph{Real sign-balanced replication at a second finite size.}
-We independently repeat the endpoint intervention in 24 separately generated
-\(N=6\) pairs using \(c_{+}=(1,1,1,1,1,1)\) and
-\(c_{\perp}=(1,1,1,-1,-1,-1)\), with
-\(c_{+}^{\dagger}c_{\perp}=0\). The channels match in jump count, rank-one
-Kossakowski spectrum \(\{6,0,0,0,0,0\}\), trace 6, diagonal weights,
-coefficient magnitudes, and assigned weight \(\mathcal B=192\). Processor,
-input, readout, data, and ridge rule are identical within each pair. All 24
-ground/mixed-state audits pass at washout 800; the first six also pass the
-four-state audit.
-
+A separate 24-pair \(N=6\) endpoint replication compares
+\(c_{+}=(1,1,1,1,1,1)\) with \(c_{\perp}=(1,1,1,-1,-1,-1)\), where
+\(c_{+}^{\dagger}c_{\perp}=0\). At \(\mathcal B=192\), jump count, rank-one
+spectrum \(\{6,0,0,0,0,0\}\), trace, diagonal weights, coefficient magnitudes,
+processor, input, readout, data, and ridge rule remain fixed. All 24
+ground/mixed-state audits and the first six four-state audits pass at W800.
 Equal-phase STM is \(13.626\) versus \(11.354\), a paired gain of
-\(2.271\,[1.826,2.717]\) with \(24/24\) wins and exact two-sided sign-test
-\(p=1.19\times10^{-7}\); every delay-wise mean difference is positive. Equal
-phase concentrates the response, but these diagnostic changes are not
-detectably associated with the STM gain and are not identified mediators. At
-the tested finite sizes, matched rank, spectrum, trace, diagonal weights,
-coefficient magnitudes, and assigned weight therefore do not determine
-accessible memory: orientation relative to the fixed processor is a
-computational coordinate, not a scaling law, universal optimum, or unique
-microscopic mechanism.
+\(2.271\,[1.826,2.717]\) with \(24/24\) wins and exact sign-test
+\(p=1.19\times10^{-7}\); every delay-wise mean difference is positive. Thus
+orientation affects accessible memory beyond these coarse matches, without
+implying scaling, global optimality, or a unique mechanism.

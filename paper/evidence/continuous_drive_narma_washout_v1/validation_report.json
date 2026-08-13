@@ -1,0 +1,140 @@
+{
+  "aggregate_sha256": "0960a249ce351fe623168fa04f914370d0e26f6f16caa166a8a24deb51106ce5",
+  "artifact_type": "continuous_drive_narma_washout_validation",
+  "baseline_replay_maximum_absolute_error": 0.0,
+  "checkpoint_count": 32,
+  "effect_change": {
+    "ci95": [
+      -0.0005676275953869268,
+      0.0004278363768641677
+    ],
+    "mean_difference": -6.989560926137957e-05,
+    "n": 32,
+    "orientation": "strict-washout favorable effect minus primary-washout favorable effect",
+    "paired_t_p_two_sided": 0.7764732075549006,
+    "sign_test_p_two_sided": 1.0,
+    "standard_deviation": 0.0013805240194897613,
+    "standard_error": 0.0002440444739430299,
+    "ties": 0,
+    "values": [
+      2.2074638061919671e-07,
+      2.25425470929963e-05,
+      5.379089519363944e-07,
+      -5.465970961404665e-07,
+      -0.006446207869558157,
+      3.842819951138665e-10,
+      -9.705791614855741e-09,
+      2.0984920467981283e-09,
+      -1.351128459115003e-09,
+      2.412312682942286e-09,
+      -1.000421218089187e-09,
+      -3.3147977854253163e-07,
+      1.2604323362808145e-08,
+      2.7485420360240376e-06,
+      5.541999124614172e-06,
+      -2.473765275956552e-09,
+      -4.758119981351783e-09,
+      -3.434996043438776e-07,
+      -1.0622355772760272e-09,
+      3.828946049111437e-10,
+      2.332019577444555e-10,
+      -8.184245503528587e-10,
+      -2.6100237832615836e-05,
+      2.30547514412649e-09,
+      7.2296902908775e-09,
+      2.4100088302780875e-07,
+      -1.126596038680816e-10,
+      -1.1576676839375466e-09,
+      7.634599524797281e-08,
+      0.004205086419836468,
+      -1.2777034913424856e-07,
+      -2.7629042664845116e-09
+    ],
+    "wins": 16
+  },
+  "initial_state_audit": {
+    "200": {
+      "collective": {
+        "maximum_cross_initialization_score_spread": 0.008137440441014498,
+        "maximum_post_washout_feature_distance": 0.016858716221261123,
+        "maximum_post_washout_trace_distance": 0.012065126701362956,
+        "maximum_trace_distance_at_washout": 0.012268163931886542,
+        "mean_cross_initialization_score_spread": 0.0010247339914751658
+      },
+      "local": {
+        "maximum_cross_initialization_score_spread": 3.5916663532198356e-09,
+        "maximum_post_washout_feature_distance": 5.329070518200751e-15,
+        "maximum_post_washout_trace_distance": 4.122787181093378e-15,
+        "maximum_trace_distance_at_washout": 1.8693080654531635e-15,
+        "mean_cross_initialization_score_spread": 2.2572307911694622e-09
+      }
+    },
+    "800": {
+      "collective": {
+        "maximum_cross_initialization_score_spread": 2.181543589654944e-05,
+        "maximum_post_washout_feature_distance": 1.0708176717902362e-06,
+        "maximum_post_washout_trace_distance": 7.663368802223459e-07,
+        "maximum_trace_distance_at_washout": 7.792323130709823e-07,
+        "mean_cross_initialization_score_spread": 2.7271874618629843e-06
+      },
+      "local": {
+        "maximum_cross_initialization_score_spread": 5.234089384131835e-09,
+        "maximum_post_washout_feature_distance": 6.661338147750939e-15,
+        "maximum_post_washout_trace_distance": 5.1487676969164104e-15,
+        "maximum_trace_distance_at_washout": 3.717786546205226e-15,
+        "mean_cross_initialization_score_spread": 3.3452663555921802e-09
+      }
+    }
+  },
+  "primary_effect": {
+    "ci95": [
+      0.07159850810793915,
+      0.09855878977410294
+    ],
+    "mean_difference": 0.08507864894102105,
+    "n": 32,
+    "orientation": "local NARMA-10 NMSE minus collective NARMA-10 NMSE",
+    "paired_t_p_two_sided": 5.622514157536477e-14,
+    "sign_test_p_two_sided": 4.656612873077393e-10,
+    "standard_deviation": 0.03738891356176617,
+    "standard_error": 0.006609488580180632,
+    "ties": 0,
+    "values": [
+      0.06603921914942956,
+      0.07897090919582464,
+      0.032670254682510946,
+      0.13129989439520984,
+      0.07963481813712192,
+      0.10101379662679322,
+      0.09051707365001696,
+      0.031475716619729144,
+      0.08158909086878113,
+      0.08567490521153687,
+      0.03612405697774673,
+      0.14018695609514584,
+      0.15071741443523085,
+      0.09598589154872128,
+      0.07941867485471188,
+      0.10939269510264446,
+      0.07417900221589274,
+      0.09002460834981663,
+      0.08850070413114852,
+      0.13416996169868836,
+      0.11465356952462741,
+      0.07939833903142562,
+      0.014807397294834546,
+      0.03413967168991944,
+      0.049452356010917575,
+      0.06795872600082109,
+      0.12217926944450677,
+      0.07989915982859674,
+      0.1592982333927697,
+      0.12697306526926733,
+      0.06221011241677277,
+      0.03396122226151291
+    ],
+    "wins": 32
+  },
+  "protocol_sha256": "1db11880bf45bec889299475eb09e8127f8dfbc986395c7f28e70ecb38059864",
+  "status": "pass"
+}

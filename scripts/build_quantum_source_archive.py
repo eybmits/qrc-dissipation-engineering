@@ -66,6 +66,9 @@ REQUIRED_FILES = (
     "data/phase_direction_confirmatory_snapshot.json",
     "data/rank_one_orientation_snapshot.json",
     "data/reproducibility_manifest.json",
+    "evidence/continuous_drive_narma_washout_v1/protocol.json",
+    "evidence/continuous_drive_narma_washout_v1/aggregate.json",
+    "evidence/continuous_drive_narma_washout_v1/validation_report.json",
     "evidence/switched_input_memory_control_v2/aggregate.json",
     "evidence/phase_direction_confirmatory_v1/protocol.json",
     "evidence/phase_direction_confirmatory_v1/aggregate.json",
@@ -134,6 +137,11 @@ REPOSITORY_FILES = (
         "evidence/reset_architecture_replication/"
         "run_reset_architecture_strict.py",
         REPO_ROOT / "experiments" / "run_reset_architecture_strict.py",
+    ),
+    (
+        "evidence/continuous_drive_narma_washout_v1/"
+        "run_continuous_drive_narma_washout.py",
+        REPO_ROOT / "experiments" / "run_continuous_drive_narma_washout.py",
     ),
     (
         "evidence/phase_direction_confirmation/"
@@ -256,6 +264,8 @@ def _readme() -> bytes:
         "the separately released full record contains all 24 checkpoints. "
         "The final N=5 numerical-replay report and its non-scientific protocol "
         "amendment are also included and hash-bound to the compact snapshot. "
+        "The continuous-drive NARMA-10 strict-washout protocol, aggregate, "
+        "validation report, and frozen driver are included as well. "
         "The exact protocol manifest, frozen "
         "driver snapshots, and complete N=5 "
         "collective and cross-size local/pair continuation records are included. "

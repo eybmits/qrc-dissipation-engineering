@@ -19,18 +19,15 @@ profile-only.}
 organization}{Computational consequences of coupling organization}}
 \label{sec:performance}
 
-Section~\ref{sec:model} defined coupling organization through the jump-family and
-rate-profile coordinates. We now traverse the design space of
-Fig.~\ref{fig:space} in three steps: first across jump families, then
-across rate profiles within a selected family, and finally across both axes
-jointly. We subsequently ask whether the resulting exact-expectation
-differences remain visible under finite measurement budgets.
+We traverse the two-coordinate design space of Fig.~\ref{fig:space}: first
+across jump families, then across rate profiles within a family, and finally
+across both axes jointly. We then ask whether exact-expectation differences
+remain visible under finite measurement budgets.
 
 \Needspace{6\baselineskip}
-We first use the fixed-weight task map to show that coupling organization
-changes computation in a task-dependent manner; we then focus on its most
-strongly replicated consequence, the local--collective contrast in
-readout-accessible recent-input memory.
+The fixed-weight task map establishes task-dependent computation before we
+focus on its most strongly replicated consequence: the local--collective
+contrast in readout-accessible recent-input memory.
 
 \subsection{Reference model and how to read the results}
 \label{sec:results-guide}
@@ -141,12 +138,20 @@ precision by the strict 800-input washout and reaches numerical precision
 during the specified continuation to 1200 inputs.
 
 \Needspace{9\baselineskip}
-A separate ten-pair \(N=5\) task run then uses the 800-input washout before
-scoring. Cross-initialization differences are negligible, while collective
-relaxation retains \(+3.564\,[3.124,4.004]\) STM units with \(10/10\) wins
-(Fig.~\ref{fig:collective-case}(a)). After the tested initial states have
-converged, the additional retention therefore belongs to the input history
-rather than to the starting state.
+A ten-pair subset of the principal \(N=5\) lineages then uses the 800-input
+washout before STM scoring. Cross-initialization differences are negligible,
+while collective relaxation retains \(+3.564\,[3.124,4.004]\) STM units with
+\(10/10\) wins (Fig.~\ref{fig:collective-case}(a)). For continuous-drive
+NARMA-10, all 32 principal pairs are replayed after an independent 600-input
+prefix, leaving the scored training and test rows unchanged. At the resulting
+800-input washout, NMSE is \(0.315\) locally and \(0.230\) collectively, a
+favorable paired difference of \(0.0851\,[0.0716,0.0986]\) with \(32/32\)
+wins. The W800-minus-W200 effect change is
+\(-0.00007\,[-0.00057,0.00043]\). Across four initial states on the first eight
+pairs, the largest W800 NARMA-10 score spread is \(2.18\times10^{-5}\), far
+below the smallest paired ground-state improvement, \(0.0148\). The stable
+W800 endpoints therefore show that neither ordering is produced by the
+residual initial-state dependence exposed at W200.
 
 The comparison is also repeated under four spin-Hamiltonian ensembles that
 change the interaction axis, drive axis, interaction form, or connectivity.

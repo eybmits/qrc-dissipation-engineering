@@ -36,4 +36,5 @@ def test_complete_reviewer_bundle_is_deterministic_and_valid(tmp_path: Path) -> 
     assert prefix + "numerical_evidence.zip" in names
     assert prefix + "phase_direction_confirmatory_v1_results.tar.gz" in names
     assert prefix + "rank_one_orientation_v1_results.tar.gz" in names
+    assert prefix + "continuous_drive_narma_washout_v1_results.tar.gz" in names
     assert prefix + "validate_complete_bundle.py" in names

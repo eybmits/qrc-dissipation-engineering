@@ -1759,7 +1759,9 @@ def main() -> None:
         dtype=object,
     )
     ax_robustness, ax_size, ax_lags = case_axes
-    legend_axis = st.add_axes_inches(case_figure, [0.42, 2.24, 5.85, 0.29])
+    # Center the legend over the three plot panels rather than over the full
+    # canvas, whose left gutter is reserved for the categorical labels.
+    legend_axis = st.add_axes_inches(case_figure, [0.84, 2.24, 5.85, 0.29])
     legend_axis.set_axis_off()
     size_right_axis = draw_joint_size_recurrence(ax_size, finite_size)
     draw_robustness_overview(

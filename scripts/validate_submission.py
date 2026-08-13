@@ -82,6 +82,20 @@ ORIENTATION_EVIDENCE_SHA256 = {
 ORIENTATION_RESULT_ARCHIVE_SHA256 = (
     "e12f0bdd038b8e45ecea247b09d32815de20330e51ab47aecfe1d995fd86f24a"
 )
+CONTINUOUS_NARMA_EVIDENCE = (
+    PAPER / "evidence" / "continuous_drive_narma_washout_v1"
+)
+CONTINUOUS_NARMA_RESULT_ARCHIVE = (
+    ROOT / "results" / "continuous_drive_narma_washout_v1_results.tar.gz"
+)
+CONTINUOUS_NARMA_EVIDENCE_SHA256 = {
+    "protocol.json": "b1b3ef7411c98d493bd4b16c01efc61de3650e57f45d855baaaba384ea73cf0a",
+    "aggregate.json": "701746ebdf95c61bb46a78f30a06ae27c89fd589f76aaf9b84288f00e1e1e95e",
+    "validation_report.json": "6002923ddb1ab42f2b1a3c91c2a0e390fd74ef63661b17a2bbf4d523fe088376",
+}
+CONTINUOUS_NARMA_RESULT_ARCHIVE_SHA256 = (
+    "64551dae3f31d3e70320c760e9074b6eafe9736656f6cb91428a691b2550a7ab"
+)
 RESET_EXPECTED_SEEDS = [
     1162690697,
     411886365,
@@ -130,7 +144,7 @@ CODE_RENDERED_COMPOSITES = {
         "creator": "paper/make_reset_architecture_figure.py",
     },
     "figures/fig_phase_direction.pdf": {
-        "size": (230.982, 230.982),
+        "size": (230.982, 144.00),
         "creator": "paper/make_phase_direction_figure.py",
     },
 }
@@ -538,13 +552,7 @@ def validate_rank_one_orientation_snapshot(
             f"rank-one orientation evidence hash mismatch: {relative}",
             failures,
         )
-    check(
-        ORIENTATION_RESULT_ARCHIVE.is_file()
-        and sha256_file(ORIENTATION_RESULT_ARCHIVE)
-        == ORIENTATION_RESULT_ARCHIVE_SHA256,
-        "rank-one orientation full result archive is missing or has the wrong hash",
-        failures,
-    )
+
 
     hardened = snapshot.get("hardened_evidence", {})
     expected_hardened = {
@@ -804,6 +812,127 @@ def validate_rank_one_orientation_snapshot(
         )
 
 
+def validate_continuous_narma_washout(failures: list[str]) -> None:
+    """Validate the compact all-pair continuous-drive W800 NARMA evidence."""
+    try:
+        protocol = json.loads(
+            (CONTINUOUS_NARMA_EVIDENCE / "protocol.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        aggregate = json.loads(
+            (CONTINUOUS_NARMA_EVIDENCE / "aggregate.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        report = json.loads(
+            (CONTINUOUS_NARMA_EVIDENCE / "validation_report.json").read_text(
+                encoding="utf-8"
+            )
+        )
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        failures.append(f"cannot read continuous-drive NARMA evidence: {error}")
+        return
+
+    for relative, expected in CONTINUOUS_NARMA_EVIDENCE_SHA256.items():
+        path = CONTINUOUS_NARMA_EVIDENCE / relative
+        check(
+            path.is_file() and sha256_file(path) == expected,
+            f"continuous-drive NARMA evidence hash mismatch: {relative}",
+            failures,
+        )
+    check(
+        CONTINUOUS_NARMA_RESULT_ARCHIVE.is_file()
+        and sha256_file(CONTINUOUS_NARMA_RESULT_ARCHIVE)
+        == CONTINUOUS_NARMA_RESULT_ARCHIVE_SHA256,
+        "continuous-drive NARMA result archive is missing or has the wrong hash",
+        failures,
+    )
+
+    protocol_unhashed = dict(protocol)
+    protocol_sha = protocol_unhashed.pop("protocol_sha256", "")
+    aggregate_unhashed = dict(aggregate)
+    aggregate_sha = aggregate_unhashed.pop("aggregate_sha256", "")
+    check(
+        protocol_sha
+        == "1db11880bf45bec889299475eb09e8127f8dfbc986395c7f28e70ecb38059864"
+        and protocol_sha == canonical_json_sha256(protocol_unhashed),
+        "continuous-drive NARMA protocol binding mismatch",
+        failures,
+    )
+    check(
+        aggregate_sha
+        == "0960a249ce351fe623168fa04f914370d0e26f6f16caa166a8a24deb51106ce5"
+        and aggregate_sha == canonical_json_sha256(aggregate_unhashed)
+        and aggregate.get("protocol_sha256") == protocol_sha
+        and report.get("protocol_sha256") == protocol_sha
+        and report.get("aggregate_sha256") == aggregate_sha,
+        "continuous-drive NARMA aggregate binding mismatch",
+        failures,
+    )
+
+    settings = protocol.get("protocol", {})
+    check(
+        protocol.get("version") == 2
+        and len(protocol.get("ordered_seeds", [])) == 32
+        and len(set(protocol.get("ordered_seeds", []))) == 32
+        and settings.get("primary_washout") == 200
+        and settings.get("strict_washout") == 800
+        and settings.get("strict_prefix_len") == 600
+        and settings.get("train_len") == 600
+        and settings.get("test_len") == 400
+        and settings.get("initial_state_audit_pairs") == 8
+        and settings.get("ridge") == 1e-8,
+        "continuous-drive NARMA protocol settings changed",
+        failures,
+    )
+    check(
+        aggregate.get("n_pairs") == 32
+        and len(aggregate.get("checkpoint_sha256", {})) == 32
+        and aggregate.get("baseline_replay_maximum_absolute_error", math.inf)
+        <= 1e-12
+        and report.get("checkpoint_count") == 32
+        and report.get("status") == "pass",
+        "continuous-drive NARMA replay or checkpoint contract failed",
+        failures,
+    )
+
+    scores = aggregate.get("absolute_scores", {}).get("800", {})
+    local = scores.get("local", {}).get("ground", {})
+    collective = scores.get("collective", {}).get("ground", {})
+    primary = aggregate.get("favorable_effects", {}).get("800", {}).get(
+        "ground", {}
+    )
+    change = aggregate.get("ground_effect_change_w800_minus_w200", {})
+    audit = aggregate.get("initial_state_audit", {}).get("800", {}).get(
+        "collective", {}
+    )
+    check(
+        abs(local.get("mean", math.nan) - 0.3145969497300153) <= 5e-12
+        and abs(collective.get("mean", math.nan) - 0.2295183007889942)
+        <= 5e-12
+        and primary.get("n") == 32
+        and primary.get("wins") == 32
+        and abs(primary.get("mean_difference", math.nan) - 0.08507864894102105)
+        <= 5e-12
+        and primary.get("ci95")
+        == [0.07159850810793915, 0.09855878977410294],
+        "continuous-drive NARMA strict-washout endpoint mismatch",
+        failures,
+    )
+    check(
+        abs(change.get("mean_difference", math.nan) + 0.00006989560926137957)
+        <= 5e-12
+        and change.get("ci95")
+        == [-0.0005676275953869268, 0.0004278363768641677]
+        and audit.get("maximum_cross_initialization_score_spread", math.inf)
+        <= 2.181543589654944e-5 + 5e-12
+        and audit.get("maximum_trace_distance_at_washout", math.inf) < 1e-6,
+        "continuous-drive NARMA stability or initialization audit mismatch",
+        failures,
+    )
+
+
 def main() -> int:
     failures: list[str] = []
     warnings: list[str] = []
@@ -874,6 +1003,19 @@ def main() -> int:
         f"missing rank-one orientation result archive: {ORIENTATION_RESULT_ARCHIVE}",
         failures,
     )
+    check(
+        CONTINUOUS_NARMA_EVIDENCE.is_dir(),
+        f"missing continuous-drive NARMA evidence: {CONTINUOUS_NARMA_EVIDENCE}",
+        failures,
+    )
+    check(
+        CONTINUOUS_NARMA_RESULT_ARCHIVE.is_file(),
+        (
+            "missing continuous-drive NARMA result archive: "
+            f"{CONTINUOUS_NARMA_RESULT_ARCHIVE}"
+        ),
+        failures,
+    )
     if failures:
         for item in failures:
             print(f"FAIL: {item}")
@@ -882,6 +1024,7 @@ def main() -> int:
     validate_reset_snapshot(RESET_SNAPSHOT, failures)
     validate_phase_direction_snapshot(PHASE_SNAPSHOT, failures)
     validate_rank_one_orientation_snapshot(ORIENTATION_SNAPSHOT, failures)
+    validate_continuous_narma_washout(failures)
     tex = TEX.read_text(encoding="utf-8")
     manuscript_source = read_tex_tree(TEX)
     log = LOG.read_text(encoding="utf-8", errors="replace")

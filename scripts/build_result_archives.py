@@ -33,6 +33,10 @@ PROTOCOL_BUNDLES = (
         "reset_architecture_replication",
         "reset_architecture_replication_results.tar.gz",
     ),
+    (
+        "continuous_drive_narma_washout_v1",
+        "continuous_drive_narma_washout_v1_results.tar.gz",
+    ),
 )
 PHASE_DIRECTION_ROOT = "phase_direction_confirmatory_v1"
 PHASE_DIRECTION_SOURCE = (

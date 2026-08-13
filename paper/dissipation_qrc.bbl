@@ -29,6 +29,31 @@ Jiayin Chen and Hendra~I. Nurdin.
 \newblock \href{https://dx.doi.org/10.1007/s11128-019-2311-9}{Quantum
   Information Processing {\bf 18}, 198}~(2019).
 
+\bibitem{Poyatos1996}
+J.~F. Poyatos, J.~I. Cirac, and P.~Zoller.
+\newblock ``Quantum reservoir engineering with laser cooled trapped ions''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.77.4728}{Physical Review
+  Letters {\bf 77}, 4728--4731}~(1996).
+
+\bibitem{Verstraete2009}
+Frank Verstraete, Michael~M. Wolf, and J.~Ignacio Cirac.
+\newblock ``Quantum computation and quantum-state engineering driven by
+  dissipation''.
+\newblock \href{https://dx.doi.org/10.1038/nphys1342}{Nature Physics {\bf 5},
+  633--636}~(2009).
+
+\bibitem{Pastawski2011}
+Fernando Pastawski, Lucas Clemente, and Juan~Ignacio Cirac.
+\newblock ``Quantum memories based on engineered dissipation''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevA.83.012304}{Physical Review
+  A {\bf 83}, 012304}~(2011).
+
+\bibitem{Harrington2022}
+Patrick~M. Harrington, Erich~J. Mueller, and Kater~W. Murch.
+\newblock ``Engineered dissipation for quantum information science''.
+\newblock \href{https://dx.doi.org/10.1038/s42254-022-00494-8}{Nature Reviews
+  Physics {\bf 4}, 660--671}~(2022).
+
 \bibitem{Chen2020}
 Jiayin Chen, Hendra~I. Nurdin, and Naoki Yamamoto.
 \newblock ``Temporal information processing on noisy quantum computers''.
@@ -144,6 +169,37 @@ Albert Cabot, Fernando Galve, V{\'i}ctor~M. Egu{\'i}luz, Konstantin Klemm,
 \newblock \href{https://dx.doi.org/10.1038/s41534-018-0108-9}{npj Quantum
   Information {\bf 4}, 57}~(2018).
 
+\bibitem{Cattaneo2019}
+Marco Cattaneo, Gian~Luca Giorgi, Sabrina Maniscalco, and Roberta Zambrini.
+\newblock ``Local versus global master equation with common and separate baths:
+  superiority of the global approach in partial secular approximation''.
+\newblock \href{https://dx.doi.org/10.1088/1367-2630/ab54ac}{New Journal of
+  Physics {\bf 21}, 113045}~(2019).
+
+\bibitem{Brehm2021}
+Jan~David Brehm, Alexander~N. Poddubny, Alexander Stehli, Tim Wolz, Hannes
+  Rotzinger, and Alexey~V. Ustinov.
+\newblock ``Waveguide bandgap engineering with an array of superconducting
+  qubits''.
+\newblock \href{https://dx.doi.org/10.1038/s41535-021-00310-z}{npj Quantum
+  Materials {\bf 6}, 10}~(2021).
+
+\bibitem{Sheremet2023}
+Alexandra~S. Sheremet, Mihail~I. Petrov, Ivan~V. Iorsh, Alexander~V.
+  Poshakinskiy, and Alexander~N. Poddubny.
+\newblock ``Waveguide quantum electrodynamics: Collective radiance and
+  photon-photon correlations''.
+\newblock \href{https://dx.doi.org/10.1103/RevModPhys.95.015002}{Reviews of
+  Modern Physics {\bf 95}, 015002}~(2023).
+
+\bibitem{CattaneoPRX2023}
+Marco Cattaneo, Matteo A.~C. Rossi, Guillermo Garc{\'i}a-P{\'e}rez, Roberta
+  Zambrini, and Sabrina Maniscalco.
+\newblock ``Quantum simulation of dissipative collective effects on noisy
+  quantum computers''.
+\newblock \href{https://dx.doi.org/10.1103/PRXQuantum.4.010324}{PRX Quantum
+  {\bf 4}, 010324}~(2023).
+
 \bibitem{Gorini1976}
 Vittorio Gorini, Andrzej Kossakowski, and E.~C.~George Sudarshan.
 \newblock ``Completely positive dynamical semigroups of {N}-level systems''.
@@ -255,62 +311,6 @@ Wei Xia, Shuaifan Cao, Xingze Qiu, and Xiaopeng Li.
 \newblock ``Quantum magic and non-commutativity as computational resources in
   quantum reservoir computing''~(2026).
 \newblock  \href{http://arxiv.org/abs/2607.12035}{arXiv:2607.12035}.
-
-\bibitem{Poyatos1996}
-J.~F. Poyatos, J.~I. Cirac, and P.~Zoller.
-\newblock ``Quantum reservoir engineering with laser cooled trapped ions''.
-\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.77.4728}{Physical Review
-  Letters {\bf 77}, 4728--4731}~(1996).
-
-\bibitem{Verstraete2009}
-Frank Verstraete, Michael~M. Wolf, and J.~Ignacio Cirac.
-\newblock ``Quantum computation and quantum-state engineering driven by
-  dissipation''.
-\newblock \href{https://dx.doi.org/10.1038/nphys1342}{Nature Physics {\bf 5},
-  633--636}~(2009).
-
-\bibitem{Pastawski2011}
-Fernando Pastawski, Lucas Clemente, and Juan~Ignacio Cirac.
-\newblock ``Quantum memories based on engineered dissipation''.
-\newblock \href{https://dx.doi.org/10.1103/PhysRevA.83.012304}{Physical Review
-  A {\bf 83}, 012304}~(2011).
-
-\bibitem{Harrington2022}
-Patrick~M. Harrington, Erich~J. Mueller, and Kater~W. Murch.
-\newblock ``Engineered dissipation for quantum information science''.
-\newblock \href{https://dx.doi.org/10.1038/s42254-022-00494-8}{Nature Reviews
-  Physics {\bf 4}, 660--671}~(2022).
-
-\bibitem{Cattaneo2019}
-Marco Cattaneo, Gian~Luca Giorgi, Sabrina Maniscalco, and Roberta Zambrini.
-\newblock ``Local versus global master equation with common and separate baths:
-  superiority of the global approach in partial secular approximation''.
-\newblock \href{https://dx.doi.org/10.1088/1367-2630/ab54ac}{New Journal of
-  Physics {\bf 21}, 113045}~(2019).
-
-\bibitem{Brehm2021}
-Jan~David Brehm, Alexander~N. Poddubny, Alexander Stehli, Tim Wolz, Hannes
-  Rotzinger, and Alexey~V. Ustinov.
-\newblock ``Waveguide bandgap engineering with an array of superconducting
-  qubits''.
-\newblock \href{https://dx.doi.org/10.1038/s41535-021-00310-z}{npj Quantum
-  Materials {\bf 6}, 10}~(2021).
-
-\bibitem{Sheremet2023}
-Alexandra~S. Sheremet, Mihail~I. Petrov, Ivan~V. Iorsh, Alexander~V.
-  Poshakinskiy, and Alexander~N. Poddubny.
-\newblock ``Waveguide quantum electrodynamics: Collective radiance and
-  photon-photon correlations''.
-\newblock \href{https://dx.doi.org/10.1103/RevModPhys.95.015002}{Reviews of
-  Modern Physics {\bf 95}, 015002}~(2023).
-
-\bibitem{CattaneoPRX2023}
-Marco Cattaneo, Matteo A.~C. Rossi, Guillermo Garc{\'i}a-P{\'e}rez, Roberta
-  Zambrini, and Sabrina Maniscalco.
-\newblock ``Quantum simulation of dissipative collective effects on noisy
-  quantum computers''.
-\newblock \href{https://dx.doi.org/10.1103/PRXQuantum.4.010324}{PRX Quantum
-  {\bf 4}, 010324}~(2023).
 
 \bibitem{Holm1979}
 Sture Holm.

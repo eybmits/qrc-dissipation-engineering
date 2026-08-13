@@ -14,6 +14,9 @@
     "rank_one_orientation_evidence_archive": "results/rank_one_orientation_v1_results.tar.gz",
     "rank_one_orientation_evidence_sha256": "e12f0bdd038b8e45ecea247b09d32815de20330e51ab47aecfe1d995fd86f24a",
     "rank_one_orientation_validation_command": "python3 rank_one_orientation_v1/validate.py --root rank_one_orientation_v1",
+    "continuous_drive_narma_washout_archive": "results/continuous_drive_narma_washout_v1_results.tar.gz",
+    "continuous_drive_narma_washout_sha256": "64551dae3f31d3e70320c760e9074b6eafe9736656f6cb91428a691b2550a7ab",
+    "continuous_drive_narma_washout_validation_command": "tar -xzf results/continuous_drive_narma_washout_v1_results.tar.gz -C results && PYTHONPATH=src:experiments python experiments/run_continuous_drive_narma_washout.py verify --out results/continuous_drive_narma_washout_v1",
     "arxiv_source_archive": "results/arxiv_submission.zip",
     "reader_index": "included in the public repository release; it maps, but does not alter, the frozen numerical evidence snapshot"
   },
@@ -294,8 +297,8 @@
         "record": "manuscript_source.zip::evidence/local_pair_convergence_extension_v1/",
         "verification": "the complete reviewer bundle validator checks all 48 checkpoints, their frozen 800-step prefixes, and the six tail gates"
       },
-      "strict_washout_task_control": {
-        "fresh_pairs": 10,
+      "stm_strict_washout_task_control": {
+        "primary_pair_subset": 10,
         "initial_states": [
           "ground",
           "maximally mixed",
@@ -305,6 +308,35 @@
         "collective_minus_local_stm_at_800": 3.563694142575467,
         "ci95": [3.1238362243449798, 4.003552060805954],
         "paired_wins": "10/10"
+      },
+      "continuous_drive_narma10_strict_washout": {
+        "purpose": "test the principal continuous-drive NARMA-10 ordering after a strict washout without changing the scored training or test rows",
+        "protocol_version": 2,
+        "protocol_sha256": "1db11880bf45bec889299475eb09e8127f8dfbc986395c7f28e70ecb38059864",
+        "aggregate_sha256": "0960a249ce351fe623168fa04f914370d0e26f6f16caa166a8a24deb51106ce5",
+        "pairs": 32,
+        "lineages": "all 32 principal N=5 pairs in their canonical sorted seed order",
+        "washouts": [200, 800],
+        "strict_input_rule": "prepend an independent frozen 600-input prefix to the unchanged canonical 1200-input sequence, leaving the final 200 washout inputs and the 600 training plus 400 test rows identical to W200",
+        "local_nmse_mean_at_800": 0.3145969497300153,
+        "collective_nmse_mean_at_800": 0.2295183007889942,
+        "local_minus_collective_mean_at_800": 0.08507864894102105,
+        "paired_ci95": [0.07159850810793915, 0.09855878977410294],
+        "paired_wins": "32/32",
+        "effect_change_w800_minus_w200": -0.00006989560926137957,
+        "effect_change_ci95": [-0.0005676275953869268, 0.0004278363768641677],
+        "initial_state_audit": {
+          "pairs": 8,
+          "states": ["ground", "fully excited", "maximally mixed", "Haar-random pure"],
+          "maximum_collective_score_spread_at_800": 0.00002181543589654944,
+          "maximum_collective_trace_distance_at_800": 7.792323130709823e-7,
+          "smallest_ground_state_paired_improvement_at_800": 0.014807397294834546
+        },
+        "baseline_replay_maximum_absolute_error": 0.0,
+        "serialization_amendment": "version 1 stopped after the eight prespecified audit checkpoints because unavailable non-audit diagnostics were serialized as NaN; version 2 changed only those unavailable values to JSON null and reran the complete protocol",
+        "compact_record": "manuscript_source.zip::evidence/continuous_drive_narma_washout_v1/",
+        "full_record": "continuous_drive_narma_washout_v1_results.tar.gz::continuous_drive_narma_washout_v1/",
+        "scope": "certifies only the continuous-drive local-versus-collective NARMA-10 endpoint under the tested W800 protocol; it does not certify the full cross-family task map"
       },
       "scope": "the initialization-independent headline claim is the principal N=5 local-versus-collective comparison; the fixed-initialization N=4,...,8 sweep has a separate descriptive role"
     },
@@ -653,6 +685,7 @@
     "finite_measurement_comparison": "measurement_full_v3 records in base_reproducibility/",
     "absolute_scores_and_zero_jump": "base_reproducibility/ and zero_jump_control/",
     "rank_one_phase_direction_intervention": "phase_direction_confirmatory_v1_results.tar.gz and data/phase_direction_confirmatory_snapshot.json",
-    "rank_one_real_orientation_replication": "rank_one_orientation_v1_results.tar.gz, data/rank_one_orientation_snapshot.json, and evidence/rank_one_orientation_v1/"
+    "rank_one_real_orientation_replication": "rank_one_orientation_v1_results.tar.gz, data/rank_one_orientation_snapshot.json, and evidence/rank_one_orientation_v1/",
+    "continuous_drive_narma10_strict_washout": "continuous_drive_narma_washout_v1_results.tar.gz and evidence/continuous_drive_narma_washout_v1/"
   }
 }

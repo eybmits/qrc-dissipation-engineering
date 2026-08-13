@@ -1,22 +1,19 @@
 \begin{abstract}
 \small
-Quantum reservoir computing processes temporal data through fixed quantum
-dynamics, but operation requires controlled forgetting. In QRC, engineered
-dissipation is usually tuned through one rate; here we show that the
-organization of environmental coupling is an architectural degree of freedom.
-We define two coordinates: jump family, which specifies the coupled
-system-operator combinations, and rate profile, which distributes assigned
-coupling weight within a family. In paired driven-spin reservoirs, equal-phase
-collective relaxation provides a short-term-memory advantage over
-uniform local relaxation. The ordering recurs under separate activity-matching,
-midpoint-gap-matching, operating-point-selection, long-washout, and
-reset-encoding controls. Matched
-rank-one interventions show that rotating the supported Kossakowski
-direction changes accessible memory while Kossakowski rank, nonzero spectrum
-and trace, sitewise diagonal weights, coefficient magnitudes, assigned operator
-weight, and the processor remain fixed. Across the fixed-weight task map, no
-continuously driven design leads every task. Demonstrating that coupling organization changes
-readout-accessible memory beyond scalar-rate tuning is a significant
-architecture-level advance: it establishes coupling organization as a
-direct computational design variable.
+We develop a framework for treating the coupling between a quantum reservoir
+and its environment as an architectural design variable rather than a single
+damping rate, motivated by continuously driven spin networks with engineered
+dissipation. Such a generator fixes not only how strongly the environment
+acts, but which combinations of system transitions it acts on and how assigned
+coupling weight is distributed among them. We show that this organization
+changes what a linear Pauli readout can recover about earlier inputs by
+comparing paired reservoirs at fixed assigned operator weight. A single shared
+relaxation channel keeps more recent input accessible than independent local
+losses, and rotating only the coupled direction changes memory between matched
+rank-one channels with the same spectrum, trace, diagonal weights, and
+coefficient magnitudes. The ordering recurs after long washout, across tested
+finite sizes, Hamiltonian ensembles, and input encodings, and in separate
+mean-activity-matched, midpoint-gap-matched, and bounded
+operating-point-selection controls. These results establish environmental
+coupling as part of a reservoir's computational architecture.
 \end{abstract}

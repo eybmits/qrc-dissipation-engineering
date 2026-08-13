@@ -12,6 +12,7 @@ What Quantum Reservoirs Remember.”**
 - [Download the reset-architecture replication](results/reset_architecture_replication_results.tar.gz)
 - [Download the phase-direction confirmation](results/phase_direction_confirmatory_v1_results.tar.gz)
 - [Download the second-size rank-one orientation replication](results/rank_one_orientation_v1_results.tar.gz)
+- [Download the continuous-drive strict-washout NARMA-10 confirmation](results/continuous_drive_narma_washout_v1_results.tar.gz)
 - [Open the reader-facing reproducibility index](results/REPRODUCIBILITY_INDEX.md)
 - [Inspect the exact machine-readable protocol manifest](paper/data/reproducibility_manifest.json)
 - [Resume work from the current handoff](HANDOFF.md)
@@ -41,7 +42,10 @@ The canonical manuscript follows one five-section causal narrative:
 
 Within the principal jump-family analysis, switched-input convergence and an
 800-step task washout establish usable rather than initialization memory at
-the flagship \(N=5\) point. Section 4 then shows that the
+the flagship \(N=5\) point. A separate all-32-pair continuous-drive NARMA-10
+replay preserves the favorable ordering at W800: local-minus-collective NMSE
+is \(0.0851\,[0.0716,0.0986]\), with 32/32 wins, while the effect change from
+W200 is \(-0.00007\,[-0.00057,0.00043]\). Section 4 then shows that the
 collective-over-local contrast remains after matching mean expected jump
 activity, matching the dominant midpoint Liouvillian gap, or selecting the two
 operating points independently. The gap match strongly attenuates the effect,
@@ -84,7 +88,7 @@ than as initialization-independent scaling evidence.
 
 The current checkout was checked locally on 13 August 2026:
 
-- all 179 Python tests pass;
+- all 183 Python tests pass;
 - the 22-page PDF contains nine vector figures, no Type 3 fonts, and no hard
   LaTeX defects;
 - the arXiv upload package reproduces all nine figures from a fresh extraction;
@@ -94,7 +98,8 @@ The current checkout was checked locally on 13 August 2026:
   inputs, the 16-pair reset-encoded replication and its four-state audit, and
   the 32-pair phase-direction confirmation with 72 numerical replays, plus the
   independent 24-pair real sign-balanced orientation replication at a second
-  finite size;
+  finite size and the all-32-pair continuous-drive strict-washout NARMA-10
+  confirmation;
 - the complete numerical-evidence archive and every entry in
   [`ARCHIVE_SHA256SUMS.txt`](results/ARCHIVE_SHA256SUMS.txt) validate;
 - the numerical-evidence archive contains no bytecode, cache members, or

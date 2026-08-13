@@ -47,6 +47,13 @@ def test_tree_archive_is_deterministic_and_excludes_machine_local_resume(tmp_pat
     assert one.excluded_count == 1
 
 
+def test_continuous_drive_narma_washout_bundle_is_registered():
+    bundles = dict(result_archives.PROTOCOL_BUNDLES)
+    assert bundles["continuous_drive_narma_washout_v1"] == (
+        "continuous_drive_narma_washout_v1_results.tar.gz"
+    )
+
+
 def test_published_finite_size_archive_is_complete_and_portable():
     path = ROOT / "results" / "experiment1_finite_size_v2_results.tar.gz"
     with tarfile.open(path, "r:gz") as bundle:

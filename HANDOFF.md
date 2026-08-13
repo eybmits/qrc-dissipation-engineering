@@ -30,6 +30,8 @@ Title: **The Organization of Environmental Coupling Shapes What Quantum Reservoi
   `results/phase_direction_confirmatory_v1_results.tar.gz`
 - second-size rank-one orientation evidence archive:
   `results/rank_one_orientation_v1_results.tar.gz`
+- continuous-drive strict-washout NARMA-10 evidence archive:
+  `results/continuous_drive_narma_washout_v1_results.tar.gz`
 - reader-facing evidence map: `results/REPRODUCIBILITY_INDEX.md`
 - exact machine-readable protocol ledger:
   `paper/data/reproducibility_manifest.json`
@@ -81,7 +83,11 @@ The strongest result is the initialization-independent \(N=5\)
 collective-over-local STM advantage, now reproduced across two tested input
 architectures. Switched-input convergence and a strict 800-step washout
 validate that the continuously driven effect is usable memory rather than
-surviving initialization. A separate 16-pair reset-encoded replication uses
+surviving initialization. An all-32-pair continuous-drive NARMA-10 replay also
+retains the ordering at W800, with local-minus-collective NMSE
+\(0.0851\,[0.0716,0.0986]\), 32/32 wins, and an effect change from W200 of
+\(-0.00007\,[-0.00057,0.00043]\). Its first eight pairs carry a four-state
+audit at both washouts. A separate 16-pair reset-encoded replication uses
 the same \(XX+Z\) processor and Pauli readout, changes the input mechanism, and
 recovers favorable STM and NARMA-10 effects in all 16 pairs after its own
 800-input washout and four-state audit.
@@ -125,7 +131,7 @@ initialization-independent scaling evidence is generated.
 
 The 13 August 2026 handoff passed:
 
-- `179 passed` in the full Python test suite;
+- `183 passed` in the full Python test suite;
 - submission validation at 22 pages and nine vector figures, with no Type 3
   fonts or hard LaTeX defects;
 - source-archive verification and fresh-extraction compilation for all nine figures;
@@ -135,7 +141,8 @@ The 13 August 2026 handoff passed:
   through 1200 inputs, the 16-pair reset-encoding replication and four-state
   audit, plus the 32-pair phase-direction intervention, its 72-cell
   convergence audit, and 72 independent numerical replays, and the 24-pair
-  real sign-balanced orientation replication at a second finite size;
+  real sign-balanced orientation replication at a second finite size, plus
+  the all-32-pair continuous-drive strict-washout NARMA-10 confirmation;
 - validation of the complete numerical-evidence archive;
 - deterministic evidence-archive hygiene: no Python bytecode, cache members,
   or machine-local paths, enforced by the archive validator; and
@@ -176,6 +183,13 @@ python scripts/build_result_archives.py \
   --bundle reset_architecture_replication
 python scripts/build_result_archives.py \
   --bundle rank_one_orientation_v1
+tar -xzf results/continuous_drive_narma_washout_v1_results.tar.gz \
+  -C results
+PYTHONPATH=src:experiments python \
+  experiments/run_continuous_drive_narma_washout.py verify \
+  --out results/continuous_drive_narma_washout_v1
+python scripts/build_result_archives.py \
+  --bundle continuous_drive_narma_washout_v1
 cd paper
 python make_figures.py
 python make_forgetting_modes_figure.py

@@ -54,6 +54,7 @@
 % Identify authors with contact details as corresponding authors and repeat
 % their linked ORCID mark in the contact line.
 \def\@printauthorextrainfo#1{%
+  \vspace{0.35\baselineskip}%
   \raggedright
   \textit{Corresponding author}\par
   \csname @authorname#1\endcsname
@@ -75,6 +76,7 @@
     }%
     \forlistcsloop{\@@spaceafter}{author#1thanks}%
   }{}%
+  \par\vspace{-0.35\baselineskip}%
 }
 \fancyfoot[C]{\sffamily\textcolor{quantumviolet}{\thepage}}
 \makeatother
