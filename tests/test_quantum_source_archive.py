@@ -40,6 +40,11 @@ def _paper_fixture(root: Path) -> Path:
         path.parent.mkdir(parents=True, exist_ok=True)
         if not path.exists():
             path.write_text("fixture\n", encoding="utf-8")
+    for relative in source_archive.SUPPORT_FILES:
+        path = paper / relative
+        path.parent.mkdir(parents=True, exist_ok=True)
+        if not path.exists():
+            path.write_text("fixture\n", encoding="utf-8")
     reference_keys = [
         f"Reference{index:02d}"
         for index in range(source_archive.EXPECTED_REFERENCE_COUNT)
@@ -80,7 +85,6 @@ def test_build_is_deterministic_and_complete(tmp_path: Path) -> None:
     expected_file_count = (
         len(source_archive.REQUIRED_FILES)
         + len(source_archive.EXPECTED_FIGURES)
-        + len(source_archive.REPOSITORY_FILES)
         + len(source_archive.GENERATED_FILES)
     )
     assert first.read_bytes() == second.read_bytes()
@@ -92,6 +96,35 @@ def test_build_is_deterministic_and_complete(tmp_path: Path) -> None:
         "file_count": expected_file_count,
         "figure_count": len(source_archive.EXPECTED_FIGURES),
     }
+
+
+def test_reviewer_profile_is_deterministic_and_complete(tmp_path: Path) -> None:
+    paper = _paper_fixture(tmp_path)
+    first = tmp_path / "reviewer-first.zip"
+    second = tmp_path / "reviewer-second.zip"
+
+    first_result = source_archive.build_archive(
+        first,
+        paper,
+        include_supporting_evidence=True,
+    )
+    second_result = source_archive.build_archive(
+        second,
+        paper,
+        include_supporting_evidence=True,
+    )
+
+    expected_file_count = (
+        len(source_archive.CORE_FILES)
+        + len(source_archive.SUPPORT_FILES)
+        + len(source_archive.EXPECTED_FIGURES)
+        + len(source_archive.REPOSITORY_FILES)
+        + len(source_archive.GENERATED_FILES)
+    )
+    assert first.read_bytes() == second.read_bytes()
+    assert first_result["sha256"] == second_result["sha256"]
+    assert first_result["file_count"] == expected_file_count
+    assert source_archive.verify_archive(first)["file_count"] == expected_file_count
 
 
 def test_build_rejects_unresolved_manuscript_token(tmp_path: Path) -> None:

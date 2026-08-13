@@ -2729,19 +2729,19 @@ def fig_task_scores_dense(rows: list[dict]):
         "stm": (6.5, 13.75),
         "narma": (0.15, 0.575),
         "parity": (3.25, 5.55),
-        "mg": (0.0, 0.17),
+        "mg": (0.0, 0.33),
     }
     axis_ticks = {
         "stm": (7, 9, 11, 13),
         "narma": (0.2, 0.3, 0.4, 0.5),
-        "parity": (3.5, 4.5, 5.5),
-        "mg": (0.0, 0.05, 0.10, 0.15),
+        "parity": (4.7, 4.9, 5.1),
+        "mg": (0.03, 0.04, 0.05),
     }
     expected_offscale = {
         "stm": {"B1_dephasing": (32, 0)},
         "narma": {"B1_dephasing": (0, 32)},
         "parity": {"B1_dephasing": (16, 0)},
-        "mg": {"B3_collective": (0, 10)},
+        "mg": {},
     }
 
     cells = {
@@ -2792,6 +2792,7 @@ def fig_task_scores_dense(rows: list[dict]):
             )
 
     task_winners = {}
+    task_better_than_reference = {}
     for task, _title, _expected_n in tasks:
         task_means = {
             method: float(np.mean(list(cells[task][method].values())))
@@ -2801,6 +2802,17 @@ def fig_task_scores_dense(rows: list[dict]):
             max(task_means, key=task_means.get)
             if HIGHER[task]
             else min(task_means, key=task_means.get)
+        )
+        reference_mean = task_means["CD_paper"]
+        task_better_than_reference[task] = tuple(
+            method
+            for _label, method in designs
+            if method != "CD_paper"
+            and (
+                task_means[method] > reference_mean
+                if HIGHER[task]
+                else task_means[method] < reference_mean
+            )
         )
     expected_winners = {
         "stm": "B3_collective",
@@ -2812,6 +2824,17 @@ def fig_task_scores_dense(rows: list[dict]):
         raise RuntimeError(
             "fig_task_scores winner-highlight contract changed: "
             f"{task_winners}"
+        )
+    expected_better_than_reference = {
+        "stm": ("B3_collective", "A1_heterogeneous", "B5_pair"),
+        "narma": ("B3_collective", "A1_heterogeneous", "B5_pair"),
+        "parity": ("B2_thermal", "B4_loss_exchange"),
+        "mg": ("A1_heterogeneous",),
+    }
+    if task_better_than_reference != expected_better_than_reference:
+        raise RuntimeError(
+            "fig_task_scores reference-improvement contract changed: "
+            f"{task_better_than_reference}"
         )
 
     figure_width = st.QUANTUM_TEXT_WIDTH
@@ -2842,6 +2865,45 @@ def fig_task_scores_dense(rows: list[dict]):
 
     fig = st.composite_figure("full", figure_height)
     axes = []
+
+    # Marked piecewise-linear zooms preserve every native value while giving
+    # most of each panel to the scientifically discriminating interval.  In
+    # parity this separates the pair/reference/gain-loss/exchange cluster; in
+    # MG-150 it makes the small unequal-local/reference difference legible.
+    # These transforms are deliberately not logarithmic.
+    parity_native_knots = np.asarray((3.25, 4.60, 5.15, 5.55), dtype=float)
+    parity_display_knots = np.asarray((0.0, 0.10, 0.92, 1.0), dtype=float)
+    mg_native_knots = np.asarray((0.0, 0.025, 0.05, 0.11, 0.33), dtype=float)
+    mg_display_knots = np.asarray((0.0, 0.07, 0.70, 0.86, 1.0), dtype=float)
+
+    def parity_zoom_forward(values):
+        return np.interp(
+            np.asarray(values, dtype=float),
+            parity_native_knots,
+            parity_display_knots,
+        )
+
+    def parity_zoom_inverse(values):
+        return np.interp(
+            np.asarray(values, dtype=float),
+            parity_display_knots,
+            parity_native_knots,
+        )
+
+    def mg_zoom_forward(values):
+        return np.interp(
+            np.asarray(values, dtype=float),
+            mg_native_knots,
+            mg_display_knots,
+        )
+
+    def mg_zoom_inverse(values):
+        return np.interp(
+            np.asarray(values, dtype=float),
+            mg_display_knots,
+            mg_native_knots,
+        )
+
     for task_index, (task, title, _expected_n) in enumerate(tasks):
         axis = st.add_axes_inches(
             fig,
@@ -2855,10 +2917,20 @@ def fig_task_scores_dense(rows: list[dict]):
         axes.append(axis)
         y_positions = np.arange(len(designs), dtype=float)
         axis.set_ylim(len(designs) - 0.52, -0.52)
+        if task == "parity":
+            axis.set_xscale(
+                "function",
+                functions=(parity_zoom_forward, parity_zoom_inverse),
+            )
+        elif task == "mg":
+            axis.set_xscale(
+                "function",
+                functions=(mg_zoom_forward, mg_zoom_inverse),
+            )
         axis.set_xlim(*axis_limits[task])
         axis.set_xticks(axis_ticks[task])
         if task == "mg":
-            axis.set_xticklabels(("0", ".05", ".10", ".15"))
+            axis.set_xticklabels((".03", ".04", ".05"))
         axis.set_yticks(y_positions)
         if task_index == 0:
             axis.set_yticklabels(
@@ -2880,19 +2952,21 @@ def fig_task_scores_dense(rows: list[dict]):
             alpha=0.60,
             zorder=1.0,
         )
-        winner_values = np.asarray(
-            list(cells[task][task_winners[task]].values()),
-            dtype=float,
-        )
-        axis.axvline(
-            float(np.mean(winner_values)),
-            color=C[task_winners[task]],
-            linestyle=(0, (1.0, 1.8)),
-            linewidth=1.10,
-            alpha=0.78,
-            dash_capstyle="round",
-            zorder=1.1,
-        )
+        for improved_method in task_better_than_reference[task]:
+            improved_values = np.asarray(
+                list(cells[task][improved_method].values()),
+                dtype=float,
+            )
+            is_winner_guide = improved_method == task_winners[task]
+            axis.axvline(
+                float(np.mean(improved_values)),
+                color=C[improved_method],
+                linestyle=(0, (1.0, 1.8)),
+                linewidth=1.10 if is_winner_guide else 0.92,
+                alpha=0.78 if is_winner_guide else 0.62,
+                dash_capstyle="round",
+                zorder=1.1,
+            )
 
         for design_index, (_label, method) in enumerate(designs):
             seed_values = cells[task][method]
@@ -2912,25 +2986,34 @@ def fig_task_scores_dense(rows: list[dict]):
             y_jitter = 0.065 * jitter_phase
             is_reference = method == "CD_paper"
             is_winner = method == task_winners[task]
+            is_better = method in task_better_than_reference[task]
             aggregate_color = (
                 st.UNIFORM_LOCAL
                 if is_reference
                 else C[method]
-                if is_winner
+                if is_better
                 else neutral_color
             )
             seed_color = (
                 st.UNIFORM_LOCAL
                 if is_reference
                 else C[method]
-                if is_winner
+                if is_better
                 else neutral_color
             )
             seed_near_alpha = (
-                0.14 if is_winner else 0.12 if is_reference else 0.085
+                0.14
+                if is_winner
+                else 0.12
+                if is_reference or is_better
+                else 0.085
             )
             seed_far_alpha = (
-                0.025 if is_winner else 0.020 if is_reference else 0.012
+                0.025
+                if is_winner
+                else 0.020
+                if is_reference or is_better
+                else 0.012
             )
             focus_lower, focus_upper = axis_limits[task]
             focus_span = focus_upper - focus_lower
@@ -2967,22 +3050,34 @@ def fig_task_scores_dense(rows: list[dict]):
                     PAPER if is_reference else aggregate_color
                 ),
                 markeredgecolor=aggregate_color,
-                markeredgewidth=1.05 if is_reference or is_winner else 0.78,
+                markeredgewidth=(
+                    1.05
+                    if is_reference or is_winner
+                    else 0.92
+                    if is_better
+                    else 0.78
+                ),
                 markersize=(
                     priority_marker_size
                     if is_reference or is_winner
+                    else 6.25
+                    if is_better
                     else mean_marker_size
                 ),
                 linestyle="none",
                 elinewidth=(
                     priority_linewidth
                     if is_reference or is_winner
+                    else 1.20
+                    if is_better
                     else mean_linewidth
                 ),
                 capsize=mean_capsize,
                 capthick=(
                     priority_linewidth
                     if is_reference or is_winner
+                    else 1.20
+                    if is_better
                     else mean_linewidth
                 ),
                 zorder=4.0,
@@ -3082,6 +3177,22 @@ def fig_task_scores_dense(rows: list[dict]):
             color=INK,
             clip_on=False,
         )
+        if task in {"parity", "mg"}:
+            # Conventional diagonal marks show every change in linear scale.
+            display_knots = (
+                parity_display_knots if task == "parity" else mg_display_knots
+            )
+            for x_fraction in display_knots[1:-1]:
+                for y_fraction in (0.0, 1.0):
+                    axis.plot(
+                        [x_fraction - 0.012, x_fraction + 0.012],
+                        [y_fraction - 0.015, y_fraction + 0.015],
+                        transform=axis.transAxes,
+                        color=INK,
+                        linewidth=0.80,
+                        clip_on=False,
+                        zorder=8.0,
+                    )
 
     axes_array = np.asarray(axes, dtype=object)
     st.audit_figure(

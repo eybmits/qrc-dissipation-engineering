@@ -54,7 +54,7 @@
 % Identify authors with contact details as corresponding authors and repeat
 % their linked ORCID mark in the contact line.
 \def\@printauthorextrainfo#1{%
-  \vspace{0.35\baselineskip}%
+  \vspace{0.55\baselineskip}%
   \raggedright
   \textit{Corresponding author}\par
   \csname @authorname#1\endcsname
@@ -76,7 +76,7 @@
     }%
     \forlistcsloop{\@@spaceafter}{author#1thanks}%
   }{}%
-  \par\vspace{-0.35\baselineskip}%
+  \par\vspace{-0.55\baselineskip}%
 }
 \fancyfoot[C]{\sffamily\textcolor{quantumviolet}{\thepage}}
 \makeatother
@@ -99,9 +99,9 @@
 \author[qar,mobile]{Markus Baumann}
 \orcid{0009-0007-3575-1006}
 \email{markus.baumann@campus.lmu.de}
-\author[mobile]{Itamar Fink}
+\author[qar,mobile]{Itamar Fink}
 \orcid{0009-0000-2262-4445}
-\author[mobile]{Johannes Wittmann}
+\author[qar,mobile]{Johannes Wittmann}
 \orcid{0009-0009-9240-7257}
 \author[qar,mobile]{Claudia Linnhoff-Popien}
 \orcid{0000-0001-6284-9286}

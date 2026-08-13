@@ -46,6 +46,7 @@ results/*
 !results/qrc_dissipation_reproducibility_package.zip
 !results/qrc_dissipation_reproducibility_package.zip.sha256
 !results/arxiv_submission.zip
+!results/manuscript_supporting_evidence.zip
 !results/collective_loss_usable_memory_numerical_evidence.zip
 !results/complete_reviewer_bundle.zip
 !results/REPRODUCIBILITY_INDEX.md

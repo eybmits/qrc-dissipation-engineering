@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build and verify the self-contained Quantum/arXiv manuscript source ZIP."""
+"""Build and verify minimal arXiv or reviewer-supporting source ZIPs."""
 
 from __future__ import annotations
 
@@ -15,6 +15,9 @@ from pathlib import Path, PurePosixPath
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PAPER_ROOT = REPO_ROOT / "paper"
 DEFAULT_OUTPUT = REPO_ROOT / "results" / "arxiv_submission.zip"
+DEFAULT_SUPPORT_OUTPUT = (
+    REPO_ROOT / "results" / "manuscript_supporting_evidence.zip"
+)
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 FILE_MODE = 0o644
 
@@ -42,12 +45,22 @@ LOCAL_PAIR_EXTENSION_FILES = (
     ),
 )
 
-REQUIRED_FILES = (
+CORE_FILES = (
     "dissipation_qrc.tex",
     "dissipation_qrc.bbl",
     "quantumarticle.cls",
     "quantum.bst",
     "references.bib",
+    "sections/abstract.tex",
+    "sections/background.tex",
+    "sections/conclusion.tex",
+    "sections/evaluation.tex",
+    "sections/experimental-section.tex",
+    "sections/introduction.tex",
+    "sections/methodology.tex",
+    "sections/related-work.tex",
+)
+SUPPORT_FILES = (
     "fig1_L3.py",
     "l3_style.py",
     "make_figures.py",
@@ -101,15 +114,10 @@ REQUIRED_FILES = (
     *LOCAL_PAIR_EXTENSION_FILES,
     "evidence/canonical_gap_control/calibration.csv",
     "evidence/canonical_gap_control/lag_capacities.csv",
-    "sections/abstract.tex",
-    "sections/background.tex",
-    "sections/conclusion.tex",
-    "sections/evaluation.tex",
-    "sections/experimental-section.tex",
-    "sections/introduction.tex",
-    "sections/methodology.tex",
-    "sections/related-work.tex",
 )
+# Backward-compatible name used by tests and downstream imports.  It now
+# deliberately denotes the minimal, compile-facing arXiv source set.
+REQUIRED_FILES = CORE_FILES
 EXPECTED_FIGURES = (
     "figures/fig_designspace.pdf",
     "figures/fig_task_scores.pdf",
@@ -245,38 +253,49 @@ def _read_tex_tree(
     return "\n".join(parts)
 
 
-def _readme() -> bytes:
+def _readme(*, include_supporting_evidence: bool) -> bytes:
+    if not include_supporting_evidence:
+        heading = (
+            "arXiv submission source package\n"
+            "===============================\n\n"
+        )
+        detail = (
+            "This upload contains only the files needed to compile the "
+            "manuscript: the main TeX source, generated bibliography, bundled "
+            "class and bibliography style, eight section files, and exactly "
+            "the nine vector figures used by the paper. Full code, data, "
+            "figure generators, protocol records, and numerical evidence are "
+            "released separately at "
+            "https://github.com/eybmits/qrc-dissipation-engineering.\n"
+        )
+    else:
+        heading = (
+            "Reviewer-supporting manuscript evidence\n"
+            "=======================================\n\n"
+        )
+        detail = (
+            "This checksum-sealed reviewer-supporting package extends the "
+            "compile-facing source with figure generators, compact paper "
+            "snapshots, protocol records, frozen drivers, and the continuation "
+            "records used by the complete reviewer bundle. Full raw numerical "
+            "outputs are distributed in the separate evidence archives.\n"
+        )
     return (
-        "arXiv submission source package\n"
-        "===============================\n\n"
+        heading
+        +
         "Canonical source: dissipation_qrc.tex\n\n"
         "Build from this directory with:\n"
         "  latexmk -pdf -interaction=nonstopmode -halt-on-error "
         "dissipation_qrc.tex\n\n"
-        "The package contains the generated bibliography, the bundled "
-        "quantumarticle class and bibliography style, all section files, "
-        "and exactly the nine vector figures used by the manuscript. The "
-        "figure sources and compact paper snapshots are included for direct "
-        "inspection, including the reset-architecture snapshot and its "
-        "repo-native strict driver. The N=6 rank-one orientation snapshot is "
-        "bound to its compact validated summary, protocol, provenance, "
-        "environment, validator, and frozen execution and aggregation source; "
-        "the separately released full record contains all 24 checkpoints. "
-        "The final N=5 numerical-replay report and its non-scientific protocol "
-        "amendment are also included and hash-bound to the compact snapshot. "
-        "The continuous-drive NARMA-10 strict-washout protocol, aggregate, "
-        "validation report, and frozen driver are included as well. "
-        "The exact protocol manifest, frozen "
-        "driver snapshots, and complete N=5 "
-        "collective and cross-size local/pair continuation records are included. "
-        "The separate numerical-evidence archive contains the full raw "
-        "outputs. The complete project repository and numerical evidence "
-        "have been released publicly at "
-        "https://github.com/eybmits/qrc-dissipation-engineering.\n"
+        + detail
     ).encode("utf-8")
 
 
-def collect_payloads(paper_root: Path = PAPER_ROOT) -> list[SourcePayload]:
+def collect_payloads(
+    paper_root: Path = PAPER_ROOT,
+    *,
+    include_supporting_evidence: bool = False,
+) -> list[SourcePayload]:
     paper_root = paper_root.resolve()
     main_tex = paper_root / "dissipation_qrc.tex"
     manuscript = _read_tex_tree(main_tex, paper_root)
@@ -362,13 +381,23 @@ def collect_payloads(paper_root: Path = PAPER_ROOT) -> list[SourcePayload]:
 
     payloads = [
         SourcePayload(relative, _read_regular(paper_root / relative, paper_root))
-        for relative in (*REQUIRED_FILES, *EXPECTED_FIGURES)
+        for relative in (
+            *CORE_FILES,
+            *(SUPPORT_FILES if include_supporting_evidence else ()),
+            *EXPECTED_FIGURES,
+        )
     ]
-    payloads.extend(
-        SourcePayload(name, _read_repository_regular(path))
-        for name, path in REPOSITORY_FILES
+    if include_supporting_evidence:
+        payloads.extend(
+            SourcePayload(name, _read_repository_regular(path))
+            for name, path in REPOSITORY_FILES
+        )
+    payloads.append(
+        SourcePayload(
+            "README.txt",
+            _readme(include_supporting_evidence=include_supporting_evidence),
+        )
     )
-    payloads.append(SourcePayload("README.txt", _readme()))
     payloads.sort(key=lambda payload: payload.name)
 
     manifest = "".join(
@@ -391,8 +420,13 @@ def _zip_info(name: str) -> zipfile.ZipInfo:
 def build_archive(
     output: Path,
     paper_root: Path = PAPER_ROOT,
+    *,
+    include_supporting_evidence: bool = False,
 ) -> dict[str, object]:
-    payloads = collect_payloads(paper_root)
+    payloads = collect_payloads(
+        paper_root,
+        include_supporting_evidence=include_supporting_evidence,
+    )
     output = output.resolve()
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(
@@ -446,15 +480,17 @@ def verify_archive(path: Path) -> dict[str, object]:
                     raise SourceArchiveError(
                         f"archive contains an encrypted member: {info.filename}"
                     )
-            expected = set(
+            minimal = set((*CORE_FILES, *EXPECTED_FIGURES, *GENERATED_FILES))
+            supporting = set(
                 (
-                    *REQUIRED_FILES,
+                    *CORE_FILES,
+                    *SUPPORT_FILES,
                     *EXPECTED_FIGURES,
                     *GENERATED_FILES,
                     *(name for name, _ in REPOSITORY_FILES),
                 )
             )
-            if set(names) != expected:
+            if set(names) not in (minimal, supporting):
                 raise SourceArchiveError(
                     "archive membership differs from the sealed allowlist"
                 )
@@ -496,12 +532,22 @@ def main() -> int:
     build = subparsers.add_parser("build")
     build.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     build.add_argument("--paper-root", type=Path, default=PAPER_ROOT)
+    build.add_argument(
+        "--profile",
+        choices=("arxiv", "reviewer"),
+        default="arxiv",
+        help="minimal arXiv source or reviewer-supporting source and evidence",
+    )
     verify = subparsers.add_parser("verify")
     verify.add_argument("archive", type=Path)
     args = parser.parse_args()
 
     if args.command == "build":
-        result = build_archive(args.output, args.paper_root)
+        result = build_archive(
+            args.output,
+            args.paper_root,
+            include_supporting_evidence=args.profile == "reviewer",
+        )
     else:
         result = verify_archive(args.archive)
     for key, value in result.items():

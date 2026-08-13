@@ -18,6 +18,7 @@
     "continuous_drive_narma_washout_sha256": "64551dae3f31d3e70320c760e9074b6eafe9736656f6cb91428a691b2550a7ab",
     "continuous_drive_narma_washout_validation_command": "tar -xzf results/continuous_drive_narma_washout_v1_results.tar.gz -C results && PYTHONPATH=src:experiments python experiments/run_continuous_drive_narma_washout.py verify --out results/continuous_drive_narma_washout_v1",
     "arxiv_source_archive": "results/arxiv_submission.zip",
+    "manuscript_supporting_evidence_archive": "results/manuscript_supporting_evidence.zip",
     "reader_index": "included in the public repository release; it maps, but does not alter, the frozen numerical evidence snapshot"
   },
   "software_and_numerics": {
@@ -271,7 +272,7 @@
         "worst_trace_distance_at_800": 1.32e-11,
         "tail_1100_to_1200_maximum": 4.89e-15,
         "final_worst_trace_distance": 4.416e-15,
-        "record": "manuscript_source.zip::evidence/collective_N5_convergence_extension_v1/",
+        "record": "manuscript_supporting_evidence.zip::evidence/collective_N5_convergence_extension_v1/",
         "verification": "the complete reviewer bundle validator checks all eight checkpoints and the frozen protocol"
       },
       "local_pair_cross_size_continuation": {
@@ -294,7 +295,7 @@
           "principal_pair_N5": 3.4176451003208206e-15,
           "principal_pair_N6": 1.7220842747587975e-15
         },
-        "record": "manuscript_source.zip::evidence/local_pair_convergence_extension_v1/",
+        "record": "manuscript_supporting_evidence.zip::evidence/local_pair_convergence_extension_v1/",
         "verification": "the complete reviewer bundle validator checks all 48 checkpoints, their frozen 800-step prefixes, and the six tail gates"
       },
       "stm_strict_washout_task_control": {
@@ -334,7 +335,7 @@
         },
         "baseline_replay_maximum_absolute_error": 0.0,
         "serialization_amendment": "version 1 stopped after the eight prespecified audit checkpoints because unavailable non-audit diagnostics were serialized as NaN; version 2 changed only those unavailable values to JSON null and reran the complete protocol",
-        "compact_record": "manuscript_source.zip::evidence/continuous_drive_narma_washout_v1/",
+        "compact_record": "manuscript_supporting_evidence.zip::evidence/continuous_drive_narma_washout_v1/",
         "full_record": "continuous_drive_narma_washout_v1_results.tar.gz::continuous_drive_narma_washout_v1/",
         "scope": "certifies only the continuous-drive local-versus-collective NARMA-10 endpoint under the tested W800 protocol; it does not certify the full cross-family task map"
       },
@@ -526,8 +527,8 @@
       "numpy": "2.3.3",
       "scipy": "1.16.2",
       "full_record": "reset_architecture_evidence.tar.gz::reset_architecture_replication/",
-      "compact_plot_snapshot": "manuscript_source.zip::data/reset_architecture_snapshot.json",
-      "driver_snapshot": "manuscript_source.zip::evidence/reset_architecture_replication/run_reset_architecture_strict.py"
+      "compact_plot_snapshot": "manuscript_supporting_evidence.zip::data/reset_architecture_snapshot.json",
+      "driver_snapshot": "manuscript_supporting_evidence.zip::evidence/reset_architecture_replication/run_reset_architecture_strict.py"
     },
     "scope": "the replication establishes transfer across the two tested input encodings while retaining the N=5 XX+Z processor and Pauli readout; it is not a claim of universal architecture independence"
   },
@@ -636,7 +637,7 @@
     "validation": "all 72 convergence cells and all 288 task cells authenticate; an independent numerical replay confirms single- and four-right-hand-side propagation within 1e-12 in features",
     "numerical_replay_audit_sha256": "271e487d9b7585c5ed5edf9ce252c1879027517f719f4ae032720adc80720659",
     "validation_report_sha256": "38e4c076b407ace1959f8b8a7bee12348cab2aafa93f03b0c16348d35842f15d",
-    "compact_snapshot": "manuscript_source.zip::data/phase_direction_confirmatory_snapshot.json",
+    "compact_snapshot": "manuscript_supporting_evidence.zip::data/phase_direction_confirmatory_snapshot.json",
     "full_record": "phase_direction_confirmatory_v1_results.tar.gz::phase_direction_confirmatory_v1/",
     "full_record_sha256": "ec9a7e6aea148fadf59d83a0967a08cdba6436ad8e2fd8e61e81473226f0f394",
     "scope": "the intervention identifies direction as relevant along the tested matched rank-one paths; it does not establish a universal mechanism or globally optimal phase pattern"
@@ -668,8 +669,8 @@
     "lag_resolved": "mean paired differences and their 95% Student-t intervals are positive at all 20 tested delays; at delay 20 the means are 0.2787384999879061 versus 0.08715190087585652",
     "response_diagnostics": "equal phase has lower feature-space effective rank and a larger leading-singular-energy fraction, hence a more concentrated and front-loaded normalized response; these changes are not detectably associated with the seed-level STM gain and are not claimed as mediators",
     "convergence": "ground-versus-mixed audits pass for all 24 pairs at 800 inputs; the first six pairs additionally pass four-state audits using ground, mixed, fully excited, and Haar-random initial states",
-    "compact_snapshot": "manuscript_source.zip::data/rank_one_orientation_snapshot.json",
-    "compact_evidence": "manuscript_source.zip::evidence/rank_one_orientation_v1/",
+    "compact_snapshot": "manuscript_supporting_evidence.zip::data/rank_one_orientation_snapshot.json",
+    "compact_evidence": "manuscript_supporting_evidence.zip::evidence/rank_one_orientation_v1/",
     "full_record": "rank_one_orientation_v1_results.tar.gz::rank_one_orientation_v1/",
     "full_record_sha256": "e12f0bdd038b8e45ecea247b09d32815de20330e51ab47aecfe1d995fd86f24a",
     "scope": "the intervention establishes orientation dependence within the tested rank-one collective-lowering sector; it does not identify a universal optimum, an asymptotic scaling law, or a unique microscopic mediator"

@@ -1,19 +1,20 @@
 \begin{abstract}
 \small
-We develop a framework for treating the coupling between a quantum reservoir
-and its environment as an architectural design variable rather than a single
-damping rate, motivated by continuously driven spin networks with engineered
-dissipation. Such a generator fixes not only how strongly the environment
-acts, but which combinations of system transitions it acts on and how assigned
-coupling weight is distributed among them. We show that this organization
-changes what a linear Pauli readout can recover about earlier inputs by
-comparing paired reservoirs at fixed assigned operator weight. A single shared
-relaxation channel keeps more recent input accessible than independent local
-losses, and rotating only the coupled direction changes memory between matched
-rank-one channels with the same spectrum, trace, diagonal weights, and
-coefficient magnitudes. The ordering recurs after long washout, across tested
-finite sizes, Hamiltonian ensembles, and input encodings, and in separate
-mean-activity-matched, midpoint-gap-matched, and bounded
-operating-point-selection controls. These results establish environmental
-coupling as part of a reservoir's computational architecture.
+For an open quantum reservoir, how the system forgets is part of how it
+computes. Quantum reservoir computing processes input streams with fixed
+quantum dynamics and trains only a linear readout. Dissipation can make old
+inputs fade, but prior studies commonly fix the environmental process and tune
+only its strength. Here we show numerically that the coupling pattern, meaning
+whether transitions connect to separate or shared environmental channels,
+changes which parts of the input history remain accessible. Paired simulations of
+finite spin reservoirs keep the Hamiltonian, inputs, measurements, and readout
+fixed. The tested patterns produce distinct task profiles, with no universal
+winner. Shared relaxation yields the clearest recurring effect, leaving more
+recent input information accessible than independent local losses. This
+ordering recurs across system sizes, Hamiltonians, input protocols, and targeted
+controls. More decisively, accessible memory changes when we alter only the
+collective combination addressed by an otherwise matched shared channel.
+Environmental coupling is therefore more than a damping parameter: it is a
+design layer that shapes not only how quickly information fades, but which
+input history remains available for computation.
 \end{abstract}

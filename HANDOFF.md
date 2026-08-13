@@ -18,10 +18,12 @@ as part of the final publication handoff.
 Title: **The Organization of Environmental Coupling Shapes What Quantum Reservoirs Remember**
 
 - manuscript source: `paper/dissipation_qrc.tex`
-- compiled 22-page PDF: `paper/dissipation_qrc.pdf`
+- compiled 23-page PDF: `paper/dissipation_qrc.pdf`
 - complete reviewer reproducibility bundle:
   `results/complete_reviewer_bundle.zip`
 - arXiv upload package: `results/arxiv_submission.zip`
+- checksum-sealed supporting manuscript evidence:
+  `results/manuscript_supporting_evidence.zip`
 - complete evidence archive:
   `results/collective_loss_usable_memory_numerical_evidence.zip`
 - reset-architecture evidence archive:
@@ -131,8 +133,8 @@ initialization-independent scaling evidence is generated.
 
 The 13 August 2026 handoff passed:
 
-- `183 passed` in the full Python test suite;
-- submission validation at 22 pages and nine vector figures, with no Type 3
+- the full Python test suite passed;
+- submission validation at 23 pages and nine vector figures, with no Type 3
   fonts or hard LaTeX defects;
 - source-archive verification and fresh-extraction compilation for all nine figures;
 - complete reviewer-bundle validation, including the current PDF and source,
@@ -197,15 +199,17 @@ python make_reset_architecture_figure.py --refresh-snapshot
 python make_phase_direction_figure.py
 latexmk -pdf -interaction=nonstopmode -halt-on-error dissipation_qrc.tex
 cd ..
-python scripts/build_quantum_source_archive.py build \
+python scripts/build_quantum_source_archive.py build --profile arxiv \
   --output results/arxiv_submission.zip
+python scripts/build_quantum_source_archive.py build --profile reviewer \
+  --output results/manuscript_supporting_evidence.zip
 python scripts/validate_submission.py
 python scripts/build_quantum_source_archive.py verify \
   results/arxiv_submission.zip
 python scripts/build_complete_reviewer_bundle.py build
 ```
 
-Update the source-ZIP and reviewer-bundle entries in
+Update the arXiv ZIP, supporting-source ZIP, and reviewer-bundle entries in
 `results/ARCHIVE_SHA256SUMS.txt`, then rerun the full checksum command above.
 Commit only the nine canonical PDFs under
 `paper/figures/`; local PNG previews, LaTeX intermediates, and caches are

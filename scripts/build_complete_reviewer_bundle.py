@@ -32,6 +32,9 @@ INPUTS = {
     "manuscript_source.zip": REPO_ROOT
     / "results"
     / "arxiv_submission.zip",
+    "manuscript_supporting_evidence.zip": REPO_ROOT
+    / "results"
+    / "manuscript_supporting_evidence.zip",
     "numerical_evidence.zip": REPO_ROOT
     / "results"
     / "collective_loss_usable_memory_numerical_evidence.zip",
@@ -107,8 +110,9 @@ def _readme() -> bytes:
         "continuous_drive_narma_washout_v1_results.tar.gz contains the\n"
         "32-pair continuous-drive NARMA-10 confirmation at washouts 200 and\n"
         "800, including the four-state audit and canonical baseline replay.\n"
-        "manuscript_source.zip contains the complete\n"
-        "journal source, figure code and data, the eight-lineage N=5\n"
+        "manuscript_source.zip is the minimal arXiv upload package.\n"
+        "manuscript_supporting_evidence.zip contains the figure code and data,\n"
+        "the eight-lineage N=5\n"
         "collective continuation, and all 48 local/pair cross-size\n"
         "switched-input convergence continuations through 1200 inputs.\n"
     ).encode("utf-8")
@@ -235,8 +239,46 @@ def verify_manifest() -> None:
 
 
 def verify_source() -> tuple[dict, dict]:
-    path = ROOT / "manuscript_source.zip"
+    arxiv_path = ROOT / "manuscript_source.zip"
+    path = ROOT / "manuscript_supporting_evidence.zip"
     numerical_path = ROOT / "numerical_evidence.zip"
+    with zipfile.ZipFile(arxiv_path) as arxiv_source:
+        arxiv_names = arxiv_source.namelist()
+        require(
+            len(arxiv_names) == len(set(arxiv_names)),
+            "arXiv source ZIP has duplicate members",
+        )
+        for name in arxiv_names:
+            safe_name(name)
+        require(
+            "SHA256SUMS.txt" in arxiv_names,
+            "arXiv source ZIP lacks SHA256SUMS.txt",
+        )
+        arxiv_rows = {}
+        for number, line in enumerate(
+            arxiv_source.read("SHA256SUMS.txt").decode().splitlines(), 1
+        ):
+            parts = line.split("  ", 1)
+            require(
+                len(parts) == 2,
+                f"arXiv source manifest:{number}: malformed row",
+            )
+            sha, relative = parts
+            require(
+                relative in arxiv_names,
+                f"arXiv source ZIP missing {relative}",
+            )
+            require(
+                digest(arxiv_source.read(relative)) == sha,
+                f"arXiv source checksum mismatch: {relative}",
+            )
+            arxiv_rows[relative] = sha
+        require(
+            len(arxiv_names) == 24
+            and len(arxiv_rows) == 23
+            and sum(name.startswith("figures/") for name in arxiv_names) == 9,
+            "minimal arXiv source membership changed",
+        )
     with zipfile.ZipFile(path) as source, zipfile.ZipFile(
         numerical_path
     ) as numerical:

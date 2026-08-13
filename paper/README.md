@@ -10,7 +10,7 @@ Canonical manuscript:
 
 This is the only active manuscript. It uses the official bundled
 `quantumarticle` class and the original `quantum` bibliography style. The
-compiled paper is 22 pages and contains exactly 46 cited, linked references.
+compiled paper is 23 pages and contains exactly 46 cited, linked references.
 
 ## Scientific structure
 
@@ -143,9 +143,10 @@ panel retain their semantic colors, while the other summaries are neutral
 gray. Marker and line-style differences remain available independently of
 color.
 
-The deterministic source-package builder includes only these nine referenced
-figures, the complete TeX closure, the generated `.bbl`, the official class
-and style, and the compact inputs needed to regenerate the map and robustness
+The deterministic arXiv package contains only the nine referenced figures,
+the complete TeX closure, the generated `.bbl`, and the official class and
+style. A separate checksum-sealed supporting-source archive contains the
+compact inputs needed to regenerate the map and robustness
 figures, including both 1200-input convergence continuations and the strict
 reset-architecture driver and snapshot, the continuous-drive NARMA-10
 strict-washout driver and compact evidence, plus the phase-direction driver,

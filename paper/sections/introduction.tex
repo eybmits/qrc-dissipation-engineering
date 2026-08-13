@@ -1,93 +1,96 @@
 \section{Introduction}
 \label{sec:introduction}
 
-Reservoir computing processes temporal information with a fixed dynamical
-system and trains only a linear readout~\cite{Maass2002,JaegerESP2001}.
-Quantum reservoir computing (QRC) applies this principle to quantum
-dynamics~\cite{Fujii2017} and has been pursued in platforms including spin
-networks, superconducting processors, fermionic and bosonic modes, and photonic
-circuits. Two requirements constrain any such device: recent inputs must remain
-accessible to the readout, and older inputs together with the initial state
-must lose their influence. Purely unitary evolution does not by itself supply
-this forgetting. Coupling to an environment is therefore not merely an
-incidental imperfection in QRC but can be a functional ingredient, and
-dissipative dynamics can realize the nonlinear fading-memory maps that the
-paradigm requires~\cite{ChenNurdin2019}.
+Temporal computation requires selective memory: recent inputs must remain
+available long enough to be useful, while distant inputs and the processor's
+starting state must fade. Reservoir computing achieves this balance with fixed
+dynamics and trains only a linear map from measured signals to the desired
+output~\cite{Maass2002,JaegerESP2001}. Quantum reservoir computing (QRC) uses a
+quantum system to transform each input into measured features~\cite{Fujii2017}.
+Because the internal dynamics are not trained, how they retain input history is
+central to the computation. Purely unitary evolution does not by itself provide
+the required forgetting. Coupling to an environment can therefore be functional
+rather than merely detrimental: dissipative dynamics can implement nonlinear
+transformations whose dependence on older inputs gradually
+vanishes~\cite{ChenNurdin2019}.
 
-Dissipation is often something to be suppressed, yet engineered environments
-have long been used constructively for state preparation, quantum memories,
-and computation driven by dissipation itself
-~\cite{Poyatos1996,Verstraete2009,Pastawski2011,Harrington2022}. In QRC this
-constructive view is well established. Noise, damping, optical absorption, and
-measurement back-action can generate or regulate temporal memory
-~\cite{Chen2020,Sannia2024,Ricci2026,Gotting2025,Mujal2023,Franceschetto2026},
-while feedback, finite-history reinitialization, non-Markovian embeddings, and
-optical feedback provide further mechanisms
-~\cite{KobayashiFeedback2024,Cindrak2024,SanniaNonMarkov2026,Paparelle2026}.
-Studies of coherence and mid-circuit measurement further delimit practically
-accessible operating regimes~\cite{Palacios2024,Hu2024}. In particular,
-Sannia \emph{et al.} introduced a continuously driven spin reservoir with
-uniform local relaxation and showed that its performance improves when the
-damping strength is tuned~\cite{Sannia2024}. Related work varies scalar
-controls such as the drive, coupling, input duration, and damping
-rate~\cite{MartinezPenaPRL2021,Baumann2026}.
+Engineered dissipation already prepares and stabilizes states, protects quantum
+memories, and drives computation
+~\cite{Poyatos1996,Verstraete2009,Pastawski2011,Harrington2022}. In QRC, noise,
+damping, optical absorption, measurement backaction, feedback, and
+reinitialization can create or regulate temporal memory
+~\cite{Chen2020,Sannia2024,Ricci2026,Gotting2025,Mujal2023,Franceschetto2026,
+KobayashiFeedback2024,Cindrak2024,SanniaNonMarkov2026,Paparelle2026}. Studies of
+coherence and measurements made during a circuit further clarify practically
+accessible regimes~\cite{Palacios2024,Hu2024}. Sannia \emph{et al.}, for example, showed
+that tuning uniform, independent qubit relaxation can improve a continuously
+driven spin reservoir~\cite{Sannia2024}. Related work likewise tunes
+scalar controls such as drive strength, interaction strength, input
+duration, and damping rate~\cite{MartinezPenaPRL2021,Baumann2026}. These studies
+establish that dissipation can help, but they largely choose the environmental
+process in advance and ask how strongly it should act.
 
-A common feature of these continuously driven dissipative QRC studies is that
-the dissipator is prescribed and a magnitude attached to it is optimized. A
-Markovian generator, however, specifies more than a strength: it also fixes
-which combinations of system transitions the environment acts on directly.
-Independent losses expose each site separately, whereas a single shared
-channel exposes one collective combination and reaches the others indirectly
-after coherent dynamics has mixed them into it. That shared decay produces
-directly and indirectly coupled sectors is long known from collective emission
-and noiseless clusters in quantum networks~\cite{Dicke1954,Cabot2018}.
-Whether the organization of that coupling can be harnessed as a computational
-design variable in an input-driven reservoir, rather than merely setting a
-rate of forgetting, remains open. Continuously driven spin networks with Pauli
-readout provide a natural setting in which to address it: the coherent
-processor, input encoding, and measured observables can be shared while only
-the environmental coupling is changed.
+An environment specifies more than a rate. It also determines which system
+transitions lose information separately and which couple through the same
+channel. With independent relaxation, each qubit has its own route into the
+environment. With shared relaxation, one channel acts directly on a collective
+combination of qubit transitions. Other combinations reach it only after the
+Hamiltonian mixes them together. This distinction is familiar from collective
+emission and structures protected from noise in quantum
+networks~\cite{Dicke1954,Cabot2018}. Its computational consequence for a
+quantum system driven by inputs is less clear. Does the environment merely set how
+quickly a processor forgets, or can its pattern of coupling select which parts
+of an input history remain available?
 
-Here we vary the dissipative generator itself rather than only the strength of
-a prescribed dissipator. We formulate the design space at the generator level,
-separating how strongly the environment acts from which operator combinations
-it couples to and how assigned coupling weight is distributed among them.
-Comparisons are therefore between generators, not between equivalent
-rewritings of a jump-operator list. In the principal paired comparisons,
-reservoirs share the Hamiltonian instance, input sequence, observables, readout
-protocol, and data splits while coupling organization changes under a fixed
-assigned operator-weight budget. The significant advance is computational:
-the choice of coupling changes what the readout can still recover about earlier
-inputs, and a shared relaxation channel makes more recent input history
-accessible than independent local losses. This ordering recurs after long
-washout, across the tested finite sizes and spin-Hamiltonian ensembles, and
-under reset-based input encoding. It also survives separate comparisons that
-match mean expected jump activity or a representative midpoint Liouvillian gap
-and a bounded comparison with independently selected operating points. Most
-sharply, matched rank-one interventions show that rotating only the coupled
-collective direction changes accessible memory while Kossakowski rank,
-nonzero spectrum and trace, sitewise diagonal weights, coefficient magnitudes,
-and assigned operator weight remain fixed. Equal assigned weight, and even
-these matched coarse Kossakowski quantities, therefore does not imply equal
-computation. Across the fixed-weight continuously driven benchmarks, different
-jump families favor different tasks rather than one being uniformly better;
-a finite-sampling analysis identifies when exact-expectation contrasts become
-statistically resolvable.
+Here we answer this question numerically for finite reservoirs of driven spins. We
+show that changing the organization of environmental coupling changes what
+earlier inputs a fixed readout can recover. We vary which transitions share a
+channel and how a common, explicitly defined coupling budget is distributed
+among them. Within each principal pair, the Hamiltonian, input sequence,
+measured Pauli observables, training procedure, and data split are identical.
+Across six types of environmental process, no design dominates every benchmark.
+Instead, different couplings favor memory, nonlinear processing, parity, and
+chaotic forecasting in different ways. The environment therefore changes the
+kind of temporal information available to the readout, not simply whether one
+score improves.
 
-These results bridge the scalar-rate picture of dissipation in QRC and the
-broader practice of dissipation engineering, where the system--environment
-coupling is itself designed
+The clearest recurring contrast is between shared and independent relaxation.
+A shared channel leaves more recent input history accessible to the linear
+readout and improves recovery of a nonlinear function of that history. Both
+effects appear in every principal paired instance with five qubits. The ordering
+remains when the initial settling period, or washout, is extended until the
+tested dependence on the starting state has vanished to numerical precision.
+It recurs from four to eight qubits, across four spin Hamiltonian ensembles, and
+after replacing continuous input driving with encoding through reset operations. It also
+survives separate comparisons that match average dissipative activity or a
+representative relaxation timescale, and when each design independently selects
+its operating point from a bounded range. No obvious scalar measure of
+dissipation therefore explains the result.
+
+The most direct test changes only the collective transition addressed by a
+shared channel. Rotating this direction changes accessible memory even though
+the number and nonzero strengths of the coupled directions, the total weight,
+and the weight on every qubit all remain fixed. The dependence on coupling
+direction recurs in a separate study with six qubits. Redistributing coupling weight
+within one type of process likewise changes memory. Thus even detailed coarse
+descriptions of dissipation do not fix the computation: which collective
+transition the environment directly addresses is itself a design variable. The
+conclusions concern the tested finite reservoirs. They do not establish a
+universal optimum, an asymptotic scaling law, or a unique microscopic cause. A
+common coupling budget is a controlled comparison, not complete physical
+equivalence.
+
+These findings connect QRC with the broader practice of engineering
+couplings between systems and environments for state preparation, information processing,
+and memory protection
 ~\cite{Poyatos1996,Verstraete2009,Pastawski2011,Harrington2022,Cattaneo2019,
-Brehm2021,Sheremet2023,CattaneoPRX2023}. They establish that the scalar-rate
-description is incomplete: a damping rate, and even a matched set of coarse
-Kossakowski quantities, does not determine what a reservoir remembers. Within
-the matched rank-one interventions, the supported environmental direction is
-therefore a design coordinate that must be chosen and reported rather than left
-implicit in a choice of jump operators, and it is a quantity that shared
-resonators, waveguides, and structured couplers can directly control.
-Controlled forgetting in an open quantum reservoir is not set by one rate
-alone: how the processor is coupled to its environment belongs to its
-architecture alongside the Hamiltonian and the readout. Here, memory means
-previous-input information accessible to the specified Pauli readout after
-washout; the finite-reservoir result is neither an asymptotic law nor a unique
-mechanism, and fixed assigned weight is not physical equivalence.
+Brehm2021,Sheremet2023,CattaneoPRX2023}. Here, memory means information about
+earlier inputs that remains linearly recoverable from the specified Pauli
+observables after the settling period. It is not a claim about quantum memory
+lifetime. Within this scope, the architectural implication is clear. The
+environment is not merely an error source or a clock that sets how quickly
+information disappears. The transitions it can access shape which parts of the
+past remain usable. Environmental coupling should therefore be designed
+alongside the Hamiltonian, input encoding, and measurement. For temporal quantum
+processing, the environment is not merely the boundary of the processor. It is
+part of the processor.

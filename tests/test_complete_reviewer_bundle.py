@@ -33,6 +33,7 @@ def test_complete_reviewer_bundle_is_deterministic_and_valid(tmp_path: Path) -> 
     assert prefix + "REPRODUCIBILITY_INDEX.md" in names
     assert prefix + "protocol_manifest.json" in names
     assert prefix + "manuscript_source.zip" in names
+    assert prefix + "manuscript_supporting_evidence.zip" in names
     assert prefix + "numerical_evidence.zip" in names
     assert prefix + "phase_direction_confirmatory_v1_results.tar.gz" in names
     assert prefix + "rank_one_orientation_v1_results.tar.gz" in names

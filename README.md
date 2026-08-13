@@ -8,6 +8,7 @@ What Quantum Reservoirs Remember.”**
 - [Download the complete reviewer reproducibility bundle](results/complete_reviewer_bundle.zip)
 - [Browse the canonical manuscript source](paper/)
 - [Download the arXiv upload package](results/arxiv_submission.zip)
+- [Download the checksum-sealed supporting manuscript evidence](results/manuscript_supporting_evidence.zip)
 - [Download the complete numerical-evidence archive](results/collective_loss_usable_memory_numerical_evidence.zip)
 - [Download the reset-architecture replication](results/reset_architecture_replication_results.tar.gz)
 - [Download the phase-direction confirmation](results/phase_direction_confirmatory_v1_results.tar.gz)
@@ -88,10 +89,14 @@ than as initialization-independent scaling evidence.
 
 The current checkout was checked locally on 13 August 2026:
 
-- all 183 Python tests pass;
-- the 22-page PDF contains nine vector figures, no Type 3 fonts, and no hard
+- the full Python test suite passes;
+- the 23-page PDF contains nine vector figures, no Type 3 fonts, and no hard
   LaTeX defects;
-- the arXiv upload package reproduces all nine figures from a fresh extraction;
+- the minimal arXiv upload package compiles from a fresh extraction to the
+  canonical 23-page paper, with all nine figures;
+- the separate supporting-source archive carries the figure generators,
+  compact snapshots, frozen drivers, and convergence records used by the
+  complete reviewer bundle;
 - the complete reviewer bundle passes its single-command outer and nested
   validation, including the eight-lineage, four-initial-state collective
   continuation and all 48 local/pair cross-size continuations through 1200

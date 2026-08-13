@@ -1,67 +1,74 @@
 \section{Discussion, scope, and conclusion}
 \label{sec:discussion}
 
-In the tested finite spin reservoirs, the computational effect of environmental
-coupling cannot be summarized by one scalar rate: its organization changes
-which traces of earlier inputs remain accessible to the readout. The
-organization of environmental coupling is therefore an architectural degree of
-freedom.
+Previous dissipative QRC studies largely fix the environmental process and tune
+only its strength. We show that this one-rate picture is incomplete. In the
+finite spin reservoirs studied here, whether qubit transitions couple to
+separate or shared channels, and how coupling is distributed among them,
+changes which parts of the input history the measured output can recover. The
+system--environment connection is therefore part of the reservoir's
+computational design.
 
-Under continuous drive, strict 800-input controls preserve STM in all ten
-tested pairs and NARMA-10 in all 32 principal pairs; the latter effect is
-unchanged from W200 within \([-0.00057,0.00043]\), while the four-state score
-spread is too small to alter any paired ordering. Under input-by-reset
-encoding, both tasks favor collective relaxation in all 16 fresh pairs. The
-STM advantage also survives activity and gap matching and bounded
-operating-point selection with disjoint selection and final-test reservoirs.
-Thus the local--collective advantage is not confined to the standard washout,
-one tested encoding, or one common operating point, although these controls do
-not cover every jump family. The ordering also recurs across four Hamiltonian
-ensembles. The diagnostics and tested
-local-to-collective interpolation support---but do not uniquely establish---the
-shared-channel account; the selected interior point retains the memory
-advantage despite residual local loss. Matched rank-one direction
-interventions at two finite sizes further show that rotating only the
-supported collective direction reduces STM relative to the equal-phase
-channel.
+The clearest recurring comparison is between independent and shared
+relaxation. With independent relaxation, each qubit couples to its own decay
+channel; with shared relaxation, the environment couples directly to one
+collective combination of transitions while the Hamiltonian can mix other
+combinations into it. Shared relaxation makes more recent input history
+recoverable and improves a nonlinear benchmark that depends on several earlier
+inputs.
 
-Within the common fixed-\(\mathcal B\) slice, the tested jump families produce
-distinct task profiles rather than a globally optimized ranking.
-Appendix~\ref{app:strength-sensitivity} reports the complementary six-design
-STM strength sensitivity. Rate redistribution changes STM within a family,
-and finite-sampling precision determines which exact-expectation contrasts are
-statistically resolvable.
+The cleanest intervention changes only the collective combination addressed by
+an otherwise matched shared channel. Memory changes even though the channels
+have the same number of coupled directions, the same nonzero coupling
+strengths, the same total and per-qubit coupling weights, and identical
+processors, inputs, and readouts. The same direction sensitivity appears at
+both tested sizes. These comparisons identify what coarse summaries of
+dissipation miss: the collective transition directly coupled to the
+environment. Dynamical diagnostics and a gradual path between independent and
+shared relaxation support this channel-selectivity picture, but do not
+establish a unique microscopic mechanism.
 
-These claims remain bounded by the tested protocols. The full task map is an
-\(N=5\) driven-spin comparison;
-the Hamiltonian variants retain continuous encoding and the Pauli readout,
-while the reset test changes encoding but retains the \(N=5\) \(XX+Z\)
-processor. Fixed \(\mathcal B\) controls assigned operator
-weight rather than full dynamical or physical equivalence. The sampling study
-includes projection noise and estimator design, but not latency, drift, gate
-errors, or readout errors.
+The local-versus-shared ordering persists after longer washout, across the
+tested sizes and Hamiltonians, with a different input encoding, and under
+separate controls for average dissipative activity, a representative relaxation
+rate, and operating-point selection. These checks make incomplete washout, one
+processor or encoding, and the matched scalar differences insufficient
+explanations. They establish a recurring contrast, not a universal advantage
+over every environmental process.
 
-The appendix proves uniform contraction for driven dephasing, not the
-local--collective effect. The latter recurs in the fixed-initialization sweep
-across 24 fresh pairs at every tested size from \(N=4\) to \(8\), with higher
-mean STM and lower mean NARMA-10 error under collective relaxation. The
-\(N=4,\ldots,8\) sweep supports recurrence across the tested exact finite
-reservoirs; it is not used to infer a scaling exponent or persistence in the
-thermodynamic limit. The \(N=4\) boundary case is excluded from
-initialization-independent claims, and the sweep is not an analytical proof
-of the collective mechanism.
+Across memory, nonlinear processing, parity, and chaotic forecasting, different
+dissipative designs favor different tasks; redistributing a fixed coupling
+budget within one design also changes memory. No process is best for every task.
+Coupling organization is therefore a task-dependent design variable, not a
+universal optimization rule.
 
-This coupling-organization view connects QRC to the broader use of engineered environments
-for state preparation, quantum information, and memory protection
+Memory here means previous-input information that is linearly recoverable from
+the specified Pauli measurements after washout, not an intrinsic quantum-memory
+lifetime. The full task map concerns numerical five-qubit driven-spin
+reservoirs. Recurrence from four to eight qubits does not establish asymptotic
+scaling, and the four-qubit boundary is excluded from claims that the initial
+state has been fully forgotten. Holding one common measure of coupling weight
+fixed provides a controlled comparison, not dynamical, physical, or hardware
+equivalence. The finite-measurement analysis includes projection noise and the
+chosen estimators, but not drift, gate and readout errors, latency, or full
+experimental cost. The analytical result on forgetting applies to driven
+dephasing, not the shared-channel effect, and a generic common bath need not
+realize the modeled collective process.
+
+The result brings a familiar principle of dissipation engineering, designing
+the system--environment interaction, into temporal quantum computation
 ~\cite{Poyatos1996,Verstraete2009,Pastawski2011,Harrington2022}. Shared
-resonators, waveguides, and structured couplers motivate correlated-dissipation
-engineering~\cite{Cattaneo2019,Brehm2021,Sheremet2023,CattaneoPRX2023}, but an
-arbitrary common bath need not realize the exact bare-spin jump used here. The
-significant architecture-level computational advance is that, even when
-Kossakowski rank, nonzero spectrum and trace, sitewise diagonal weights,
-coefficient magnitudes, assigned operator weight, and the within-pair processor
-protocol are held fixed, rotating the supported Kossakowski direction changes
-readout-accessible memory. In the tested finite reservoirs, controlled
-forgetting is not set by one rate alone; how the reservoir is coupled to its
-environment shapes which traces of input history and which computations remain
-accessible.
+resonators, waveguides, and structured couplers suggest possible routes for
+testing this channel geometry
+~\cite{Cattaneo2019,Brehm2021,Sheremet2023,CattaneoPRX2023}. The next challenge
+is to predict useful coupling patterns jointly from the Hamiltonian, input
+encoding, environment, and measurement, then compare realizable couplers under
+meaningful physical budgets in larger, noisy reservoirs. How coupling
+organization interacts with non-Markovian memory is a separate open question.
+
+Together, these results move dissipation in quantum reservoir computing from a
+parameter to be tuned to a connection to be designed. The question is not only
+how quickly information should decay, but which transitions should share a
+route to the environment so that task-relevant history remains readable. For
+temporal quantum processing, the way a reservoir forgets is part of how it
+computes.

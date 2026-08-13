@@ -1146,15 +1146,33 @@ def draw_size_recurrence(
 
     axis.set_xlim(3.75, 8.25)
     axis.set_xticks([4, 6, 8])
-    axis.set_xlabel(r"qubits $N$", labelpad=1.0)
+    axis.set_xlabel(r"qubits $N$", labelpad=2.0)
     if task == "stm":
         axis.set_ylim(6.8, 19.2)
         axis.set_yticks([8, 12, 16])
-        axis.set_ylabel("")
+        metric_label = "STM capacity"
     else:
         axis.set_ylim(0.10, 0.45)
         axis.set_yticks([0.1, 0.2, 0.3, 0.4])
-        axis.set_ylabel("")
+        metric_label = "NARMA-10 NMSE"
+    axis.set_ylabel("")
+    axis.text(
+        0.04,
+        0.95,
+        metric_label,
+        transform=axis.transAxes,
+        ha="left",
+        va="top",
+        fontsize=FIG_TEXT_SIZE,
+        color=st.INK,
+        bbox={
+            "facecolor": "white",
+            "edgecolor": "none",
+            "alpha": 0.90,
+            "pad": 0.45,
+        },
+        zorder=6,
+    )
     st.style_axis(axis, "both", minor_grid=False)
     axis.minorticks_off()
 
@@ -1263,11 +1281,7 @@ def draw_robustness_overview(
     axis.set_xlim(-0.30, 6.15)
     axis.set_xticks([0, 3, 6])
     axis.set_ylim(-0.55, len(groups) - 0.45)
-    axis.set_xlabel(
-        "STM capacity difference\n"
-        r"(collective $-$ uniform local)",
-        labelpad=1.0,
-    )
+    axis.set_xlabel("STM gain", labelpad=2.0)
     st.style_axis(axis, "x", minor_grid=False)
     axis.minorticks_off()
 
@@ -1355,11 +1369,30 @@ def draw_fixed_lag_memory(axis: plt.Axes, lag_rows: list[dict]) -> None:
             zorder=3,
         )
     axis.set_xlim(0.65, 20.35)
-    axis.set_ylim(-0.02, 1.05)
+    # Preserve all capacities while reserving clear space for the in-panel
+    # metric description above the delay curves.
+    axis.set_ylim(-0.02, 1.18)
     axis.set_xticks([1, 10, 20])
     axis.set_yticks([0, 0.5, 1.0])
-    axis.set_xlabel(r"input delay $\tau$", labelpad=1.0)
+    axis.set_xlabel(r"input delay $\tau$", labelpad=2.0)
     axis.set_ylabel("")
+    axis.text(
+        0.04,
+        0.95,
+        r"STM contribution $C_\tau$",
+        transform=axis.transAxes,
+        ha="left",
+        va="top",
+        fontsize=FIG_TEXT_SIZE,
+        color=st.INK,
+        bbox={
+            "facecolor": "white",
+            "edgecolor": "none",
+            "alpha": 0.90,
+            "pad": 0.45,
+        },
+        zorder=6,
+    )
     st.style_axis(axis, "both", minor_grid=False)
     axis.minorticks_off()
 
@@ -1689,16 +1722,26 @@ def main() -> None:
     # comparison.  The robustness overview leads the sequence, followed by
     # metric-specific size recurrences and the lag profile.  Separate STM and
     # NARMA-10 panels remove the former twin-axis overlay.
-    case_height = 2.62
+    case_height = 2.54
     case_figure = st.composite_figure("full", case_height)
-    panel_side = 1.08
+    # Match the 1.21-inch square data rectangles used in Figure 4.  A fixed
+    # quarter-inch gap leaves room for neighboring y labels, while the explicit
+    # right margin prevents the final spine and ticks from touching the canvas.
+    panel_side = 1.205
     panel_bottom = 0.65
-    panel_positions = (
-        (0.96, panel_bottom),
-        (2.74, panel_bottom),
-        (4.18, panel_bottom),
-        (5.62, panel_bottom),
+    # Keep all four data rectangles identical to panel (d) and distribute their
+    # left edges uniformly.  The larger leading margin accommodates panel (a)'s
+    # categorical labels without shrinking its plotting area.
+    panel_left = 0.84
+    panel_gap = 0.338
+    panel_positions = tuple(
+        (
+            panel_left + panel_index * (panel_side + panel_gap),
+            panel_bottom,
+        )
+        for panel_index in range(4)
     )
+    panel_right = panel_positions[-1][0]
     case_axes = np.asarray(
         [
             st.add_axes_inches(
@@ -1710,7 +1753,12 @@ def main() -> None:
         dtype=object,
     )
     ax_robustness, ax_stm_size, ax_narma_size, ax_lags = case_axes
-    legend_axis = st.add_axes_inches(case_figure, [2.08, 2.24, 3.48, 0.29])
+    panel_group_center = 0.5 * (panel_left + panel_right + panel_side)
+    legend_width = 3.00
+    legend_axis = st.add_axes_inches(
+        case_figure,
+        [panel_group_center - 0.5 * legend_width, 2.12, legend_width, 0.29],
+    )
     legend_axis.set_axis_off()
     draw_robustness_overview(
         ax_robustness,
@@ -1721,8 +1769,6 @@ def main() -> None:
     draw_size_recurrence(ax_stm_size, finite_size, "stm")
     draw_size_recurrence(ax_narma_size, finite_size, "narma10")
     draw_fixed_lag_memory(ax_lags, lag_rows)
-
-    ax_lags.set_ylabel(r"STM $C_\tau$", labelpad=1.0)
 
     legend_handles = case_legend_handles()
     legend_handles = [legend_handles[1], legend_handles[0]]
@@ -1753,7 +1799,7 @@ def main() -> None:
     ):
         case_figure.text(
             (x_position - 0.12) / figure_width,
-            (y_position + panel_side + 0.10) / figure_height,
+            (y_position + panel_side + 0.07) / figure_height,
             f"({letter})",
             ha="left",
             va="bottom",
