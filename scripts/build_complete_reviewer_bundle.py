@@ -20,7 +20,7 @@ DEFAULT_OUTPUT = (
     / "results"
     / "complete_reviewer_bundle.zip"
 )
-ARCHIVE_ROOT = "dissipative-architecture-complete-reproducibility"
+ARCHIVE_ROOT = "environmental-coupling-organization-complete-reproducibility"
 ZIP_TIMESTAMP = (1980, 1, 1, 0, 0, 0)
 FILE_MODE = 0o644
 

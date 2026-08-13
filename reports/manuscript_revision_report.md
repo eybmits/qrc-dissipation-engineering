@@ -19,7 +19,7 @@ and visual summary is aligned with the plotted estimand and archived records.
 
 - Compressed the argument into a short problem--concept--evidence--implication
   sequence.
-- Presented the problem, the dissipative-architecture concept, the evidence
+- Presented the problem, the coupling-organization concept, the evidence
   hierarchy, and the design implication without numerical detail.
 - Preserved the task-dependent boundary: no tested continuously driven design
   has the best mean on all four tasks.
@@ -29,7 +29,7 @@ and visual summary is aligned with the plotted estimand and archived records.
 ### 1. Introduction
 
 - Reorganized the introduction into five functional paragraphs: temporal
-  processing problem, established work and gap, dissipative-architecture concept,
+  processing problem, established work and gap, coupling-organization concept,
   main result hierarchy, and explicit contributions.
 - Standardized `jump family`, `rate profile`, `uniform local relaxation`, and
   `structural budget B`.
@@ -38,7 +38,7 @@ and visual summary is aligned with the plotted estimand and archived records.
   processor and Pauli readout.
 - Removed the redundant section-by-section roadmap.
 
-### 2. Dissipative architecture and controlled comparison
+### 2. Environmental-coupling organization and controlled comparison
 
 - Added a plain-language definition of the fixed-input generator and explained
   switched-input evolution as a composition of the corresponding propagators.
@@ -55,7 +55,7 @@ and visual summary is aligned with the plotted estimand and archived records.
 - Added compact protocol and task summaries while retaining the full appendix
   definitions.
 
-### 3. What changes when dissipative architecture changes?
+### 3. What changes when coupling organization changes?
 
 - Rewrote the task-map discussion to match Figure 2: absolute scores in
   native metrics, pointwise Student-`t` intervals on cell means, and a dashed
@@ -91,7 +91,7 @@ and visual summary is aligned with the plotted estimand and archived records.
 - Replaced the broad discussion with four compact paragraphs: principal result,
   design hierarchy, experimental relevance, and limitations.
 - Separates the fixed-`B` theoretical normalization from hardware cost.
-- Ends with a bounded design implication: dissipative architecture should be
+- Ends with a bounded design implication: coupling organization should be
   co-designed with the coherent processor, readout, and measurement protocol.
 
 ### Appendices
@@ -107,7 +107,7 @@ and visual summary is aligned with the plotted estimand and archived records.
 
 | Evidence | Final location | Interpretation |
 |---|---|---|
-| Four-panel concept map | Main Figure 1 | Jump family and rate profile are complementary dissipative-architecture coordinates. |
+| Four-panel concept map | Main Figure 1 | Jump family and rate profile are complementary environmental-coupling coordinates. |
 | Absolute four-task comparison | Main Figure 2 | Absolute native-metric scores and seed-level dispersion on focused, explicitly bounded axes. |
 | Collective-memory synthesis | Main Figure 3 | Principal effect, fixed-initialization size sweep, targeted controls, and fixed-rate lag-resolved memory. |
 | Rate-profile experiments | Main Figure 4 | Two separate within-family protocols; absolute values are not compared across protocols. |

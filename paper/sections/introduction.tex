@@ -27,27 +27,29 @@ uniform local relaxation and showed that performance can be improved by
 tuning the damping strength~\cite{Sannia2024}. Related work varies scalar
 controls such as drive, coupling, input duration, and damping
 rate~\cite{MartinezPenaPRL2021,Baumann2026}. These studies tune the strength of
-a prescribed dissipator; here we vary its dissipative architecture.
+a prescribed dissipator; here we vary the dissipative generator itself.
 Known dark or slowly relaxing combinations under shared
 decay~\cite{Dicke1954,Cabot2018} motivate---but do not constitute---our result:
 a controlled, input-driven, Pauli-visible recent-input memory advantage of the
 equal-phase shared channel over uniform local loss.
 
-This architecture has two operational coordinates. The jump family specifies
-which combinations of the
-quantum system couple directly to the environment; the rate profile specifies
-how the available coupling weight is distributed within that family.
+We describe the organization of environmental coupling through two operational
+coordinates. The jump family specifies which combinations of system operators
+are directly coupled by the environmental channel; the rate profile specifies
+how the assigned coupling weight is distributed within that family.
 Independent local relaxation and a shared collective channel, for example,
 expose different combinations of the same sitewise lowering actions: the
 former couples separate site directions, whereas the latter couples one
 weighted collective direction. This distinction is defined at the generator
 level, so equivalent remixings of a jump-operator list are not counted as
-different architectures. Section~\ref{sec:model} formalizes the design space,
+different environmental-coupling designs. Here, environmental coupling refers
+to the dissipative part of the engineered Markovian GKLS generator, not to a
+microscopic model of an arbitrary bath. Section~\ref{sec:model} formalizes the design space,
 gives the local--collective intuition, and defines the normalization used for
 controlled comparison.
 
 We study this design space in continuously driven spin reservoirs based on
-Ref.~\cite{Sannia2024}. In the principal structural and static-profile
+Ref.~\cite{Sannia2024}. In the principal jump-family and static-profile
 comparisons, paired reservoirs share the Hamiltonian instance, input sequence,
 encoding, Pauli observables, ridge-readout protocol, and data splits, while
 jump family or rate profile is varied under the declared assigned-weight
@@ -82,10 +84,13 @@ the size, Hamiltonian, washout, and operating-point checks, this supports
 robustness across the tested spin-reservoir architectures rather than one size,
 input mechanism, or scalar setting.
 
-Dynamical diagnostics support a shared-channel interpretation, but the claim
-is architectural rather than an asymptotic law or an identification of one
-uniquely causal microscopic ingredient; fixed assigned weight is not physical
-equivalence.
+Throughout, task memory denotes information about previous inputs that is
+linearly accessible to the specified Pauli readout; dedicated long-washout
+controls distinguish the principal local--collective effect from residual
+initial-state dependence. Dynamical diagnostics support a shared-channel
+interpretation, but the claim concerns coupling organization rather than an
+asymptotic law or an identification of one uniquely causal microscopic
+ingredient; fixed assigned weight is not physical equivalence.
 Section~\ref{sec:model}
 defines the model and design space, Section~\ref{sec:performance} presents the
 computational results, Section~\ref{sec:interpretation} examines the

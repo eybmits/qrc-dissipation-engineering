@@ -16,7 +16,7 @@ compiled paper is 22 pages and contains exactly 46 cited, linked references.
 
 The main text uses one naming convention:
 
-1. **Experiment 1: dissipative-process comparison**
+1. **Experiment 1: jump-family comparison**
    - **Control 1: matched expected jump activity**
    - **Control 2: matched midpoint Liouvillian gap**
    - **Control 3: independent operating-point selection**
@@ -51,10 +51,10 @@ The appendix is deliberately narrative rather than table-driven:
 
 - **A — Shared methods:** reservoir, tasks, process construction, and
   statistics;
-- **B — Experiment 1:** structural map, coherent-dynamics and reset-encoding
+- **B — Experiment 1:** jump-family map, coherent-dynamics and reset-encoding
   replications, finite size, and the three targeted controls;
 - **C — Experiment 2:** within-family rate profiles and their interaction with
-  process family;
+  jump family;
 - **D — Experiment 3:** the two finite-sampling estimators and inference;
 - **E — Interpretation support and limits:** observable relaxation,
   switched-input response, interpolation, and the dephasing result; and
@@ -62,7 +62,7 @@ The appendix is deliberately narrative rather than table-driven:
   phase-scrambled controls and a second-size real sign-balanced replication.
 
 Exact grids and secondary outputs live in the sealed evidence archive. The
-absolute-score matrix now appears beside the main structural results; the
+absolute-score matrix now appears beside the main jump-family results; the
 estimator comparison remains an appendix table.
 
 ## Build

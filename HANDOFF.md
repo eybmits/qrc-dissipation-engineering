@@ -1,4 +1,4 @@
-# Handoff — 2026-08-12
+# Handoff — 2026-08-13
 
 ## Resume here
 
@@ -40,7 +40,7 @@ scientific narrative.
 
 ## Manuscript organization
 
-The main text follows one causal chain: dissipative architecture changes the routes
+The main text follows one causal chain: coupling organization changes the routes
 through which information fades, those routes determine which input traces
 survive, the readout determines which traces become usable computation, and
 finite sampling determines what is statistically visible. Its five sections
@@ -48,10 +48,10 @@ are:
 
 1. **Introduction** — motivation, the two-axis design concept, and the
    local--collective intuition;
-2. **Reservoir model and controlled dissipator design** — fixed processor,
-   generator-level dissipative architecture and Kossakowski geometry,
+2. **Reservoir model and controlled environmental coupling** — fixed processor,
+   generator-level coupling organization and Kossakowski geometry,
    structural normalization, readout, and tasks;
-3. **Computational consequences of dissipative architecture** — jump-family task
+3. **Computational consequences of coupling organization** — jump-family task
    profiles, rate-profile tuning, and finite-sampling visibility;
 4. **Dynamical interpretation of the local--collective memory contrast** —
    physical picture, scalar controls, positive diagnostics, and limits; and
@@ -123,7 +123,7 @@ initialization-independent scaling evidence is generated.
 
 ## Verified release state
 
-The 12 August 2026 handoff passed:
+The 13 August 2026 handoff passed:
 
 - `179 passed` in the full Python test suite;
 - submission validation at 22 pages and nine vector figures, with no Type 3

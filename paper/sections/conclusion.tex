@@ -1,9 +1,11 @@
 \section{Discussion, scope, and conclusion}
 \label{sec:discussion}
 
-In the tested driven-spin reservoir, environmental coupling cannot be
-summarized by one scalar: dissipative architecture changes which traces of
-earlier inputs remain accessible to the readout.
+In the tested finite spin reservoirs, the computational effect of environmental
+coupling cannot be summarized by one scalar rate: its organization changes
+which traces of earlier inputs remain accessible to the readout. The
+organization of environmental coupling is therefore an architectural degree of
+freedom.
 
 Under input-by-reset encoding, NARMA-10 after the 800-input washout favors
 collective relaxation in all 16 fresh pairs; the separate continuously driven
@@ -47,16 +49,17 @@ thermodynamic limit. The \(N=4\) boundary case is excluded from
 initialization-independent claims, and the sweep is not an analytical proof
 of the collective mechanism.
 
-This design view connects QRC to the broader use of engineered environments
+This coupling-organization view connects QRC to the broader use of engineered environments
 for state preparation, quantum information, and memory protection
 ~\cite{Poyatos1996,Verstraete2009,Pastawski2011,Harrington2022}. Shared
 resonators, waveguides, and structured couplers motivate correlated-dissipation
 engineering~\cite{Cattaneo2019,Brehm2021,Sheremet2023,CattaneoPRX2023}, but an
-arbitrary common bath need not realize the exact bare-spin jump used here. The central
-advance is an architecture-level computational result: even after matching
-Kossakowski rank, nonzero spectrum and trace, assigned operator weight,
-diagonal weights, coefficient magnitudes, and the processor protocol, rotating
-the supported dissipative direction changes readout-accessible memory.
-
-Controlled forgetting is therefore a design choice for the memory and
-computation made accessible by a quantum reservoir.
+arbitrary common bath need not realize the exact bare-spin jump used here. The
+central advance is therefore an architecture-level computational result: even
+when Kossakowski rank, nonzero spectrum and trace, sitewise diagonal weights,
+coefficient magnitudes, assigned operator weight, and the within-pair processor
+protocol are held fixed, rotating the supported Kossakowski direction changes
+readout-accessible memory. In the tested finite reservoirs, controlled
+forgetting is not set by one rate alone; how the reservoir is coupled to its
+environment shapes which traces of input history and which computations remain
+accessible.

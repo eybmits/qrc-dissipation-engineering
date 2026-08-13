@@ -100,7 +100,7 @@ reservoirs, respectively.
 common-protocol comparison.}
 Entries are mean \(\pm\) standard error. Arrows give the favorable direction,
 and bold marks the best mean. Row groups distinguish external or diagnostic
-comparisons, fixed-profile structural models, and a profile-only variation
+comparisons, fixed-profile jump-family models, and a profile-only variation
 within local relaxation. Task definitions and sample sizes are stated
 immediately above.}
 \label{tab:map}
@@ -121,7 +121,7 @@ reset-encoded FN~\cite{Fujii2017}
  & \(10.106\pm0.260\) & \(0.367\pm0.012\)
  & \(2.295\pm0.125\) & \(0.115\pm0.008\)\\
 \addlinespace[2pt]
-\multicolumn{5}{@{}l}{\emph{Fixed-profile structural models}}\\
+\multicolumn{5}{@{}l}{\emph{Fixed-profile jump-family models}}\\
 uniform local relaxation~\cite{Sannia2024}
  & \(8.634\pm0.069\) & \(0.315\pm0.008\)
  & \(4.822\pm0.038\) & \(0.0369\pm0.0029\)\\
@@ -203,10 +203,10 @@ simultaneous intervals because many related contrasts are examined together.
 The jump-family analysis asks whether changing the jump family changes
 computation when the Hamiltonian, input, operating point, readout, and
 \(\mathcal B\) are held fixed.  The broad map establishes the task dependence
-of that structural choice.  The subsequent checks focus on the principal
+of that jump-family choice.  The subsequent checks focus on the principal
 collective-versus-local memory contrast.
 
-\subsection{Fixed-\texorpdfstring{\(\mathcal B\)}{B} structural task map}
+\subsection{Fixed-\texorpdfstring{\(\mathcal B\)}{B} jump-family task map}
 
 Figure~\ref{fig:map} and Table~\ref{tab:map} report the absolute
 fixed-\(\mathcal B\) scores; Figure~\ref{fig:rank-map} gives the complementary
@@ -319,7 +319,7 @@ therefore reflects retained input history rather than the tested starting
 state. It establishes that the effect transfers across the two tested input
 architectures, not universal architecture independence. Nor does this
 comparison imply that dissipation outperforms a reset-only unitary reservoir;
-it isolates how two matched dissipative organizations shape usable memory.
+it isolates how two matched environmental-coupling designs shape usable memory.
 
 \subsection{Finite size and loss of the initial state}
 
@@ -424,7 +424,7 @@ seeds; bars and bands show the declared \(95\%\) intervals.}
 \subsection{Validation-selected scalar-strength sensitivity}
 \label{app:strength-sensitivity}
 
-The fixed-\(\mathcal B\) family map is a controlled structural slice rather
+The fixed-\(\mathcal B\) family map is a controlled jump-family slice rather
 than a globally optimized ranking. In a complementary post hoc STM sensitivity
 analysis, scalar strength is selected separately for six non-dephasing process
 designs by leave-one-reservoir-out validation. All designs use the base
@@ -447,7 +447,7 @@ four-task Pareto analysis.
 
 The rate-profile analysis keeps the jump family fixed and changes only how
 local relaxation strength is distributed across sites.  It therefore tests
-the second component of dissipative architecture independently of the jump-family
+the second coordinate of environmental-coupling organization independently of the jump-family
 comparison.
 
 \subsection{Within-family profile sweep}
@@ -561,7 +561,7 @@ relaxation retains slower modes with larger overlap.  The paired differences
 are \(0.338\,[0.239,0.436]\) in decay rate and
 \(0.104\,[0.028,0.180]\) in readout-weighted retention. Because this omits
 excitation weights and switched propagator products, it supports but does not
-uniquely identify the Kossakowski-geometry picture.
+uniquely identify the shared-channel interpretation.
 
 \subsection{Concentrated response under switched input}
 
@@ -577,7 +577,7 @@ decomposition.
 \subsection{A gradual path from local to collective coupling}
 
 To determine whether the endpoint contrast emerges along a continuous
-structural path, we interpolate the dissipators at fixed Frobenius weight as
+coupling-organization path, we interpolate the dissipators at fixed Frobenius weight as
 \(\D_\alpha=(1-\alpha)\D_{\mathrm{local}}
 +\alpha\D_{\mathrm{collective}}\), with \(0\le\alpha\le1\).
 Interior points are ranked on separate gap-only reservoirs before fresh task

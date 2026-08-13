@@ -1,21 +1,7 @@
-\section{\texorpdfstring{Computational consequences of\\
-dissipative architecture}{Computational consequences of dissipative architecture}}
-\label{sec:performance}
-
-Section~\ref{sec:model} defined dissipative architecture through the jump-family and
-rate-profile coordinates. We now traverse the design space of
-Fig.~\ref{fig:space} in three steps: first across dissipator structures, then
-across rate profiles within a selected structure, and finally across both axes
-jointly. We subsequently ask whether the resulting exact-expectation
-differences remain visible under finite measurement budgets.
-
-Rather than seeking one universally optimal dissipator, we test whether these
-two coordinates produce task-dependent specialization.
-
 \begin{figure*}[!t]
 \centering
 \includegraphics{figures/fig_task_scores.pdf}
-\caption{\textbf{Dissipator structure changes the computational task
+\caption{\textbf{Jump-family choice changes the computational task
 profile.}
 Absolute \(N=5\) scores for continuously driven designs. Rings show seeds;
 symbols and bars show means and pointwise \(95\%\) intervals. Dark-gray
@@ -28,6 +14,23 @@ common-point comparisons, not claims of physical equivalence. Unequal local is
 profile-only.}
 \label{fig:map}
 \end{figure*}
+
+\section{\texorpdfstring{Computational consequences of coupling\\
+organization}{Computational consequences of coupling organization}}
+\label{sec:performance}
+
+Section~\ref{sec:model} defined coupling organization through the jump-family and
+rate-profile coordinates. We now traverse the design space of
+Fig.~\ref{fig:space} in three steps: first across jump families, then
+across rate profiles within a selected family, and finally across both axes
+jointly. We subsequently ask whether the resulting exact-expectation
+differences remain visible under finite measurement budgets.
+
+\Needspace{6\baselineskip}
+We first use the fixed-weight task map to show that coupling organization
+changes computation in a task-dependent manner; we then focus on its most
+strongly replicated consequence, the local--collective contrast in
+readout-accessible recent-input memory.
 
 \subsection{Reference model and how to read the results}
 \label{sec:results-guide}
@@ -48,7 +51,7 @@ identify the best mean. Faint rings show individual reservoir instances. The
 panels retain their own scales and must be read independently;
 Appendix Table~\ref{tab:map} gives the exact means and standard errors.
 
-\subsection{Axis I: Dissipator structure changes the task profile}
+\subsection{Axis I: Jump-family choice changes the task profile}
 \label{sec:map}
 
 We first ask whether changing which system combinations couple to the
@@ -56,7 +59,7 @@ environment alters what the reservoir can compute.
 \Needspace{5\baselineskip}
 Each paired comparison
 shares its Hamiltonian, input sequence, operating point, observables, readout,
-data split, and structural budget \(\mathcal B\). Only the dissipator structure
+data split, and structural budget \(\mathcal B\). Only the jump family
 changes. Uniform local relaxation supplies the reference, while the
 reset-encoded Fujii--Nakajima (FN) architecture~\cite{Fujii2017} is shown
 separately as an external reservoir baseline.
@@ -76,7 +79,7 @@ collective lead on the tested grid (Appendix~\ref{app:strength-sensitivity}).
 We focus on the local--collective contrast because it is the cleanest comparison
 within one lowering action and gives the strongest recurring memory change.
 
-\subsection{Main structural case study: collective relaxation versus the
+\subsection{Main jump-family case study: collective relaxation versus the
 reference model}
 \label{sec:collective-case}
 
@@ -136,7 +139,7 @@ At \(N=5\), it approaches numerical
 precision by the strict 800-input washout and reaches numerical precision
 during the specified continuation to 1200 inputs.
 
-\Needspace{4\baselineskip}
+\Needspace{9\baselineskip}
 A separate ten-pair \(N=5\) task run then uses the 800-input washout before
 scoring. Cross-initialization differences are negligible, while collective
 relaxation retains \(+3.564\,[3.124,4.004]\) STM units with \(10/10\) wins
@@ -166,12 +169,12 @@ therefore recurs across two tested input architectures rather than being an
 artifact of continuous driving.
 
 \subsection{Axis II and joint design: rate profiles refine the chosen
-structure}
+jump family}
 \label{sec:profiles}
 
-Choosing a dissipator structure does not fully specify the environmental
-coupling. A second choice remains: how should the available coupling weight be
-distributed within that structure? We first keep the local-relaxation family
+Choosing a jump family does not fully specify the environmental coupling. A
+second choice remains: how should the assigned coupling weight be distributed
+within that family? We first keep the local-relaxation family
 fixed and compare uniform, random unequal, learned static, and input-adaptive
 rate profiles. All sites relax in every candidate, but they need not do so
 equally. The profile-only unequal-local row in Appendix
@@ -196,22 +199,23 @@ additional gain under the matched restart and evaluation limits. This ordering
 does not establish a general superiority of static profiles because the static
 and adaptive parameterizations differ in dimension and stopping behavior.
 
-Within-family tuning redistributes diagonal local rates but changes the
-supported rank-one collective direction; both remain reproducible tuning
-choices.
+Within-family tuning redistributes the diagonal rates in the local family,
+whereas in the collective family it changes the coefficient vector
+\(\boldsymbol c\) and thereby rotates the supported rank-one Kossakowski
+direction; both are well-defined, reproducible tuning operations.
 
-The structure and profile axes are not competing alternatives. We therefore
+The jump-family and rate-profile axes are not competing alternatives. We therefore
 cross them directly by comparing uniform and learned profiles within both
 local and collective relaxation at the same \(\mathcal B\).
 Figure~\ref{fig:profiles}(b) displays this \(2\times2\) comparison. The vertical
-separation shows the structural effect, the uniform-to-learned slope shows the
+separation shows the jump-family effect, the uniform-to-learned slope shows the
 profile effect, and the different slopes show that the profile benefit depends
-on the selected structure.
+on the selected family.
 
 \begin{figure}[H]
 \centering
 \includegraphics{figures/fig_profiles.pdf}
-\caption{\textbf{Rate profiles refine the selected dissipator structure.}
+\caption{\textbf{Rate profiles refine the selected jump family.}
 \emph{(a)} All 32 paired STM effects for three local rate profiles. Large
 markers and bars give the mean and \(95\%\) interval.
 \emph{(b)} Paired uniform-to-learned trajectories for local and collective
@@ -224,7 +228,7 @@ The profile gain is larger for local relaxation. The difference between the
 two gains is \(1.397\) STM units; all \(24/24\) paired values are positive, and
 the familywise \(95\%\) interval is \([1.078,1.716]\). Collective relaxation
 nevertheless remains higher after both profiles are learned. Profile
-optimization refines the selected structure by a family-dependent amount.
+optimization refines the selected family by a family-dependent amount.
 Appendix~\ref{app:experiment2} gives the parameterizations and inference scope.
 
 \FloatBarrier
@@ -234,7 +238,7 @@ Appendix~\ref{app:experiment2} gives the parameterizations and inference scope.
 The preceding comparisons characterize the computation available to an exact
 45-Pauli readout. An experiment observes finite measurement outcomes rather
 than exact expectation values. We therefore ask a distinct question: at what
-preparation budget do the differences created by dissipative architecture become
+preparation budget do the differences created by coupling organization become
 statistically visible?
 
 \FiniteSamplePriorWork
@@ -247,7 +251,7 @@ Each design validates its ridge coefficient before one held-out evaluation.
 Fig.~\ref{fig:sampling} studies measurement resolution, not end-to-end runtime.
 
 At the exact-expectation endpoint, Fig.~\ref{fig:sampling} recovers the
-collective-over-reference memory ordering from the structural comparison.
+collective-over-reference memory ordering from the jump-family comparison.
 Grouped sampling resolves this contrast with one-sixteenth of the preparation
 count needed by independent sampling. This gain is close to the 15-fold
 feature reuse built into the estimator. It is a measurement advantage rather
@@ -269,7 +273,7 @@ parameterization, and simultaneous-inference scope.
 \begin{figure}[!t]
 \centering
 \includegraphics{figures/fig_sampling.pdf}
-\caption{\textbf{Finite sampling determines when the dissipator-structure
+\caption{\textbf{Finite sampling determines when the jump-family
 ordering becomes visible.}
 \emph{(a,b)} Paired STM differences from uniform local relaxation at equal
 preparation budgets under independent and grouped sampling, respectively.
@@ -280,6 +284,6 @@ differences and become lighter with distance from the corresponding mean.}
 \end{figure}
 
 Across these analyses, the memory advantage of collective over uniform local
-relaxation is the strongest recurring structural effect.
+relaxation is the strongest recurring jump-family effect.
 Section~\ref{sec:interpretation} now examines which dynamics are consistent
 with that contrast.

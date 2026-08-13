@@ -1,5 +1,5 @@
 \section{\texorpdfstring{Reservoir model and controlled\\
-dissipator design}{Reservoir model and controlled dissipator design}}
+environmental coupling}{Reservoir model and controlled environmental coupling}}
 \label{sec:model}
 
 \subsection{The fixed driven reservoir}
@@ -18,8 +18,8 @@ H(s_k)=\sum_{i<j}J_{ij}\sigma_i^x\sigma_j^x
 The \(J_{ij}\) term couples the qubits, the \(z\) field sets their static
 energy scale, and the final term writes \(s_k\) into the transverse drive.
 Each reservoir instance uses one sampled set of couplings \(J_{ij}\).
-This fixes how the input enters and how information moves before the
-environmental organization is varied.
+This fixes how the input enters and how information moves before coupling
+organization is varied.
 
 \subsection{\texorpdfstring{Environmental dynamics and\\
 reference relaxation}{Environmental dynamics and reference relaxation}}
@@ -37,8 +37,8 @@ obeys the Lindblad master equation
 \end{aligned}
 \label{eq:gkls}
 \end{equation}
-We use Eq.~\eqref{eq:gkls} as a target engineered GKLS generator, not as the
-generic weak-coupling master equation of an arbitrary common bath.
+We use Eq.~\eqref{eq:gkls} as a target engineered Markovian GKLS generator,
+not as the generic weak-coupling master equation of an arbitrary common bath.
 The commutator gives the coherent motion. Each \(\D[L_k]\) describes one
 environmental action on average. The operator \(L_k\) identifies the
 transition and its coefficient sets the strength. Both parts act continuously.
@@ -58,17 +58,16 @@ L_i=\sqrt{\gamma}\,\sigma_i^-,\qquad i=1,\ldots,N .
 The lowering operator \(\sigma_i^-\) maps the excited state of qubit \(i\) to
 its ground state. One operator per site gives independent relaxation, while
 the common \(\sqrt{\gamma}\) sets the rate. This is \emph{uniform local
-relaxation}, the reference point from which we vary environmental
-organization.
+relaxation}, the reference point from which we vary coupling organization.
 
-\subsection{Generator-level dissipative architecture}
+\subsection{Generator-level organization of environmental coupling}
 
-Dissipative architecture has two operational coordinates. A \emph{jump
-family} changes which combinations of the system
-couple directly to the environment. A \emph{rate profile} redistributes the
-available coupling weight within a fixed family.
+The organization of environmental coupling has two operational coordinates. A
+\emph{jump family} specifies which combinations of system operators are
+directly coupled by the environmental channel. A \emph{rate profile}
+redistributes the assigned coupling weight within a fixed family.
 
-The distinction between strength and organization is easiest to see with two
+The distinction between strength and coupling organization is easiest to see with two
 qubits. Independent local relaxation uses two separate channels,
 \begin{equation*}
 L_1\propto\sigma_1^-,
@@ -95,7 +94,7 @@ antisymmetric state \(\lvert-\rangle\), they cancel, so this channel does not
 relax the state directly. The state is not necessarily protected forever: the
 Hamiltonian can mix the symmetric and antisymmetric combinations, thereby
 giving the latter an indirect route to the environment. Nevertheless, the two
-dissipative organizations are physically different. Independent channels
+environmental-coupling designs are physically different. Independent channels
 expose each site separately, whereas a shared channel exposes only one
 collective combination directly.
 
@@ -116,12 +115,12 @@ collective combination directly.
   {\hyperlink{cite.Sannia2024}{\phantom{6}}};
 \end{scope}
 \end{tikzpicture}
-\caption{\textbf{Dissipative architecture separates two complementary design
+\caption{\textbf{Environmental coupling has two complementary design
 coordinates.}
 \emph{(a)} Previous work primarily varies the overall strength of uniform
 local relaxation~\cite{Sannia2024}. \emph{(b)} The jump family changes which
 system combinations couple directly to the environment. \emph{(c)} The rate
-profile redistributes coupling weight within a selected family.
+profile redistributes assigned coupling weight within a selected family.
 \emph{(d)} Highlighted cells mark the two principal coordinate slices;
 pale-gray cells show other combinations. Panels (a--c) show schematic task
 scores, not fitted task data.}
@@ -197,7 +196,8 @@ fix
 Each term is the squared operator size assigned to one environmental channel.
 In the orthonormal basis above, \(\mathcal B=\Tr C\). Fixing
 \(\mathcal B\) therefore provides a common structural bookkeeping scale: the
-total assigned operator weight remains fixed while its organization changes.
+total assigned operator weight remains fixed while coupling organization
+changes.
 
 For the principal fixed-\(\mathcal B\), common-protocol comparison, we vary
 only the jump family. The Hamiltonian instance, input sequence, Pauli
@@ -222,7 +222,7 @@ correlations summarize the reservoir state,
 \langle X_iX_j\rangle,\langle Y_iY_j\rangle,\langle Z_iZ_j\rangle\}.
 \]
 They provide \(3N+3\binom{N}{2}\) features, or \(45\) at \(N=5\). Fixed-profile
-structural experiments fit only the linear readout; separately identified profile and
+jump-family experiments fit only the linear readout; separately identified profile and
 operating-point studies also select dissipative parameters on data disjoint
 from final testing. Appendix~\ref{app:experiment1} gives the ridge control.
 

@@ -578,7 +578,7 @@ x_axis_subtitle = ax_b.text(
 ax_b.text(-1.36, 2.0 + GRID_DY, "rate profile", ha="center", va="center",
           fontsize=F_COORD, color=INK, rotation=90)
 ax_b.text(-1.84, 2.0 + GRID_DY,
-          "how that action is distributed\nacross sites",
+          "how assigned coupling weight is\ndistributed within a family",
           ha="center", va="center", multialignment="center",
           fontsize=F_KEY, color=MUTED, rotation=90)
 

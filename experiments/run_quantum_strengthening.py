@@ -1,4 +1,4 @@
-"""Prospective out-of-family validation for dissipator-structure prediction.
+"""Prospective out-of-family validation for jump-family prediction.
 
 This script tests a continuous, matched-budget interpolation that was not part of
 the original channel benchmark:

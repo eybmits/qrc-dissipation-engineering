@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "qrc-dissipation"
 version = "0.1.0"
-description = "Dissipator-structure experiments for quantum reservoir computing"
+description = "Environmental-coupling organization experiments for quantum reservoir computing"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [

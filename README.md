@@ -18,8 +18,9 @@ What Quantum Reservoirs Remember.”**
 
 ## Result and scope
 
-The paper asks whether organizing a fixed assigned jump-operator weight into
-different dissipative processes changes what a quantum reservoir can compute.
+The paper asks whether changing the organization of environmental coupling at
+fixed assigned jump-operator weight changes what a quantum reservoir can
+compute.
 Its strongest conclusion is specific and experimentally challenged: at
 \(N=5\), collective relaxation retains more short-term memory than uniform
 local relaxation after dependence on the tested initial states has vanished,
@@ -28,8 +29,8 @@ encoding.
 
 The canonical manuscript follows one five-section causal narrative:
 
-1. **Introduction:** controlled forgetting and dissipative architecture;
-2. **Reservoir model and controlled dissipator design:** the fixed processor,
+1. **Introduction:** controlled forgetting and coupling organization;
+2. **Reservoir model and controlled environmental coupling:** the fixed processor,
    generator-level design space, and paired comparison;
 3. **Computational consequences:** jump-family task profiles, within-family
    rate-profile tuning, and finite-sampling visibility;
@@ -58,7 +59,8 @@ Kossakowski spectrum, diagonal weights, coefficient magnitudes, assigned
 weight, processor, input, and readout fixed. Rotating away from the equal-phase
 direction reduces held-out STM in all 32 pairs, including against four frozen
 phase-scrambled zero-overlap controls. This identifies direction sensitivity
-within the tested architecture without claiming a unique microscopic cause.
+within the tested environmental-coupling design without claiming a unique
+microscopic cause.
 
 An independent real sign-balanced replication repeats the orientation
 intervention at a second finite size. Across 24 separately generated paired
@@ -80,7 +82,7 @@ than as initialization-independent scaling evidence.
 
 ## Verified checkout
 
-The current checkout was checked locally on 12 August 2026:
+The current checkout was checked locally on 13 August 2026:
 
 - all 179 Python tests pass;
 - the 22-page PDF contains nine vector figures, no Type 3 fonts, and no hard
