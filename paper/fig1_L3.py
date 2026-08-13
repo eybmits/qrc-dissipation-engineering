@@ -242,8 +242,6 @@ ax_b2.plot([0.25], [11.32], marker="o", ms=4.45, mfc=OPTIMUM, mec=OPTIMUM, mew=0
            zorder=6)
 ax_b2.plot([8.0], [14.17], marker="o", ms=4.45, mfc=OPTIMUM, mec=OPTIMUM, mew=0.70,
            zorder=6)
-ax_b2.text(0.055, 20.3, "local relaxation", color=LOCAL, fontsize=F_LEG,
-           ha="left", va="center", zorder=8, bbox=description_box())
 ax_b2.text(0.94, 17.2, "collective relaxation", transform=ax_b2.get_yaxis_transform(),
            color=BLUE, fontsize=F_LEG, ha="right", va="center", zorder=8,
            bbox=description_box(), clip_on=True)
