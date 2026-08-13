@@ -38,7 +38,7 @@ The canonical manuscript follows one five-section causal narrative:
    rate-profile tuning, and finite-sampling visibility;
 4. **Dynamical interpretation:** the local--collective memory contrast,
    alternative scalar explanations, and positive diagnostics; and
-5. **Discussion, scope, and conclusion:** the evidence hierarchy, claim
+5. **Discussion and conclusion:** the evidence hierarchy, claim
    boundaries, and co-design implication.
 
 Within the principal jump-family analysis, switched-input convergence and an

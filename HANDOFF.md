@@ -59,7 +59,7 @@ are:
    profiles, rate-profile tuning, and finite-sampling visibility;
 4. **Dynamical interpretation of the local--collective memory contrast** —
    physical picture, scalar controls, positive diagnostics, and limits; and
-5. **Discussion, scope, and conclusion** — direct answer, evidence hierarchy,
+5. **Discussion and conclusion** — direct answer, evidence hierarchy,
    claim boundaries, and co-design implication.
 
 The single-column appendix follows the same reader path:
