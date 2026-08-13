@@ -126,6 +126,14 @@ CODE_RENDERED_COMPOSITES = {
     "figures/fig_collective_case.pdf": {
         "size": (481.89, 188.64),
         "creator": "paper/make_forgetting_modes_figure.py",
+        "required_text": (
+            "(a)",
+            "(b)",
+            "(c)",
+            "(d)",
+            "STM",
+            "input delay",
+        ),
     },
     "figures/fig_profiles.pdf": {
         "size": (230.982, 172.80),
@@ -1129,6 +1137,15 @@ def main() -> int:
             ),
             failures,
         )
+        required_text = contract.get("required_text", ())
+        if required_text:
+            figure_text = run("pdftotext", str(figure_path), "-")
+            for fragment in required_text:
+                check(
+                    fragment in figure_text,
+                    f"{figure} is missing required text {fragment!r}",
+                    failures,
+                )
 
     pdf_targets = [PDF] + sorted(FIGURES.glob("*.pdf"))
     for target in pdf_targets:

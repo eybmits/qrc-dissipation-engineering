@@ -1,9 +1,9 @@
 """Build the Experiment 1 case-study and scalar-control figures.
 
-Section 3 uses one full-width 1x3 figure for the targeted controls,
-finite-size recurrence, and lag-resolved STM profile.  The Section 4 figure retains the detailed
-scalar-control and gap-matched comparison.  All outputs are rebuilt from
-sealed evidence.
+Section 3 uses one full-width 1x4 figure for the targeted controls,
+separate STM and NARMA-10 finite-size recurrences, and the lag-resolved STM
+profile.  The Section 4 figure retains the detailed scalar-control and
+gap-matched comparison.  All outputs are rebuilt from sealed evidence.
 """
 
 from __future__ import annotations
@@ -1065,60 +1065,38 @@ def draw_joint_principal(axis: plt.Axes, principal: dict) -> plt.Axes:
     return right_axis
 
 
-def draw_joint_size_recurrence(
+def draw_size_recurrence(
     axis: plt.Axes,
     finite_size: dict,
-) -> plt.Axes:
-    """Draw STM and NARMA-10 size recurrence on their native twin axes."""
+    task: str,
+) -> None:
+    """Draw one finite-size recurrence without a twin-axis overlay."""
 
-    right_axis = axis.twinx()
+    if task not in {"stm", "narma10"}:
+        raise ValueError(f"unsupported finite-size task: {task}")
     sizes = np.arange(4, 9)
     summaries = finite_size["summaries"]["primary_fixed"]
     seed_values = finite_size["seed_values"]
     critical = float(student_t.ppf(0.975, 23))
     series = (
         (
-            axis,
-            "stm",
             "CD_paper",
             st.LOCAL_CONTRAST,
             "D",
             "white",
-            "-",
-            -0.045,
+            "--",
+            -0.025,
         ),
         (
-            axis,
-            "stm",
             "B3_collective",
             st.COLLECTIVE,
             "o",
             st.COLLECTIVE,
             "-",
-            -0.015,
-        ),
-        (
-            right_axis,
-            "narma10",
-            "CD_paper",
-            st.LOCAL_CONTRAST,
-            "D",
-            "white",
-            "--",
-            0.015,
-        ),
-        (
-            right_axis,
-            "narma10",
-            "B3_collective",
-            st.COLLECTIVE,
-            "s",
-            st.COLLECTIVE,
-            "--",
-            0.045,
+            0.025,
         ),
     )
-    for target, task, method, color, marker, face, linestyle, seed_offset in series:
+    for method, color, marker, face, linestyle, seed_offset in series:
         means = np.asarray(
             [summaries[str(size)][task][method]["mean"] for size in sizes],
             dtype=float,
@@ -1133,7 +1111,7 @@ def draw_joint_size_recurrence(
                 seed_values[str(size)]["values"][method][task],
                 dtype=float,
             )
-            target.scatter(
+            axis.scatter(
                 np.full(24, size + seed_offset) + seed_jitter,
                 raw,
                 s=5.2,
@@ -1148,7 +1126,7 @@ def draw_joint_size_recurrence(
                 linewidths=0,
                 zorder=1.8,
             )
-        target.errorbar(
+        axis.errorbar(
             sizes,
             means,
             yerr=half_widths,
@@ -1169,24 +1147,20 @@ def draw_joint_size_recurrence(
     axis.set_xlim(3.75, 8.25)
     axis.set_xticks([4, 6, 8])
     axis.set_xlabel(r"qubits $N$", labelpad=1.0)
-    axis.set_ylim(6.8, 19.2)
-    axis.set_yticks([8, 12, 16])
-    axis.set_ylabel("")
-    axis.tick_params(axis="y", colors=st.INK)
-    right_axis.set_ylim(0.10, 0.50)
-    right_axis.set_yticks([0.1, 0.2, 0.3, 0.4])
-    right_axis.set_ylabel("")
-    right_axis.tick_params(axis="y", colors=st.INK, pad=1.7)
+    if task == "stm":
+        axis.set_ylim(6.8, 19.2)
+        axis.set_yticks([8, 12, 16])
+        axis.set_ylabel("")
+    else:
+        axis.set_ylim(0.10, 0.45)
+        axis.set_yticks([0.1, 0.2, 0.3, 0.4])
+        axis.set_ylabel("")
     st.style_axis(axis, "both", minor_grid=False)
     axis.minorticks_off()
-    right_axis.minorticks_off()
-    right_axis.grid(False)
-
-    return right_axis
 
 
 def case_legend_handles() -> list[Line2D]:
-    """Return a Figure 4-style two-row key for the case figure."""
+    """Return the shared two-design key for the case figure."""
 
     return [
         Line2D(
@@ -1196,20 +1170,9 @@ def case_legend_handles() -> list[Line2D]:
             marker="D",
             markerfacecolor="white",
             markeredgewidth=MARKER_EDGEWIDTH,
-            linewidth=DATA_LINEWIDTH,
-            label="STM local",
-        ),
-        Line2D(
-            [0],
-            [0],
-            color=st.LOCAL_CONTRAST,
             linestyle="--",
-            marker="D",
-            markerfacecolor="white",
-            markeredgecolor=st.LOCAL_CONTRAST,
-            markeredgewidth=MARKER_EDGEWIDTH,
             linewidth=DATA_LINEWIDTH,
-            label="NARMA local",
+            label="uniform local",
         ),
         Line2D(
             [0],
@@ -1219,19 +1182,7 @@ def case_legend_handles() -> list[Line2D]:
             markerfacecolor=st.COLLECTIVE,
             markeredgewidth=MARKER_EDGEWIDTH,
             linewidth=DATA_LINEWIDTH,
-            label="STM collective",
-        ),
-        Line2D(
-            [0],
-            [0],
-            color=st.COLLECTIVE,
-            linestyle="--",
-            marker="s",
-            markerfacecolor=st.COLLECTIVE,
-            markeredgecolor=st.COLLECTIVE,
-            markeredgewidth=MARKER_EDGEWIDTH,
-            linewidth=DATA_LINEWIDTH,
-            label="NARMA collective",
+            label="collective relaxation",
         ),
     ]
 
@@ -1733,20 +1684,20 @@ def main() -> None:
     ) = load_and_validate()
     by_key = {row["key"]: row for row in forest_rows}
 
-    # Section 3: one full-width 1x3 figure.  The redundant principal N=5 panel
+    # Section 3: one full-width 1x4 figure.  The redundant principal N=5 panel
     # is omitted because Figure 2 and the size sweep already report that
-    # comparison.  The robustness overview leads the sequence, followed by the
-    # size recurrence and the lag profile.  Nonuniform gutters reserve the
-    # categorical labels, twin-axis decorations, and lag-panel y label without
-    # shrinking type.
+    # comparison.  The robustness overview leads the sequence, followed by
+    # metric-specific size recurrences and the lag profile.  Separate STM and
+    # NARMA-10 panels remove the former twin-axis overlay.
     case_height = 2.62
     case_figure = st.composite_figure("full", case_height)
-    panel_side = 1.33
+    panel_side = 1.08
     panel_bottom = 0.65
     panel_positions = (
         (0.96, panel_bottom),
-        (2.96, panel_bottom),
-        (5.24, panel_bottom),
+        (2.74, panel_bottom),
+        (4.18, panel_bottom),
+        (5.62, panel_bottom),
     )
     case_axes = np.asarray(
         [
@@ -1758,46 +1709,36 @@ def main() -> None:
         ],
         dtype=object,
     )
-    ax_robustness, ax_size, ax_lags = case_axes
-    # Center the legend over the three plot panels rather than over the full
-    # canvas, whose left gutter is reserved for the categorical labels.
-    legend_axis = st.add_axes_inches(case_figure, [0.84, 2.24, 5.85, 0.29])
+    ax_robustness, ax_stm_size, ax_narma_size, ax_lags = case_axes
+    legend_axis = st.add_axes_inches(case_figure, [2.08, 2.24, 3.48, 0.29])
     legend_axis.set_axis_off()
-    size_right_axis = draw_joint_size_recurrence(ax_size, finite_size)
     draw_robustness_overview(
         ax_robustness,
         by_key,
         scalar_seed_values,
         reset_summary,
     )
+    draw_size_recurrence(ax_stm_size, finite_size, "stm")
+    draw_size_recurrence(ax_narma_size, finite_size, "narma10")
     draw_fixed_lag_memory(ax_lags, lag_rows)
 
-    # Neutral axis descriptions keep color dedicated to dissipator identity.
-    ax_size.set_xlabel(r"number of qubits $N$", labelpad=1.0)
-    ax_size.set_ylabel("STM capacity")
-    size_right_axis.set_ylabel("NARMA-10 NMSE")
-    ax_lags.set_ylabel(r"STM capacity $C_\tau$")
+    ax_lags.set_ylabel(r"STM $C_\tau$", labelpad=1.0)
 
     legend_handles = case_legend_handles()
-    legend_handles = [legend_handles[index] for index in (2, 0, 3, 1)]
-    legend_labels = (
-        "STM: collective",
-        "STM: uniform local",
-        "NARMA-10: collective",
-        "NARMA-10: uniform local",
-    )
+    legend_handles = [legend_handles[1], legend_handles[0]]
+    legend_labels = ("collective relaxation", "uniform local")
     case_legend = st.legend(
         legend_axis,
         lw=st.LEGEND_FRAMEWIDTH,
         handles=legend_handles,
         labels=legend_labels,
         loc="center",
-        ncol=4,
+        ncol=2,
         frameon=True,
         fontsize=FIG_TEXT_SIZE,
-        handlelength=0.90,
-        handletextpad=0.28,
-        columnspacing=0.48,
+        handlelength=1.10,
+        handletextpad=0.36,
+        columnspacing=0.90,
         labelspacing=0.05,
         borderpad=0.16,
         framealpha=1.0,
@@ -1806,7 +1747,7 @@ def main() -> None:
 
     figure_width, figure_height = map(float, case_figure.get_size_inches())
     for letter, (x_position, y_position) in zip(
-        "abc",
+        "abcd",
         panel_positions,
         strict=True,
     ):
@@ -1820,8 +1761,9 @@ def main() -> None:
             color=st.INK,
         )
 
-    ax_size.get_xticklabels()[0].set_horizontalalignment("left")
-    ax_size.get_xticklabels()[-1].set_horizontalalignment("right")
+    for size_axis in (ax_stm_size, ax_narma_size):
+        size_axis.get_xticklabels()[0].set_horizontalalignment("left")
+        size_axis.get_xticklabels()[-1].set_horizontalalignment("right")
     ax_lags.get_xticklabels()[0].set_horizontalalignment("left")
     ax_lags.get_xticklabels()[-1].set_horizontalalignment("right")
     assert_square_panels(case_figure, case_axes, name="fig_collective_case")

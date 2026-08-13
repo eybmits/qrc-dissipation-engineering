@@ -100,7 +100,7 @@ sections/methodology.tex
 | `fig_designspace.pdf` | Conceptual jump-family and rate-profile design space |
 | `fig_task_scores.pdf` | Full-width absolute-score distributions for the four-task comparison |
 | `fig_map.pdf` | Appendix task-wise rank view of the broader catalog |
-| `fig_collective_case.pdf` | Full-width 1x3 with equal square panels: robustness controls, size recurrence, and lag-resolved local–collective memory |
+| `fig_collective_case.pdf` | Full-width 1x4 with equal square panels: robustness controls, separate STM and NARMA-10 size recurrences, and lag-resolved local–collective memory |
 | `fig_profiles.pdf` | Paired local-profile effects and the profile-by-structure interaction |
 | `fig_sampling.pdf` | Independent and grouped finite-sampling estimators |
 | `fig_scalar_controls.pdf` | Activity-, gap-, and operating-point controls with gap-resolved STM profiles |
@@ -120,7 +120,7 @@ builds both matched rank-one interventions from their checksum-linked compact
 snapshots. All canonical PDFs are stored in [`figures/`](figures/).
 
 The initialization audit remains part of the manuscript evidence even though
-the consolidated Figure 3 now uses panel (c) for lag-resolved memory. The
+the consolidated Figure 3 now uses panel (d) for lag-resolved memory. The
 collective continuation has eight \(N=5\) lineages across four initial states;
 the local/pair continuation contains 48 lineages across \(N=4,5,6\). Its
 frozen protocol, checkpoints, aggregate, and checksums live under
