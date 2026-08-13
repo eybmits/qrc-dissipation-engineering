@@ -29,8 +29,8 @@ remain visible under finite measurement budgets.
 
 \Needspace{6\baselineskip}
 The fixed-weight task map establishes task-dependent computation before we
-focus on its most strongly replicated consequence: the local--collective
-contrast in readout-accessible recent-input memory.
+focus on its most strongly replicated consequence: the contrast in
+readout-accessible recent-input memory between local and collective relaxation.
 
 \subsection{Reference model and how to read the results}
 \label{sec:results-guide}
@@ -38,7 +38,7 @@ contrast in readout-accessible recent-input memory.
 Uniform local relaxation is the reference, with one equal-rate lowering
 channel per qubit. Its family also includes unequal, learned, and
 input-adaptive profiles. The main comparison uses the equal-phase rank-one
-collective channel with \(c_i=1\) (Appendix~\ref{app:shared}); profile-optimized
+collective channel with \(c_i=1\) (Appendix~\ref{app:shared}). Profile-optimized
 models instead learn within-family coefficients.
 
 The four tasks retain their native metrics: STM and parity capacities are
@@ -46,10 +46,10 @@ maximized, whereas NARMA-10 NMSE and MG-150 MSE are minimized.
 
 Figure~\ref{fig:map} reports the absolute \(N=5\) scores in each task's native
 metric and favorable direction. The dashed vertical line in each panel marks
-the uniform-local mean; family-colored dotted lines and saturated markers
+the uniform-local mean. Family-colored dotted lines and saturated markers
 identify all designs with a better mean in that direction. Faint rings show
 individual reservoir instances. The
-panels retain their own scales and must be read independently;
+panels retain their own scales and must be read independently.
 Appendix Table~\ref{tab:map} gives the exact means and standard errors.
 
 \subsection{Axis I: Jump-family choice changes the task profile}
@@ -62,7 +62,7 @@ Each paired comparison
 shares its Hamiltonian, input sequence, operating point, observables, readout,
 data split, and structural budget \(\mathcal B\). Only the jump family
 changes. Uniform local relaxation supplies the reference, while the
-reset-encoded Fujii--Nakajima (FN) architecture~\cite{Fujii2017} is shown
+reset-encoded architecture introduced by Fujii and Nakajima (FN)~\cite{Fujii2017} is shown
 separately as an external reservoir baseline.
 
 The resulting task profiles differ, and no continuously driven design
@@ -74,8 +74,8 @@ improvement.
 Under fixed \(\mathcal B\), the map shows protocol-specific specialization, not
 a universal winner. A descriptive STM strength sensitivity preserves the
 collective lead on the tested grid (Appendix~\ref{app:strength-sensitivity}).
-We focus on the local--collective contrast because it is the cleanest comparison
-within one lowering action and gives the strongest recurring memory change.
+We focus on local versus collective relaxation because it gives the cleanest
+comparison within one lowering action and the strongest recurring memory change.
 
 \subsection{Main jump-family case study: collective relaxation versus the
 reference model}
@@ -84,8 +84,8 @@ reference model}
 We compare complete fixed-budget endpoints with
 \(C_{\mathrm{lower}}^{\mathrm{local}}\propto I_N\) and
 \(C_{\mathrm{lower}}^{\mathrm{collective}}\propto\boldsymbol c\boldsymbol
-c^\dagger\); rank, delocalization, coefficient-phase pattern, and drive
-alignment are not identified as separately causal.
+c^\dagger\). This endpoint comparison does not identify rank, delocalization,
+coefficient-phase pattern, or drive alignment as separately causal.
 
 \begin{figure*}[!t]
 \centering
@@ -97,7 +97,7 @@ above zero favor collective relaxation. \emph{(b,c)} STM capacity and
 NARMA-10 error across the tested reservoir sizes. Collective relaxation
 retains more memory and gives lower error. \emph{(d)} Memory from each previous
 input. The slower purple decline shows that older inputs remain accessible for
-longer. Pale marks show individual reservoirs; large symbols and bars show
+longer. Pale marks show individual reservoirs. Large symbols and bars show
 means and \(95\%\) intervals.}
 \label{fig:collective-case}
 \end{figure*}
@@ -172,8 +172,8 @@ gain of \(1.773\,[1.312,2.235]\), and decreases NARMA-10 NMSE from \(0.673\)
 to \(0.491\), a favorable reduction of \(0.182\,[0.144,0.220]\), with \(16/16\)
 favorable pairs for both endpoints
 (Fig.~\ref{fig:reset-architecture} and
-Appendix~\ref{app:reset-architecture}). The local--collective ordering
-therefore recurs across two tested input architectures rather than being an
+Appendix~\ref{app:reset-architecture}). The ordering between local and
+collective relaxation therefore recurs across two tested input architectures rather than being an
 artifact of continuous driving.
 
 \subsection{Axis II and joint design: rate profiles refine the chosen
@@ -186,7 +186,7 @@ within that family? We first keep the local-relaxation family
 fixed and compare uniform, random unequal, learned static, and input-adaptive
 rate profiles. All sites relax in every candidate, but they need not do so
 equally. The profile-only unequal-local row in Appendix
-Table~\ref{tab:map} reports the common-protocol comparison; the dedicated STM
+Table~\ref{tab:map} reports the common-protocol comparison. The dedicated STM
 sweep below uses the separately
 specified profile-optimization protocol.
 
@@ -210,7 +210,7 @@ and adaptive parameterizations differ in dimension and stopping behavior.
 Within-family tuning redistributes the diagonal rates in the local family,
 whereas in the collective family it changes the coefficient vector
 \(\boldsymbol c\) and thereby rotates the supported rank-one Kossakowski
-direction; both are well-defined, reproducible tuning operations.
+direction. Both are well-defined, reproducible tuning operations.
 
 The jump-family and rate-profile axes are not competing alternatives. We therefore
 cross them directly by comparing uniform and learned profiles within both
@@ -230,13 +230,13 @@ profiles. Values above zero indicate improved memory. \emph{(b)} Learning the
 rate profile increases STM for both local and collective relaxation, but the
 increase is larger for local relaxation. Collective relaxation nevertheless
 retains the higher STM overall. Lines connect the same reservoir before and
-after learning. Pale marks show individual reservoirs; large symbols and bars
+after learning. Pale marks show individual reservoirs. Large symbols and bars
 show means and \(95\%\) intervals.}
 \label{fig:profiles}
 \end{figure}
 
 The profile gain is larger for local relaxation. The difference between the
-two gains is \(1.397\) STM units; all \(24/24\) paired values are positive, and
+two gains is \(1.397\) STM units. All \(24/24\) paired values are positive, and
 the familywise \(95\%\) interval is \([1.078,1.716]\). Collective relaxation
 nevertheless remains higher after both profiles are learned. Profile
 optimization refines the selected family by a family-dependent amount.
@@ -255,7 +255,7 @@ statistically visible?
 \FiniteSamplePriorWork
 
 At each step, independent sampling spends \(N_{\mathrm{prep}}=45q\) shots over
-45 observables; grouped sampling spends the same nominal budget in the global
+45 observables. Grouped sampling spends the same nominal budget in the global
 \(X\), \(Y\), and \(Z\) bases and reuses each bitstring across 15 features.
 Each design validates its ridge coefficient before one held-out evaluation.
 ``Preparations per step'' excludes replay of the preceding input history, so
@@ -291,8 +291,8 @@ measurement budget increases. Values above zero indicate more memory than the
 reference, and values below zero indicate less. \emph{(a)} Observables are
 measured independently. \emph{(b)} Compatible observables are measured
 together, making the correct ordering visible with fewer preparations. Open
-symbols show the exact results. Pale points show individual reservoir pairs;
-large symbols and bars show means and \(95\%\) intervals.}
+symbols show the exact results. Pale points show individual reservoir pairs.
+Large symbols and bars show means and \(95\%\) intervals.}
 \label{fig:sampling}
 \end{figure}
 

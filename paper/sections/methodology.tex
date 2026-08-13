@@ -75,7 +75,7 @@ nodes per input interval.  It has separate 500/250/400
 train/validation/test streams after 100 washout inputs.  Validation selects
 the readout regularization before a train-plus-validation refit.
 
-The forecasting target obeys the Mackey--Glass equation
+The forecasting target obeys the delay equation introduced by Mackey and Glass
 \[
 \dot x(t)=\frac{0.2x(t-17)}{1+x(t-17)^{10}}-0.1x(t).
 \]
@@ -180,7 +180,7 @@ Then
 Thus fixed \(\mathcal B\) fixes \(\Tr\Gamma\). Uniform local relaxation has
 rank \(N\), whereas the equal-phase collective channel has rank one. Kernel
 directions are Kossakowski coupling directions, not decay modes of the full
-Liouvillian; Hamiltonian mixing can provide indirect relaxation. The identity
+Liouvillian. Hamiltonian mixing can provide indirect relaxation. The identity
 above applies only to the one-body lowering block. Across unlike operator
 sectors, fixed \(\mathcal B\) remains a structural control rather than an
 equivalence of spectra, flows, or implementation cost.
@@ -197,7 +197,7 @@ bootstrap resampling. The profile and finite-sampling experiments use
 simultaneous intervals because many related contrasts are examined together.
 
 \FloatBarrier
-\section{Jump-family computation and local--collective controls}
+\section{Jump-family computation and controls of the main memory contrast}
 \label{app:experiment1}
 
 The jump-family analysis asks whether changing the jump family changes
@@ -228,8 +228,8 @@ with an \(X\) drive. The encoding and Pauli readout remain fixed.
 \subsection{Replication under reset-based input encoding}
 \label{app:reset-architecture}
 
-To test whether the local--collective ordering depends on continuous-drive
-encoding, we repeat the comparison in a reset-encoded reservoir. At input
+To test whether this ordering depends on continuous-drive encoding, we repeat
+the comparison in a reset-encoded reservoir. At input
 step \(t\), qubit zero is replaced by
 \[
  \rho_t^{+}
@@ -291,20 +291,20 @@ paired reservoirs. Positive values mean higher STM or lower NARMA-10 error.
 \emph{(b)} Memory retained from each previous input after the strict 800-input
 washout. The slower purple decline shows that collective relaxation keeps
 older inputs accessible for longer. Pale marks and lines show individual
-reservoirs; large symbols, thick lines, bars, and bands show means and
+reservoirs. Large symbols, thick lines, bars, and bands show means and
 \(95\%\) intervals. All comparisons use \(\gamma=1\) and \(\mathcal B=80\).}
 \label{fig:reset-architecture}
 \end{figure}
 
 Repeating both tasks and both dissipative models from the ground, fully
 excited, maximally mixed, and Haar-random pure states gives a maximum score
-range below \(7\times10^{-7}\); the largest trace distance at the 800-input
+range below \(7\times10^{-7}\). The largest trace distance at the 800-input
 washout is \(1.3\times10^{-14}\), at numerical precision. The strict ordering
 therefore reflects retained input history rather than the tested starting
 state. It establishes that the effect transfers across the two tested input
 architectures, not universal architecture independence. Nor does this
-comparison imply that dissipation outperforms a reset-only unitary reservoir;
-it isolates how two matched environmental-coupling designs shape usable memory.
+comparison imply that dissipation outperforms a reset-only unitary reservoir.
+It instead isolates how two matched environmental-coupling designs shape usable memory.
 
 \subsection{Finite size and loss of the initial state}
 
@@ -316,8 +316,8 @@ bias, grows as
 \[
 F(N)=3N+3\binom{N}{2}.
 \]
-The sweep is intended as a finite-size robustness test of the paired
-local--collective ordering, not as an analysis of asymptotic memory,
+The sweep is intended as a finite-size robustness test of this paired ordering,
+not as an analysis of asymptotic memory,
 mixing-time, or Liouvillian scaling. STM is summed over a fixed 20-delay
 horizon and therefore satisfies \(C_{\mathrm{STM}}\leq 20\) for every \(N\),
 whereas \(F(N)\) grows with \(N\). Consequently,
@@ -340,7 +340,7 @@ the ground, fully excited, maximally mixed, and a Haar-random pure state.
 Every checkpoint stores the largest trace and Pauli-feature distances over
 the six initial-state pairs. Local and pair processes converge rapidly. A
 continuation follows all 48 local and pair lineages at
-\(N=4,5,6\) to 1200 inputs; their worst trace distance over steps 1100--1200
+\(N=4,5,6\) to 1200 inputs. Their worst trace distance from step 1100 to 1200
 is \(6.85\times10^{-15}\).
 \Needspace{4\baselineskip}
 For collective relaxation at the principal \(N=5\)
@@ -354,14 +354,14 @@ initialization-independent claims.
 A stricter STM check uses ten principal-pair lineages, three distant initial
 states, and washouts of 50, 200, and 800 inputs. A separate continuous-drive
 NARMA-10 check uses all 32 principal pairs. For its W800 condition, a frozen
-600-input prefix is placed before the unchanged canonical 1200-input sequence;
-the final 200 washout inputs and the 600 training and 400 test rows are thus
-identical to W200. Local and collective reservoirs share every input, target,
+600-input prefix is placed before the unchanged canonical 1200-input sequence.
+This construction leaves the final 200 washout inputs and the 600 training and
+400 test rows identical to W200. Local and collective reservoirs share every input, target,
 split, Hamiltonian, and readout choice within a pair. Ground-state scoring uses
 all 32 pairs, and the first eight repeat both washouts from the ground, fully
 excited, maximally mixed, and Haar-random states. The W200 scores must reproduce
 the sealed principal values before the W800 aggregate is accepted. At W800,
-local and collective NMSE are \(0.315\) and \(0.230\), respectively; the
+local and collective NMSE are \(0.315\) and \(0.230\), respectively. The
 local-minus-collective difference is \(0.0851\,[0.0716,0.0986]\), favorable in
 all 32 pairs. Its change from W200 is
 \(-0.00007\,[-0.00057,0.00043]\). The largest four-state collective score spread
@@ -411,16 +411,16 @@ selection set before the final test.
 \begin{figure}[H]
 \centering
 \includegraphics{figures/fig_scalar_controls.pdf}
-\caption{\textbf{Targeted scalar controls preserve the local--collective
-memory contrast.}
-\emph{(a)} STM gain of collective over local relaxation under four separate
-comparisons: fixed assigned weight, matched mean activity, matched relaxation
-rate, and independently selected settings. Values above zero favor collective
-relaxation. \emph{(b)} Memory from each previous input before and after the
-local relaxation rate is matched to the collective relaxation rate. The purple
-curve remains higher, so collective relaxation retains more input history even
-after that matching. Pale marks show individual reservoir pairs; large symbols,
-lines, bars, and bands show means and \(95\%\) intervals.}
+\caption{\textbf{Targeted controls preserve the collective memory advantage.}
+\emph{(a)} Collective-minus-local STM in four separate comparisons: fixed
+assigned weight, matched mean expected jump activity, matched midpoint
+Liouvillian gap, and bounded independent operating-point selection. Positive
+values favor collective relaxation. \emph{(b)} Delay-resolved memory for
+collective relaxation, the original local reference, and local relaxation after
+its midpoint Liouvillian gap is matched to the collective channel at \(s=0.5\).
+Collective remains higher after gap matching. Pale marks show paired
+reservoirs. Large symbols, lines, bars, and bands show means and \(95\%\)
+intervals.}
 \label{fig:scalar-controls}
 \end{figure}
 
@@ -431,11 +431,11 @@ The fixed-\(\mathcal B\) family map is a controlled jump-family slice rather
 than a globally optimized ranking. In a complementary post hoc STM sensitivity
 analysis, scalar strength is selected separately for six non-dephasing process
 designs by leave-one-reservoir-out validation. All designs use the base
-multiplier grid \(\{0.05,0.1,0.25,0.5,1,2,4\}\); uniform local and collective
+multiplier grid \(\{0.05,0.1,0.25,0.5,1,2,4\}\). Uniform local and collective
 relaxation also include \(8\) and \(16\), which bracket the collective optimum
 at \(8\). The selected multipliers are \(8\) for collective, \(0.1\) for local
 gain/loss and exchange-assisted relaxation, and \(0.25\) for uniform local,
-unequal local, and pair loss; every curve is bracketed. Collective relaxation
+unequal local, and pair loss. Every curve is bracketed. Collective relaxation
 has the largest mean across the 20 held-out scores, and 50,000 selection-aware
 bootstrap draws give Bonferroni-simultaneous 95\% percentile intervals
 whose lower endpoints are positive for its advantage over every competitor.
@@ -558,7 +558,7 @@ cause.
 
 \subsection{Slow dynamics that remain visible to the readout}
 
-For eight \(N=5\) local--collective lineages, the slowest right modes at five
+For eight paired \(N=5\) local and collective lineages, the slowest right modes at five
 constant inputs are projected onto the 45-Pauli readout span.  Collective
 relaxation retains slower modes with larger overlap.  The paired differences
 are \(0.338\,[0.239,0.436]\) in decay rate and
@@ -612,7 +612,7 @@ sequence and initial state.
 
 \emph{Proof.}
 For \(X_t=\exp(t\Lind_s)X\), the Hamiltonian commutator is skew-adjoint in the
-Hilbert--Schmidt inner product, while the Hermitian-unitary jumps give
+inner product \(\Tr(X^\dagger Y)\), while the Hermitian-unitary jumps give
 \(\frac{\mathrm d}{\mathrm dt}\|X_t\|_2^2
 =-\sum_i\gamma_i\|[Z_i,X_t]\|_2^2\le0\).
 Equality at \(\Delta t\) would make the norm constant, so every
@@ -640,25 +640,29 @@ we use
 Here \(f=0\) is equal phase and \(f=1\) is orthogonal to the uniform direction.
 Every condition has Kossakowski rank one, spectrum
 \((5,0,0,0,0)\), unit diagonal, \(|c_i|=1\), magnitude IPR \(1/5\), and
-\(\mathcal B=80\); four frozen phase-scrambled controls add zero-overlap
+\(\mathcal B=80\). Four frozen phase-scrambled controls add zero-overlap
 directions.
 
 The confirmation uses 32 fresh paired reservoirs, excludes the pilot, and
 shares Hamiltonian, input, target, split, and readout across all nine conditions
 within each pair. After an 800-input washout, the unchanged protocol uses 600
-training and 400 untouched test inputs, delays 1--20, 45 Pauli features, and
-fixed ridge \(10^{-8}\). Four-state audits pass on the first eight lineages.
+training and 400 untouched test inputs, delays \(1,\ldots,20\), 45 Pauli
+features, and fixed ridge \(10^{-8}\). Four-state audits pass on the first eight lineages.
 
 \begingroup
 \setlength{\intextsep}{0pt}
 \begin{figure}[H]
 \centering
 \includegraphics{figures/fig_phase_direction.pdf}
-\caption{\textbf{Accessible memory depends on the matched rank-one direction.}
-\emph{(a)} Prespecified \(N=5\) phase path. \emph{(b)} Equal-phase-minus-control
-effects for five zero-overlap directions, their within-pair mean \(\mu\), and
-the \(N=6\) sign-balanced replication S. Marks show pairs, means, and
-\(95\%\) \(t\) intervals (32 and 24 pairs).}
+\caption{\textbf{Rotating the collective direction changes accessible memory.}
+\emph{(a)} The coupled direction is rotated from equal phase at \(f=0\) to an
+orthogonal direction at \(f=1\). Mean STM decreases while rank, nonzero
+spectrum, diagonal weights, coefficient magnitudes, and assigned operator
+weight remain fixed. \emph{(b)} Equal-phase-minus-control STM differences. F
+is the Fourier endpoint, A through D are phase-scrambled zero-overlap
+directions, \(\mu\) is their within-pair mean together with F, and S is the
+separate \(N=6\) replication. Pale marks show pairs. Large symbols and bars
+show means and \(95\%\) \(t\) intervals.}
 \label{fig:phase-direction}
 \end{figure}
 \endgroup
@@ -679,6 +683,6 @@ processor, input, readout, data, and ridge rule remain fixed. All 24
 ground/mixed-state audits and the first six four-state audits pass at W800.
 Equal-phase STM is \(13.626\) versus \(11.354\), a paired gain of
 \(2.271\,[1.826,2.717]\) with \(24/24\) wins and exact sign-test
-\(p=1.19\times10^{-7}\); every delay-wise mean difference is positive. Thus
+\(p=1.19\times10^{-7}\). Every delay-wise mean difference is positive. Thus
 orientation affects accessible memory beyond these coarse matches, without
 implying scaling, global optimality, or a unique mechanism.
