@@ -546,16 +546,8 @@ x_axis_title = ax_b.text(
     3.0, -1.76, "jump family",
     ha="center", va="top", fontsize=F_COORD, color=INK
 )
-x_axis_subtitle = ax_b.text(
-    3.0, -2.36, "which combinations are coupled",
-    ha="center", va="top", fontsize=F_KEY, color=MUTED
-)
 ax_b.text(-1.36, 2.0 + GRID_DY, "rate profile", ha="center", va="center",
           fontsize=F_COORD, color=INK, rotation=90)
-ax_b.text(-1.84, 2.0 + GRID_DY,
-          "how assigned coupling weight is\ndistributed within a family",
-          ha="center", va="center", multialignment="center",
-          fontsize=F_KEY, color=MUTED, rotation=90)
 
 # --- compact legend inset into the untested lower-right design space --------
 # This replaces the former external legend.  It deliberately occupies only
