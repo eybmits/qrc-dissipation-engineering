@@ -121,7 +121,6 @@ REQUIRED_FILES = CORE_FILES
 EXPECTED_FIGURES = (
     "figures/fig_designspace.pdf",
     "figures/fig_task_scores.pdf",
-    "figures/fig_map.pdf",
     "figures/fig_collective_case.pdf",
     "figures/fig_profiles.pdf",
     "figures/fig_sampling.pdf",
@@ -263,7 +262,7 @@ def _readme(*, include_supporting_evidence: bool) -> bytes:
             "This upload contains only the files needed to compile the "
             "manuscript: the main TeX source, generated bibliography, bundled "
             "class and bibliography style, eight section files, and exactly "
-            "the nine vector figures used by the paper. Full code, data, "
+            "the eight vector figures used by the paper. Full code, data, "
             "figure generators, protocol records, and numerical evidence are "
             "released separately at "
             "https://github.com/eybmits/qrc-dissipation-engineering.\n"

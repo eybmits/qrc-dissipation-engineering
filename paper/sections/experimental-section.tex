@@ -65,9 +65,6 @@ changes. Uniform local relaxation supplies the reference, while the
 reset-encoded Fujii--Nakajima (FN) architecture~\cite{Fujii2017} is shown
 separately as an external reservoir baseline.
 
-Appendix~Figure~\ref{fig:rank-map} gives the complementary within-task rank
-view.
-
 The resulting task profiles differ, and no continuously driven design
 dominates all four tasks. Collective relaxation leads STM and NARMA-10 under
 the common protocol, but performs worse on parity and long closed-loop
@@ -93,14 +90,15 @@ alignment are not identified as separately causal.
 \begin{figure*}[!t]
 \centering
 \includegraphics{figures/fig_collective_case.pdf}
-\caption{\textbf{Collective relaxation retains more usable recent-input
-memory than the uniform-local reference.}
-\emph{(a)} Paired STM-capacity gain (collective minus uniform local) under
-targeted controls; Hamiltonian variants remain separate. \emph{(b,c)}
-Fixed-initialization STM capacity and NARMA-10 NMSE versus
-\(N=4,\ldots,8\). \emph{(d)} Delay-resolved STM contribution \(C_\tau\).
-Faint marks and lines show paired or seed-level values; large marks, bars, and
-bands give means and the declared \(95\%\) intervals.}
+\caption{\textbf{Collective relaxation preserves more usable input memory
+than uniform local relaxation.}
+\emph{(a)} STM gains under the main protocol and targeted controls. Values
+above zero favor collective relaxation. \emph{(b,c)} STM capacity and
+NARMA-10 error across the tested reservoir sizes. Collective relaxation
+retains more memory and gives lower error. \emph{(d)} Memory from each previous
+input. The slower purple decline shows that older inputs remain accessible for
+longer. Pale marks show individual reservoirs; large symbols and bars show
+means and \(95\%\) intervals.}
 \label{fig:collective-case}
 \end{figure*}
 
@@ -225,12 +223,15 @@ on the selected family.
 \begin{figure}[H]
 \centering
 \includegraphics{figures/fig_profiles.pdf}
-\caption{\textbf{Rate profiles refine the selected jump family.}
-\emph{(a)} All 32 paired STM effects for three local rate profiles. Large
-markers and bars give the mean and \(95\%\) interval.
-\emph{(b)} Paired uniform-to-learned trajectories for local and collective
-relaxation, showing family-dependent profile gains. Seed marks and trajectories
-become lighter with distance from their condition means.}
+\caption{\textbf{Rate profiles tune memory within a chosen relaxation
+family.}
+\emph{(a)} Change in STM relative to uniform local rates for three alternative
+profiles. Values above zero indicate improved memory. \emph{(b)} Learning the
+rate profile increases STM for both local and collective relaxation, but the
+increase is larger for local relaxation. Collective relaxation nevertheless
+retains the higher STM overall. Lines connect the same reservoir before and
+after learning. Pale marks show individual reservoirs; large symbols and bars
+show means and \(95\%\) intervals.}
 \label{fig:profiles}
 \end{figure}
 
@@ -283,13 +284,15 @@ parameterization, and simultaneous-inference scope.
 \begin{figure}[!t]
 \centering
 \includegraphics{figures/fig_sampling.pdf}
-\caption{\textbf{Finite sampling determines when the jump-family
-ordering becomes visible.}
-\emph{(a,b)} Paired STM differences from uniform local relaxation at equal
-preparation budgets under independent and grouped sampling, respectively.
-Open markers denote exact readout. Grouping recovers the exact ordering sooner
-by reusing compatible observables. Faint points show individual paired-seed
-differences and become lighter with distance from the corresponding mean.}
+\caption{\textbf{Grouped measurements reveal memory differences with fewer
+preparations.}
+Each curve shows the STM difference from uniform local relaxation as the
+measurement budget increases. Values above zero indicate more memory than the
+reference, and values below zero indicate less. \emph{(a)} Observables are
+measured independently. \emph{(b)} Compatible observables are measured
+together, making the correct ordering visible with fewer preparations. Open
+symbols show the exact results. Pale points show individual reservoir pairs;
+large symbols and bars show means and \(95\%\) intervals.}
 \label{fig:sampling}
 \end{figure}
 

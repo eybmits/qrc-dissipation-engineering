@@ -99,7 +99,6 @@ sections/methodology.tex
 |---|---|
 | `fig_designspace.pdf` | Conceptual jump-family and rate-profile design space |
 | `fig_task_scores.pdf` | Full-width absolute-score distributions for the four-task comparison |
-| `fig_map.pdf` | Appendix task-wise rank view of the broader catalog |
 | `fig_collective_case.pdf` | Full-width 1x4 with equal square panels: robustness controls, separate STM and NARMA-10 size recurrences, and lag-resolved local–collective memory |
 | `fig_profiles.pdf` | Paired local-profile effects and the profile-by-structure interaction |
 | `fig_sampling.pdf` | Independent and grouped finite-sampling estimators |
@@ -107,7 +106,7 @@ sections/methodology.tex
 | `fig_reset_architecture.pdf` | Reset-encoded paired effects and lag-resolved STM capacities |
 | `fig_phase_direction.pdf` | Matched rank-one phase path, zero-overlap controls, and second-size real sign-balanced replication |
 
-[`make_figures.py`](make_figures.py) builds the conceptual, map, profile, and
+[`make_figures.py`](make_figures.py) builds the conceptual, task, profile, and
 finite-sampling figures.
 [`make_forgetting_modes_figure.py`](make_forgetting_modes_figure.py) builds
 the case-study and scalar-control figures from the compact snapshots and
@@ -126,13 +125,12 @@ the local/pair continuation contains 48 lineages across \(N=4,5,6\). Its
 frozen protocol, checkpoints, aggregate, and checksums live under
 [`evidence/local_pair_convergence_extension_v1/`](evidence/local_pair_convergence_extension_v1/).
 
-All nine PDFs share the reference-derived contract in
+All eight PDFs share the reference-derived contract in
 [`l3_style.py`](l3_style.py): native full- or single-column dimensions,
 publication-scale typography, semantic colors with marker/linestyle
 redundancy, a final-size text floor, embedded vector fonts, and
 generation-time text/decoration collision audits. Figure 2 is a full-width
-four-task absolute-score comparison; the compact rank view is retained in the
-appendix. All empirical figures use the manuscript's Times/STIX plotting
+four-task absolute-score comparison. All empirical figures use the manuscript's Times/STIX plotting
 style.
 
 The permanent dissipator palette is defined once in `l3_style.py`: collective
@@ -143,7 +141,7 @@ panel retain their semantic colors, while the other summaries are neutral
 gray. Marker and line-style differences remain available independently of
 color.
 
-The deterministic arXiv package contains only the nine referenced figures,
+The deterministic arXiv package contains only the eight referenced figures,
 the complete TeX closure, the generated `.bbl`, and the official class and
 style. A separate checksum-sealed supporting-source archive contains the
 compact inputs needed to regenerate the map and robustness

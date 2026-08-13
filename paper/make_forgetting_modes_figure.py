@@ -1222,7 +1222,7 @@ def draw_robustness_overview(
         ),
         ("reset encoding", [reset_summary]),
         ("activity match", [by_key["activity_matched"]]),
-        ("gap match", [by_key["gap_matched"]]),
+        ("matched\nrelaxation rate", [by_key["gap_matched"]]),
         ("indep. selection", [by_key["independent_selection"]]),
     ]
     y_positions = np.arange(len(groups) - 1, -1, -1, dtype=float)
@@ -1278,6 +1278,9 @@ def draw_robustness_overview(
     axis.axvline(0, color=st.INK, linewidth=st.REFERENCE_LINEWIDTH, zorder=1)
     axis.set_yticks(y_positions)
     axis.set_yticklabels([label for label, _rows in groups])
+    for tick_label in axis.get_yticklabels():
+        if "\n" in tick_label.get_text():
+            tick_label.set_linespacing(0.72)
     axis.set_xlim(-0.30, 6.15)
     axis.set_xticks([0, 3, 6])
     axis.set_ylim(-0.55, len(groups) - 0.45)
@@ -1524,7 +1527,7 @@ def draw_gap_lags(axis: plt.Axes, lag_rows: list[dict]) -> None:
         ),
         (
             "local_gap_matched",
-            "gap",
+            "matched rate",
             st.LOCAL_CONTRAST,
             "--",
             "s",
@@ -1732,8 +1735,8 @@ def main() -> None:
     # Keep all four data rectangles identical to panel (d) and distribute their
     # left edges uniformly.  The larger leading margin accommodates panel (a)'s
     # categorical labels without shrinking its plotting area.
-    panel_left = 0.84
-    panel_gap = 0.338
+    panel_left = 1.08
+    panel_gap = 0.258
     panel_positions = tuple(
         (
             panel_left + panel_index * (panel_side + panel_gap),
@@ -1878,12 +1881,15 @@ def main() -> None:
         marker="o",
         labels={
             "fixed_b": r"fixed $B$",
-            "activity_matched": "activity",
-            "gap_matched": "gap",
-            "independent_selection": "selection",
+            "activity_matched": "mean\nactivity",
+            "gap_matched": "matched\nrate",
+            "independent_selection": "selected\nsettings",
         },
         seed_values=scalar_seed_values,
     )
+    for tick_label in ax_controls.get_yticklabels():
+        if "\n" in tick_label.get_text():
+            tick_label.set_linespacing(0.72)
     ax_controls.set_xlabel("STM gain", labelpad=2.0)
     draw_gap_lags(ax_gap_lag, lag_rows)
     controls_handles, controls_labels = ax_gap_lag.get_legend_handles_labels()

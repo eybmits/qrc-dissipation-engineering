@@ -134,9 +134,9 @@ initialization-independent scaling evidence is generated.
 The 13 August 2026 handoff passed:
 
 - the full Python test suite passed;
-- submission validation at 23 pages and nine vector figures, with no Type 3
+- submission validation at 23 pages and eight vector figures, with no Type 3
   fonts or hard LaTeX defects;
-- source-archive verification and fresh-extraction compilation for all nine figures;
+- source-archive verification and fresh-extraction compilation for all eight figures;
 - complete reviewer-bundle validation, including the current PDF and source,
   the full numerical archive, the protocol ledger, the eight-lineage \(N=5\)
   collective continuation, and all 48 local/pair cross-size continuations
@@ -211,7 +211,7 @@ python scripts/build_complete_reviewer_bundle.py build
 
 Update the arXiv ZIP, supporting-source ZIP, and reviewer-bundle entries in
 `results/ARCHIVE_SHA256SUMS.txt`, then rerun the full checksum command above.
-Commit only the nine canonical PDFs under
+Commit only the eight canonical PDFs under
 `paper/figures/`; local PNG previews, LaTeX intermediates, and caches are
 ignored.
 

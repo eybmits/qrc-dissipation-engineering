@@ -4312,10 +4312,9 @@ def main():
     print(f"loaded {len(rows)} canonical result files")
     fig_designspace()
     fig_task_scores_dense(rows)
-    fig_map_dense(rows)
     fig_profiles_and_sampling_dense(rows)
     print(
-        "wrote 5 primary manuscript figures to",
+        "wrote 4 primary manuscript figures to",
         OUTDIR,
         "(run make_forgetting_modes_figure.py for the robustness figure)",
     )

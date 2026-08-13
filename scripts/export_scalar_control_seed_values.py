@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Export the Figure 6 seed-level values from their sealed evidence."""
+"""Export the Figure 7 seed-level values from their sealed evidence."""
 
 from __future__ import annotations
 

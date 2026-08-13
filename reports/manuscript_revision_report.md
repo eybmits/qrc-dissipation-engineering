@@ -112,9 +112,8 @@ and visual summary is aligned with the plotted estimand and archived records.
 | Collective-memory synthesis | Main Figure 3 | Principal effect, fixed-initialization size sweep, targeted controls, and fixed-rate lag-resolved memory. |
 | Rate-profile experiments | Main Figure 4 | Two separate within-family protocols; absolute values are not compared across protocols. |
 | Finite-sampling comparison | Main Figure 5 | Frozen multi-design independent/grouped comparison; simultaneous finite-budget inference. |
-| Former task-wise rank map | Appendix Figure 6 | Secondary view of task specialization, including profile-only and external rows with explicit boundaries. |
-| Full reset-based replication | Appendix Figure 7 | Seed-level and lag-resolved recurrence under the second tested encoding. |
-| Detailed scalar-control analysis | Appendix Figure 8 | Activity, midpoint-gap, and operating-point controls plus detailed dynamical diagnostics. |
+| Full reset-based replication | Appendix Figure 6 | Seed-level and lag-resolved recurrence under the second tested encoding. |
+| Detailed scalar-control analysis | Appendix Figure 7 | Activity, midpoint-gap, and operating-point controls plus detailed dynamical diagnostics. |
 
 The final main-text sequence is therefore Figures 1--5; all detailed controls
 remain available as Appendix Figures 6--8.

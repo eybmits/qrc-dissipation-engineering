@@ -209,8 +209,7 @@ collective-versus-local memory contrast.
 \subsection{Fixed-\texorpdfstring{\(\mathcal B\)}{B} jump-family task map}
 
 Figure~\ref{fig:map} and Table~\ref{tab:map} report the absolute
-fixed-\(\mathcal B\) scores; Figure~\ref{fig:rank-map} gives the complementary
-rank view.
+fixed-\(\mathcal B\) scores.
 
 A validation-selected readout control reuses the same STM and NARMA-10
 trajectories but divides the 600 fitting rows into 450 training and 150
@@ -218,20 +217,6 @@ validation rows.  Each design and instance selects ordinary least squares or
 a ridge value before refitting on all 600 rows.  The ordering is unchanged:
 the collective design remains best on both tasks.  Thus the main ranking is
 not an artifact of imposing one readout penalty on every process.
-
-\begin{figure}[!t]
-\centering
-\includegraphics{figures/fig_map.pdf}
-\caption{\textbf{Task-wise rankings confirm specialization rather than a
-universal winner among the tested continuously driven designs.}
-Ranks at \(N=5\) are induced by the absolute means in
-Table~\ref{tab:map}; rank 1 is best within each task. Uniform local is the
-reference. Colors follow the manuscript-wide dissipator palette; lines connect
-identical designs only as visual guides. Dashed reset-based FN is an external,
-unpaired baseline. Faint points rank the paired continuously driven seeds
-against the fixed reset-FN mean; no seed points are assigned to that baseline.}
-\label{fig:rank-map}
-\end{figure}
 
 \subsection{Robustness to the coherent dynamics}
 
@@ -299,15 +284,15 @@ NARMA-10 NMSE
 \begin{figure}[H]
 \centering
 \includegraphics{figures/fig_reset_architecture.pdf}
-\caption{\textbf{Replication under reset-based input encoding.}
-\emph{(a)} Favorable paired relative change with respect to local relaxation
-for STM capacity and NARMA-10 NMSE across 16 fresh paired reservoirs; positive
-percentages denote larger STM or lower NMSE. Points show seeds, and filled
-markers with bars show paired means and pointwise \(95\%\) \(t\) intervals.
-\emph{(b)} Lag-resolved STM capacities after the strict 800-input washout;
-faint lines and points are seeds, and thick lines and bands show means and
-pointwise \(95\%\) \(t\) intervals. The fixed-budget comparison uses
-\(\gamma=1\) and \(\mathcal B=80\).}
+\caption{\textbf{Collective relaxation also improves memory with reset-based
+input encoding.}
+\emph{(a)} Improvement over local relaxation for STM and NARMA-10 across 16
+paired reservoirs. Positive values mean higher STM or lower NARMA-10 error.
+\emph{(b)} Memory retained from each previous input after the strict 800-input
+washout. The slower purple decline shows that collective relaxation keeps
+older inputs accessible for longer. Pale marks and lines show individual
+reservoirs; large symbols, thick lines, bars, and bands show means and
+\(95\%\) intervals. All comparisons use \(\gamma=1\) and \(\mathcal B=80\).}
 \label{fig:reset-architecture}
 \end{figure}
 
@@ -428,11 +413,14 @@ selection set before the final test.
 \includegraphics{figures/fig_scalar_controls.pdf}
 \caption{\textbf{Targeted scalar controls preserve the local--collective
 memory contrast.}
-\emph{(a)} Collective-minus-reference STM effects for the fixed-\(\mathcal B\),
-activity-matched, gap-matched, and independently selected protocols.
-\emph{(b)} Lag-resolved STM at fixed \(\mathcal B\) and after matching the local
-rate to the collective midpoint Liouvillian gap. Faint points show paired
-seeds; bars and bands show the declared \(95\%\) intervals.}
+\emph{(a)} STM gain of collective over local relaxation under four separate
+comparisons: fixed assigned weight, matched mean activity, matched relaxation
+rate, and independently selected settings. Values above zero favor collective
+relaxation. \emph{(b)} Memory from each previous input before and after the
+local relaxation rate is matched to the collective relaxation rate. The purple
+curve remains higher, so collective relaxation retains more input history even
+after that matching. Pale marks show individual reservoir pairs; large symbols,
+lines, bars, and bands show means and \(95\%\) intervals.}
 \label{fig:scalar-controls}
 \end{figure}
 

@@ -274,9 +274,9 @@ def verify_source() -> tuple[dict, dict]:
             )
             arxiv_rows[relative] = sha
         require(
-            len(arxiv_names) == 24
-            and len(arxiv_rows) == 23
-            and sum(name.startswith("figures/") for name in arxiv_names) == 9,
+            len(arxiv_names) == 23
+            and len(arxiv_rows) == 22
+            and sum(name.startswith("figures/") for name in arxiv_names) == 8,
             "minimal arXiv source membership changed",
         )
     with zipfile.ZipFile(path) as source, zipfile.ZipFile(

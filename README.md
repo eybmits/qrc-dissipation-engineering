@@ -90,10 +90,10 @@ than as initialization-independent scaling evidence.
 The current checkout was checked locally on 13 August 2026:
 
 - the full Python test suite passes;
-- the 23-page PDF contains nine vector figures, no Type 3 fonts, and no hard
+- the 23-page PDF contains eight vector figures, no Type 3 fonts, and no hard
   LaTeX defects;
 - the minimal arXiv upload package compiles from a fresh extraction to the
-  canonical 23-page paper, with all nine figures;
+  canonical 23-page paper, with all eight figures;
 - the separate supporting-source archive carries the figure generators,
   compact snapshots, frozen drivers, and convergence records used by the
   complete reviewer bundle;
@@ -122,7 +122,7 @@ submission-independent validation without repository access.
 
 | Path | Contents |
 |---|---|
-| [`paper/`](paper/) | Canonical Quantum source, 46 linked references, and nine figures |
+| [`paper/`](paper/) | Canonical Quantum source, 46 linked references, and eight figures |
 | [`src/qrc/`](src/qrc/) | Reservoir, Lindblad, task, and readout implementation |
 | [`experiments/`](experiments/) | Primary experiment and analysis entry points |
 | [`reports/`](reports/) | Verified analysis reports |

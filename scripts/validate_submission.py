@@ -119,10 +119,6 @@ CODE_RENDERED_COMPOSITES = {
         "size": (481.89, 156.96),
         "creator": "paper/make_figures.py",
     },
-    "figures/fig_map.pdf": {
-        "size": (230.982, 183.043),
-        "creator": "paper/make_figures.py",
-    },
     "figures/fig_collective_case.pdf": {
         "size": (481.89, 182.88),
         "creator": "paper/make_forgetting_modes_figure.py",
