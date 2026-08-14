@@ -222,23 +222,17 @@ separation shows the jump-family effect, the uniform-to-learned slope shows the
 profile effect, and the different slopes show that the profile benefit depends
 on the selected family.
 
-\begin{figure*}[!t]
-\centering
-\begin{minipage}{0.68\textwidth}
+\begin{figure}[!t]
 \centering
 \includegraphics{figures/fig_profiles.pdf}
-\captionof{figure}{\textbf{Rate profiles tune memory within a chosen relaxation
-family.}
-\emph{(a)} Change in STM relative to uniform local rates for three alternative
-profiles. Values above zero indicate improved memory. \emph{(b)} Learning the
-rate profile increases STM for both local and collective relaxation, but the
-increase is larger for local relaxation. Collective relaxation nevertheless
-retains the higher STM overall. Lines connect the same reservoir before and
-after learning. Pale marks show individual reservoirs. Large symbols and bars
-show means and \(95\%\) intervals.}
+\caption{\textbf{Rate profiles tune memory within a relaxation family.}
+\emph{(a)} STM change relative to uniform local rates. Positive values favor
+the alternative profile. \emph{(b)} Learning raises STM for both families,
+more strongly for local relaxation, while collective relaxation remains higher
+overall. Pale marks and lines show reservoirs. Large symbols and bars show
+means and \(95\%\) intervals.}
 \label{fig:profiles}
-\end{minipage}
-\end{figure*}
+\end{figure}
 
 The profile gain is larger for local relaxation. The difference between the
 two gains is \(1.397\) STM units. All \(24/24\) paired values are positive, and
@@ -266,24 +260,18 @@ Each design validates its ridge coefficient before one held-out evaluation.
 ``Preparations per step'' excludes replay of the preceding input history, so
 Figure~\ref{fig:sampling} studies measurement resolution, not end-to-end runtime.
 
-\begin{figure*}[!t]
-\centering
-\begin{minipage}{0.68\textwidth}
+\begin{figure}[!t]
 \centering
 \includegraphics{figures/fig_sampling.pdf}
-\captionof{figure}{\textbf{Grouped measurements reveal memory differences with
-fewer preparations.}
-Each curve shows the STM difference from uniform local relaxation as the
-measurement budget increases. Values above zero indicate more memory than the
-reference, and values below zero indicate less. \emph{(a)} Observables are
-measured independently. \emph{(b)} Compatible observables are measured
-together, making the correct ordering visible with fewer preparations. Open
-symbols show the exact results. Pale points show individual reservoir pairs.
-At finite budgets, large symbols and bars show means and simultaneous
-\(95\%\) intervals.}
+\caption{\textbf{Grouped measurements reveal memory differences with fewer
+preparations.}
+STM difference from uniform local relaxation versus preparation budget.
+Positive values favor the design. \emph{(a)} Independent and \emph{(b)}
+grouped measurement. Grouping reveals the exact ordering at lower budget.
+Open symbols mark exact results. Pale points show reservoir pairs. Large
+symbols and bars show means and simultaneous \(95\%\) intervals.}
 \label{fig:sampling}
-\end{minipage}
-\end{figure*}
+\end{figure}
 
 At the exact-expectation endpoint, Figure~\ref{fig:sampling} recovers the
 collective-over-reference memory ordering from the jump-family comparison.
