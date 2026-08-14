@@ -77,7 +77,8 @@ def description_box(pad=0.12):
 
 
 # --- one strength response per design ---------------------------------------
-# These smooth curves are schematic summaries, not fitted response functions.
+# These smooth curves are illustrative STM-capacity summaries, not fitted
+# response functions.
 # Their rounded peaks and heights visually anchor the design-specific strength
 # study reported exactly in Fig. 8; the left/right widths are drawing
 # parameters. Panel (c) below is a separate categorical experiment.
@@ -235,7 +236,7 @@ ax_a.set_xticks([0.1, 1, 10])
 ax_a.set_xticklabels(["0.1", "1", "10"])
 ax_a.tick_params(labelsize=F_TICK)
 ax_a.set_xlabel("damping strength $\\gamma$")
-ax_a.set_ylabel("schematic task score", fontsize=F_KEY)
+ax_a.set_ylabel("STM capacity", fontsize=F_KEY)
 ax_a.set_facecolor("white")
 st.style_axis(ax_a, "both", minor_axis="both", minor_grid=True)
 
