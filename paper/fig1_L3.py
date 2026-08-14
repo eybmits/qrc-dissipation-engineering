@@ -92,7 +92,7 @@ DESIGNS = [
     ("unequal",      0.25, 11.39, 2.45, 1.95, "unequal", 1.10, DASH_DOT),
     ("pair",         0.25, 11.11, 1.90, 1.45, "pair", 1.10, SHORT_DASH),
     ("local",        0.25, 11.32, 2.20, 1.70, "local",  1.65, "-"),
-    ("collective",   8.00, 15.20, 5.50, 3.20, "collective", 1.65, "-"),
+    ("collective",   6.00, 15.20, 5.50, 3.20, "collective", 1.65, "-"),
 ]
 CYCOL = {
     "local": LOCAL,
@@ -159,9 +159,9 @@ def curve(name):
 # changes may help or hurt. Their heights and widths are drawing parameters.
 COLLECTIVE_PROFILE_VARIANTS = [
     # label       peak  top    wl    wr    line style
-    ("profile 1", 5.20, 18.00, 5.10, 3.00, SHORT_DASH),
-    ("profile 2", 3.60, 16.80, 4.65, 2.75, DENSE_DOTS),
-    ("profile 3", 2.40, 11.00, 4.15, 2.45, DASH_DOT),
+    ("profile 1", 3.80, 18.20, 5.10, 3.00, SHORT_DASH),
+    ("profile 2", 2.50, 17.20, 4.65, 2.75, DENSE_DOTS),
+    ("profile 3", 1.60, 10.80, 4.15, 2.45, DASH_DOT),
 ]
 
 FIGH = 4.24
