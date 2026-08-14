@@ -12,9 +12,10 @@ Layout: top row = (a) the prior one-dimensional local-relaxation view, (b) its
 extension to alternative dissipative designs, and (c) several rate profiles
 within one fixed collective jump family; bottom row = (d) the design space at
 full width. Panels (a) and (b) use the same illustrative response function, so
-the black local curve in (b) is panel (a). The solid collective curve in (c) is
-likewise identical to the highlighted collective curve in (b); three lighter
-line styles illustrate profile changes within that family.
+the orange local curve in (b) is panel (a). The solid collective curve in (c)
+is likewise identical to the highlighted collective curve in (b). Two lighter
+profile variants illustrate possible improvements and one illustrates a
+decrease within that family.
 
 A collision check runs at the end and must report zero problems.
 """
@@ -91,7 +92,7 @@ DESIGNS = [
     ("unequal",      0.25, 11.39, 2.45, 1.95, "unequal", 1.10, DASH_DOT),
     ("pair",         0.25, 11.11, 1.90, 1.45, "pair", 1.10, SHORT_DASH),
     ("local",        0.25, 11.32, 2.20, 1.70, "local",  1.65, "-"),
-    ("collective",   8.00, 14.17, 5.50, 3.20, "collective", 1.65, "-"),
+    ("collective",   8.00, 15.20, 5.50, 3.20, "collective", 1.65, "-"),
 ]
 CYCOL = {
     "local": LOCAL,
@@ -152,14 +153,15 @@ def curve(name):
 
 # --- profiles within one fixed jump family ----------------------------------
 # Figure 1 is a design-space schematic rather than a data figure.  Panel (c)
-# therefore keeps the solid uniform-profile collective curve from panel (b)
+# therefore keeps the solid reference-profile collective curve from panel (b)
 # exactly and adds three progressively lighter illustrative response profiles.
-# Their line styles, peak heights, and widths are drawing parameters only.
+# Two variants lie above the reference and one below it to show that profile
+# changes may help or hurt. Their heights and widths are drawing parameters.
 COLLECTIVE_PROFILE_VARIANTS = [
     # label       peak  top    wl    wr    line style
-    ("profile 1", 5.20, 12.10, 5.10, 3.00, SHORT_DASH),
-    ("profile 2", 3.60, 10.25, 4.65, 2.75, DENSE_DOTS),
-    ("profile 3", 2.40,  8.45, 4.15, 2.45, DASH_DOT),
+    ("profile 1", 5.20, 18.00, 5.10, 3.00, SHORT_DASH),
+    ("profile 2", 3.60, 16.80, 4.65, 2.75, DENSE_DOTS),
+    ("profile 3", 2.40, 11.00, 4.15, 2.45, DASH_DOT),
 ]
 
 FIGH = 4.24
@@ -174,6 +176,8 @@ TOP_PANEL_X = (0.40, 2.532, 4.664)
 TOP_PANEL_W = 1.68
 TOP_PANEL_Y = 3.02
 TOP_PANEL_H = 1.02
+TOP_PANEL_YLIM = (0, 27)
+TOP_PANEL_YTICKS = [0, 7, 14]
 ax_a = st.add_axes_inches(
     fig, [TOP_PANEL_X[0], TOP_PANEL_Y, TOP_PANEL_W, TOP_PANEL_H]
 )
@@ -184,9 +188,11 @@ ax_c3 = st.add_axes_inches(
     fig, [TOP_PANEL_X[2], TOP_PANEL_Y, TOP_PANEL_W, TOP_PANEL_H]
 )
 
-# Panel (d) remains full-width and keeps its established internal geometry.
-DESIGN_PANEL_X = 0.13
+# Panel (d) remains full-width. Center its axes exactly beneath the complete
+# top-row axes group rather than relying on an independent magic offset.
 DESIGN_PANEL_W = 6.38
+TOP_GROUP_CENTER = 0.5 * (TOP_PANEL_X[0] + TOP_PANEL_X[-1] + TOP_PANEL_W)
+DESIGN_PANEL_X = TOP_GROUP_CENTER - DESIGN_PANEL_W / 2
 ax_b = st.add_axes_inches(fig, [DESIGN_PANEL_X, 0.05, DESIGN_PANEL_W, 2.30])
 
 TOP_TITLE_Y = 4.08 / FIGH
@@ -216,12 +222,15 @@ y_loc, g_loc, top_loc = curve("local")
 ax_a.plot(GAMMA, y_loc, lw=1.65, color=LOCAL, zorder=4)
 ax_a.plot([g_loc], [top_loc], marker="o", ms=4.45, mfc=OPTIMUM, mec=OPTIMUM,
           mew=0.70, zorder=5)
-ax_a.text(0.057, 17.2, "local relaxation", color=LOCAL, fontsize=F_LEG, ha="left",
-          va="center", zorder=8, bbox=description_box())
+ax_a.text(
+    0.035, 0.965, "local relaxation", transform=ax_a.transAxes,
+    color=LOCAL, fontsize=F_LEG, ha="left", va="top", zorder=8,
+    bbox=description_box(),
+)
 ax_a.set_xscale("log")
 ax_a.set_xlim(0.05, 32)
-ax_a.set_ylim(0, 19)
-ax_a.set_yticks([0, 7, 14])
+ax_a.set_ylim(*TOP_PANEL_YLIM)
+ax_a.set_yticks(TOP_PANEL_YTICKS)
 ax_a.set_xticks([0.1, 1, 10])
 ax_a.set_xticklabels(["0.1", "1", "10"])
 ax_a.tick_params(labelsize=F_TICK)
@@ -232,35 +241,37 @@ st.style_axis(ax_a, "both", minor_axis="both", minor_grid=True)
 
 
 # ============================================== (b) the dissipator axis ======
+y_collective, g_collective, top_collective = curve("collective")
 for name, peak, top_, wl, wr, col, lw, ls in DESIGNS:
     c = CYCOL[col]
     ax_b2.plot(GAMMA, response(GAMMA, name, peak, top_, wl, wr),
                lw=lw, color=c,
                ls=ls, alpha=1.0 if name in ("local", "collective") else 0.92,
                zorder=4 if lw > 1.5 else 2)
-ax_b2.plot([0.25], [11.32], marker="o", ms=4.45, mfc=OPTIMUM, mec=OPTIMUM, mew=0.70,
+ax_b2.plot([g_loc], [top_loc], marker="o", ms=4.45, mfc=OPTIMUM, mec=OPTIMUM, mew=0.70,
            zorder=6)
-ax_b2.plot([8.0], [14.17], marker="o", ms=4.45, mfc=OPTIMUM, mec=OPTIMUM, mew=0.70,
+ax_b2.plot([g_collective], [top_collective], marker="o", ms=4.45,
+           mfc=OPTIMUM, mec=OPTIMUM, mew=0.70,
            zorder=6)
-ax_b2.text(0.94, 17.2, "collective relaxation", transform=ax_b2.get_yaxis_transform(),
-           color=BLUE, fontsize=F_LEG, ha="right", va="center", zorder=8,
-           bbox=description_box(), clip_on=True)
+ax_b2.text(
+    0.035, 0.965, "collective relaxation", transform=ax_b2.transAxes,
+    color=BLUE, fontsize=F_LEG, ha="left", va="top", zorder=8,
+    bbox=description_box(), clip_on=True,
+)
 ax_b2.set_xscale("log")
 ax_b2.set_xlim(0.05, 32)
-ax_b2.set_ylim(0, 22.5)
+ax_b2.set_ylim(*TOP_PANEL_YLIM)
 ax_b2.set_xticks([0.1, 1, 10])
 ax_b2.set_xticklabels(["0.1", "1", "10"])
-ax_b2.set_yticks([0, 7, 14])
+ax_b2.set_yticks(TOP_PANEL_YTICKS)
 ax_b2.tick_params(labelsize=F_TICK)
 ax_b2.set_xlabel("damping strength $\\gamma$")
-ax_b2.set_ylabel("schematic task score", fontsize=F_KEY)
 ax_b2.set_facecolor("white")
 st.style_axis(ax_b2, "both", minor_axis="both", minor_grid=True)
 
 # ========================================= (c) profiles within collective ===
 # Reuse the panel-(b) collective response exactly as the uniform-profile
 # reference, then vary only the schematic profile within that family.
-y_collective, g_collective, top_collective = curve("collective")
 ax_c3.plot(
     GAMMA,
     y_collective,
@@ -274,8 +285,8 @@ ax_c3.plot(
     [top_collective],
     marker="o",
     ms=4.45,
-    mfc=OPTIMUM,
-    mec=OPTIMUM,
+    mfc=BLUE,
+    mec=BLUE,
     mew=0.70,
     zorder=7,
 )
@@ -316,24 +327,23 @@ profile_key_styles = [("-", BLUE)] + [
 for index, (line_style, tone) in enumerate(profile_key_styles):
     x0 = 0.045 + 0.055 * index
     ax_c3.plot(
-        [x0, x0 + 0.040], [0.755, 0.755],
+        [x0, x0 + 0.040], [0.780, 0.780],
         transform=ax_c3.transAxes, color=tone, lw=1.35,
         ls=line_style, solid_capstyle="round", clip_on=False, zorder=8,
     )
 ax_c3.text(
-    0.285, 0.755, "different rate profiles",
+    0.285, 0.780, "different rate profiles",
     transform=ax_c3.transAxes, color=MUTED, fontsize=F_KEY,
     ha="left", va="center", zorder=8, bbox=description_box(0.08)
 )
 ax_c3.set_xscale("log")
 ax_c3.set_xlim(0.05, 32)
-ax_c3.set_ylim(0, 22.5)
+ax_c3.set_ylim(*TOP_PANEL_YLIM)
 ax_c3.set_xticks([0.1, 1, 10])
 ax_c3.set_xticklabels(["0.1", "1", "10"])
-ax_c3.set_yticks([0, 7, 14])
+ax_c3.set_yticks(TOP_PANEL_YTICKS)
 ax_c3.tick_params(labelsize=F_TICK)
 ax_c3.set_xlabel("damping strength $\\gamma$")
-ax_c3.set_ylabel("schematic task score", fontsize=F_KEY)
 ax_c3.set_facecolor("white")
 st.style_axis(ax_c3, "both", minor_axis="both", minor_grid=True)
 
@@ -661,6 +671,33 @@ if max(_top_widths) - min(_top_widths) > 1e-10 or \
         "top-panel geometry differs: "
         f"widths={_top_widths}, heights={_top_heights}"
     )
+_top_ylims = [tuple(ax.get_ylim()) for ax in (ax_a, ax_b2, ax_c3)]
+_top_yticks = [tuple(ax.get_yticks()) for ax in (ax_a, ax_b2, ax_c3)]
+if len(set(_top_ylims)) != 1 or len(set(_top_yticks)) != 1:
+    problems.append(
+        "top-panel scales differ: "
+        f"ylims={_top_ylims}, yticks={_top_yticks}"
+    )
+_rendered_top_center = 0.5 * (
+    _top_positions[0].x0 + _top_positions[-1].x1
+) * FIGW
+_rendered_design_center = (
+    ax_b.get_position().x0 + 0.5 * ax_b.get_position().width
+) * FIGW
+if abs(_rendered_top_center - _rendered_design_center) > 1e-10:
+    problems.append(
+        "panel (d) is not centered beneath (a-c): "
+        f"top={_rendered_top_center:.6f}, bottom={_rendered_design_center:.6f}"
+    )
+_profile_tops = [row[2] for row in COLLECTIVE_PROFILE_VARIANTS]
+if sum(value > top_collective for value in _profile_tops) != 2 or \
+   sum(value < top_collective for value in _profile_tops) != 1:
+    problems.append(
+        "panel (c) must show exactly two profile improvements and one decrease: "
+        f"reference={top_collective}, variants={_profile_tops}"
+    )
+if len({repr(row[-1]) for row in COLLECTIVE_PROFILE_VARIANTS}) != 3:
+    problems.append("panel (c) profile line styles are not distinct")
 
 # 1. no two pieces of text may touch
 for a, b in itertools.combinations(boxes, 2):
@@ -673,13 +710,39 @@ keep_clear += [(f"icon {cols[c][0]}",
                 disp_rect(ax_b, c + 0.12, cy - vy(ICON_HALF),
                           c + 0.88, cy + vy(ICON_HALF))) for c in range(6)]
 keep_clear += [("(a) curve", disp_rect(ax_a, 0.05, 0, 32, 11.4)),
-               ("(b) optimum", disp_rect(ax_b2, 6.4, 12.8, 10.0, 15.5))]
+               ("(b) optimum", disp_rect(
+                   ax_b2,
+                   0.80 * g_collective,
+                   top_collective - 1.35,
+                   1.25 * g_collective,
+                   top_collective + 1.35,
+               ))]
 _bins = np.logspace(np.log10(0.05), np.log10(32), 33)
 for _name, _pk, _tp, _wl, _wr, _cc, _lw, _ls in DESIGNS:
     for _x0, _x1 in zip(_bins[:-1], _bins[1:]):
         _y = response(np.array([_x0, _x1]), _name, _pk, _tp, _wl, _wr)
         keep_clear.append((f"(b) {_name}", disp_rect(ax_b2, _x0, _y.min() - 0.35,
                                                      _x1, _y.max() + 0.35)))
+for _x0, _x1 in zip(_bins[:-1], _bins[1:]):
+    _y = response(
+        np.array([_x0, _x1]),
+        "collective",
+        g_collective,
+        top_collective,
+        5.50,
+        3.20,
+    )
+    keep_clear.append(("(c) reference", disp_rect(
+        ax_c3, _x0, _y.min() - 0.35, _x1, _y.max() + 0.35
+    )))
+for _label, _pk, _tp, _wl, _wr, _ls in COLLECTIVE_PROFILE_VARIANTS:
+    for _x0, _x1 in zip(_bins[:-1], _bins[1:]):
+        _y = response(
+            np.array([_x0, _x1]), "collective", _pk, _tp, _wl, _wr
+        )
+        keep_clear.append((f"(c) {_label}", disp_rect(
+            ax_c3, _x0, _y.min() - 0.35, _x1, _y.max() + 0.35
+        )))
 
 allowed = {"pair", "thermal", "exchange", "prior work",
            "jump families", "rate profiles",
@@ -697,7 +760,7 @@ _lg = ax_b2.get_legend()
 if _lg is not None:
     _lb = _lg.get_frame().get_window_extent()
     for _pt, _nm in (((0.25, 11.32), "local optimum"),
-                     ((8.0, 14.17), "collective optimum")):
+                     ((g_collective, top_collective), "collective optimum")):
         if _lb.contains(*ax_b2.transData.transform(_pt)):
             problems.append(f"(b) legend covers the {_nm}")
 
