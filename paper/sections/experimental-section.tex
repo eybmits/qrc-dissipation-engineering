@@ -222,10 +222,11 @@ separation shows the jump-family effect, the uniform-to-learned slope shows the
 profile effect, and the different slopes show that the profile benefit depends
 on the selected family.
 
-\begin{figure}[H]
+\begin{figure*}[!t]
+\begin{minipage}[t]{0.48\textwidth}
 \centering
 \includegraphics{figures/fig_profiles.pdf}
-\caption{\textbf{Rate profiles tune memory within a chosen relaxation
+\captionof{figure}{\textbf{Rate profiles tune memory within a chosen relaxation
 family.}
 \emph{(a)} Change in STM relative to uniform local rates for three alternative
 profiles. Values above zero indicate improved memory. \emph{(b)} Learning the
@@ -235,7 +236,24 @@ retains the higher STM overall. Lines connect the same reservoir before and
 after learning. Pale marks show individual reservoirs. Large symbols and bars
 show means and \(95\%\) intervals.}
 \label{fig:profiles}
-\end{figure}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\centering
+\includegraphics{figures/fig_sampling.pdf}
+\captionof{figure}{\textbf{Grouped measurements reveal memory differences with
+fewer preparations.}
+Each curve shows the STM difference from uniform local relaxation as the
+measurement budget increases. Values above zero indicate more memory than the
+reference, and values below zero indicate less. \emph{(a)} Observables are
+measured independently. \emph{(b)} Compatible observables are measured
+together, making the correct ordering visible with fewer preparations. Open
+symbols show the exact results. Pale points show individual reservoir pairs.
+At finite budgets, large symbols and bars show means and simultaneous
+\(95\%\) intervals.}
+\label{fig:sampling}
+\end{minipage}
+\end{figure*}
 
 The profile gain is larger for local relaxation. The difference between the
 two gains is \(1.397\) STM units. All \(24/24\) paired values are positive, and
@@ -244,7 +262,6 @@ nevertheless remains higher after both profiles are learned. Profile
 optimization refines the selected family by a family-dependent amount.
 Appendix~\ref{app:experiment2} gives the parameterizations and inference scope.
 
-\FloatBarrier
 \subsection{Finite sampling determines experimental visibility}
 \label{sec:measurement}
 
@@ -283,21 +300,6 @@ grid.
 Appendix~\ref{app:experiment3} gives the estimator definitions, budget
 parameterization, and simultaneous-inference scope.
 
-\begin{figure}[H]
-\centering
-\includegraphics{figures/fig_sampling.pdf}
-\caption{\textbf{Grouped measurements reveal memory differences with fewer
-preparations.}
-Each curve shows the STM difference from uniform local relaxation as the
-measurement budget increases. Values above zero indicate more memory than the
-reference, and values below zero indicate less. \emph{(a)} Observables are
-measured independently. \emph{(b)} Compatible observables are measured
-together, making the correct ordering visible with fewer preparations. Open
-symbols show the exact results. Pale points show individual reservoir pairs.
-At finite budgets, large symbols and bars show means and simultaneous
-\(95\%\) intervals.}
-\label{fig:sampling}
-\end{figure}
 Across these analyses, the memory advantage of collective over uniform local
 relaxation is the strongest recurring jump-family effect.
 Section~\ref{sec:interpretation} now examines which dynamics are consistent
