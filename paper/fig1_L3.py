@@ -304,8 +304,27 @@ for index, (_label, peak, top_, wl, wr, line_style) in enumerate(
         zorder=6,
     )
 
-ax_c3.text(0.055, 20.3, "collective relaxation", color=BLUE, fontsize=F_LEG,
-           ha="left", va="center", zorder=8, bbox=description_box())
+ax_c3.text(
+    0.035, 0.965, "collective relaxation",
+    transform=ax_c3.transAxes, color=BLUE, fontsize=F_LEG,
+    ha="left", va="top", zorder=8, bbox=description_box()
+)
+profile_key_styles = [("-", BLUE)] + [
+    (line_style, profile_tones[5 - index])
+    for index, (*_parameters, line_style) in enumerate(COLLECTIVE_PROFILE_VARIANTS)
+]
+for index, (line_style, tone) in enumerate(profile_key_styles):
+    x0 = 0.045 + 0.055 * index
+    ax_c3.plot(
+        [x0, x0 + 0.040], [0.755, 0.755],
+        transform=ax_c3.transAxes, color=tone, lw=1.35,
+        ls=line_style, solid_capstyle="round", clip_on=False, zorder=8,
+    )
+ax_c3.text(
+    0.285, 0.755, "different rate profiles",
+    transform=ax_c3.transAxes, color=MUTED, fontsize=F_KEY,
+    ha="left", va="center", zorder=8, bbox=description_box(0.08)
+)
 ax_c3.set_xscale("log")
 ax_c3.set_xlim(0.05, 32)
 ax_c3.set_ylim(0, 22.5)
