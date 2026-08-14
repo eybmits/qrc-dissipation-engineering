@@ -1374,15 +1374,15 @@ def draw_fixed_lag_memory(axis: plt.Axes, lag_rows: list[dict]) -> None:
     axis.set_xlim(0.65, 20.35)
     # Preserve all capacities while reserving clear space for the in-panel
     # metric description above the delay curves.
-    axis.set_ylim(-0.02, 1.18)
+    axis.set_ylim(-0.02, 1.28)
     axis.set_xticks([1, 10, 20])
     axis.set_yticks([0, 0.5, 1.0])
     axis.set_xlabel(r"input delay $\tau$", labelpad=2.0)
     axis.set_ylabel("")
     axis.text(
         0.04,
-        0.95,
-        r"STM contribution $C_\tau$",
+        0.93,
+        "STM contribution",
         transform=axis.transAxes,
         ha="left",
         va="top",
