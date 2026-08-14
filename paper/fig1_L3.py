@@ -176,7 +176,7 @@ TOP_PANEL_X = (0.40, 2.532, 4.664)
 TOP_PANEL_W = 1.68
 TOP_PANEL_Y = 3.02
 TOP_PANEL_H = 1.02
-TOP_PANEL_YLIM = (0, 27)
+TOP_PANEL_YLIM = (0, 29)
 TOP_PANEL_YTICKS = [0, 7, 14]
 ax_a = st.add_axes_inches(
     fig, [TOP_PANEL_X[0], TOP_PANEL_Y, TOP_PANEL_W, TOP_PANEL_H]
@@ -207,7 +207,7 @@ for index, left in enumerate(TOP_PANEL_X):
         ha="left",
     )
 fig.text(
-    DESIGN_PANEL_X / FIGW,
+    (TOP_PANEL_X[0] - 0.30) / FIGW,
     2.42 / FIGH,
     "(d)",
     fontsize=F_TITLE,
@@ -348,7 +348,9 @@ ax_c3.set_facecolor("white")
 st.style_axis(ax_c3, "both", minor_axis="both", minor_grid=True)
 
 # ==================================================== (d) design space ======
-XMIN, XMAX = -2.00, 7.15
+# Keep the axes box geometrically centered, while compensating its visible
+# content for the asymmetric left label gutter and right continuation column.
+XMIN, XMAX = -1.59, 7.56
 YMIN, YMAX = -2.72, 6.20
 ax_b.set_xlim(XMIN, XMAX)
 ax_b.set_ylim(YMIN, YMAX)
