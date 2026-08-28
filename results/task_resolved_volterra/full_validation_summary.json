@@ -1,0 +1,75 @@
+{
+  "status": "established proof-of-concept with strengthened validation",
+  "exact_all": {
+    "n": 105,
+    "pearson": 0.9891155518783616,
+    "mae": 0.008332977306204714,
+    "rmse": 0.014864536888443842
+  },
+  "exact_n3": {
+    "n": 84,
+    "pearson": 0.9968784959164094,
+    "mae": 0.004322796815735409,
+    "rmse": 0.006068535393879245
+  },
+  "exact_n4": {
+    "n": 21,
+    "pearson": 0.9908942902319148,
+    "mae": 0.024373699268081934,
+    "rmse": 0.030942911906161615
+  },
+  "finite_shot": {
+    "n": 72,
+    "pearson": 0.995419417692617,
+    "mae": 0.003128439289547924,
+    "rmse": 0.004590992148814947
+  },
+  "finite_difference": {
+    "n": 20,
+    "max_relative_error": 1.263699323688014e-07,
+    "median_relative_error": 2.5888003810299177e-08
+  },
+  "per_seed_selection": {
+    "n": 28,
+    "exact_match_fraction": 0.75,
+    "mean_regret": 0.00012306247768130722,
+    "nonnegative_gain_fraction": 0.8214285714285714
+  },
+  "global_heldout": {
+    "n": 21,
+    "choices": {
+      "1,2": 0.75,
+      "1,5": 0.75,
+      "1,10": 0.0,
+      "5,10": 0.25,
+      "5,15": 0.0,
+      "10,20": 0.0,
+      "15,25": 0.0
+    },
+    "exact_match_fraction": 0.6666666666666666,
+    "mean_regret": 0.0015225985883753732,
+    "mean_gain_vs_local": 0.02572361103875528,
+    "nonnegative_gain_fraction": 1.0
+  },
+  "orientation": {
+    "n": 16,
+    "prediction_correlation": 0.9988562023679536,
+    "mean_gain_vs_local": 0.05695350351709371,
+    "positive_vs_local_fraction": 0.9375,
+    "mean_gain_vs_equal_phase": 0.028919084085457507,
+    "positive_vs_equal_phase_fraction": 0.8125
+  },
+  "amplitude_error_by_epsilon": [
+    {"epsilon": 0.01, "n": 12, "mae": 0.0049470993350653825},
+    {"epsilon": 0.02, "n": 12, "mae": 0.005982634119388767},
+    {"epsilon": 0.05, "n": 12, "mae": 0.006813175103798915},
+    {"epsilon": 0.10, "n": 12, "mae": 0.009261672452740592}
+  ],
+  "claim_boundaries": [
+    "No asymptotic quantum advantage has been established.",
+    "The strengthened study covers N=3 and a finite N=4 replication.",
+    "The capacity predictor is perturbative and most accurate at small input amplitude.",
+    "A midpoint Liouvillian gap is not a proof of uniform switched-input contractivity.",
+    "The phase search is over a structured rank-one Kossakowski family."
+  ]
+}
