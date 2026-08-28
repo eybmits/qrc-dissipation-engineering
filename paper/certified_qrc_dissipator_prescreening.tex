@@ -1,0 +1,251 @@
+\documentclass[a4paper,twocolumn,11pt,unpublished]{quantumarticle}
+\pdfoutput=1
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm,booktabs,graphicx,microtype}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref,orcidlink,enumitem}
+\hypersetup{allcolors=quantumviolet}
+\graphicspath{{figures/}}
+\newtheorem{theorem}{Theorem}
+\newcommand{\argmax}{\operatorname*{arg\,max}}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\begin{document}
+\title{Certified Training-Free Prescreening of Dissipators for Quantum Reservoir Computing}
+\author[qar,mobile]{Markus Baumann}
+\orcid{0009-0007-3575-1006}
+\email{markus.baumann@campus.lmu.de}
+\author[mobile]{Itamar Fink}
+\author[mobile]{Johannes Wittmann}
+\author[qar,mobile]{Claudia Linnhoff-Popien}
+\author[qar,mobile]{Jonas Stein}
+\affiliation[qar]{Quantum Applications and Research Laboratory, Ludwig-Maximilians-Universit\"at M\"unchen, Munich, Germany}
+\affiliation[mobile]{Mobile and Distributed Systems Group, Ludwig-Maximilians-Universit\"at M\"unchen, Munich, Germany}
+\begin{abstract}
+For a fixed quantum reservoir, a practitioner normally chooses among a finite
+hardware-compatible set of dissipators. Exhaustively generating trajectories,
+training a readout, and testing every candidate is costly. We derive a
+training-free score from first- and second-order derivatives of the driven
+quantum channel and convert its approximation error into deterministic
+selection guarantees. If all candidate scores have uniform error at most
+$\delta$, the predicted winner has regret at most $2\delta$; a margin larger
+than $2\delta$ certifies the exact winner; and interval elimination retains
+every true optimum. An exact equal-decay-budget commuting quantum reservoir
+shows that recent and old-memory tasks can prefer incompatible environments.
+In an exhaustive three-qubit benchmark of 84 fully trained candidate
+conditions grouped into 21 decisions, training only the predicted winner
+recovers the empirical optimum in 18 decisions, saves 75\% of full candidate
+trainings, and incurs mean regret $2.01\times10^{-4}$. A conservative
+leave-one-processor-out interval shortlist retains the optimum in all 21
+decisions while saving 15.5\% of full trainings. The claim is deliberately
+bounded to a fixed architecture, task, and declared feasible family.
+\end{abstract}
+\maketitle
+
+\section{Problem and score}
+Open QRC uses fixed quantum dynamics and a trained linear readout. Dissipation
+can create fading memory~\cite{Sannia2024}, while environmental organization
+changes which temporal traces remain accessible~\cite{Baumann2026}. We ask the
+bounded engineering question: given one architecture, one task, and a finite
+feasible family $\mathcal C=\{C_1,\ldots,C_M\}$, which candidates deserve full
+training?
+
+Let
+\begin{equation}
+ r_t=\Phi_{u_t,C}r_{t-1},\qquad x_t=Rr_t,
+\end{equation}
+and at a reference input $u_0$ define
+\begin{equation}
+ A_C=\Phi_{u_0,C},\quad D_C=\partial_u\Phi_{u,C}|_{u_0},\quad A_Cr_{*,C}=r_{*,C}.
+\end{equation}
+For binary perturbations $u_t=u_0+\epsilon z_t$, channel differentiation gives
+\begin{align}
+ h_d(C)&=RA_C^dD_Cr_{*,C},\\
+ q_{a,b}(C)&=RA_C^aD_CA_C^{b-a-1}D_Cr_{*,C},\qquad a<b.
+\end{align}
+These are the first-order delay and second-order cross-delay directions of the
+quantum Volterra expansion~\cite{Hu2024}. Walsh orthogonality gives the order-two
+feature covariance
+\begin{equation}
+ G_C=\epsilon^2HH^\top+\epsilon^4QQ^\top+\Sigma_{\rm shot}.
+\end{equation}
+For target $z_{t-a}z_{t-b}$ the training-free population score is
+\begin{equation}
+ \widehat S_{a,b}(C)=(\epsilon^2q_{a,b})^\top G_C^+(\epsilon^2q_{a,b}).
+\end{equation}
+The same construction gives delay scores from $h_d$. It incorporates the
+chosen readout and shot covariance rather than equating a long-lived mode with
+usable memory.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.96\textwidth]{prescreen_pipeline.pdf}
+\caption{The task enters a response-based score. Only candidates that survive
+the score and error intervals require full task-specific training.}
+\end{figure*}
+
+\section{Finite-family certificate}
+Let $S_i$ denote the true population score and $\widehat S_i$ its proxy.
+\begin{theorem}[Regret, recovery, and safe elimination]
+Assume $\max_i|S_i-\widehat S_i|\le\delta$. Let
+$i^*\in\argmax_iS_i$ and $\widehat i\in\argmax_i\widehat S_i$. Then
+\begin{equation}
+ S_{i^*}-S_{\widehat i}\le2\delta.
+\end{equation}
+If the predicted winner margin exceeds $2\delta$, it is the unique true winner.
+Moreover, discarding candidate $j$ whenever
+\begin{equation}
+ \widehat S_j+\delta<\max_i(\widehat S_i-\delta)
+\end{equation}
+retains every true maximizer. If the predicted top-$k$ boundary gap exceeds
+$2\delta$, the complete predicted top-$k$ set is exact.
+\end{theorem}
+\begin{proof}
+Because $\widehat i$ maximizes the proxy,
+\begin{align}
+ S_{i^*}-S_{\widehat i}
+ &=(S_{i^*}-\widehat S_{i^*})
+ +(\widehat S_{i^*}-\widehat S_{\widehat i})
+ +(\widehat S_{\widehat i}-S_{\widehat i})\\
+ &\le\delta+0+\delta.
+\end{align}
+For exact recovery and elimination, compare the lower interval endpoint of the
+predicted winner with every competitor's upper endpoint. The identical
+argument across the top-$k$ boundary proves the final statement.
+\end{proof}
+Thus training $k$ survivors instead of all $M$ candidates saves a fraction
+$1-k/M$ of full task-training runs.
+
+For the ridge-regularized score $s_\lambda(G,g)=g^\top(G+\lambda I)^{-1}g$,
+positive semidefinite $G,\widehat G$, and errors
+$\norm{G-\widehat G}_2\le\epsilon_G$ and
+$\norm{g-\widehat g}_2\le\epsilon_g$, the resolvent identity gives
+\begin{equation}
+ |s_\lambda(G,g)-s_\lambda(\widehat G,\widehat g)|
+ \le \frac{\epsilon_g(2\norm{\widehat g}_2+\epsilon_g)}{\lambda}
+ +\frac{\norm{\widehat g}_2^2\epsilon_G}{\lambda^2}.
+\end{equation}
+This supplies $\delta$ from feature, covariance, shot, and truncation bounds.
+If $\norm{A}\le\eta<1$, first- and second-order lag tails beyond $L$ obey
+\begin{equation}
+ r_{L,2}\le |\epsilon|B_1\frac{\eta^{L+1}}{1-\eta}
+ +|\epsilon|^2B_2\frac{(L+1)\eta^L-L\eta^{L+1}}{(1-\eta)^2}
+ +r_{\ge3}.
+\end{equation}
+
+\section{Why task dependence is unavoidable}
+Consider two independently damped computational-basis modes with
+$\Lambda=\mathrm{diag}(e^{-\gamma_1},e^{-\gamma_2})$, full readout, and a
+nonzero affine input write. This is a commuting CPTP quantum reservoir. For
+independent unit-variance inputs, exact delay capacity is
+\begin{equation}
+ \mathcal C_d=r_d^\top G^{-1}r_d,\quad
+ (r_d)_i=b_i\lambda_i^d,\quad
+ G_{ij}=\frac{b_ib_j}{1-\lambda_i\lambda_j}.
+\end{equation}
+Hold the total decay budget fixed at $\gamma_1+\gamma_2=1$. The balanced
+allocation $(0.4,0.6)$ has capacity $0.265180$ at delay 2, versus $0.078103$
+for $(0.05,0.95)$. At delay 10 the ordering reverses: $0.003620$ versus
+$0.043885$. Hence no one of these equal-budget environments is optimal for both
+tasks.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{exact_counterexample.pdf}
+\caption{Exact equal-budget construction. Balanced decay favors recent memory;
+heterogeneous decay creates one slow mode and favors old memory.}
+\end{figure}
+
+\section{Exhaustive practitioner benchmark}
+The decision benchmark uses three independently drawn three-qubit XX+Z
+processors, seven delayed-product tasks, and four matched-gap dissipator
+candidates, giving 21 architecture--task decisions and 84 candidate conditions.
+Every candidate receives a full switched Lindblad simulation, readout fit, and
+held-out test score. The proxy score is computed without task-specific fitting.
+
+At candidate level, predicted and trained capacities correlate at $0.99711$
+and have MAE $0.00451$. Table~\ref{tab:shortlist} reports the actual decision
+trade-off. Training only the predicted winner recovers 18 of 21 empirical
+winners and saves 75\% of full candidate trainings. Mean regret is
+$0.0002006$, maximum regret $0.003204$, and the Wilson 95\% interval for winner
+recovery is $[65.4\%,95.0\%]$. The selected candidate improves mean empirical
+capacity by $0.02076$ over always-local selection, $0.001786$ over always using
+the most collective candidate, and $0.01445$ over a random candidate in
+expectation.
+
+\begin{table}[t]
+\centering
+\caption{Shortlist performance over 21 decisions. Maximum regret is 0.003204,
+0.003204, 0.001776, and 0 for top-1 through top-4.}
+\label{tab:shortlist}
+\begin{tabular}{lrrr}
+\toprule
+Shortlist & Winner hit & Mean regret & Saved\\
+\midrule
+Top 1 & 85.7\% & 0.0002006 & 75\%\\
+Top 2 & 85.7\% & 0.0002006 & 50\%\\
+Top 3 & 95.2\% & 0.0000846 & 25\%\\
+All 4 & 100\% & 0 & 0\%\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=.95\textwidth]{prescreen_results_combined.pdf}
+\caption{Left: response score versus fully trained held-out capacity. Right:
+full candidate trainings saved versus empirical shortlist regret.}
+\end{figure*}
+
+A conservative leave-one-processor-out radius, set to the maximum absolute
+residual on the other processors, retains the empirical winner in all 21 held-
+out decisions, gives zero observed shortlist regret, keeps 3.38 of four
+candidates on average, and saves 15.5\% of full trainings. This is an empirical
+calibration procedure; the deterministic theorem is guaranteed only when the
+supplied radius truly bounds the deployment family.
+
+Supporting checks include 105 exact nonlinear conditions across finite $N=3$
+and $N=4$ systems (correlation $0.9891$), 72 finite-shot conditions
+(correlation $0.9954$), 20 mixed finite-difference kernel audits (maximum
+relative error $1.26\times10^{-7}$), and a 16-condition phase-orientation study
+(correlation $0.9989$).
+
+\section{Practitioner protocol and boundary}
+A practitioner should: freeze the QRC architecture and measurement budget;
+declare a finite, completely positive, equal-budget, convergence-screened
+family; represent the target in an orthogonal temporal basis; calculate the
+necessary channel derivatives and shot-aware score; attach an analytic or
+conservatively calibrated error radius; eliminate candidates by score
+intervals; and fully train only the survivors.
+
+The result does not claim the globally optimal Lindbladian, asymptotic scaling,
+or generic quantum advantage over classical reservoirs. A midpoint Liouvillian
+gap is a feasibility diagnostic, not a proof of uniform switched-input
+contractivity. The contribution is the certified bounded decision rule that a
+QRC practitioner actually needs.
+
+\section{Conclusion}
+Within a fixed architecture and declared feasible dissipator family,
+differentiated-channel scores provide training-free task-dependent
+prescreening. Uniform score error yields deterministic regret and recovery
+guarantees, while exhaustive tests show that most full candidate trainings can
+be removed with negligible observed regret. Environmental coupling is thereby
+a programmable design layer, but the scientific claim remains explicit and
+bounded.
+
+\begin{thebibliography}{9}
+\bibitem{Dambre2012} J.~Dambre, D.~Verstraeten, B.~Schrauwen, and S.~Massar,
+``Information processing capacity of dynamical systems,'' \emph{Scientific
+Reports} \textbf{2}, 514 (2012).
+\bibitem{Sannia2024} A.~Sannia, R.~Mart\'inez-Pe\~na, M.~C.~Soriano,
+G.~L.~Giorgi, and R.~Zambrini, ``Dissipation as a resource for quantum
+reservoir computing,'' \emph{Quantum} \textbf{8}, 1291 (2024).
+\bibitem{Hu2024} F.~Hu \emph{et al.}, ``Overcoming the coherence time barrier in
+quantum machine learning on temporal data,'' \emph{Nature Communications}
+\textbf{15}, 7491 (2024).
+\bibitem{Baumann2026} M.~Baumann \emph{et al.}, ``The organization of
+environmental coupling shapes what quantum reservoirs remember,''
+arXiv:2608.14181 (2026).
+\end{thebibliography}
+\end{document}
