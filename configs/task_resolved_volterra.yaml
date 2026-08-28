@@ -1,0 +1,47 @@
+project:
+  title: "Compiling Temporal Tasks into Dissipation"
+  claim: "Task-resolved Volterra design of dissipative quantum reservoirs"
+  reference_input: 0.5
+  time_step: 1.0
+  local_reference_rate: 0.1
+  input_amplitude: 0.02
+
+n3_matched_gap:
+  qubits: 3
+  hamiltonian_seeds: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  design_seeds: [0, 1, 2, 3, 4]
+  heldout_seeds: [5, 6, 7, 8, 9]
+  collective_fractions: [0.0, 0.15, 0.30, 0.45, 0.60, 0.75, 0.90]
+  covariance_max_delay: 50
+  gap_relative_tolerance: 0.005
+
+n4_fixed_trace:
+  qubits: 4
+  hamiltonian_seeds: [0, 1, 2]
+  exact_validation_seeds: [1, 2]
+  collective_fractions: [0.0, 0.30, 0.60, 0.85]
+  first_order_covariance_max_delay: 100
+  second_order_covariance_max_delay: 25
+  target_max_delay: 25
+
+exact_validation:
+  washout: 500
+  n3_train: 2500
+  n3_test: 2500
+  n4_train: 4000
+  n4_test: 4000
+  ridge: 1.0e-10
+
+finite_shot:
+  seeds: [5, 6]
+  collective_fractions: [0.0, 0.30, 0.60, 0.90]
+  shots: [300, 1000, 3000, 10000]
+  repetitions: 3
+  input_amplitude: 0.10
+
+phase_orientation:
+  seeds: [0, 1, 2, 3, 4]
+  collective_fraction: 0.75
+  random_candidates_per_seed: 16
+  named_candidates: [equal_phase, fourier_zero_sum, sign_balanced]
+  tasks: [[1, 2], [1, 10], [5, 10], [10, 20]]
