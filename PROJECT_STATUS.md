@@ -1,39 +1,41 @@
-# Task-resolved Volterra project status
+# Project status - bounded practitioner project complete
 
 ## Decision
 
-**Go.** The project has passed the mechanism, implementation, exact-simulation, finite-shot, held-out-selection, and phase-orientation tests.
+**Complete for the bounded claim and ready for review.**
 
-## Established
+The project now contains a precise theorem, a QRC-specific task score, explicit
+error propagation, an exact physical counterexample, exhaustive candidate
+training for the practitioner benchmark, finite-size and finite-shot supporting
+validation, a tested implementation, a reproducible result ledger, and an
+8-page working manuscript.
 
-- Exact first channel derivative via `scipy.linalg.expm_frechet`.
-- Correct first- and second-order temporal kernels.
-- Closed population capacity for Walsh delay and delayed-product tasks.
-- Independent and commuting-group finite-shot covariance.
-- Fixed-trace PSD Kossakowski construction.
-- Primitive-gap feasibility checks.
-- Strong N=3 exact validation and a finite N=4 replication.
-- Theory-only held-out coupling selection.
-- Task-specific phase-orientation gains.
-- Six unit tests and a deterministic reproduction entrypoint.
+## Reviewer-safe claim
 
-## Defensible publication claim
+> For a fixed QRC architecture, a specified temporal task, and a finite
+> hardware-compatible dissipator family, differentiated-channel task scores can
+> prescreen candidates before task-specific readout training. A valid uniform
+> score-error radius gives deterministic regret, exact-recovery, safe-elimination,
+> and top-k guarantees.
 
-> Under fixed total dissipative strength and a contractivity constraint, differentiated-channel Walsh capacities predict and select task-dependent environmental couplings before task-specific readout training.
+## Completed evidence
 
-## Not yet established
+- finite-family `2 delta` regret theorem and proof;
+- exact-winner, safe-shortlist, and top-k certificates;
+- regularized score perturbation theorem;
+- explicit contraction-based lag-tail bound;
+- exact equal-budget CPTP example with incompatible task optima;
+- 84 exhaustive candidate conditions and 21 practitioner decisions;
+- 18/21 top-1 winner recovery with 75% training-run saving;
+- mean top-1 regret `0.0002006`;
+- 21/21 empirical coverage for a conservative leave-one-processor-out shortlist;
+- candidate-level prediction correlation `0.99711`;
+- 14 task-resolved/certificate tests passing together;
+- compiled and visually checked Quantum-style manuscript.
 
-- Generic quantum advantage over echo-state networks.
-- A universal collective optimum.
-- Asymptotic scaling.
-- General optimality over every PSD Kossakowski matrix.
-- Uniform echo-state behavior inferred only from one midpoint gap.
+## Claim boundary
 
-## Minimal final-paper extension
-
-1. General PSD projected optimizer.
-2. Uniform switched-input contraction bound.
-3. Canonical N=5 integration with convergence audit.
-4. Commuting-group shot allocation.
-5. Exactly solvable incompatibility theorem.
-6. Matched classical Volterra/ESN baseline.
+The project does not claim the optimal Lindbladian among all possible open
+systems, asymptotic quantum advantage, or uniform switched-input contractivity
+from one midpoint spectral gap. Those are separate follow-up questions and are
+not required for the bounded practitioner contribution.
