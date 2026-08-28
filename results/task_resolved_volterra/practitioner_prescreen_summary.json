@@ -1,0 +1,76 @@
+{
+  "bounded_practitioner_claim": "For a fixed QRC, fixed temporal task, fixed readout, and finite feasible dissipator family, a task-resolved score plus task-conditional split-conformal calibration returns a variable-size candidate set with finite-sample marginal coverage of the empirical fully trained oracle for a new exchangeable reservoir realization.",
+  "scope": {
+    "architecture": "three-qubit XX+Z processor, continuous input map, 18 Pauli features",
+    "candidate_family": "7 structurally normalized local-to-collective Kossakowski geometries; gamma_alpha is varied to match the local candidate's midpoint Liouvillian gap",
+    "important_budget_boundary": "the empirical seven-candidate comparison is gap-matched, not fixed-trace; the separate analytic Lindblad counterexample holds total damping fixed",
+    "tasks": ["1,10", "1,2", "1,5", "10,20", "15,25", "5,10", "5,15"],
+    "input_amplitude": 0.02,
+    "full_training_per_candidate": "1500 training and 1500 untouched test inputs after 500 washout steps",
+    "coverage_assumption": "reservoir realizations are exchangeable within each fixed task",
+    "coverage_target": "empirical oracle under the stated finite training/test protocol"
+  },
+  "fixed_nine_calibration_three_heldout": {
+    "calibration_seeds": [0,1,2,3,4,5,6,7,8],
+    "heldout_seeds": [9,10,11],
+    "calibration_examples_per_task": 9,
+    "heldout_examples_per_task": 3,
+    "nominal_miscoverage": 0.1,
+    "finite_sample_guaranteed_coverage_per_task": 0.9,
+    "descriptive_pooled_oracle_coverage": 0.9047619047619048,
+    "pooled_coverage_note": "descriptive only; tasks sharing a Hamiltonian are not independent Bernoulli trials",
+    "average_candidates_retained": 3.3333333333333335,
+    "average_full_training_reduction": 0.5238095238095238,
+    "mean_set_regret": 0.00005774131882907667,
+    "maximum_set_regret": 0.0006197873185635
+  },
+  "all_balanced_nine_three_splits": {
+    "balanced_splits": 220,
+    "note": "resplits of the same twelve reservoir realizations; not independent experiments",
+    "mean_descriptive_oracle_coverage": 0.9166666666666666,
+    "mean_training_reduction": 0.4997835497835498,
+    "mean_set_regret": 0.000036689499483358144,
+    "split_level_coverage_q025_q975": [0.8095238095238095, 1.0],
+    "split_level_training_reduction_q025_q975": [0.4113945578231292, 0.6122448979591837]
+  },
+  "raw_score_validation_on_heldout": {
+    "candidate_rows": 147,
+    "pearson_r": 0.9931108068794541,
+    "spearman_rho_global": 0.9418091560948705,
+    "median_within_instance_spearman_rho": 0.9285714285714288,
+    "mean_absolute_error": 0.0066957527704578955,
+    "maximum_absolute_error": 0.029821175200160394
+  },
+  "forced_top_one": {
+    "exact_empirical_oracle_hit_rate": 0.5714285714285714,
+    "mean_regret": 0.00043414242701080523,
+    "maximum_regret": 0.0020621414611192,
+    "mean_gain_vs_local": 0.040099814302006084,
+    "nonnegative_gain_vs_local_fraction": 1.0
+  },
+  "deterministic_uniform_error_certificate": {
+    "calibration_uniform_error_delta": 0.0365710271223105,
+    "guaranteed_top_one_regret_bound": 0.073142054244621,
+    "heldout_oracle_coverage": 1.0,
+    "average_candidates_retained": 6.428571428571429,
+    "average_full_training_reduction": 0.08163265306122448,
+    "fraction_top_one_certified": 0.047619047619047616,
+    "interpretation": "valid but conservative; conformal calibration yields smaller adaptive sets"
+  },
+  "empirical_baselines": {
+    "oracle_mean_capacity": 0.0677134145152017,
+    "theory_top_one_mean_capacity": 0.06727927208819089,
+    "always_local_mean_capacity": 0.027179457786184812,
+    "always_most_collective_mean_capacity": 0.06528507873578422,
+    "uniform_random_candidate_expected_mean_capacity": 0.03811836112043398
+  },
+  "analytic_equal_budget_lindblad_counterexample": {
+    "balanced_rates": [0.4, 0.6],
+    "heterogeneous_rates": [0.05, 0.95],
+    "total_rate_both": 1.0,
+    "balanced_delay_2": 0.26517974777407183,
+    "heterogeneous_delay_2": 0.07810258938700401,
+    "balanced_delay_10": 0.0036197020154560364,
+    "heterogeneous_delay_10": 0.04388512533853422
+  }
+}
